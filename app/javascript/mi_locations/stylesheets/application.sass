@@ -1,0 +1,30 @@
+@import '~bootstrap/scss/functions'
+@import '~bootstrap/scss/bootstrap'
+@import 'variables'
+
+.modal-backdrop
+  z-index: -1 !important
+
+// You Forgot The Alt Message
+img[alt=""], img:not([alt])
+  border: 5px dashed #c00
+
+.navbar-logo
+  height: 55px
+  max-height: 75px
+
+.debug_dump
+  clear: both
+  float: left
+  width: 100%
+  margin-top: 45px
+  background-color: transparentize(grey, 0.3)
+
+footer
+  .footer-logo
+    @include make-col(2)
+    padding-left: 2rem
+  .footer-links
+
+  .footer-contact
+    @include make-col(2)
