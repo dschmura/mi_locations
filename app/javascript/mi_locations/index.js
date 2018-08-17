@@ -4,5 +4,13 @@
   // Include internal resources for this app
   import './javascripts/application'
 
-  require.context("./stylesheets", true, /\.(css|scss|sass)$/)
-  require.context('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
+  // SITE WIDE STYLES
+  // require.context("./stylesheets", true, /\.(css|scss|sass)$/)
+  import './stylesheets/_variables.sass'
+  import './stylesheets/application.sass'
+
+  // IMAGES
+  // require.context('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
+
+  import './images/favicon.png'
+  import './images/MiLocationsLogo.png'
