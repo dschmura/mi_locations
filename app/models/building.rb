@@ -19,7 +19,8 @@
 #
 
 class Building < ApplicationRecord
-  has_one_attached :main_picture
+  # has_one_attached :main_picture
+  
   has_many :rooms, dependent: :destroy
   validates_presence_of :bldrecnbr, :name, :address, :city, :state, :zip, :country
 
