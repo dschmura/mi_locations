@@ -15,7 +15,7 @@ gem 'webpacker', '>= 4.0.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -26,6 +26,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml-rails'
 gem 'sidekiq', '~> 5.0'
 gem 'uglifier'
+gem 'ldap_lookup'
+gem 'mini_magick'
+gem 'geocoder'
+gem 'kaminari'
+gem 'ransack'
+gem 'activerecord-import'
 # gem 'devise', '~> 4.4.3'
 # gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 # gem 'omniauth-facebook', '~> 4.0'
