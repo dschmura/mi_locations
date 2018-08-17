@@ -78,7 +78,7 @@ class RoomsImporter
   end
 
   def import_rooms
-    # create_rooms
+    create_rooms
     update_rooms
   end
 
