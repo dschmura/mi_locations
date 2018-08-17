@@ -17,11 +17,15 @@
 #  rm_sppt_cntct_url    :string
 #
 
-describe RoomContact do
-  let(:room_contact { build(:room_contact }
+require 'rails_helper'
 
-  describe "Valid RoomContacts: " do
-    it { should validate_presence_of(:rmrecnbr) }
+RSpec.describe RoomContact, type: :model do
+let(:room_contact) { build(:room_contact) }
+
+  describe RoomContact do
+    describe 'Valid RoomContacts' do
+      it { should validate_presence_of(:rmrecnbr) }
+    end
   end
 
 end

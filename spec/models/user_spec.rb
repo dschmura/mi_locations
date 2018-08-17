@@ -15,7 +15,7 @@ let(:user) { build(:user) }
 
   describe User do
     describe 'Valid Users' do
-      it { should validate_presence_of(:uniqname)
+      it { should validate_presence_of(:uniqname) }
     end
   end
 
