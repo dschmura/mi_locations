@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_202753) do
+ActiveRecord::Schema.define(version: 2018_08_17_204225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,22 @@ ActiveRecord::Schema.define(version: 2018_08_17_202753) do
     t.index ["room_id"], name: "index_room_characteristics_on_room_id"
   end
 
+  create_table "room_contacts", force: :cascade do |t|
+    t.bigint "room_id"
+    t.integer "rmrecnbr"
+    t.string "rm_schd_cntct_name"
+    t.string "rm_schd_email"
+    t.string "rm_schd_cntct_phone"
+    t.string "rm_det_url"
+    t.string "rm_usage_guidlns_url"
+    t.string "rm_sppt_deptid"
+    t.string "rm_sppt_dept_descr"
+    t.string "rm_sppt_cntct_email"
+    t.string "rm_sppt_cntct_phone"
+    t.string "rm_sppt_cntct_url"
+    t.index ["room_id"], name: "index_room_contacts_on_room_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.integer "rmrecnbr", null: false
     t.float "latitude"
@@ -76,5 +92,6 @@ ActiveRecord::Schema.define(version: 2018_08_17_202753) do
   end
 
   add_foreign_key "room_characteristics", "rooms"
+  add_foreign_key "room_contacts", "rooms"
   add_foreign_key "rooms", "buildings"
 end
