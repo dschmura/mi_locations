@@ -18,4 +18,5 @@
 #
 
 class RoomContact < ApplicationRecord
+  belongs_to :room
 end

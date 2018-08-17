@@ -15,4 +15,5 @@
 #
 
 class RoomCharacteristic < ApplicationRecord
+  belongs_to :room
 end
