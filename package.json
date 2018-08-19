@@ -2,6 +2,7 @@
   "name": "mi_locations",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
     "@rails/webpacker": "~4.0.0-pre.2",
     "babel-minify": "^0.4.3",
     "bootstrap": "^4.1.3",

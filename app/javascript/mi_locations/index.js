@@ -3,6 +3,8 @@
 
   // Include internal resources for this app
   import './javascripts/application'
+  // import fontawesome from "@fortawesome/fontawesome-free";
+  import '@fortawesome/fontawesome-free/js/all';
 
   // SITE WIDE STYLES
   // require.context("./stylesheets", true, /\.(css|scss|sass)$/)
