@@ -1,4 +1,156 @@
 %h1 Rooms#index
 %p Find me in app/views/rooms/index.html.haml
+=  search_form_for @q, remote: true do |f|
+  = f.search_field :rmrecnbr_cont
+
+
+= console
 
 = @rooms.count
+= @q.result.count
+-# =  search_form_for @q, remote: true do |f|
+  .rooms-search-bar
+    .rooms-search-field.input-group
+      = f.search_field :facility_code_heprod_cont, placeholder: 'Search...', class: 'form-control'
+
+      %input.form-control{"aria-describedby" => "Search for Rooms", "aria-label" => "Search for rooms", :placeholder => "Search", :type => "text", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters"}
+      .input-group-append
+        %button#button-addon2.btn.btn-secondary{:type => "button", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters" }
+          %i.fas.fa-filter
+          Filters
+    .rooms-search--sort-by
+      Sort By
+    .rooms-search--capacity
+      Student Capacity
+
+
+  .rooms-search-filters.collapsed
+    .rooms-search--top
+      .rooms-search--department
+        Department
+      .rooms-search--buildings
+        Buildings
+      .rooms-search--room-type
+        Room Type
+      .rooms-search--capacity
+        Capcity
+    .NOTES
+      New Room Characteristics
+
+    .rooms-search--profile
+      .team-tables
+        .form-group.form-check
+          %input#Chkbrd.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Chkbrd' } Seating: Team Tables
+        0060 Seating: Team Tables
+
+      .team-technology
+        .form-group.form-check
+          %input#Chkbrd.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Chkbrd' } Equipment: Team Technology
+        0061 Equipment: Team Technology
+
+      .team-writing
+        .form-group.form-check
+          %input#Chkbrd.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Chkbrd' } Board: Team Writing Surface
+        0062 Board: Team Writing Surface
+
+    .rooms-search--checkboxes
+      %ul.filters--list
+        %h5 Writing Surface
+        .form-group.form-check
+          %input#Chkbrd.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Chkbrd' } Chaulkboard
+        .form-group.form-check
+          %input#Chkbrd_25.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Chkbrd_25' } Chaulkboard greater than 25'
+        .form-group.form-check
+          %input#Whtbrd.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Whtbrd' } Whiteboard
+        .form-group.form-check
+          %input#Whtbrd_25.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Whtbrd_25' } Whiteboard greater than 25'
+
+        %h5 Projection
+        .form-group.form-check
+          %input#Proj16mm.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Proj16mm' } 16mm Film
+        .form-group.form-check
+          %input#Proj35mm.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Proj35mm' } 35mm Film
+        .form-group.form-check
+          %input#ProjDigit.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'ProjDigit' } Digital Data
+        .form-group.form-check
+          %input#ProjSlide.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'ProjSlide' } Traditional Slide'
+
+      %ul.filters--list
+        %h5 Audio Visual
+        .form-group.form-check
+          %input#Blackout.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Blackout' } Blackout (Room Darkening)
+        .form-group.form-check
+          %input#DVD.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'DVD' } DVD Player
+        .form-group.form-check
+          %input#BluRay.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'BluRay' } BluRay DVD
+        .form-group.form-check
+          %input#VCR.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'VCR' } VCR
+        .form-group.form-check
+          %input#DocCam.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'DocCam' } Document Cam
+        .form-group.form-check
+          %input#IntrPen.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'IntrPen' } Interactive Pen
+        .form-group.form-check
+          %input#LectureCap.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'LectureCap' } Lecture Capture
+        .form-group.form-check
+          %input#Telephone.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Telephone' } Telephone
+        .form-group.form-check
+          %input#VideoConf.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'VideoConf' } Video Conferencing'
+
+      %ul.filters--list
+        %h5 Podium Computer
+        .form-group.form-check
+          %input#CompPodMac.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'CompPodMac' } Mac
+        .form-group.form-check
+          %input#CompPodPC.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'CompPodPC' } PC
+
+        %h5 Computer Classroom
+        .form-group.form-check
+          %input#CompAny.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'CompAny' } Any
+        .form-group.form-check
+          %input#CompMac.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'CompMac' } Mac
+        .form-group.form-check
+          %input#CompPC.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'CompPC' } PC
+
+        %h5 Power / Ethernet
+        .form-group.form-check
+          %input#Ethernet.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'Ethernet' } Ethernet for Instructor
+        .form-group.form-check
+          %input#EthrStud.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'EthrStud' } Ethernet for Students
+        .form-group.form-check
+          %input#PowerStud.form-check-input{ :type => 'checkbox' }
+          %label.form-check-label{ :for => 'PowerStud' } Power for Students
+
+
+- @rooms.each do |r|
+  .room-row
+    = r.rmrecnbr
+    = r.building.name
+
+= paginate @rooms

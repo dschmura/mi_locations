@@ -2,7 +2,8 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show]
 
   def index
-    @rooms = Room.includes(:building).page params[:page]
+    @q = Room.ransack(params[:q])
+    @rooms = @q.result.includes(:building).page params[:page]
   end
 
   def show
@@ -16,6 +17,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id)
+      params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :q)
     end
 end

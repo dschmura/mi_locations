@@ -27,3 +27,55 @@ footer
 
   .footer-contact
     @include make-col(2)
+
+
+// ROOM SEARCH
+.rooms-search-bar
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  background-color: lighten($heather_blue, 0%)
+  padding: 1rem
+  color: $bone
+
+
+.rooms-search-field
+  @include make-col(3)
+
+.rooms-search-filters
+  display: flex
+  flex-direction: column
+  background-color: $tappan_red
+  height: auto
+
+  .rooms-search--profile
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: top
+    padding: 1rem
+    .team-tables
+      @include make-col(3)
+    .team-technology
+      @include make-col(3)
+    .team-writing
+      @include make-col(2)
+
+
+  .rooms-search--checkboxes
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: top
+    padding: 1rem
+    .filters--list
+      @include make-col(3)
+
+  .rooms-search--top
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: top
+    background-color: $bone
+    height: 3rem
