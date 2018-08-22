@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :rooms, only: [:show, :index]
   resources :buildings, only: [:show, :index]
+  resources :rooms do
+    collection do
+      match 'search' => 'rooms#search', via: [:get, :post], as: :search
+    end
+  end
 
   get '/project_status', to: 'pages#project_status'
   get '/privacy', to: 'pages#privacy'

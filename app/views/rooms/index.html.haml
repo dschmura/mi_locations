@@ -1,46 +1,50 @@
 %h1 Rooms#index
 %p Find me in app/views/rooms/index.html.haml
-=  search_form_for @q, remote: true do |f|
-  = f.search_field :rmrecnbr_cont
+-# = console
 
 
-= console
-
-= @rooms.count
-= @q.result.count
--# =  search_form_for @q, remote: true do |f|
+= search_form_for @q, url: search_rooms_path,
+                        html: { method: :post } do |f|
   .rooms-search-bar
+    .rooms-search-matches
+      = "#{@q.result.count} Matches"
     .rooms-search-field.input-group
-      = f.search_field :facility_code_heprod_cont, placeholder: 'Search...', class: 'form-control'
 
-      %input.form-control{"aria-describedby" => "Search for Rooms", "aria-label" => "Search for rooms", :placeholder => "Search", :type => "text", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters"}
+      = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, placeholder: 'Search...', class: 'form-control', "aria-describedby" => "Search for Rooms", "aria-label" => "Search for rooms", :placeholder => "Search", :type => "text", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters"
+
+      -# %input.form-control{"aria-describedby" => "Search for Rooms", "aria-label" => "Search for rooms", :placeholder => "Search", :type => "text", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters"}
       .input-group-append
         %button#button-addon2.btn.btn-secondary{:type => "button", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters" }
           %i.fas.fa-filter
           Filters
     .rooms-search--sort-by
+      %i.fas.fa-sort-amount-down
       Sort By
     .rooms-search--capacity
+      %i.fas.fa-users
       Student Capacity
-
+    .rooms-search--map
+      %i.fas.fa-map
+      Map
 
   .rooms-search-filters.collapsed
     .rooms-search--top
       .rooms-search--department
+        %i.fas.fa-project-diagram
         Department
       .rooms-search--buildings
+        %i.fas.fa-building
         Buildings
       .rooms-search--room-type
         Room Type
-      .rooms-search--capacity
-        Capcity
+
     .NOTES
       New Room Characteristics
 
     .rooms-search--profile
       .team-tables
         .form-group.form-check
-          %input#Chkbrd.form-check-input{ :type => 'checkbox' }
+          %input#Chkbrd.form-check-input{ :type => 'checkbox', onchange: 'this.form.submit();' }
           %label.form-check-label{ :for => 'Chkbrd' } Seating: Team Tables
         0060 Seating: Team Tables
 
@@ -57,9 +61,23 @@
         0062 Board: Team Writing Surface
 
     .rooms-search--checkboxes
-      %ul.filters--list
-        %h5 Writing Surface
+      .filters--list
+        %h5
+          %i.fas.fa-chalkboard
+          Writing Surface
+
+
         .form-group.form-check
+          .form-check-input= check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', 'DVD')
+          %label.form-check-label{ :for => 'DVD' } DVD
+
+
+
+
+        %hr
+
+        .form-group.form-check
+
           %input#Chkbrd.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'Chkbrd' } Chaulkboard
         .form-group.form-check
@@ -72,7 +90,9 @@
           %input#Whtbrd_25.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'Whtbrd_25' } Whiteboard greater than 25'
 
-        %h5 Projection
+        %h5
+          %i.fas.fa-video
+          Projection
         .form-group.form-check
           %input#Proj16mm.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'Proj16mm' } 16mm Film
@@ -86,8 +106,10 @@
           %input#ProjSlide.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'ProjSlide' } Traditional Slide'
 
-      %ul.filters--list
-        %h5 Audio Visual
+      .filters--list
+        %h5
+          %i.fas.fa-film
+          Audio Visual
         .form-group.form-check
           %input#Blackout.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'Blackout' } Blackout (Room Darkening)
@@ -116,8 +138,10 @@
           %input#VideoConf.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'VideoConf' } Video Conferencing'
 
-      %ul.filters--list
-        %h5 Podium Computer
+      .filters--list
+        %h5
+          %i.fas.fa-laptop
+          Podium Computer
         .form-group.form-check
           %input#CompPodMac.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'CompPodMac' } Mac
@@ -125,7 +149,9 @@
           %input#CompPodPC.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'CompPodPC' } PC
 
-        %h5 Computer Classroom
+        %h5
+          %i.fas.fa-keyboard
+          Computer Classroom
         .form-group.form-check
           %input#CompAny.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'CompAny' } Any
@@ -136,7 +162,9 @@
           %input#CompPC.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'CompPC' } PC
 
-        %h5 Power / Ethernet
+        %h5
+          %i.fas.fa-plug
+          Power / Ethernet
         .form-group.form-check
           %input#Ethernet.form-check-input{ :type => 'checkbox' }
           %label.form-check-label{ :for => 'Ethernet' } Ethernet for Instructor
@@ -151,6 +179,17 @@
 - @rooms.each do |r|
   .room-row
     = r.rmrecnbr
+    = r.room_number
     = r.building.name
 
 = paginate @rooms
+
+:javascript
+  $('input[type="checkbox"]').change(function() {
+    this.form.submit();
+
+    // $.ajax({
+    //   url: "rooms_path",
+    //   data: $(".form-check-input").serialize();
+    // });
+  });

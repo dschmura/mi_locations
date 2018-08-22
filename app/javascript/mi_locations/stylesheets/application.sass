@@ -28,7 +28,6 @@ footer
   .footer-contact
     @include make-col(2)
 
-
 // ROOM SEARCH
 .rooms-search-bar
   display: flex
@@ -39,15 +38,16 @@ footer
   padding: 1rem
   color: $bone
 
-
 .rooms-search-field
   @include make-col(3)
 
 .rooms-search-filters
   display: flex
   flex-direction: column
-  background-color: $tappan_red
+  background-color: lighten($heather_blue, 40%)
   height: auto
+  font-size: 0.8rem
+
 
   .rooms-search--profile
     display: flex
@@ -68,9 +68,9 @@ footer
     flex-direction: row
     justify-content: space-between
     align-items: top
-    padding: 1rem
+    padding: 2rem
     .filters--list
-      @include make-col(3)
+      // @include make-col(4)
 
   .rooms-search--top
     display: flex
