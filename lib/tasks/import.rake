@@ -40,7 +40,7 @@ namespace :import do
   end
 
   desc "Import Everything"
-  task :import_all => [:environment] do
+  task :all => [:environment] do
     time = Benchmark.measure do
       BuildingsImporter.new.import('uploads/buildings.csv')
       RoomsImporter.new.import_rooms
