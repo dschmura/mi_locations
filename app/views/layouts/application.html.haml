@@ -6,14 +6,16 @@
     = csrf_meta_tags
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    - if content_for? :head 
+      = yield :head
   %body
-    #page-top{:class => controller.controller_name}
+    #page-top{'data-behavior' => "vue" }
 
       .corner-ribbon.top-right.sticky.red.shadow= link_to('Work in Progress', project_status_path)
 
 
       = render 'layouts/header'
-      .content#content
+      .content#content{:class => controller.controller_name}
         = yield
 
       = render 'layouts/footer'

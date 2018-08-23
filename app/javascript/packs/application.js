@@ -17,5 +17,24 @@
   import Turbolinks from 'turbolinks'
   Turbolinks.start()
 
+  import Vue from 'vue/dist/vue.esm'
+
+  import App from '../components/app.vue'
+  Vue.component('app', App)
+
   // Specific frontend applications
   import 'mi_locations'
+
+
+  document.addEventListener('turbolinks:load', () => {
+    const app = new Vue({
+      el: '[data-behavior="vue"]',
+      data: {
+        message: "Can you say hello?"
+      },
+      components: {
+        App,
+        CapacitySlider
+      }
+    })
+  })
