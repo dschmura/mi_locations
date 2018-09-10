@@ -18,4 +18,11 @@ module ApplicationHelper
     end
   end
 
+  def is_checked?(param)
+    if params[:q].instance_values.to_json.include?(param)
+      true
+    else
+      false
+    end
+  end
 end
