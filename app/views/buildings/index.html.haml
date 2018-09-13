@@ -7,7 +7,7 @@
   = f.search_field :name_or_nick_name_or_abbreviation_cont
   -# = f.search_field :nick_name_or_abbreviation_cont
 
-- @buildings.each do |b|
-  %li= b.name
+-# - @buildings.each do |b|
+-#   %li= b.name
 
 = content_tag 'comp-wrapper', nil, data: { component: 'buildings_search', props: { buildings: @buildings } }.to_json
