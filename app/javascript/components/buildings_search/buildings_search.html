@@ -2,5 +2,10 @@
 <section class="buildings-search">
   <h1>Hello buildings-search Component</h1>
 
-  <h2>{{ buildings }}</h2>
+  <ul id="buildings-search" class="demo">
+    <li v-for="value in buildings">
+      {{ value.name }}
+    </li>
+  </ul>
+
 </section>
