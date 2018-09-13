@@ -17,10 +17,15 @@
   import Turbolinks from 'turbolinks'
   Turbolinks.start()
 
+//https://medium.freecodecamp.org/how-to-pass-rails-instance-variables-into-vue-components-7fed2a14babf
+  import CompWrapper from '../CompWrapper'
   import Vue from 'vue/dist/vue.esm'
 
-  import App from '../components/app.vue'
-  Vue.component('app', App)
+  // import App from '../components/app.vue'
+  // Vue.component('app', App)
+
+  import BuildingsSearch from '../components/buildings_search'
+  Vue.component('buildings_search', BuildingsSearch)
 
   // Specific frontend applications
   import 'mi_locations'
@@ -30,11 +35,13 @@
     const app = new Vue({
       el: '[data-behavior="vue"]',
       data: {
-        message: "Can you say hello?"
+        // message: "Can you say hello?"
       },
       components: {
-        App,
-        CapacitySlider
+        // App,
+        // CapacitySlider,
+        CompWrapper,
+        BuildingsSearch
       }
     })
   })
