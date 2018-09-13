@@ -6,8 +6,7 @@
 = search_form_for @q, url: search_rooms_path,
                         html: { method: :post } do |f|
   .rooms-search-bar
-    .rooms-search-matches
-      = "#{@q.result.count} Matches"
+
     .rooms-search-field.input-group
 
       = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, placeholder: 'Search...', class: 'form-control', "aria-describedby" => "Search for Rooms", "aria-label" => "Search for rooms", :placeholder => "Search", :type => "text", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters"
@@ -17,6 +16,8 @@
         %button#button-addon2.btn.btn-secondary{:type => "button", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters" }
           %i.fas.fa-filter
           Filters
+    .rooms-search-matches
+      = "#{@q.result.count} Matches"
     .rooms-search--sort-by
       %i.fas.fa-sort-amount-down
       Sort By
@@ -38,27 +39,27 @@
       .rooms-search--room-type
         Room Type
 
-    .NOTES
-      New Room Characteristics
-
-    .rooms-search--profile
-      .team-tables
-        .form-group.form-check
-          %input#Chkbrd.form-check-input{ :type => 'checkbox', onchange: 'this.form.submit();' }
-          %label.form-check-label{ :for => 'Chkbrd' } Seating: Team Tables
-        0060 Seating: Team Tables
-
-      .team-technology
-        .form-group.form-check
-          %input#Chkbrd.form-check-input{ :type => 'checkbox' }
-          %label.form-check-label{ :for => 'Chkbrd' } Equipment: Team Technology
-        0061 Equipment: Team Technology
-
-      .team-writing
-        .form-group.form-check
-          %input#Chkbrd.form-check-input{ :type => 'checkbox' }
-          %label.form-check-label{ :for => 'Chkbrd' } Board: Team Writing Surface
-        0062 Board: Team Writing Surface
+    -# .NOTES
+    -#   New Room Characteristics
+    -#
+    -# .rooms-search--profile
+    -#   .team-tables
+    -#     .form-group.form-check
+    -#       %input#Chkbrd.form-check-input{ :type => 'checkbox', onchange: 'this.form.submit();' }
+    -#       %label.form-check-label{ :for => 'Chkbrd' } Seating: Team Tables
+    -#     0060 Seating: Team Tables
+    -#
+    -#   .team-technology
+    -#     .form-group.form-check
+    -#       %input#Chkbrd.form-check-input{ :type => 'checkbox' }
+    -#       %label.form-check-label{ :for => 'Chkbrd' } Equipment: Team Technology
+    -#     0061 Equipment: Team Technology
+    -#
+    -#   .team-writing
+    -#     .form-group.form-check
+    -#       %input#Chkbrd.form-check-input{ :type => 'checkbox' }
+    -#       %label.form-check-label{ :for => 'Chkbrd' } Board: Team Writing Surface
+    -#     0062 Board: Team Writing Surface
 
     .rooms-search--checkboxes.row
       .filters--list
