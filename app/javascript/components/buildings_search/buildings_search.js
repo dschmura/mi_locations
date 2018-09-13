@@ -2,12 +2,10 @@ export default {
   name: 'buildings_search',
   components: {},
   props: {
-    buildings: Object
+    buildings: Array
   },
   data () {
-    return {
-      buildings: buildings
-    }
+    return { }
   },
   computed: {
 
