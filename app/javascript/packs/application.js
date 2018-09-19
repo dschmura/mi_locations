@@ -19,10 +19,10 @@
 
 //https://medium.freecodecamp.org/how-to-pass-rails-instance-variables-into-vue-components-7fed2a14babf
   import CompWrapper from '../CompWrapper'
-  import Vue from 'vue/dist/vue.esm'
+  import MapCompWrapper from '../MapCompWrapper'
+  import GoogleMap from '../components/GoogleMap'
 
-  // import App from '../components/app.vue'
-  // Vue.component('app', App)
+  import Vue from 'vue/dist/vue.esm'
 
   import BuildingsSearch from '../components/buildings_search'
   Vue.component('buildings_search', BuildingsSearch)
@@ -41,7 +41,9 @@
         // App,
         // CapacitySlider,
         CompWrapper,
-        BuildingsSearch
+        MapCompWrapper,
+        BuildingsSearch,
+        GoogleMap
       }
     })
   })

@@ -6,7 +6,8 @@
     = csrf_meta_tags
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    - if content_for? :head 
+    = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=#{ Rails.application.credentials.google_maps_api_key }'
+    - if content_for? :head
       = yield :head
   %body
     #page-top{'data-behavior' => "vue" }

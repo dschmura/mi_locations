@@ -11,3 +11,7 @@
 -#   %li= b.name
 
 = content_tag 'comp-wrapper', nil, data: { component: 'buildings_search', props: { buildings: @buildings } }.to_json
+
+= content_tag 'map-comp-wrapper', nil, data: { component: 'google-map', props: { building_locations: @buildings } }.to_json
+
+%google-map{:name => "building_locations"}
