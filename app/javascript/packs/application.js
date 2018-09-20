@@ -18,9 +18,10 @@
   Turbolinks.start()
 
   import Vue from 'vue/dist/vue.esm'
+  import store from "vuex";
 
-  import App from '../components/app.vue'
-  Vue.component('app', App)
+  import BuildingsIndex from '../components/buildings-index'
+  Vue.component('buildings-index', BuildingsIndex)
 
   // Specific frontend applications
   import 'mi_locations'
@@ -33,8 +34,8 @@
         message: "Can you say hello?"
       },
       components: {
-        App,
-        CapacitySlider
+        BuildingsIndex,
+        store
       }
     })
   })
