@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_204225) do
+ActiveRecord::Schema.define(version: 2018_10_01_143234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alerts", force: :cascade do |t|
+    t.integer "severity", default: 0, null: false
+    t.string "message"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "alertable_type"
+    t.bigint "alertable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alertable_id", "alertable_type"], name: "index_alerts_on_alertable_id_and_alertable_type"
+    t.index ["alertable_type", "alertable_id"], name: "index_alerts_on_alertable_type_and_alertable_id"
+  end
 
   create_table "buildings", force: :cascade do |t|
     t.integer "bldrecnbr"
