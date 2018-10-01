@@ -1,2 +1,5 @@
 %h1 Buildings#show
 %p Find me in app/views/buildings/show.html.haml
+= @building.name
+
+= render partial: 'alerts/alerts', locals: {alertable: @building}

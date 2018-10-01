@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :buildings, only: [:show, :index]
   get 'alerts/create'
   get 'alerts/destroy'
+
+  resources :buildings, only: [:show, :index] do
+    resources :alerts, module: :buildings
+  end
+
   resources :rooms do
     collection do
       match 'search' => 'rooms#search', via: [:get, :post], as: :search
