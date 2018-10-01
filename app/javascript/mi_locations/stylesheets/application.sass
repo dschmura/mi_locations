@@ -1,3 +1,4 @@
+@import 'custom'
 @import '~bootstrap/scss/functions'
 @import '~bootstrap/scss/bootstrap'
 @import 'variables'
@@ -9,37 +10,53 @@
 img[alt=""], img:not([alt])
   border: 5px dashed #c00
 
-.navbar-logo
-  height: 55px
-  max-height: 75px
-
 .debug_dump
+  grid-column: span 12
+  height: 125px
+  max-height: auto
+  border-radius: 1rem
+  padding: 1rem
   clear: both
   float: left
-  width: 100%
+  margin: 15px
   background-color: transparentize(grey, 0.3)
 
-footer
-  .footer-logo
-    @include make-col(2)
-    padding-left: 2rem
-  .footer-links
+.container
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  grid-template-rows: auto 1fr auto 75px
+  height: 100vh
+  margin: 0 -1.1rem 0 -1rem
+  font-family: $font-family-base
 
-  .footer-contact
-    @include make-col(2)
+.content
+  grid-column: span 12
+  padding:  0 1rem
+
 
 // ROOM SEARCH
 .rooms-search-bar
-  display: flex
-  flex-direction: row
-  justify-content: space-between
+  display: grid
+  grid-column: span 12
+  grid-row: 2
+  // grid-template-columns: auto auto
+  justify-content: space-around
   align-items: center
+  text-align: center
   background-color: lighten($heather_blue, 0%)
   padding: 1rem
   color: $bone
 
 .rooms-search-field
-  @include make-col(3)
+  grid-column: span 12
+
+.search-bar-bits
+  display: grid
+  grid-column: span 12
+  grid-template-columns: auto auto auto auto
+  justify-content: space-around
+  align-items: center
+  text-align: center
 
 .rooms-search-filters
   display: flex
@@ -54,11 +71,12 @@ footer
     align-items: top
     padding: 1rem
     .team-tables
-      @include make-col(3)
+
+      grid-column: span 4
     .team-technology
-      @include make-col(3)
+      grid-column: span 4
     .team-writing
-      @include make-col(3)
+      grid-column: span 4
 
 
   .rooms-search--checkboxes
@@ -79,9 +97,6 @@ footer
         @include make-col(12)
         padding-top: 1rem
         border-top: solid
-
-
-
 
       // @include make-col(4)
 

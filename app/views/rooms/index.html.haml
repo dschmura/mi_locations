@@ -1,8 +1,3 @@
-%h1 Rooms#index
-%p Find me in app/views/rooms/index.html.haml
--# = console
-
-
 = search_form_for @q, url: search_rooms_path,
                         html: { method: :post } do |f|
   .rooms-search-bar
@@ -16,17 +11,18 @@
         %button#button-addon2.btn.btn-secondary{:type => "button", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters" }
           %i.fas.fa-filter
           Filters
-    .rooms-search-matches
-      = "#{@q.result.count} Matches"
-    .rooms-search--sort-by
-      %i.fas.fa-sort-amount-down
-      Sort By
-    .rooms-search--capacity
-      %i.fas.fa-users
-      Student Capacity
-    .rooms-search--map
-      %i.fas.fa-map
-      Map
+    .search-bar-bits
+      .rooms-search-matches
+        = "#{@q.result.count} Matches"
+      .rooms-search--sort-by
+        %i.fas.fa-sort-amount-down
+        Sort By
+      .rooms-search--capacity
+        %i.fas.fa-users
+        Student Capacity
+      .rooms-search--map
+        %i.fas.fa-map
+        Map
 
   .rooms-search-filters.collapsed
     .rooms-search--top

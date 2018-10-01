@@ -26,15 +26,15 @@
   import 'mi_locations'
 
 
-  document.addEventListener('turbolinks:load', () => {
-    const app = new Vue({
-      el: '[data-behavior="vue"]',
-      data: {
-        message: "Can you say hello?"
-      },
-      components: {
-        App,
-        CapacitySlider
-      }
-    })
-  })
+  // document.addEventListener('turbolinks:load', () => {
+  //   const app = new Vue({
+  //     el: '[data-behavior="vue"]',
+  //     data: {
+  //       message: "Can you say hello?"
+  //     },
+  //     components: {
+  //       App,
+  //       CapacitySlider
+  //     }
+  //   })
+  // })

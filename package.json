@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
-    "@rails/webpacker": "~4.0.0-pre.2",
+    "@rails/webpacker": "~4.19.1",
     "babel-minify": "^0.4.3",
     "bootstrap": "^4.1.3",
     "bourbon": "^5.1.0",
@@ -14,7 +14,8 @@
     "turbolinks": "^5.1.1",
     "vue": "^2.5.17",
     "vue-loader": "^15.4.0",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "webpack-cli": "^3.1.1"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.1.5"
