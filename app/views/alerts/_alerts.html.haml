@@ -1,0 +1,7 @@
+- if alertable.alerts.any?
+  - alertable.alerts.each do |alert|
+    %div{:class => "alert alert-#{alert.severity} alert-dismissible fade show", :role => "alert"}
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} &#215;
+      %strong
+        = alert.message
