@@ -1,4 +1,4 @@
-= form_for [@alertable, Alert.new] do |f|
+= form_for [alertable, Alert.new] do |f|
   .form-group.row
     = f.label "Alert Level", class: "col-sm-3 form-control-label "
     = f.select :severity, options_for_select([ ["Informational", "info"],  ["Warning", "warning"],  ["Danger", "danger"], ["All Clear", "success"]])
