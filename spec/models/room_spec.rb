@@ -26,8 +26,8 @@ describe Room do
 
   describe "Valid Rooms: " do
     it { should validate_presence_of(:rmrecnbr) }
-    it { should validate_presence_of(:latitude) }
-    it { should validate_presence_of(:longitude) }
+    # it { should validate_presence_of(:latitude) }
+    # it { should validate_presence_of(:longitude) }
     it { should validate_presence_of(:floor) }
     it { should validate_presence_of(:room_number) }
     it { should validate_presence_of(:facility_code_heprod) }
