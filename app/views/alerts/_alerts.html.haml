@@ -5,3 +5,6 @@
         %span{"aria-hidden" => "true"} &#215;
       %strong
         = alert.message
+
+        .delete-button
+          = link_to 'Delete',  alert_path(alert.id), data: { confirm: 'Are you sure?' }, method: :delete
