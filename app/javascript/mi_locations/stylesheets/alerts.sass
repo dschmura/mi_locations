@@ -15,19 +15,19 @@ form
 
 form
   select, textarea
-    background: transparentize(green, 0.5)
+    // background: transparentize(green, 0.5)
     border: 1px solid #9c9c9c
-  label
-    background: pink
+  // label
+  //   background: pink
 
 input
   &:submit
-  background: red
+  background: transparentize($spring_term_green, 0.5)
   padding: 0.7em
   width: 100%
   border: 0
-  &:hover
-    background: gold
+  // &:hover
+  //   background: gold
 
 label
   padding: 0.5em 0.5em 0.5em 0
@@ -41,8 +41,8 @@ input:focus
 
 @media (min-width: 900px)
   form
-    grid-template-columns: 200px 1fr
-    grid-gap: 16px
+    // grid-template-columns: 200px 1fr
+    // grid-gap: 16px
 
   label
     text-align: right

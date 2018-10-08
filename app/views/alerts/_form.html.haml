@@ -1,9 +1,9 @@
 = form_for [alertable, Alert.new] do |f|
-  .form-group.row
-    = f.label "Alert Level", class: "col-sm-3 form-control-label "
-    = f.select :severity, options_for_select([ ["Informational", "info"],  ["Warning", "warning"],  ["Danger", "danger"], ["All Clear", "success"]])
-  .form-group.row
-    = f.label :message, class: "col-sm-3 form-control-label  "
-    = f.text_area :message, rows: 4, placeholder: "Type your alert here: Limit of 140 Characters"
+  .form-group
+    = f.label 'Alert Level', class: 'form-control-label '
+    = f.select :severity, options_for_select([ ['Informational', 'info'],  ['Warning', 'warning'],  ['Danger', 'danger'], ['All Clear', 'success']])
+  .form-group
+
+    = f.rich_text_area :message, placeholder: 'Type your alert here: Limit of 140 Characters'
   .actions
     = f.submit
