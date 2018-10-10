@@ -4,7 +4,11 @@
       %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
         %span{"aria-hidden" => "true"} &#215;
       %strong
-        = alert.message
+        %i.fas.fa-= severity_icon(alert.severity.to_sym)
+        = alert.severity.upcase
 
-        .delete-button
-          = link_to 'Delete',  alert_path(alert.id), data: { confirm: 'Are you sure?' }, method: :delete
+      = alert.message
+      .edit-button
+        = link_to 'Edit', edit_alert_path
+      .delete-button
+        = link_to 'Delete',  alert_path(alert.id), data: { confirm: 'Are you sure?' }, method: :delete
