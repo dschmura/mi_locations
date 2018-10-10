@@ -1,7 +1,11 @@
 class AlertsController < ApplicationController
   before_action :load_alertable
   def new
-    alert = Alert.new
+    @alert = Alert.new
+  end
+
+  def edit
+
   end
 
   def create
