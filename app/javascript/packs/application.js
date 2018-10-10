@@ -24,17 +24,19 @@
 
   // Specific frontend applications
   import 'mi_locations'
+  
+  import 'actiontext'
+  import 'trix/dist/trix.css'
 
-
-  document.addEventListener('turbolinks:load', () => {
-    const app = new Vue({
-      el: '[data-behavior="vue"]',
-      data: {
-        message: "Can you say hello?"
-      },
-      components: {
-        App,
-        CapacitySlider
-      }
-    })
-  })
+  // document.addEventListener('turbolinks:load', () => {
+  //   const app = new Vue({
+  //     el: '[data-behavior="vue"]',
+  //     data: {
+  //       message: "Can you say hello?"
+  //     },
+  //     components: {
+  //       App,
+  //       CapacitySlider
+  //     }
+  //   })
+  // })
