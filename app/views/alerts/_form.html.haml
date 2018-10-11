@@ -1,0 +1,9 @@
+= form_for [alertable, Alert.new] do |f|
+  .form-group
+    = f.label 'Alert Level', class: 'form-control-label '
+    = f.select :severity, options_for_select([['Informational', 'info'],  ['Warning', 'warning'],  ['Danger', 'danger'], ['All Clear', 'success']]), :include_blank => "Alert Level"
+  .form-group
+
+    = f.rich_text_area :message, placeholder: 'Type your alert here: Limit of 140 Characters'
+  .actions
+    = f.submit

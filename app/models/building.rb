@@ -20,8 +20,10 @@
 
 class Building < ApplicationRecord
   # has_one_attached :main_picture
-  
+
   has_many :rooms, dependent: :destroy
+  has_many :alerts, as: :alertable, dependent: :destroy
+
   validates_presence_of :bldrecnbr, :name, :address, :city, :state, :zip, :country
 
   geocoded_by :address   # can also be an IP address
