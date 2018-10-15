@@ -48,3 +48,22 @@ input:focus
   input,
   button
     grid-column: 2 / 3
+
+
+.alert
+  background-color: $alert
+  font-size: $font-size-base
+  color: white
+  a
+    color: $header-link-color
+    text-decoration: none
+  a:hover
+    color: transparentize($header-link-color, 0.2)
+.alert-success
+  background-color: $alert-success
+.alert-danger
+  background-color: $alert-danger
+.alert-warning
+  background-color: $alert-warning
+.alert-info
+  background-color: $alert-info
