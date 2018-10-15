@@ -1,5 +1,3 @@
-@import '~bootstrap/scss/functions'
-@import '~bootstrap/scss/bootstrap'
 @import 'variables'
 
 .modal-backdrop
@@ -24,12 +22,12 @@ img[alt=""], img:not([alt])
 
 footer
   .footer-logo
-    @include make-col(2)
+    // @include make-col(2)
     padding-left: 2rem
   .footer-links
 
   .footer-contact
-    @include make-col(2)
+    // @include make-col(2)
 
 // ROOM SEARCH
 .rooms-search-bar
@@ -42,7 +40,7 @@ footer
   color: $bone
 
 .rooms-search-field
-  @include make-col(3)
+  // @include make-col(3)
 
 .rooms-search-filters
   display: flex
@@ -57,36 +55,30 @@ footer
     align-items: top
     padding: 1rem
     .team-tables
-      @include make-col(3)
+      // @include make-col(3)
     .team-technology
-      @include make-col(3)
+      // @include make-col(3)
     .team-writing
-      @include make-col(3)
-
+      // @include make-col(3)
 
   .rooms-search--checkboxes
-    @include make-col-ready()
-    @include make-col(12)
-    @include media-breakpoint-down(sm)
-      flex-direction: column
+    // @include make-col-ready()
+    // @include make-col(12)
+    // @include media-breakpoint-down(sm)
+    flex-direction: column
     display: flex
     flex-direction: row
     justify-content: space-between
     align-items: top
 
     .filters--list
-      @include media-breakpoint-up(sm)
-        @include make-col(3)
-      @include media-breakpoint-down(sm)
-        background-color: red
-        @include make-col(12)
+      // @include media-breakpoint-up(sm)
+        // @include make-col(3)
+      // @include media-breakpoint-down(sm)
+      background-color: red
+        // @include make-col(12)
         padding-top: 1rem
         border-top: solid
-
-
-
-
-      // @include make-col(4)
 
   .rooms-search--top
     display: flex
