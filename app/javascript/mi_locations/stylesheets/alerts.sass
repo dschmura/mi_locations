@@ -16,7 +16,6 @@ form
     background: transparentize(green, 0.5)
     border: 1px solid #9c9c9c
 
-
 input
   &:submit
   background: transparentize($spring_term_green, 0.5)
@@ -36,24 +35,12 @@ input
 input:focus
   outline: 3px solid gold
 
-@media (min-width: 900px)
-  form
-    // grid-template-columns: 200px 1fr
-    // grid-gap: 16px
-
-  label
-    text-align: right
-    grid-column: 1 / 2
-
-  input,
-  button
-    grid-column: 2 / 3
-
-
 .alert
   background-color: $alert
   font-size: $font-size-base
   color: white
+  margin: 0.5rem 0 0 0
+  padding: 0.5rem
   a
     color: $header-link-color
     text-decoration: none
@@ -67,3 +54,19 @@ input:focus
   background-color: $alert-warning
 .alert-info
   background-color: $alert-info
+
+button.close
+  float: right
+
+@media (min-width: 900px)
+  form
+    // grid-template-columns: 200px 1fr
+    // grid-gap: 16px
+
+  label
+    text-align: right
+    grid-column: 1 / 2
+
+  input,
+  button
+    grid-column: 2 / 3
