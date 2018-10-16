@@ -38,6 +38,10 @@ input:focus
 .alert
   background-color: $alert
   font-size: $font-size-base
+  display: grid
+  grid-template-columns: 140px 1fr 3rem 2rem
+  justify-content: space-between
+  align-items: stretch
   color: white
   margin: 0.5rem 0 0 0
   padding: 0.5rem
@@ -47,17 +51,42 @@ input:focus
     text-decoration: none
   a:hover
     color: transparentize($header-link-color, 0.2)
-.alert-success
-  background-color: $alert-success
-.alert-danger
-  background-color: $alert-danger
-.alert-warning
-  background-color: $alert-warning
-.alert-info
-  background-color: $alert-info
 
-button.close
-  float: right
+  .trix-content
+    color: $dark_grey
+  // .edit-button, .delete-button
+  //   background-color: blue
+  //   width: 3rem
+  //   max-height: 1.3rem
+  //   text-align: center
+  //   padding: 0.1rem 0.3rem 0.1rem 0.3rem
+  //   border-radius: 1rem
+  // .edit-button
+  //   background-color: green
+  //   a:hover
+  //     background-color: brown
+  // .delete-button
+  //   background-color: $alert-danger
+  //   padding: 0.1rem 0.6rem
+  .alert-edit
+    cursor: pointer
+    margin-top: -0.5rem
+  .alert-close
+    cursor: pointer
+.alert-success
+  color: $alert-success
+  background-color: transparentize($alert-success, 0.6)
+.alert-danger
+  color: $alert-danger
+  background-color: transparentize($alert-danger, 0.6)
+.alert-warning
+  color: $alert-warning
+  background-color: transparentize($alert-warning, 0.6)
+.alert-info
+  color: $alert-info
+  background-color: transparentize($alert-info, 0.6)
+
+
 
 @media (min-width: 900px)
   form

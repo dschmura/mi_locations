@@ -1,15 +1,24 @@
 - if alertable.alerts.any?
   - alertable.alerts.each do |alert|
+
     %div{:class => "alert alert-#{alert.severity} alert-dismissible fade show", :role => "alert"}
-      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button", :onclick => "this.parentElement.style.display='none'"}
-        %span{"aria-hidden" => "true"} &#215;
-    
+
       %strong
         %i.fas.fa-= severity_icon(alert.severity.to_sym)
         = alert.severity.upcase
-
       = alert.message
-      .edit-button
-        = link_to 'Edit', edit_alert_path
-      .delete-button
-        = link_to 'Delete',  alert_path(alert.id), data: { confirm: 'Are you sure?' }, method: :delete
+
+
+      .alert-edit
+        %i.fas.fa-ellipsis-h.fa-2x
+
+      .alert-close{"aria-label" => "Close", "data-dismiss" => "alert", :onclick => "this.parentElement.style.display='none'"}
+        %i.fas.fa-times
+
+
+
+
+      -# .edit-button
+      -#   = link_to 'Edit', edit_alert_path
+      -# .delete-button
+      -#   = link_to 'Delete',  alert_path(alert.id), data: { confirm: 'Are you sure?' }, method: :delete
