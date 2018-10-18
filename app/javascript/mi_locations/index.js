@@ -10,7 +10,8 @@
   import './stylesheets/_variables.sass'
   import './stylesheets/application.sass'
   import './stylesheets/header.sass'
-  import './stylesheets/footer.sass'  
+  import './stylesheets/footer.sass'
+  import './stylesheets/rooms_search.sass'  
 
   import './stylesheets/alerts.sass'
   import './stylesheets/ribbons.sass'

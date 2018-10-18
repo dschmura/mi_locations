@@ -4,26 +4,26 @@
   display: grid
   // grid-template-columns: 1fr 1fr
 
-form
-  padding: 1em
-  background: #f9f9f9
-  border: 1px solid #c1c1c1
-  margin: 2rem auto 2rem auto
-  // max-width: 80%
-  padding: 1em
+  form
+    padding: 1em
+    background: #f9f9f9
+    border: 1px solid #c1c1c1
+    margin: 2rem auto 2rem auto
+    // max-width: 80%
+    padding: 1em
 
-  select
-    background: transparentize(green, 0.5)
-    border: 1px solid #9c9c9c
+    select
+      background: transparentize(green, 0.5)
+      border: 1px solid #9c9c9c
 
-input
-  &:submit
-  background: transparentize($spring_term_green, 0.5)
-  padding: 0.7em
-  width: 100%
-  border: 0
-  // &:hover
-  //   background: gold
+  input
+    &:submit
+    background: transparentize($spring_term_green, 0.5)
+    padding: 0.7em
+    width: 100%
+    border: 0
+    // &:hover
+    //   background: gold
 
 label
   padding: 0.5em 0.5em 0.5em 0
@@ -39,9 +39,9 @@ input:focus
   background-color: $alert
   font-size: $font-size-base
   display: grid
-  grid-template-columns: 140px 1fr 3rem 2rem
+  grid-template-columns: [severity]140px [message]1fr [edit]3rem [close]2rem
   justify-content: space-between
-  align-items: stretch
+  align-items: flex-start
   color: white
   margin: 0.5rem 0 0 0
   padding: 0.5rem
@@ -69,10 +69,12 @@ input:focus
   //   background-color: $alert-danger
   //   padding: 0.1rem 0.6rem
   .alert-edit
+    grid-area: edit
     color: darken(grey, 10)
     cursor: pointer
     margin-top: -0.4rem
   .alert-close
+    grid-area: close
     color: darken(grey, 10)
     cursor: pointer
 .alert-success

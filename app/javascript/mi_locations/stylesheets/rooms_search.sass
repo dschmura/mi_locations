@@ -1,58 +1,27 @@
+@import 'variables'
 
-// ROOM SEARCH
 .rooms-search-bar
-  display: flex
-  flex-direction: row
-  justify-content: space-between
-  align-items: center
-  background-color: lighten($heather_blue, 0%)
-  padding: 1rem
-  color: $bone
-
-.rooms-search-field
-  // @include make-col(3)
-
-.rooms-search-filters
-  display: flex
-  flex-direction: column
-  background-color: lighten($heather_blue, 40%)
-  font-size: 0.8rem
-
-  .rooms-search--profile
+  margin: 0 0 1rem 0
+  background-color: $heather_blue
+  display: grid
+  grid-template-columns: 40px 50px auto 50px 40px
+  grid-template-rows: auto  auto
+  .rooms-search-field
+    grid-column: span 12
+    height: 40px
+    // background-color: transparentize(grey, 0.2)
+    color: white
+  .rooms-search-dropdowns
+    background-color: pink
+    height: 50px
+    grid-column: span 12
+    grid-row-start: 3
+    grid-row-end: 2
+    justify-content: space-around
     display: flex
     flex-direction: row
-    justify-content: space-between
-    align-items: top
-    padding: 1rem
-    .team-tables
-      // @include make-col(3)
-    .team-technology
-      // @include make-col(3)
-    .team-writing
-      // @include make-col(3)
-
-  .rooms-search--checkboxes
-    // @include make-col-ready()
-    // @include make-col(12)
-    // @include media-breakpoint-down(sm)
-    flex-direction: column
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    align-items: top
-
-    .filters--list
-      // @include media-breakpoint-up(sm)
-        // @include make-col(3)
-      // @include media-breakpoint-down(sm)
-      background-color: red
-        // @include make-col(12)
-        padding-top: 1rem
-        border-top: solid
-
-  .rooms-search--top
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    align-items: top
-    background-color: $bone
+    .rooms-search-buildings--dropdown
+      background-color: white
+    .rooms-search-school-or-college
+      background-color: green
+  .rooms-search-filters
