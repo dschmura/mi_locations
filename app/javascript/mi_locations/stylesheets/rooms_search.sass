@@ -1,0 +1,27 @@
+@import 'variables'
+
+.rooms-search-bar
+  margin: 0 0 1rem 0
+  background-color: $heather_blue
+  display: grid
+  grid-template-columns: 40px 50px auto 50px 40px
+  grid-template-rows: auto  auto
+  .rooms-search-field
+    grid-column: span 12
+    height: 40px
+    // background-color: transparentize(grey, 0.2)
+    color: white
+  .rooms-search-dropdowns
+    background-color: pink
+    height: 50px
+    grid-column: span 12
+    grid-row-start: 3
+    grid-row-end: 2
+    justify-content: space-around
+    display: flex
+    flex-direction: row
+    .rooms-search-buildings--dropdown
+      background-color: white
+    .rooms-search-school-or-college
+      background-color: green
+  .rooms-search-filters

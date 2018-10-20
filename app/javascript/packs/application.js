@@ -7,10 +7,6 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-  import $ from 'jquery'
-  global.$ = $
-  global.jQuery = $
-
   import Rails from 'rails-ujs'
   Rails.start()
 
@@ -24,7 +20,7 @@
 
   // Specific frontend applications
   import 'mi_locations'
-  
+
   import 'actiontext'
   import 'trix/dist/trix.css'
 

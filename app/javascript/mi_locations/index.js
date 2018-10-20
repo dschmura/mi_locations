@@ -1,5 +1,4 @@
   // // Include external resources for this app_files
-  import 'bootstrap'
 
   // Include internal resources for this app
   import './javascripts/application'
@@ -10,8 +9,12 @@
   // require.context("./stylesheets", true, /\.(css|scss|sass)$/)
   import './stylesheets/_variables.sass'
   import './stylesheets/application.sass'
+  import './stylesheets/header.sass'
+  import './stylesheets/footer.sass'
+  import './stylesheets/rooms_search.sass'
 
   import './stylesheets/alerts.sass'
+  import './stylesheets/feedback.sass'
   import './stylesheets/ribbons.sass'
 
   // IMAGES

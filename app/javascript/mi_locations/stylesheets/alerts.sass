@@ -4,27 +4,26 @@
   display: grid
   // grid-template-columns: 1fr 1fr
 
-form
-  padding: 1em
-  background: #f9f9f9
-  border: 1px solid #c1c1c1
-  margin: 2rem auto 2rem auto
-  // max-width: 80%
-  padding: 1em
+  form
+    padding: 1em
+    background: #f9f9f9
+    border: 1px solid #c1c1c1
+    margin: 2rem auto 2rem auto
+    // max-width: 80%
+    padding: 1em
 
-  select
-    background: transparentize(green, 0.5)
-    border: 1px solid #9c9c9c
+    select
+      background: transparentize(green, 0.5)
+      border: 1px solid #9c9c9c
 
-
-input
-  &:submit
-  background: transparentize($spring_term_green, 0.5)
-  padding: 0.7em
-  width: 100%
-  border: 0
-  // &:hover
-  //   background: gold
+  input
+    &:submit
+    background: transparentize($spring_term_green, 0.5)
+    padding: 0.7em
+    width: 100%
+    border: 0
+    // &:hover
+    //   background: gold
 
 label
   padding: 0.5em 0.5em 0.5em 0
@@ -35,6 +34,63 @@ input
 
 input:focus
   outline: 3px solid gold
+
+.alert
+  background-color: $alert
+  font-size: $font-size-base
+  display: grid
+  grid-template-columns: [severity]140px [message]1fr [edit]3rem [close]2rem
+  justify-content: space-between
+  align-items: flex-start
+  color: white
+  margin: 0.5rem 0 0 0
+  padding: 0.5rem
+  border-radius: 5px
+  a
+    color: $header-link-color
+    text-decoration: none
+  a:hover
+    color: transparentize($header-link-color, 0.2)
+
+  .trix-content
+    color: $dark_grey
+  // .edit-button, .delete-button
+  //   background-color: blue
+  //   width: 3rem
+  //   max-height: 1.3rem
+  //   text-align: center
+  //   padding: 0.1rem 0.3rem 0.1rem 0.3rem
+  //   border-radius: 1rem
+  // .edit-button
+  //   background-color: green
+  //   a:hover
+  //     background-color: brown
+  // .delete-button
+  //   background-color: $alert-danger
+  //   padding: 0.1rem 0.6rem
+  .alert-edit
+    grid-area: edit
+    color: darken(grey, 10)
+    cursor: pointer
+    margin-top: -0.4rem
+  .alert-close
+    grid-area: close
+    color: darken(grey, 10)
+    cursor: pointer
+.alert-success
+  color: $alert-success
+  background-color: transparentize($alert-success, 0.6)
+.alert-danger
+  color: $alert-danger
+  background-color: transparentize($alert-danger, 0.6)
+.alert-warning
+  color: $alert-warning
+  background-color: transparentize($alert-warning, 0.6)
+.alert-info
+  color: $alert-info
+  background-color: transparentize($alert-info, 0.6)
+
+
 
 @media (min-width: 900px)
   form
