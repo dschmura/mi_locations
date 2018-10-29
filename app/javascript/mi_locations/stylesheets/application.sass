@@ -10,20 +10,18 @@ body
 img[alt=""], img:not([alt])
   border: 5px dashed #c00
 
-.debug_dump
-  clear: both
-  float: left
-  width: 100%
-  background-color: transparentize(grey, 0.3)
+.container
+  height: 100vh
+  background-color: brown
+  display: grid
+  grid-template-rows: 75px 1fr 100px
+  // grid-template-columns:
 
 .content
-  margin-top: 75px
 
-footer
-  .footer-logo
-    // @include make-col(2)
-    padding-left: 2rem
-  .footer-links
+  background-color: pink
 
-  .footer-contact
-    // @include make-col(2)
+.debug_dump
+
+  align-self: flex-end
+  background-color: transparentize(grey, 0.3)
