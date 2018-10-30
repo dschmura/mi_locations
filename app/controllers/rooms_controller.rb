@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
   def index
     @q = Room.ransack(params[:q])
     @rooms = @q.result.includes(:building, :room_characteristics).page params[:page]
+    @results = @q.result.count
   end
 
   def show
