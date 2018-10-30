@@ -25,15 +25,15 @@
     // &:hover
     //   background: gold
 
-label
-  padding: 0.5em 0.5em 0.5em 0
+  label
+    padding: 0.5em 0.5em 0.5em 0
 
-input
-  padding: 0.7em
-  margin-bottom: 0.5rem
+  input
+    padding: 0.7em
+    margin-bottom: 0.5rem
 
-input:focus
-  outline: 3px solid gold
+  input:focus
+    // outline: 3px solid gold
 
 .alert
   background-color: $alert
@@ -93,14 +93,15 @@ input:focus
 
 
 @media (min-width: 900px)
-  form
-    // grid-template-columns: 200px 1fr
-    // grid-gap: 16px
+  .new_alert
+    form
+      // grid-template-columns: 200px 1fr
+      // grid-gap: 16px
 
-  label
-    text-align: right
-    grid-column: 1 / 2
+    label
+      text-align: right
+      grid-column: 1 / 2
 
-  input,
-  button
-    grid-column: 2 / 3
+    input,
+    button
+      grid-column: 2 / 3
