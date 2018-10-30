@@ -1,27 +1,149 @@
 @import 'variables'
 
+.room_search #room_search
+
 .rooms-search-bar
-  margin: 0 0 1rem 0
   background-color: $heather_blue
   display: grid
-  grid-template-columns: 40px 50px auto 50px 40px
-  grid-template-rows: auto  auto
-  .rooms-search-field
-    grid-column: span 12
-    height: 40px
-    // background-color: transparentize(grey, 0.2)
-    color: white
-  .rooms-search-dropdowns
-    background-color: pink
+  height: 100%
+  grid-template-columns: repeat(2, 1fr)
+  grid-template-rows: 1fr 1fr
+  grid-gap: 2px
+  grid-template-areas: 'input1 input2' 'building department'
+
+
+.rooms-search-field
+  // grid-area: input1
+  display: flex
+  grid-column-start: 1
+  grid-column-end: 3
+  align-self: center
+  justify-content: center
+  padding: 0.5rem 0 0 0
+  // background-color: grey
+
+.rooms-search-characteristics
+  // background-color: green
+
+.rooms-search-filters
+
+  background-color: transparentize($bone, 0.7)
+  display: grid
+  color: $bone
+  grid-column-start: 1
+  grid-column-end: 3
+  // grid-template-rows: 1fr
+
+.rooms-results-count
+  font-size: $font-size-base * 2
+.student-capacity
+  display: flex
+  justify-content: space-between
+  font-size: $font-size-base * 1.4
+
+.rooms-search-filters-button
+  height: 2rem
+  border-radius: 0 4px 4px 0
+  background-color: $rackham_roof_green
+
+.rooms-search-buildings
+  grid-area: building
+  align-self: center
+  text-align: center
+  button
+    font-size: 1.3rem
+    color: $grey
+    border-radius: 3rem
     height: 50px
-    grid-column: span 12
-    grid-row-start: 3
-    grid-row-end: 2
-    justify-content: space-around
-    display: flex
-    flex-direction: row
-    .rooms-search-buildings--dropdown
-      background-color: white
-    .rooms-search-school-or-college
-      background-color: green
-  .rooms-search-filters
+    width: 80%
+.rooms-search-school-or-college
+  grid-area: department
+  align-self: center
+  text-align: center
+  button
+    font-size: 1.3rem
+    color: $grey
+    border-radius: 3rem
+    height: 50px
+    width: 80%
+
+
+
+
+@media (min-width: $break-sm)
+  .rooms-search--checkboxes
+    grid-template-columns: 1fr 1fr 1fr
+
+
+@media (max-width: $break-lg)
+  .rooms-search--checkboxes
+    grid-template-columns: 1fr 1fr
+
+
+.rooms-search--checkboxes
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  justify-content: flex-start
+  align-items: flex-start
+
+.checkbox-collection
+  padding: 1rem
+
+#team-tables
+
+  background-color: blue
+
+#team-writing-surface
+  background-color: green
+
+#sound
+  background-color: yellow
+
+#audio-visual
+  background-color: orange
+
+#projection
+  background-color: grey
+
+#podium-computer
+  background-color: brown
+
+#computer-classroom
+  background-color: red
+
+#power
+  background-color: purple
+
+
+.search
+  // position: relative
+  width: 80%
+
+.searchTerm
+  float: left
+  width: 90%
+  border: 3px solid $bone
+  padding: 5px
+  height: 34px
+  border-radius: 5px
+  outline: none
+  color: $bone
+
+.searchTerm:focus
+  // color: $bone
+
+.searchButton
+  float: left
+  width: 8%
+  padding: 0 2rem 0 2rem
+  height: 50px
+  border: 1px solid $bone
+  background: $bone
+  text-align: center
+  color: #fff
+  border-radius: 5px
+  cursor: pointer
+  font-size: 20px
+
+.searchButton:hover
+  background-color: transparentize($bone, 0.2)
