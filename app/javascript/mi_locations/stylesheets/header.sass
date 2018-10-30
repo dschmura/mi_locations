@@ -36,18 +36,23 @@ header
     display: inline
     padding: 0 1rem 0 1rem
 
-@media only screen and (max-width: 900px)
+@media only screen and (max-width: $break-md)
   header
     justify-content: center
+    min-height: auto
+    font-size: $font-size-base / 2
 
   .header-logo
     flex-flow: column wrap
     justify-content: space-between
     align-items: center
-    img
-      height: 45px
+    a
+      img
+        max-height: 25px
 
   .header-links ul
     li
       justify-content: center
       padding: 0 0.5rem 0 0.5rem
+      a
+        font-size: 1rem
