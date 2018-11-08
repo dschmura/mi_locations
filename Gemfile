@@ -24,7 +24,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'actiontext', github: 'rails/actiontext', require: 'action_text'
 gem 'image_processing', '~> 1.2' # for Active Storage variants
-
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
 # gem 'administrate', '~> 0.8.1'
 gem 'haml-rails'
 gem 'sidekiq', '~> 5.0'
