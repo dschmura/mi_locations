@@ -31,8 +31,7 @@
   //       message: "Can you say hello?"
   //     },
   //     components: {
-  //       App,
-  //       CapacitySlider
+  //       App
   //     }
   //   })
   // })
