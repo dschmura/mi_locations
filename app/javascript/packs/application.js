@@ -7,26 +7,30 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-  import Rails from 'rails-ujs'
-  Rails.start()
+import $ from 'jquery'
+global.$ = $
+global.jQuery = $
 
-  import Turbolinks from 'turbolinks'
-  Turbolinks.start()
+import Rails from 'rails-ujs'
+Rails.start()
 
-  // Specific frontend applications
-  import 'mi_locations'
+import Turbolinks from 'turbolinks'
+Turbolinks.start()
 
-  import 'actiontext'
-  import 'trix/dist/trix.css'
+// Specific frontend applications
+import 'mi_locations'
 
-  // document.addEventListener('turbolinks:load', () => {
-  //   const app = new Vue({
-  //     el: '[data-behavior="vue"]',
-  //     data: {
-  //       message: "Can you say hello?"
-  //     },
-  //     components: {
-  //       App
-  //     }
-  //   })
-  // })
+import 'actiontext'
+import 'trix/dist/trix.css'
+
+// document.addEventListener('turbolinks:load', () => {
+//   const app = new Vue({
+//     el: '[data-behavior="vue"]',
+//     data: {
+//       message: "Can you say hello?"
+//     },
+//     components: {
+//       App
+//     }
+//   })
+// })
