@@ -13,6 +13,7 @@
   import './stylesheets/application.sass'
   import './stylesheets/header.sass'
   import './stylesheets/footer.sass'
+  import './stylesheets/pages.sass'
   import './stylesheets/rooms_search.sass'
 
   import './stylesheets/alerts.sass'
@@ -20,7 +21,8 @@
   import './stylesheets/ribbons.sass'
 
   // IMAGES
-  // require.context('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
+  require.context('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 
   import './images/favicon.png'
   import './images/MiLocationsLogo.png'
+  import './images/vistas/Burton.jpg'

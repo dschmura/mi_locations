@@ -1,2 +1,23 @@
-%h1 Pages#index
-%p Find me in app/views/pages/index.html.haml
+.hero-image
+.hero-text
+  %h1 Classroom Database
+  %h3 Get a room
+
+.row.flex-row.hero-nav.mx-auto
+  .col-md-4
+
+    = link_to(buildings_path, alt: 'Buildings Map') do
+      .hero-nav---map.rounded-circle.text-center
+        -# Content defined in pages.sass
+
+
+  .col-md-4
+    = link_to(rooms_path,  alt: 'Classroom Search') do
+      .hero-nav---search.rounded-circle.text-center
+        -# Content defined in pages.sass
+
+
+  .col-md-4
+    = link_to(about_path,  alt: 'About') do
+      .hero-nav---about.rounded-circle.text-center
+        -# Content defined in pages.sass

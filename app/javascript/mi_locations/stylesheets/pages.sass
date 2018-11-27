@@ -1,0 +1,112 @@
+@import '~bootstrap/scss/functions'
+@import '~bootstrap/scss/bootstrap'
+@import 'variables'
+
+$hero-nav-badge-size: 8rem
+
+/* The hero image */
+.hero-image
+  /* The image used */
+  min-height: 900px
+  background-color: $angell_hall_ash
+
+  background-image: url("../images/vistas/Burton.jpg")
+  /* Set a specific height */
+  height: 70rem
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  position: relative
+  opacity: 0.6
+  margin: -0.9rem -1.1rem 0 -1rem
+
+/* Place text in the middle of the image */
+.hero-text
+  text-align: center
+  position: absolute
+  top: 15%
+  left: 50%
+  opacity: 1
+  transform: translate(-50%, -50%)
+  color: $um-maize
+  @include media-breakpoint-down(sm)
+    font-size: 1
+    top: 5%
+  h3
+    color: $um-blue
+    display: none
+
+.hero-nav
+  text-align: center
+  align-items: center
+  display: inline-block
+  position: absolute
+  top: 22rem
+  left: 50%
+  transform: translate(-50%, -50%)
+  @include media-breakpoint-down(sm)
+    left: 55%
+  a
+    color: white
+    font-size: 1.2rem
+    &:hover
+      color: shade(white, 20%)
+      text-decoration: none
+
+.hero-nav---map
+  background-color: $grey
+  width: $hero-nav-badge-size
+  height: $hero-nav-badge-size
+  &:hover
+    color: $bone
+    background: shade($grey, 20%)
+    text-decoration: none
+.hero-nav---map:after
+  content: "\f278 \A Buildings \A Map"
+  white-space: pre-wrap
+  font-family: FontAwesome
+  font-style: normal
+  font-weight: normal
+  text-decoration: none
+  position: relative
+  top: 20%
+  z-index: 1
+
+.hero-nav---search
+  background-color: $rackham_roof_green
+  width: $hero-nav-badge-size
+  height: $hero-nav-badge-size
+  a
+    &:hover
+      background: shade($rackham_roof_green, 20%)
+      text-decoration: none
+.hero-nav---search:after
+  content: "\f002 \A Classrooms \A Search"
+  white-space: pre-wrap
+  font-family: FontAwesome
+  font-style: normal
+  font-weight: normal
+  text-decoration: none
+  position: relative
+  top: 20%
+  z-index: 1
+
+.hero-nav---about
+  background-color: $ross_school_orange
+  width: $hero-nav-badge-size
+  height: $hero-nav-badge-size
+  &:hover
+    color: $bone
+    background: shade($ross_school_orange, 20%)
+    text-decoration: none
+.hero-nav---about:after
+  content: "\f05a \A About"
+  white-space: pre-wrap
+  font-family: FontAwesome
+  font-style: normal
+  font-weight: normal
+  text-decoration: none
+  position: relative
+  top: 20%
+  z-index: 1
