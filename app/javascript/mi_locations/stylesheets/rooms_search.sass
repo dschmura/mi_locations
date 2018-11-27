@@ -1,27 +1,39 @@
+@import '~bootstrap/scss/functions'
+@import '~bootstrap/scss/bootstrap'
 @import 'variables'
 
 .rooms-search-bar
-  margin: 0 0 1rem 0
   background-color: $heather_blue
-  display: grid
-  grid-template-columns: 40px 50px auto 50px 40px
-  grid-template-rows: auto  auto
-  .rooms-search-field
-    grid-column: span 12
-    height: 40px
-    // background-color: transparentize(grey, 0.2)
+  height: auto
+
+.rooms-search-field
+  padding: 1rem 0 1rem 0rem
+
+.rooms-search-filters
+  @include make-col(12)
+  background-color: transparentize($heather_blue, 0.4)
+
+.filters--list
+  @include make-col-offset(1)
+  @include make-col(3)
+  .form-check
+    line-height: 0.8rem
+    margin-left: 1rem
+  h5
+    margin: 1rem 0
     color: white
-  .rooms-search-dropdowns
-    background-color: pink
-    height: 50px
-    grid-column: span 12
-    grid-row-start: 3
-    grid-row-end: 2
-    justify-content: space-around
-    display: flex
-    flex-direction: row
-    .rooms-search-buildings--dropdown
-      background-color: white
-    .rooms-search-school-or-college
-      background-color: green
-  .rooms-search-filters
+
+.search-by-building
+
+  margin-bottom: 1rem
+
+.search-by-school-or-college
+
+.rooms-search-selects
+
+.rooms-search-matches
+  color: white
+
+
+
+.filters
