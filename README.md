@@ -21,4 +21,14 @@ Things you may want to cover:
 
 * Deployment instructions
 
+
+## To manually copy the csv files [where '~/code/Rails/mi_locations/uploads' is the path to the files on your machine]
+'''
+development_machine$ scp ~/code/Rails/mi_locations/uploads deployer@lsa-mis-rails-staging2.miserver.it.umich.edu:/home/deployer/apps/mi_locations/current/uploads
+'''
+
+## For manually importing the csv files into the db, you need to set the environment as part of the command.
+'''
+staging_server$ RAILS_ENV=staging bundle exec rails import:rooms
+'''
 * ...
