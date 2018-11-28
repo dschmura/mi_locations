@@ -8,7 +8,7 @@
   # Don't change these unless you know what you're doin
   set :pty,             true
   set :use_sudo,        false
-  set :stage,           :production
+  # set :stage,           :production
   set :deploy_via,      :remote_cache
   set :deploy_to,       "/home/#{fetch(:user)}/apps/mi_locations"
   # Puma specific settings
