@@ -9,9 +9,15 @@ Rails.application.routes.draw do
     resources :alerts, module: :buildings
   end
 
-  resources :rooms do
+  resources :rooms, only: [:show, :index] do
     collection do
       match 'search' => 'rooms#search', via: [:get, :post], as: :search
+    end
+  end
+
+  resources :classrooms, only: [:show, :index] do
+    collection do
+      match 'search' => 'classrooms#search', via: [:get, :post], as: :search
     end
   end
 
