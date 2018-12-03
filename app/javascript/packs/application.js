@@ -29,8 +29,8 @@ Vue.component('app', App)
 // import Map from '../components/buildings_maps.vue'
 // Vue.component('buildings_maps', Map)
 
-import * as VueGoogleMaps from 'vue2-google-maps'
-Vue.component('buildings_maps', VueGoogleMaps)
+// import * as VueGoogleMaps from 'vue2-google-maps'
+// Vue.component('buildings_maps', VueGoogleMaps)
 
 // Specific frontend applications
 import 'mi_locations'
@@ -46,8 +46,7 @@ document.addEventListener('turbolinks:load', () => {
       message: "Can you say hello?"
     },
     components: {
-      App,
-      VueGoogleMaps
+      App
     }
   })
 })
