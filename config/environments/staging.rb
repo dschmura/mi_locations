@@ -1,5 +1,6 @@
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: "lsa-mis-rails-staging2.miserver.it.umich.edu" }
   config.action_mailer.smtp_settings = {
     address:              Rails.application.credentials.MI_LOCATIONS_EMAIL_SERVER,
     domain:               Rails.application.credentials.MI_LOCATIONS_EMAIL_DOMAIN,
