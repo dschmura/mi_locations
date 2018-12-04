@@ -16,6 +16,6 @@
 .buildings-results
   - @buildings.each do |building|
     .row
-      = building.name
+      = link_to building.name, building
       = building.address
       = building.city

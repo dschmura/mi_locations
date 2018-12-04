@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :rooms, only: [:show, :index] do
+    resources :alerts, module: :rooms
     collection do
       match 'search' => 'rooms#search', via: [:get, :post], as: :search
     end
