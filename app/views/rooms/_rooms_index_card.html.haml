@@ -1,14 +1,23 @@
 = link_to(room) do
-  .media.pt-2
-    %img.d-flex.align-self-start.mr-3{:alt => "Generic placeholder image", :src => "http://placekitten.com/150/150"}/
+  .media.pt-2.px-4
+    .rooms-building-badge
+      = image_tag("http://placekitten.com/150/150", alt: "Image for #{room.room_number} #{room.building.nick_name}",class: 'd-flex align-self-center mr-3')
+      .rooms-building-address
+        = "#{room.building.nick_name.titleize}"
+        %br= room.building.address
     .media-body
-      %h5.mt-0
+      %h5.float-left
         = "#{room.room_number} #{room.building.nick_name}"
-      %p
+      %p.float-right
         %i.fas.fa-users
         Student Capacity:
         = room.instructional_seating_count
-      %p
+      %br
+      %hr.border-danger
+        %ul.list-inline
+          %li.list-inline-item
+            Type :
+            = room.rmtyp_description
+          -# %li.list-inline-item Parking : Available
 
-        = "#{room.building.nick_name.titleize}"
-        %br= room.building.address
+        -# %button.btn.btn-outline-primary{:type => "button"} Contact Us
