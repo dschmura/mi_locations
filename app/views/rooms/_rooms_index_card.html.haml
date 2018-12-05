@@ -8,16 +8,22 @@
     .media-body
       %h5.float-left
         = "#{room.room_number} #{room.building.nick_name}"
+
       %p.float-right
         %i.fas.fa-users
         Student Capacity:
         = room.instructional_seating_count
+
       %br
       %hr.border-danger
-        %ul.list-inline
-          %li.list-inline-item
+        %ul
+          %li
             Type :
             = room.rmtyp_description
+          %li
+            Team Learning :
+            = team_learning?(room.room_characteristics)
+
           -# %li.list-inline-item Parking : Available
 
         -# %button.btn.btn-outline-primary{:type => "button"} Contact Us
