@@ -16,7 +16,9 @@
 
       = render 'layouts/header'
       .content#content{:class => controller.controller_name}
+
         = yield
+
 
         -# %app
       = render 'layouts/footer'

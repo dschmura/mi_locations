@@ -1,5 +1,5 @@
 = link_to(room) do
-  .media.pt-2.px-4
+  .media.pt-2.px-4.rooms-card.border.rounded
     .rooms-building-badge
       = image_tag("http://placekitten.com/150/150", alt: "Image for #{room.room_number} #{room.building.nick_name}",class: 'd-flex align-self-center mr-3')
       .rooms-building-address
@@ -15,7 +15,10 @@
         = room.instructional_seating_count
 
       %br
-      %hr.border-danger
+      %hr.border-dark
+
+
+      .rooms-card-details.float-left
         %ul
           %li
             Type :
@@ -23,7 +26,14 @@
           %li
             Team Learning :
             = team_learning?(room.room_characteristics)
-
+      .rooms-card-floors.float-right
+        %ul
+          %li
+            Type :
+            = room.rmtyp_description
+          %li
+            Team Learning :
+            = team_learning?(room.room_characteristics)
           -# %li.list-inline-item Parking : Available
 
         -# %button.btn.btn-outline-primary{:type => "button"} Contact Us
