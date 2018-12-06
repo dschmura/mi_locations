@@ -17,6 +17,7 @@ Rails.start()
 import Turbolinks from 'turbolinks'
 Turbolinks.start()
 
+import * as Clipboard from 'clipboard'
 
 import Vue from 'vue/dist/vue.esm'
 
@@ -50,3 +51,9 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 })
+$(document).ready(function(){
+
+  var clipboard = new Clipboard('.clipboard-btn');
+  console.log(clipboard);
+
+});
