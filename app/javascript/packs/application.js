@@ -27,6 +27,7 @@ Vue.use(TurbolinksAdapter)
 import App from '../components/app.vue'
 Vue.component('app', App)
 
+Vue.config.ignoredElements = ['trix-toolbar', 'trix-editor']
 // import Map from '../components/buildings_maps.vue'
 // Vue.component('buildings_maps', Map)
 
@@ -52,8 +53,10 @@ document.addEventListener('turbolinks:load', () => {
   })
 })
 $(document).ready(function(){
+  $( ".clipboard-btn" ).click(function() {
+    var clipboard = new Clipboard('.clipboard-btn');
+    console.log(clipboard);
+  });
 
-  var clipboard = new Clipboard('.clipboard-btn');
-  console.log(clipboard);
 
 });
