@@ -10,17 +10,26 @@
             %i.fas.fa-sliders-h
             Filters
     .row.rooms-search-selects
-      .col.ml-2
-        %select.form-control.form-control-sm.search-by-building
-          %i.fas.fa-building
-          %option Search By Building
       .col.mr-2
-        %select.form-control.form-control-sm.search-by-school-or-college
-          %option
-            %i.fas.fa-project-diagram
-            Search By School or College
 
+        %select.selectpicker{"data-live-search" => "true", :multiple => "multiple", :title => "Search by Buildings", :name => "room[building_id]", onchange: 'this.form.submit();'}
+          - Building.classroom_buildings.each do |building|
+            %option{:value => building.id, "data-tokens" => "#{building.name}"}= building.nick_name
+      .col.ml-2
+
+        %select.selectpicker{"data-live-search" => "true", :multiple => "multiple", :title => "Search by Schools or Colleges", onchange: 'this.form.submit();'}
+          %option{"data-tokens" => "ketchup mustard"} Hot Dog, Fries and a Soda
+          %option{"data-tokens" => "mustard"} Burger, Shake and a Smile
+          %option{"data-tokens" => "frosting"} Sugar, Spice and all things nice
+      .row
+        = f.collection_select :building_id_in, Building.classroom_buildings, :id, :nick_name, onchange: 'this.form.submit();',  :title => "Search by Buildings", multiple: 'multiple', class: 'selectpicker'
 
 
     .rooms-search-matches
       = "#{@q.result.count} Matches"
+
+
+/ Latest compiled and minified CSS
+%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css", :rel => "stylesheet"}/
+/ Latest compiled and minified JavaScript
+%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"}

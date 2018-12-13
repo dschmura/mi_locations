@@ -36,5 +36,10 @@
           Team Learning :
           = team_learning?(room.room_characteristics)
 
-      %button.btn.clipboard-btn{"data-clipboard-text" => "#{room.room_number} #{room.building.nick_name} \nStudent Capacity: #{room.instructional_seating_count}\nCalendar Link: https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }\nLocation: #{room.building.nick_name.titleize}, #{room.building.address.titleize}"}
+      %button.btn.btn-sm.clipboard-btn{"data-clipboard-text" => "#{room.room_number} #{room.building.nick_name} \nStudent Capacity: #{room.instructional_seating_count}\nCalendar Link: https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }\nLocation: #{room.building.nick_name.titleize}, #{room.building.address.titleize}"}
+        %i.fas.fa-copy
         Copy to clipboard
+
+      %button.btn.btn-sm
+        %i.fas.fa-map
+        Map

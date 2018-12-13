@@ -27,4 +27,9 @@ class Building < ApplicationRecord
   validates_presence_of :bldrecnbr, :name, :address, :city, :state, :zip, :country
 
   geocoded_by :address   # can also be an IP address
+
+  def self.classroom_buildings
+    Building.joins(:rooms).merge(Room.classrooms).distinct(&:id)
+  end
+
 end
