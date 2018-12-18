@@ -22,6 +22,12 @@ class Building < ApplicationRecord
   # has_one_attached :main_picture
 
   has_many :rooms, dependent: :destroy
+
+  has_many :classrooms, -> { classrooms }, class_name: 'Room'
+  has_many :classrooms_labs, -> { classrooms_labs }, class_name: 'Room'
+  has_many :team_learning_classrooms, -> { team_learning_classrooms }, class_name: 'Room'
+
+  has_many :floors, dependent: :destroy
   has_many :alerts, as: :alertable, dependent: :destroy
 
   validates_presence_of :bldrecnbr, :name, :address, :city, :state, :zip, :country

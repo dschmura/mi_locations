@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  
+  %b Label:
+  = @floor.label
+%p
+  %b Building:
+  = @floor.building
+
+= link_to 'Edit', edit_building_floor_path(@floor)
+\|
+= link_to 'Back', building_floors_path

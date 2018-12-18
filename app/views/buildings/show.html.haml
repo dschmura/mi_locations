@@ -4,7 +4,14 @@
 
 = render partial: 'alerts/alerts', locals: {alertable: @building}
 = render partial: 'alerts/form', locals: {alertable: @building}
-
-%h3= "Classrooms in #{@building.nick_name.titleize}"
-- @building.rooms.classrooms.each do |classroom|
-  %li= link_to "#{classroom.room_number} #{classroom.building.nick_name.titleize}", classroom
+.row
+  .col-6
+    %h3= "Classrooms in #{@building.nick_name.titleize}"
+    - @building.rooms.classrooms.each do |classroom|
+      %li= link_to "#{classroom.room_number} #{classroom.building.nick_name.titleize}", classroom
+  .col-6
+    %h3 Add a Floor
+    = render partial: 'floors/form', locals: {building: @building}
+    %h3= "Floors in #{@building.name}"
+    %tbody
+      = render @building.floors

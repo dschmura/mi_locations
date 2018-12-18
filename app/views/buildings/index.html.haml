@@ -12,10 +12,10 @@
             Submit
     .buildings-search-matches
       = "#{@q.result.count} Matches"
-
-.buildings-results
+.row.building-badges
   - @buildings.each do |building|
-    .row
-      = link_to building.name, building
-      = building.address
-      = building.city
+    = render partial: 'building_badge', locals: {building: building}
+.row
+  = render @buildings
+-# .buildings-results
+-#   = render partial: 'building', collection: @buildings
