@@ -1,0 +1,6 @@
+%tr
+  %td=floor.label
+  %td=floor.building_id
+  %td= link_to 'Show', [@building, floor]
+  %td= link_to 'Edit', [:edit, @building, floor]
+  %td= link_to 'Destroy', [@building, floor], method: :delete, data: { confirm: 'Are you sure?' }

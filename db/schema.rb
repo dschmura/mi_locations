@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_144206) do
+ActiveRecord::Schema.define(version: 2018_12_14_203409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(version: 2018_10_08_144206) do
     t.index ["nick_name"], name: "index_buildings_on_nick_name"
   end
 
+  create_table "floors", force: :cascade do |t|
+    t.string "label"
+    t.bigint "building_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_floors_on_building_id"
+  end
+
   create_table "room_characteristics", force: :cascade do |t|
     t.integer "rmrecnbr"
     t.integer "chrstc"
@@ -134,6 +142,7 @@ ActiveRecord::Schema.define(version: 2018_10_08_144206) do
     t.index ["uniqname"], name: "index_users_on_uniqname", unique: true
   end
 
+  add_foreign_key "floors", "buildings"
   add_foreign_key "room_characteristics", "rooms"
   add_foreign_key "room_contacts", "rooms"
   add_foreign_key "rooms", "buildings"
