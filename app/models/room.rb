@@ -31,4 +31,14 @@ class Room < ApplicationRecord
   def self.classrooms
     where(rmtyp_description: ['Classroom', 'Class Laboratory'] )
   end
+
+  def self.classrooms_labs
+    where(rmtyp_description: ['Class Laboratory'] )
+  end
+
+  def self.team_learning_classrooms
+    where(rmtyp_description: ['Classroom'] )
+  end
+
+
 end

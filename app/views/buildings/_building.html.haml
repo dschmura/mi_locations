@@ -1,0 +1,45 @@
+.media.pt-2.px-4.rooms-card.border.rounded
+  = link_to building do
+    .rooms-building-badge
+      = image_tag("http://placekitten.com/75/75", alt: "Image for  #{building.nick_name}",class: 'd-flex align-self-center mr-3 rounded-circle')
+      .rooms-building-address
+        = "#{building.nick_name.titleize}"
+        %br= building.address
+  .media-body
+    %h5.float-left
+      = link_to "#{building.nick_name}", building
+
+    %p.float-right
+      %i.fas.fa-users
+      Student Capacity:
+
+
+    %br
+    %hr.border-dark
+
+
+    .rooms-card-details.float-left
+      %ul
+        %li
+          TOTAL Classrooms :
+          = building.classrooms.count
+        %li
+          Classroom Labs :
+          = building.classrooms_labs.count
+
+        %li
+          Team Learning :
+          = building.team_learning_classrooms.count
+
+    .rooms-card-floors.float-right
+      %ul
+        %li Map :
+        %li Directions :
+        %li Contact :
+
+
+
+
+
+      -# %button.btn.clipboard-btn{"data-clipboard-text" => "#{room.room_number} #{building.nick_name} \nStudent Capacity: #{room.instructional_seating_count}\nCalendar Link: https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }\nLocation: #{building.nick_name.titleize}, #{building.address.titleize}"}
+      -#   Copy to clipboard

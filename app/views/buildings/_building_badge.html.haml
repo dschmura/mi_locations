@@ -1,0 +1,15 @@
+-# = link_to(room) do
+.media.p-5
+
+  .building-badge
+    = image_tag("http://placekitten.com/125/125", alt: "Image for  #{building.nick_name}",class: 'd-flex align-self-center mr-3 rounded-circle')
+    .building-address
+      = truncate(building.nick_name.titleize, length: 20)
+      %br= truncate(building.address, length: 20)
+
+
+    %a{"data-placement" => "bottom", "data-content" => "And here's some amazing content. It's very engaging. Right?", "data-toggle" => "popover", "data-trigger" => "focus", :role => "button", :tabindex => "0", :title => "Dismissible popover"} Additional Info
+
+
+    -# %button.btn.clipboard-btn{"data-clipboard-text" => "#{room.room_number} #{building.nick_name} \nStudent Capacity: #{room.instructional_seating_count}\nCalendar Link: https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }\nLocation: #{building.nick_name.titleize}, #{building.address.titleize}"}
+    -#   Copy to clipboard

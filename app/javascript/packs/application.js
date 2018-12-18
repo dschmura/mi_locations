@@ -42,7 +42,10 @@ import 'trix/dist/trix.css'
 
 
 document.addEventListener('turbolinks:load', () => {
-  const app = new Vue({
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  });
+const app = new Vue({
     el: '[data-behavior="vue"]',
     data: {
       message: "Can you say hello?"
