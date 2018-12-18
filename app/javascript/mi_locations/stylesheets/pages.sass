@@ -4,22 +4,44 @@
 
 $hero-nav-badge-size: 8rem
 
+.landing-page--banner
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  padding-top: 12rem
+  h1
+    color: $um_blue
+
+  .landing-page--brand
+
+    padding: 1rem
+
+    a
+      color: $um_blue
+    .header-logo
+      height: 55px
+    .site-name
+      position: relative
+      bottom: 1rem
+      font-size: $font-size-base * 4
+      padding: 0 0 0 1rem
+
 /* The hero image */
 .hero-image
   /* The image used */
-  min-height: 900px
+
   background-color: $angell_hall_ash
 
   background-image: url("../images/vistas/Burton_Winter.jpg")
   /* Set a specific height */
-  height: 70rem
+  height: 60vh
   /* Position and center the image to scale nicely on all screens */
-  background-position: center
+  background-position: top
   background-repeat: no-repeat
   background-size: cover
-  position: relative
-  opacity: 0.6
-  margin: -0.9rem -1.1rem 0 -1rem
+
+
 
 /* Place text in the middle of the image */
 .hero-text
