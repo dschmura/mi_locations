@@ -1,49 +1,41 @@
 @import 'variables'
 
+.icon
+  color: white
+  fille: white
+polygon
+  #Block-M
+    fill: red
+  stroke: #fff
+  &:hover
+    fill: red
+
 header
   background-color: $header-background
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  justify-content: space-between
-  align-items: center
   a
-    color: $header-link-color
+    color: white
     text-decoration: none
     font-size: $font-size-base * 1.2
   a:hover
     color: transparentize($header-link-color, 0.2)
+    text-decoration: none
 
-.header-brand
-  display: flex
-  align-items: center
-  padding: 1rem
-  .header-logo
-    height: 55px
-  .site-name
-    font-size: $font-size-base * 2
-    padding: 0 0 0 1rem
+// .header-brand
+//   display: flex
+//   align-items: center
+//   padding: 1rem
+//   .header-logo
+//     height: 55px
+//   .site-name
+//     font-size: $font-size-base * 3
+//     padding: 0 0 0 0.5rem
+//     position: relative
+//     top: 0.5rem
 
 .header-links
-  justify-content: flex-end
+
   list-style: none
-  padding: 0 1rem
+
   li
     display: inline
-    padding: 0 1rem 0 1rem
-
-@media only screen and (max-width: 900px)
-  header
-    justify-content: center
-
-  .header-logo
-    flex-flow: column wrap
-    justify-content: space-between
-    align-items: center
-    img
-      height: 45px
-
-  .header-links ul
-    li
-      justify-content: center
-      padding: 0 0.5rem 0 0.5rem
+    padding: 0 1rem

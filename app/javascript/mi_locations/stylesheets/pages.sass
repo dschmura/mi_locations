@@ -4,6 +4,11 @@
 
 $hero-nav-badge-size: 8rem
 
+.landing-page--search-bar
+  background-color: transparentize($heather_blue, 0.1)
+  border-radius: 1rem
+.header-logo
+  height: 55px
 .landing-page--banner
   display: flex
   flex-direction: column
@@ -19,6 +24,9 @@ $hero-nav-badge-size: 8rem
 
     a
       color: $um_blue
+      &:hover
+        text-decoration: none
+        color: transparentize($um_blue, 0.2)
     .header-logo
       height: 55px
     .site-name
@@ -29,17 +37,21 @@ $hero-nav-badge-size: 8rem
 
 /* The hero image */
 .hero-image
+    background-color: $angell_hall_ash
+
+    background-image: url("../images/vistas/Burton_Winter.jpg")
+    /* Set a specific height */
+    height: 60vh
+    /* Position and center the image to scale nicely on all screens */
+    background-position: top
+    background-repeat: no-repeat
+    background-size: cover
+.hero-image
+  .container
+    opacity: 1
   /* The image used */
 
-  background-color: $angell_hall_ash
 
-  background-image: url("../images/vistas/Burton_Winter.jpg")
-  /* Set a specific height */
-  height: 60vh
-  /* Position and center the image to scale nicely on all screens */
-  background-position: top
-  background-repeat: no-repeat
-  background-size: cover
 
 
 
