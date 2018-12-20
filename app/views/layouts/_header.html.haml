@@ -1,11 +1,11 @@
 %header
-  %nav.navbar
+  %nav.navbar.header-navbar
 
-    = link_to root_path, class: 'navbar-brand' do
-      = image_tag(asset_pack_path('mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'header-logo')
+    = link_to root_path, class: '' do
+      = image_tag(asset_pack_path('mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'header-logo navbar-brand')
 
 
-    %nav.header-links.justify-content-end
+    %nav.header-links
       %ul
         %li= link_to "Buildings", buildings_path
         %li= link_to "Classrooms", classrooms_path

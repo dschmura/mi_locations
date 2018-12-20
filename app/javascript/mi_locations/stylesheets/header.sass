@@ -1,14 +1,11 @@
+@import '~bootstrap/scss/functions'
+@import '~bootstrap/scss/bootstrap'
 @import 'variables'
 
-.icon
-  color: white
-  fille: white
-polygon
-  #Block-M
-    fill: red
-  stroke: #fff
-  &:hover
-    fill: red
+.header-logo
+  height: 55px
+
+
 
 header
   background-color: $header-background
@@ -20,22 +17,28 @@ header
     color: transparentize($header-link-color, 0.2)
     text-decoration: none
 
-// .header-brand
-//   display: flex
-//   align-items: center
-//   padding: 1rem
-//   .header-logo
-//     height: 55px
-//   .site-name
-//     font-size: $font-size-base * 3
-//     padding: 0 0 0 0.5rem
-//     position: relative
-//     top: 0.5rem
-
 .header-links
-
   list-style: none
-
   li
     display: inline
     padding: 0 1rem
+
+
+@include media-breakpoint-down(sm)
+  header
+    text-align: center
+    align-items: center
+    justify-content: center
+
+  .header-navbar
+    display: flex
+    flex-direction: column
+    text-align: center
+    align-items: center
+    justify-content: center
+
+  .header-logo
+    height: 35px
+  .header-links
+    li
+      padding: 0.5rem
