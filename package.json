@@ -20,6 +20,7 @@
     "postcss-cssnext": "^3.1.0",
     "rails-ujs": "^5.2.1",
     "stimulus": "^1.1.0",
+    "tailwindcss": "^0.7.3",
     "turbolinks": "^5.1.1",
     "vue": "^2.5.17",
     "vue-loader": "^15.4.2",
@@ -29,7 +30,6 @@
     "webpack": "^4.25.1"
   },
   "devDependencies": {
-    "tailwindcss": "^0.7.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   }
