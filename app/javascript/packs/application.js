@@ -42,6 +42,7 @@ import 'trix/dist/trix.css'
 
 
 document.addEventListener('turbolinks:load', () => {
+  FontAwesome.dom.i2svg();
   $(function () {
     $('[data-toggle="popover"]').popover()
   });
