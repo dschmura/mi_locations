@@ -12,68 +12,95 @@
 
       / End Promo Block Info
       / Form Group
+
+
       = search_form_for @q do |f|
         .landing-page--search-bar
-          .row.buildings-search-field
-            .input-group.mt-1.mx-4
-              = f.search_field :name_or_nick_name_or_abbreviation_cont, class: 'form-control', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
-              .input-group-append
-                %button#button-addon2.btn.btn-success
-                  %i.fas.fa-search
-                    Submit
+
+          .landing-page-search-group
+
+            = f.search_field :name_or_nick_name_or_abbreviation_cont, class: 'landing-page-search-field', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+            .landing-page-search-button.-mr-px
+              %span
+                %i.fas.fa-search
+                = f.submit class: 'SearchMe'
+
+            -# .landing-page-search-button.-mr-px
+            -#   %span
+            -#     %i.fas.fa-search
+            -#     = f.submit class: 'SearchMe'
+                -# %i.fas.fa-search
+                -# .px-2 'Search'
+          .landing-page-search-dropdowns.pb-4
+
+            = link_to(buildings_path, alt: 'Buildings Map') do
+              %button.btn.btn-light{:type => "submit"}
+                Filter by Buildings
+
+            = link_to(classrooms_path,  alt: 'Classroom Search') do
+              %button.btn.btn-light{:type => "submit"}
+                Filter by School or College
+
+
+
+
+
+          -# .buildings-search-field
+          -#
+          -#   = f.search_field :name_or_nick_name_or_abbreviation_cont, class: 'landing-page-search-field', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+          -#   .flex.-mr-px
+          -#     %span.flex.items-center.leading-normal.bg-green.rounded.rounded-l-none.border.border-l-0.border-grey-light.px-3.whitespace-no-wrap.text-white.text-sm.h-10.-ml-2
+          -#       %i.fas.fa-search
+          -#       .px-2 submit
+              -# .input-group-append
+              -#   %button#button-addon2.btn.btn-success
+              -#     %i.fas.fa-search
+              -#       Submit
           -# %form
           -#   %input.form-control{:placeholder => "Search by building name or abbreviation", :type => "text"}
-          .row.pb-4
-            .col-sm-6
-              = link_to(buildings_path, alt: 'Buildings Map') do
-                %button.btn.btn-light{:type => "submit"}
-                  Filter by Buildings
-            .col-sm-6
-              = link_to(classrooms_path,  alt: 'Classroom Search') do
-                %button.btn.btn-light{:type => "submit"}
-                  Filter by School or College
 
 
-.container
-  / Heading
-  .text-center
-    %h2.h1 Classroom Briefs
-    %p Learn how to find the best room for your teaching needs.
-  / End Heading
-  .row
 
-    %article.col-md-4
-      .article-card
-        %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
-
-        %h3 Team Learning
-        %p
-          With Team Learning you can enhance the learning experience, increase accessability and improve pedagogical outcomes. The University of Michigan's College of Literature Science and Art has been at the forefront of the university's efforts to incorporate team learning approaches in more classes.
-
-
-    %article.col-md-4
-      .article-card
-        %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
-
-        %h3 Updating MPathways
-        %p
-          Unify's Faculty of Graduate Studies is home to over 3500 students studying in
-          = succeed "," do
-            %a{:href => "page-programs-1.html"} over 160 graduate programs
-      %a.btn.u-shadow-v39.g-color-white.g-color-white--hover.g-bg-main.g-bg-primary--hover{:href => "page-apply-1.html"} Start Your Application
-
-
-    %article.col-md-4
-      .article-card
-        %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
-
-        %h3 Continuing Studies
-        %p
-          Take the next step on your journey with
-          %a{:href => "#"} continuing studies
-          and professional-development programs at Unify. Learn skills that will benefit your current job, or head down an entirely new career path.
-
-
+-# .container
+-#   / Heading
+-#   .text-center
+-#     %h2.h1 Classroom Briefs
+-#     %p Learn how to find the best room for your teaching needs.
+-#   / End Heading
+-#   .row
+-#
+-#     %article.col-md-4
+-#       .article-card
+-#         %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
+-#
+-#         %h3 Team Learning
+-#         %p
+-#           With Team Learning you can enhance the learning experience, increase accessability and improve pedagogical outcomes. The University of Michigan's College of Literature Science and Art has been at the forefront of the university's efforts to incorporate team learning approaches in more classes.
+-#
+-#
+-#     %article.col-md-4
+-#       .article-card
+-#         %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
+-#
+-#         %h3 Updating MPathways
+-#         %p
+-#           Unify's Faculty of Graduate Studies is home to over 3500 students studying in
+-#           = succeed "," do
+-#             %a{:href => "page-programs-1.html"} over 160 graduate programs
+-#       %a.btn.u-shadow-v39.g-color-white.g-color-white--hover.g-bg-main.g-bg-primary--hover{:href => "page-apply-1.html"} Start Your Application
+-#
+-#
+-#     %article.col-md-4
+-#       .article-card
+-#         %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
+-#
+-#         %h3 Continuing Studies
+-#         %p
+-#           Take the next step on your journey with
+-#           %a{:href => "#"} continuing studies
+-#           and professional-development programs at Unify. Learn skills that will benefit your current job, or head down an entirely new career path.
+-#
+-#
 
 
 

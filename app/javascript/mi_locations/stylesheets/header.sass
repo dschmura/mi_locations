@@ -1,11 +1,12 @@
-@import '~bootstrap/scss/functions'
-@import '~bootstrap/scss/bootstrap'
+@tailwind preflight
+@tailwind components
+@tailwind utilities
+// @import '~bootstrap/scss/functions'
+// @import '~bootstrap/scss/bootstrap'
 @import 'variables'
 
 .header-logo
   height: 55px
-
-
 
 header
   background-color: $header-background
@@ -24,21 +25,21 @@ header
     padding: 0 1rem
 
 
-@include media-breakpoint-down(sm)
-  header
-    text-align: center
-    align-items: center
-    justify-content: center
-
-  .header-navbar
-    display: flex
-    flex-direction: column
-    text-align: center
-    align-items: center
-    justify-content: center
-
-  .header-logo
-    height: 35px
-  .header-links
-    li
-      padding: 0.5rem
+// @include media-breakpoint-down(sm)
+//   header
+//     text-align: center
+//     align-items: center
+//     justify-content: center
+//
+//   .header-navbar
+//     display: flex
+//     flex-direction: column
+//     text-align: center
+//     align-items: center
+//     justify-content: center
+//
+//   .header-logo
+//     height: 35px
+//   .header-links
+//     li
+//       padding: 0.5rem

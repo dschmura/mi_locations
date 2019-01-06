@@ -1,2 +1,53 @@
 %h1 Pages#about
 %p Find me in app/views/pages/about.html.haml
+.content-area.font-sans.leading-tight.min-h-screen.bg-grey-lighter.p-8
+  .max-w-xl.mx-auto.bg-white.rounded-lg.overflow-hidden.shadow-lg
+    .bg-cover.h-48{:style => "background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');"}
+    -# = image_tag asset_pack_path('mi_locations/images/building_originals/chem.jpg'), alt: 'Undergraduate Science Building exterior'
+    .border-b.px-4.pb-6
+      .text-center.sm:text-left.sm:flex.mb-4
+        .-mt-8.mr-4
+          = image_tag asset_pack_path('mi_locations/images/building_originals/chem.jpg'), alt: 'Undergraduate Science Building exterior', class: 'rounded-full h-16 w-16 shadow-lg shadow-inner'
+      .py-2
+        %h3.font-bold.text-2xl.mb-1 Undergraduate Sciences Building
+
+        %button.inline-flex.rounded-full.bg-green.px-3.py-1.text-white
+          %i.fas.fa-map-marked-alt.rounded-full.mr-2
+          .text-green-lighter Directions
+
+        .inline-flex.text-grey-dark.sm:flex.items-center
+          %i.fas.fa-map-marker-alt.mr-1
+          204 Washtenaw Ave. Ann Arbor, MI
+      .flex
+        %button.flex-1.rounded-full.bg-blue.text-white.antialiased.font-bold Details
+        %button.flex-1.rounded-full.border-2.border-grey.font-semibold.text-black.px-4.py-2 Map
+    .px-4.py-4
+      .text-grey-darker.mb-4
+        %i.fas.fa-chalkboard.mx-1
+        %span
+          %strong.text-black 12
+          Classrooms
+        %i.fas.fa-flask.mx-1
+        %span
+          %strong.text-black 12
+          Classroom Labs
+      .characteristics
+        .flex.flex-row.mr-2
+          .characteristic
+            %i.fas.fa-envelope
+          .characteristic
+            %i.fas.fa-map
+          .characteristic
+            %i.fas.fa-bus
+          .characteristic
+            %i.fas.fa-podcast
+          .characteristic
+            %i.fas.fa-envelope
+          .characteristic
+            %i.fas.fa-map
+          .characteristic
+            %i.fas.fa-bus
+          .characteristic
+            %i.fab.fa-github
+          .characteristic
+            %i.fab.fa-linkedin-in

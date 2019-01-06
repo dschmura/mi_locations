@@ -1,6 +1,8 @@
 .buildings-results-map
   MAP
 
+
+
 = search_form_for @q do |f|
   .buildings-search-bar
     .row.buildings-search-field
@@ -12,7 +14,7 @@
             Submit
     .buildings-search-matches
       = "#{@q.result.count} Matches"
-.row.building-badges
+.building-badges.inline-flex.bg-blue.h-64.overflow-x-auto.w-100
   - @buildings.each do |building|
     = render partial: 'building_badge', locals: {building: building}
 .row

@@ -43,24 +43,23 @@ import 'trix/dist/trix.css'
 
 document.addEventListener('turbolinks:load', () => {
   FontAwesome.dom.i2svg();
-  $(function () {
-    $('[data-toggle="popover"]').popover()
-  });
-const app = new Vue({
-    el: '[data-behavior="vue"]',
-    data: {
-      message: "Can you say hello?"
-    },
-    components: {
-      App
-    }
-  })
+//   $(function () {
+//     $('[data-toggle="popover"]').popover()
+//   });
+// const app = new Vue({
+//     el: '[data-behavior="vue"]',
+//     data: {
+//       message: "Can you say hello?"
+//     },
+//     components: {
+//       App
+//     }
+//   })
 })
 $(document).ready(function(){
   $( ".clipboard-btn" ).click(function() {
     var clipboard = new Clipboard('.clipboard-btn');
     console.log(clipboard);
   });
-
 
 });
