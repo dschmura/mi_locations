@@ -62,69 +62,40 @@
 
 
 -# .container
--#   / Heading
--#   .text-center
--#     %h2.h1 Classroom Briefs
--#     %p Learn how to find the best room for your teaching needs.
--#   / End Heading
--#   .row
--#
--#     %article.col-md-4
--#       .article-card
--#         %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
--#
--#         %h3 Team Learning
--#         %p
--#           With Team Learning you can enhance the learning experience, increase accessability and improve pedagogical outcomes. The University of Michigan's College of Literature Science and Art has been at the forefront of the university's efforts to incorporate team learning approaches in more classes.
--#
--#
--#     %article.col-md-4
--#       .article-card
--#         %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
--#
--#         %h3 Updating MPathways
--#         %p
--#           Unify's Faculty of Graduate Studies is home to over 3500 students studying in
--#           = succeed "," do
--#             %a{:href => "page-programs-1.html"} over 160 graduate programs
--#       %a.btn.u-shadow-v39.g-color-white.g-color-white--hover.g-bg-main.g-bg-primary--hover{:href => "page-apply-1.html"} Start Your Application
--#
--#
--#     %article.col-md-4
--#       .article-card
--#         %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
--#
--#         %h3 Continuing Studies
--#         %p
--#           Take the next step on your journey with
--#           %a{:href => "#"} continuing studies
--#           and professional-development programs at Unify. Learn skills that will benefit your current job, or head down an entirely new career path.
--#
--#
+  / Heading
+  .text-center
+    %h2.h1 Classroom Briefs
+    %p Learn how to find the best room for your teaching needs.
+  / End Heading
+  .row
+
+    %article.col-md-4
+      .article-card
+        %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
+
+        %h3 Team Learning
+        %p
+          With Team Learning you can enhance the learning experience, increase accessability and improve pedagogical outcomes. The University of Michigan's College of Literature Science and Art has been at the forefront of the university's efforts to incorporate team learning approaches in more classes.
 
 
+    %article.col-md-4
+      .article-card
+        %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
+
+        %h3 Updating MPathways
+        %p
+          Unify's Faculty of Graduate Studies is home to over 3500 students studying in
+          = succeed "," do
+            %a{:href => "page-programs-1.html"} over 160 graduate programs
+      %a.btn.u-shadow-v39.g-color-white.g-color-white--hover.g-bg-main.g-bg-primary--hover{:href => "page-apply-1.html"} Start Your Application
 
 
--# .hero-image
--#   .hero-text
--#     %h1 Classroom Database
--#     %h3 Get a room
--#
--#   .row.flex-row.hero-nav
--#     .col-md-4
--#
--#       = link_to(buildings_path, alt: 'Buildings Map') do
--#         .hero-nav---map.rounded-circle.text-center
--#           -# Content defined in pages.sass
--#
--#
--#     .col-md-4
--#       = link_to(classrooms_path,  alt: 'Classroom Search') do
--#         .hero-nav---search.rounded-circle.text-center
--#           -# Content defined in pages.sass
--#
--#
--#     .col-md-4
--#       = link_to(about_path,  alt: 'About') do
--#         .hero-nav---about.rounded-circle.text-center
--#           -# Content defined in pages.sass
+    %article.col-md-4
+      .article-card
+        %img.img-fluid{:alt => "Image Description", :src => "http://placekitten.com/600/350"}/
+
+        %h3 Continuing Studies
+        %p
+          Take the next step on your journey with
+          %a{:href => "#"} continuing studies
+          and professional-development programs at Unify. Learn skills that will benefit your current job, or head down an entirely new career path.
