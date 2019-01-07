@@ -1,6 +1,35 @@
-@import '~bootstrap/scss/functions'
-@import '~bootstrap/scss/bootstrap'
 @import 'variables'
+
+.filters
+  @apply flex flex-wrap
+
+  @screen sm
+    @apply text-base
+    .filter-group
+      @apply w-1/2 text-base
+
+  @screen md
+    @apply text-base
+    .filter-group
+      @apply w-1/3  text-base text-xl
+
+  @screen lg
+    @apply text-base
+    .filter-group
+      @apply w-1/4
+
+.filter-group
+  @apply flex flex-wrap text-base text-blue-darkest w-full bg-blue-darker p-2 border-4 border-white rounded leading-none h-auto
+
+.filter-checkboxes
+  @apply ml-4 text-base
+  label
+    @apply text-blue-lightest
+
+.filter-title
+  @apply text-grey-light items-end  w-full
+  svg
+    @apply text-blue-light mr-4
 
 .rooms-search-bar
   background-color: $heather_blue
@@ -9,22 +38,7 @@
 .rooms-search-field
   padding: 1rem 0 1rem 0rem
 
-.rooms-search-filters
-  @include make-col(12)
-  background-color: transparentize($heather_blue, 0.4)
-
-.filters--list
-  @include make-col-offset(1)
-  @include make-col(3)
-  .form-check
-    line-height: 0.8rem
-    margin-left: 1rem
-  h5
-    margin: 1rem 0
-    color: white
-
 .search-by-building
-
   margin-bottom: 1rem
 
 .search-by-school-or-college
@@ -34,81 +48,9 @@
 .rooms-search-matches
   color: white
 
-
-.filter-cards
-  .card
-    margin: 0 1rem
-    background-color: transparentize($bone, 1)
-    border-style: none
-  .card-body
-    padding: 0 0 0 1rem
-
-    .card-text
-      margin-left: 1rem
-  .card-title
-    color: white
-@include media-breakpoint-up(xs)
-  .filter-cards
-    .card-columns
-      column-count: 1
-    .form-check
-      line-height: 0.5rem
-
-@include media-breakpoint-up(sm)
-  .filter-cards
-    .card-body
-
-    .card-columns
-      column-count: 2
-@include media-breakpoint-up(md)
-  .filter-cards
-    .card-columns
-      column-count: 3
-@include media-breakpoint-up(lg)
-  .filter-cards
-    .card-columns
-      column-count: 4
-
-@include media-breakpoint-up(xl)
-  .filter-cards
-    .card-columns
-      column-count: 5
-
 .rooms-card
   background-color: transparentize($bone, 0.5)
   margin: 1rem
 
 .rooms-building-badge
-
   font-size: 0.8rem
-
-// ALT
-
-// .card-columns
-//   @include media-breakpoint-only(xl)
-//
-//     background-color: orange
-//     column-count: 5
-//     -webkit-column-count: 5
-//     -moz-column-count: 5
-//
-//   @include media-breakpoint-only(lg)
-//
-//     background-color: red
-//     column-count: 4
-//     -webkit-column-count: 4
-//     -moz-column-count: 4
-//
-//   @include media-breakpoint-only(md)
-//
-//     background-color: blue
-//     column-count: 3
-//     -webkit-column-count: 3
-//     -moz-column-count: 3
-//
-//   @include media-breakpoint-only(sm)
-//
-//     background-color: green
-//     column-count: 2
-//     -webkit-column-count: 2
-//     -moz-column-count: 2
