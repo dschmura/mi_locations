@@ -1,22 +1,22 @@
 @import 'variables'
 
 .header-logo
-  height: 55px
+  @apply min-h-full pl-4 py-2
+
 
 header
-  background-color: $header-background
+  @apply bg-um-blue flex flex-wrap items-center justify-center
   a
     @apply text-blue-lightest font-sans no-underline text-xl
-
   a:hover
-    color: transparentize($header-link-color, 0.2)
-    text-decoration: none
+    @apply text-um-maize-lighter no-underline
 
+  @screen sm
+    @apply justify-around
 .header-links
-  list-style: none
-  li
-    display: inline
-    padding: 0 1rem
+  @apply flex flex-no-wrap
+  a
+    @apply px-4
 
 
 // @include media-breakpoint-down(sm)
