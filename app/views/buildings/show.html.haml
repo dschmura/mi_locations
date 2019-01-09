@@ -9,7 +9,7 @@
   .building-classrooms
     %h3= "Classrooms in #{@building.nick_name.titleize}"
     - @building.rooms.classrooms.each do |classroom|
-      %li= link_to "#{classroom.room_number} #{classroom.building.nick_name.titleize}", classroom
+      .classroom-link= link_to "#{classroom.room_number} #{classroom.building.nick_name.titleize}", classroom
   .building-floors
     %h3 Add a Floor
     = render partial: 'floors/form', locals: {building: @building}
