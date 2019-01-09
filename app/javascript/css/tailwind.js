@@ -44,6 +44,23 @@ let defaultConfig = require('tailwindcss/defaultConfig')()
 */
 
 let colors = {
+
+  'um-blue-darkest': '#001529',
+  'um-blue-darker': '#06223D',
+  'um-blue-dark': '#00274C',
+  'um-blue': '#00274c',
+  'um-blue-light': '#3E6C98',
+  'um-blue-lighter': '#7CA6CF',
+  'um-blue-lightest': '#EBF4FC',
+
+  'um-maize-darkest': '#574500',
+  'um-maize-darker': '#7A6104',
+  'um-maize-dark': '#C6A31D',
+  'um-maize': '#ffcb05',
+  'um-maize-light': '#F6D866',
+  'um-maize-lighter': '#F7ECC4',
+  'um-maize-lightest': '#FDF9ED',
+
   'transparent': 'transparent',
 
   'black': '#22292f',
