@@ -1,15 +1,16 @@
-%h1 Buildings#show
-%p Find me in app/views/buildings/show.html.haml
-= @building.name
-
-= render partial: 'alerts/alerts', locals: {alertable: @building}
-= render partial: 'alerts/form', locals: {alertable: @building}
+.building-name
+  = @building.name
+.building-address
+  = @building.address
+.building-alerts
+  = render partial: 'alerts/alerts', locals: {alertable: @building}
+  = render partial: 'alerts/form', locals: {alertable: @building}
 .row
-  .col-6
+  .building-classrooms
     %h3= "Classrooms in #{@building.nick_name.titleize}"
     - @building.rooms.classrooms.each do |classroom|
       %li= link_to "#{classroom.room_number} #{classroom.building.nick_name.titleize}", classroom
-  .col-6
+  .building-floors
     %h3 Add a Floor
     = render partial: 'floors/form', locals: {building: @building}
     %h3= "Floors in #{@building.name}"
