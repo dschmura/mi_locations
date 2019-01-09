@@ -1,14 +1,18 @@
 @import 'variables'
 .alert-form
-  @apply w-1/2 p-3 self-center
+  @apply bg-um-blue-lightest my-4 rounded-lg shadow-md
   .alert-level
-    @apply bg-um-blue-lightest text-xl py-3 pl-2
+    @apply bg-green-lighter text-xl py-3 pl-2
   .alert-content
+    @apply bg-white
 
 .building-alerts
+  .alert-form
+    @apply justify-center content-center self-center mx-4
+    // @apply flex flex-row p-3
 
 .mi-alert
-  @apply border-t-4 rounded-b px-4 py-3 shadow-md flex relative
+  @apply border-t-4 rounded-b px-4 py-3 shadow-md flex relative mx-2
   svg
     @apply text-xl mx-2
 
@@ -18,7 +22,7 @@
       @apply text-sm
 
 .alert-severity
-  @apply border-r-2 border-um-blue mr-2 pr-2 text-xl
+  @apply border-r-2 border-um-blue mr-2 pr-2 text-xl w-48
 .alert-message
   @apply w-2/3 block
   @screen sm

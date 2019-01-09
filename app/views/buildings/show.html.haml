@@ -5,7 +5,7 @@
 .building-alerts
   = render partial: 'alerts/alerts', locals: {alertable: @building}
   = render partial: 'alerts/form', locals: {alertable: @building}
-.row
+.flex.flex-row.justify-around
   .building-classrooms
     %h3= "Classrooms in #{@building.nick_name.titleize}"
     - @building.rooms.classrooms.each do |classroom|
@@ -13,6 +13,6 @@
   .building-floors
     %h3 Add a Floor
     = render partial: 'floors/form', locals: {building: @building}
-    %h3= "Floors in #{@building.name}"
+    %h3= "Floors in #{@building.name.titleize}"
     %tbody
       = render @building.floors

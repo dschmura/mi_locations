@@ -1,10 +1,10 @@
 .alert-form
   = form_for [alertable, Alert.new] do |f|
     .alert-level
-      = f.label 'Alert Level', class: ''
+      = f.label 'Alert Level'
       = f.select :severity, options_for_select([['Informational', 'info'],  ['Warning', 'warning'],  ['Danger', 'danger'], ['All Clear', 'success']]), :include_blank => "Alert Level"
     .alert-content
 
-      = f.rich_text_area :message, placeholder: 'Type your alert here: Limit of 140 Characters'
+      = f.rich_text_area :message, placeholder: 'Type your alert here: Limit of 280 Characters'
     .actions
       = f.submit
