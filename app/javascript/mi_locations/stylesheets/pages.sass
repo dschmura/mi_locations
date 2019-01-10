@@ -17,7 +17,7 @@ $hero-nav-badge-size: 8rem
   align-items: center
   padding-top: 12rem
   h1
-    color: #332239
+    @apply text-um-blue
   .landing-page--brand
     padding: 1rem
     a
@@ -44,118 +44,16 @@ $hero-nav-badge-size: 8rem
   background-position: top
   background-repeat: no-repeat
   background-size: cover
-.hero-image
-  .container
-    opacity: 1
-  /* The image used */
-
-/* Place text in the middle of the image */
-// .hero-text
-//   text-align: center
-//   position: absolute
-//   top: 15%
-//   left: 50%
-//   opacity: 1
-//   transform: translate(-50%, -50%)
-//   color: $um-maize
-  // @include media-breakpoint-down(sm)
-  //   font-size: 1
-  //   top: 5%
-  // h3
-  //   color: $um-blue
-  //   display: none
-
-// .hero-nav
-//   text-align: center
-//   align-items: center
-//   display: inline-block
-//   position: absolute
-//   top: 22rem
-//   left: 50%
-//   transform: translate(-50%, -50%)
-  // @include media-breakpoint-down(sm)
-  //   left: 55%
-  // a
-  //   color: white
-  //   font-size: 1.2rem
-  //   &:hover
-  //     color: shade(white, 20%)
-  //     text-decoration: none
-
-.hero-nav---map
-  background-color: $grey
-  width: $hero-nav-badge-size
-  height: $hero-nav-badge-size
-  &:hover
-    color: $bone
-    background: shade($grey, 20%)
-    text-decoration: none
-.hero-nav---map:after
-  content: "\f278 \A Buildings \A Map"
-  white-space: pre-wrap
-  font-family: FontAwesome
-  font-style: normal
-  font-weight: normal
-  text-decoration: none
-  position: relative
-  top: 20%
-  z-index: 1
-
-// .hero-nav---search
-//   background-color: $rackham_roof_green
-//   width: $hero-nav-badge-size
-//   height: $hero-nav-badge-size
-//   a
-//     &:hover
-//       background: shade($rackham_roof_green, 20%)
-//       text-decoration: none
-// .hero-nav---search:after
-//   font-family: FontAwesome
-//   content: "\f002 \A Classrooms \A Search"
-//   white-space: pre-wrap
-//
-//   font-style: normal
-//   font-weight: normal
-//   text-decoration: none
-//   position: relative
-//   top: 20%
-//   z-index: 1
-
-// .hero-nav---about
-//   background-color: $ross_school_orange
-//   width: $hero-nav-badge-size
-//   height: $hero-nav-badge-size
-//   &:hover
-//     color: $bone
-//     background: shade($ross_school_orange, 20%)
-//     text-decoration: none
-// .hero-nav---about:after
-//   content: "\f05a \A About"
-//   white-space: pre-wrap
-//   font-family: FontAwesome
-//   font-style: normal
-//   font-weight: normal
-//   text-decoration: none
-//   position: relative
-//   top: 20%
-//   z-index: 1
 
 .landing-page--search-bar
-.landing-page--search-bar
-  @apply bg-um-blue-light rounded-lg flex flex-col items-stretch  p-6 relative
+  @apply bg-um-blue-light rounded-lg flex flex-col items-stretch  p-6 relative mx-10
 
-//
 .landing-page-search-group
   @apply flex flex-wrap items-stretch w-full mb-4 relative
 
 .landing-page-search-field
   @apply flex-shrink flex-grow flex-auto leading-normal w-1/2 flex-1 border h-10 border-grey-light rounded rounded-r-none px-8 relative
 
-// .landing-page-search-button
-//   span
-//     @apply bg-red  flex items-center leading-normal bg-green rounded rounded-l-none border border-l-0 border-grey-light px-3 whitespace-no-wrap text-white text-sm h-10 -ml-2
-//     .SearchMe
-//       @apply text-white text-xl bg-transparent mt-2
 .landing-page-search-button
   span
     @apply bg-red  flex items-center leading-normal bg-green rounded rounded-l-none border border-l-0 border-grey-light px-3 whitespace-no-wrap text-white text-sm h-10 -ml-2

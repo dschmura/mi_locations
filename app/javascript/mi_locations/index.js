@@ -14,9 +14,9 @@
   import './stylesheets/header.sass'
   import './stylesheets/footer.sass'
   import './stylesheets/pages.sass'
-  import './stylesheets/rooms_search.sass'
-  import './stylesheets/buildings_search.sass'
-  
+  import './stylesheets/rooms.sass'
+  import './stylesheets/buildings.sass'
+
   import './stylesheets/alerts.sass'
   import './stylesheets/feedback.sass'
   import './stylesheets/ribbons.sass'
