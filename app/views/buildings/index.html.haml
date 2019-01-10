@@ -14,10 +14,12 @@
             Submit
     .buildings-search-matches
       = "#{@q.result.count} Matches"
-.building-badges.inline-flex.bg-blue.h-64.overflow-x-auto.w-100
+-# .building-badges.inline-flex.bg-blue.h-64.overflow-x-auto.w-100
   - @buildings.each do |building|
     = render partial: 'building_badge', locals: {building: building}
-.row
+.building-badges.inline-flex.overflow-x-auto.h-64.w-100
   = render @buildings
+.row
+  = render @buildings.first
 -# .buildings-results
 -#   = render partial: 'building', collection: @buildings
