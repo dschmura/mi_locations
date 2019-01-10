@@ -1,12 +1,13 @@
 %p#notice= notice
 
 %p
-  
+
   %b Label:
   = @floor.label
 %p
   %b Building:
-  = @floor.building
+  = @floor.building.name
+  .w-64= image_tag @floor.floor_image
 
 = link_to 'Edit', edit_building_floor_path(@floor)
 \|

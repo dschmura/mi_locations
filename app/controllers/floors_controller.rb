@@ -31,7 +31,9 @@ class FloorsController < ApplicationController
 
     respond_to do |format|
       if @floor.save
-        format.html { redirect_to [@building, @floor], notice: 'Floor was successfully created.' }
+
+        # format.html redirect_to :back, notice: 'Floor was successfully created.'
+        format.html { redirect_to @building, notice: 'Floor was successfully created.' }
         format.json { render :show, status: :created, location: @floor }
       else
         format.html { render :new }
@@ -75,7 +77,7 @@ class FloorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def floor_params
-      params.require(:floor).permit(:label, :building_id)
+      params.require(:floor).permit(:label, :building_id, :floor_image)
     end
 
 end

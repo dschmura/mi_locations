@@ -38,4 +38,8 @@ module MiLocations
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+  ActiveStorage::Engine.config
+  .active_storage
+  .content_types_to_serve_as_binary
+  .delete('image/svg+xml')
 end
