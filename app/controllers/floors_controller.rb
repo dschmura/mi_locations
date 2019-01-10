@@ -36,7 +36,7 @@ class FloorsController < ApplicationController
         format.html { redirect_to @building, notice: 'Floor was successfully created.' }
         format.json { render :show, status: :created, location: @floor }
       else
-        format.html { render :new }
+        format.html { redirect_to @building }
         format.json { render json: @floor.errors, status: :unprocessable_entity }
       end
     end
