@@ -12,7 +12,33 @@
   @apply  list-reset
 .buidling-floor-actions
 
+// Index View building card
+.buildings-building-card
+  @apply pt-2 px-4 border rounded-lg w-full
+  @screen lg
+    @apply w-full max-w-md
 
+
+.buildings-building-card-image
+  @apply  h-24 flex-none bg-cover rounded-t text-center overflow-hidden
+  @screen md
+    @apply h-48 w-full rounded-t-none rounded-l
+
+.buildings-building-card-image2
+   border-r border-b border-l border-grey-light bg-white rounded-b  p-4 flex flex-col justify-between leading-normal
+   @screen lg
+
+     // @apply border-l-0 border-t border-grey-light rounded-b-none rounded-r
+.buildings-building-card-learning-spaces
+  @apply w-1/2 bg-um-blue-lightest p-4 rounded-lg
+
+.buildings-building-card-buttons
+  @apply flex flex-col self-center
+.buildings-card-button
+  @apply  bg-um-blue-light text-white  py-2 px-3 rounded-full my-2
+  &:hover
+    @apply bg-um-blue-dark
+// SHOW Floor
 .building-floors
   @apply w-1/3 bg-um-blue-lightest p-4 rounded-lg shadow-lg mb-4
   h3

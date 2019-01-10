@@ -7,7 +7,7 @@
 %p
   %b Building:
   = @floor.building.name
-  .w-64= image_tag @floor.floor_image, alt: "Floor plan for #{@floor.building.name}"
+  = image_tag @floor.floor_image, alt: "Floor plan for #{@floor.building.name}"
 
 = link_to 'Edit', edit_building_floor_path(@floor)
 \|
