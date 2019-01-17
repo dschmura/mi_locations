@@ -36,6 +36,10 @@ gem 'geocoder'
 gem 'kaminari'
 gem 'ransack'
 gem 'activerecord-import'
+
+# Use oracle as the database for Active Record
+gem 'activerecord-oracle_enhanced-adapter', '~> 5.2.0'
+gem 'ruby-oci8'
 # gem 'devise', '~> 4.4.3'
 # gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 # gem 'omniauth-facebook', '~> 4.0'
