@@ -21,17 +21,22 @@ class RoomCharacteristic < ApplicationRecord
 
   validates_presence_of :rmrecnbr
 
+
   def self.to_csv
-
-    attributes = %w{ rmrecnbr chrstc chrstc_eff_status  chrstc_descrshort chrstc_descr chrstc_desc254 room_id}
-
+    attributes = %w{ rmrecnbr chrstc chrstc_eff_status chrstc_descrshort chrstc_descr chrstc_desc254 room_id}
     CSV.generate(headers: true) do |csv|
-    
       csv << attributes
-
       all.each do |room_char|
         csv << attributes.map{ |attr| room_char.send(attr) }
       end
+    end
+  end
+
+  private
+
+  def self.write_csv
+    File.open('uploads/room_characteristics.csv', 'w') do |f|
+      f.write(to_csv)
     end
   end
 
