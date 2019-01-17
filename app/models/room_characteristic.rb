@@ -13,9 +13,26 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
+require 'csv'
 
 class RoomCharacteristic < ApplicationRecord
+
   belongs_to :room
 
-    validates_presence_of :rmrecnbr
+  validates_presence_of :rmrecnbr
+
+  def self.to_csv
+
+    attributes = %w{ rmrecnbr chrstc chrstc_eff_status  chrstc_descrshort chrstc_descr chrstc_desc254 room_id}
+
+    CSV.generate(headers: true) do |csv|
+    
+      csv << attributes
+
+      all.each do |room_char|
+        csv << attributes.map{ |attr| room_char.send(attr) }
+      end
+    end
+  end
+
 end
