@@ -19,43 +19,16 @@ Turbolinks.start()
 
 import * as Clipboard from 'clipboard'
 
-import Vue from 'vue/dist/vue.esm'
-
-import TurbolinksAdapter from 'vue-turbolinks'
-Vue.use(TurbolinksAdapter)
-
-import App from '../components/app.vue'
-Vue.component('app', App)
-
-Vue.config.ignoredElements = ['trix-toolbar', 'trix-editor']
-// import Map from '../components/buildings_maps.vue'
-// Vue.component('buildings_maps', Map)
-
-// import * as VueGoogleMaps from 'vue2-google-maps'
-// Vue.component('buildings_maps', VueGoogleMaps)
-
 // Specific frontend applications
 import 'mi_locations'
 
 import 'actiontext'
 import 'trix/dist/trix.css'
 
-
 document.addEventListener('turbolinks:load', () => {
   FontAwesome.dom.i2svg();
-//   $(function () {
-//     $('[data-toggle="popover"]').popover()
-//   });
-// const app = new Vue({
-//     el: '[data-behavior="vue"]',
-//     data: {
-//       message: "Can you say hello?"
-//     },
-//     components: {
-//       App
-//     }
-//   })
 })
+
 $(document).ready(function(){
   $( ".clipboard-btn" ).click(function() {
     var clipboard = new Clipboard('.clipboard-btn');
