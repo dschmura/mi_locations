@@ -4,6 +4,9 @@ const vue =  require('./loaders/vue')
 
 environment.plugins.append('VueLoaderPlugin', new VueLoaderPlugin())
 environment.loaders.append('vue', vue)
+
+
+
 module.exports = environment
 
 // For production deployments?
@@ -12,4 +15,5 @@ Object.assign(environment.loaders.get("css").use.find(el => el.loader === "postc
   config: {
     path: path.resolve(__dirname, "../..", ".postcssrc.yml")
   }
+
 })
