@@ -1,0 +1,11 @@
+
+.rooms-index-row
+  .rooms-index-row-name
+    = room.room_number
+    = room.building.nick_name.titleize
+    = room.building.address.titleize
+  .rooms-index-row-capacity
+
+    = room.instructional_seating_count
+  .rooms-index-row-facility-code-heprod
+    = room.facility_code_heprod

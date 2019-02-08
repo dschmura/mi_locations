@@ -1,40 +1,89 @@
--# = link_to(room) do
-.media.pt-2.px-4.rooms-card.border.rounded
-  = link_to room.building do
-    .rooms-building-badge
-      = image_tag("http://placekitten.com/150/150", alt: "Image for #{room.room_number} #{room.building.nick_name}",class: 'd-flex align-self-center mr-3')
-      .rooms-building-address
-        = "#{room.building.nick_name.titleize}"
-        %br= room.building.address
-  .media-body
-    %h5.float-left
-      = link_to "#{room.room_number} #{room.building.nick_name}", room
+-# -# = link_to(room) do
+-# .media.pt-2.px-4.rooms-card.border.rounded
+-#   = link_to room.building do
+-#     .rooms-building-badge
+-#       = image_tag("http://placekitten.com/150/150", alt: "Image for #{room.room_number} #{room.building.nick_name}",class: 'd-flex align-self-center mr-3')
+-#       .rooms-building-address
+-#         = "#{room.building.nick_name.titleize}"
+-#         %br= room.building.address
+-#   .media-body
+-#     %h5.float-left
+-#       = link_to "#{room.room_number} #{room.building.nick_name}", room
 
-    %p.float-right
-      %i.fas.fa-users
-      Student Capacity:
-      = room.instructional_seating_count
+-#     %p.float-right
+-#       %i.fas.fa-users
+-#       Student Capacity:
+-#       = room.instructional_seating_count
 
-    %br
-    %hr.border-dark
+-#     %br
+-#     %hr.border-dark
 
 
-    .rooms-card-details.float-left
-      %ul
-        %li
-          Type :
-          = room.rmtyp_description
-        %li
-          Team Learning :
-          = team_learning?(room.room_characteristics)
-    .rooms-card-floors.float-right
-      %ul
-        %li
-          Type :
-          = room.rmtyp_description
-        %li
-          Team Learning :
-          = team_learning?(room.room_characteristics)
+-#     .rooms-card-details.float-left
+-#       %ul
+-#         %li
+-#           Type :
+-#           = room.rmtyp_description
+-#         %li
+-#           Team Learning :
+-#           = team_learning?(room.room_characteristics)
+-#     .rooms-card-floors.float-right
+-#       %ul
+-#         %li
+-#           Type :
+-#           = room.rmtyp_description
+-#         %li
+-#           Team Learning :
+-#           = team_learning?(room.room_characteristics)
 
-      %button.btn.clipboard-btn{"data-clipboard-text" => "#{room.room_number} #{room.building.nick_name} \nStudent Capacity: #{room.instructional_seating_count}\nCalendar Link: https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }\nLocation: #{room.building.nick_name.titleize}, #{room.building.address.titleize}"}
-        Copy to clipboard
+-#       %button.btn.clipboard-btn{"data-clipboard-text" => "#{room.room_number} #{room.building.nick_name} \nStudent Capacity: #{room.instructional_seating_count}\nCalendar Link: https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }\nLocation: #{room.building.nick_name.titleize}, #{room.building.address.titleize}"}
+-#         Copy to clipboard
+.rooms-index-card
+  .max-w-xl.mx-auto.bg-white.rounded-lg.overflow-hidden.shadow-lg
+    .bg-cover.h-48{:style => "background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');"}
+    -# = image_tag asset_pack_path('mi_locations/images/building_originals/chem.jpg'), alt: 'Undergraduate ScienceP Building exterior'
+    .border-b.px-4.pb-6
+      .text-center.sm:text-left.sm:flex.mb-4
+        .-mt-8.mr-4
+          = image_tag asset_pack_path('mi_locations/images/building_originals/chem.jpg'), alt: 'Undergraduate Science Building exterior', class: 'rounded-full h-16 w-16 shadow-lg shadow-inner'
+      .py-2
+        %h3.font-bold.text-2xl.mb-1
+          = room.room_number
+          = room.building.name.titleize
+
+        %button.rooms-room-directions-button
+          %i.fas.fa-map-marked-alt.rounded-full.mr-2
+
+          Directions
+
+        .inline-flex.text-grey-dark.sm:flex.items-center
+          %i.fas.fa-map-marker-alt.mr-1
+          = room.building.address
+      .flex
+        %button.flex-1.rounded-full.bg-blue.text-white.antialiased.font-bold Details
+        %button.flex-1.rounded-full.border-2.border-grey.font-semibold.text-black.px-4.py-2 Map
+    .px-4.py-4
+      .text-grey-darker.mb-4
+        %i.fas.fa-chalkboard.mx-1
+        %span
+          %strong.text-black
+          = room.building.classrooms.size
+          -# = team_learning?
+          Classrooms
+        %i.fas.fa-handshake
+        %span
+          %strong.text-black
+          = room.building.team_learning_classrooms.size
+          Team Learning Classrooms
+
+        %i.fas.fa-flask
+        %span
+          %strong.text-black
+          = room.building.classrooms_labs.size
+          Classroom Labs
+      .characteristics.flex.flex-row.mr-2
+        %h2 Room Features
+        - room.room_characteristics.each do |rc|
+          .characteristic
+            = link_to('', 'popover')
+            = room_characteristic_icon(rc).html_safe

@@ -1,3 +1,15 @@
+- content_for :head do
+  = javascript_pack_tag 'search_vue', 'data-turbolinks-track': 'reload'
+
+-# %building-search-form{":age_data" => Pet.ages.keys.to_json, ":pets_data" => Pet.all.to_json , ":pet_data" => @pet.to_json(except: [:created_at, :updated_at])}
+- content_for :head do
+  = javascript_pack_tag 'search_vue', 'data-turbolinks-track': 'reload'
+
+-# %search{":age_data" => Pet.ages.keys.to_json, ":pets_data" => Pet.all.to_json , ":pet_data" => @pet.to_json(except: [:created_at, :updated_at])}
+
+-# %search{"buildings_data" => @buildings.to_json}
+
+
 / Promo Block
 %section
   .hero-image
@@ -28,14 +40,14 @@
         .landing-page-search-dropdowns.pb-4
 
           = link_to(buildings_path, alt: 'Buildings Map') do
-            %button.btn.btn-light{:type => "submit"}
+            %button.landing-page-filter-by-button{:type => "submit"}
               Filter by Buildings
 
           = link_to(classrooms_path,  alt: 'Classroom Search') do
-            %button.btn.btn-light{:type => "submit"}
+            %button.landing-page-filter-by-button{:type => "submit"}
               Filter by School or College
 
-
+%search
 
 
 -# .container
