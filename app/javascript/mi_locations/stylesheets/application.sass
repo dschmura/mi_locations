@@ -20,3 +20,30 @@ img[alt=""], img:not([alt])
   float: left
   width: 100%
   background-color: transparentize(grey, 0.3)
+
+
+.toolytip
+  position: relative
+  @apply inline-block
+  // /* border-bottom: 1px dotted black;
+  .tooltiptext
+    visibility: hidden
+    width: 120px
+    position: absolute
+    z-index: 1
+    top: -15px
+    right: 125%
+    @apply bg-blue-lighter text-white text-sm self-center p-3 border border-um-blue-lighter rounded-lg mb-12 pin-r
+  &:hover .tooltiptext
+    visibility: visible
+
+/* .toolytip .tooltiptext::after {
+ *content: " ";
+ *position: absolute;
+ *top: 50%;
+ *left: 100%;
+ *margin-top: -5px;
+ *border-width: 5px;
+ *border-style: solid;
+ *border-color: transparent transparent transparent black;
+ *}

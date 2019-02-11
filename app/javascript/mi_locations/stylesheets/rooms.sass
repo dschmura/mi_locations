@@ -62,14 +62,37 @@
   &:hover
     @apply bg-green-light text-green-darker
 
+.rooms-index-rows-header
+  @apply flex flex-row
+
+.rooms-index-rows
+  @apply bg-grey-light
+
 .rooms-index-row
-  @apply flex flex-row justify-start
+  @apply flex flex-col text-lg py-2 bg-blue-lighter my-3
+
+.rooms-index-row-top
+  @apply flex flex-row
+
+.rooms-index-row-bottom
+  @apply flex flex-row
 
 .rooms-index-row-name
-  @apply w-1/4
+  @apply mx-auto w-1/3
 
 .rooms-index-row-capacity
-  @apply mx-12
+  @apply mx-auto
 
 .rooms-index-row-facility-code-heprod
-  @apply bg-blue mx-12
+  @apply mx-auto
+
+.rooms-index-row-calandar-url
+  @apply mx-auto
+
+.rooms-index-row-copy-button
+  @apply font-light mx-4 text-sm text-blue p-1 bg-grey-light rounded-full align-middle self-center
+  &:hover
+    @apply bg-grey text-blue-dark
+
+.rooms-index-row-team-learning
+  @apply  w-1/3

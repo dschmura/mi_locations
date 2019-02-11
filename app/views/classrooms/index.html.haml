@@ -3,13 +3,16 @@
 
 = render 'rooms-search-bar'
 -# = render 'rooms-search-filters'
-.rooms-index-row
+.rooms-index-rows-header
   .rooms-index-row-name
     %h2 Name
   .rooms-index-row-capacity
     %h2 Capacity
   .rooms-index-row-facility-code-heprod
     %h2 Facility Code
-= render partial: "./rooms/rooms_index_row", collection: @rooms, as: :room, cached: true
+  .rooms-index-row-calandar-url
+    %h2 Calandar
+.rooms-index-rows
+  = render partial: "./rooms/rooms_index_row", collection: @rooms, as: :room, cached: true
 
 = render partial: "./rooms/rooms_index_card", collection: @rooms, as: :room, cached: true

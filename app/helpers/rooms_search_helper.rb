@@ -6,7 +6,7 @@ module RoomsSearchHelper
   ROOM_CHARACTERISTIC_ICONS = {
     'AssistLis' => 'fas fa-assistive-listening-systems',
     'AudSeat' => 'fas fa-info-circle',
-    'Blackout' => 'far fa-booth-curtain',
+    'Blackout' => 'far fa-lightbulb',
     'BluRay' => 'fas fa-compact-disc',
     'BluRay/DVD' => 'fas fa-compact-disc',
     'CaptionDev' => 'fas fa-closed-captioning',
@@ -19,8 +19,8 @@ module RoomsSearchHelper
     'CompLabPC' => 'fas fa-keyboard',
     'CompPodMac' => 'fab fa-apple',
     'DocCam' => 'fas fa-microscope',
-    'Ethernet' => 'far fa-ethernet',
-    'EthrStud' => 'far fa-ethernet',
+    'Ethernet' => 'fas fa-ethernet',
+    'EthrStud' => 'fas fa-ethernet',
     'FloorTier' => 'fas fa-info-circle',
     'InstrComp' => 'fas fa-laptop',
     'IntrScreen' => 'fas fa-edit',
@@ -45,17 +45,22 @@ module RoomsSearchHelper
     'TeamTech' => 'fas fa-code-branch',
     'Telephone' => 'fas fa-phone',
     'Tile' => 'fas fa-info-circle',
-    'VCR' => 'far fa-tv-retro',
+    'VCR' => 'fas fa-info-circle',
     'VideoConf' => 'fas fa-webcam',
     'WCInst' => 'fas fa-wheelchair',
     'Whtbrd' => 'fas fa-chalkboard',
-   'Whtbrd>25' => 'fas fa-chalkboard',
+    'Whtbrd>25' => 'fas fa-chalkboard',
     'Windows' => 'fas fa-window-close',
     'Wood' => 'fas fa-info-circle'}
   def room_characteristic_icon(room_characteristic)
     icon = ROOM_CHARACTERISTIC_ICONS[room_characteristic.chrstc_descrshort]
-    "<i class='#{icon}'></i>"
+    "
+    <a role='button' class='toolytip' href='header_edit.php'><span class='tooltiptext' style=''>#{room_characteristic.chrstc_descr}</span><i class='fas fa-#{icon} fa-sm'></i></a>"
     # room_characteristic.chrstc_descrshort.to_s
+
+
+
+
   end
 
 end
