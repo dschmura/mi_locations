@@ -92,3 +92,39 @@
 
 .building-badges
 .building-badge
+
+.floor-plans
+
+.building-floor-plan
+  @apply bg-yellow flex flex-row
+.building-floor-plan-svg
+  @apply bg-grey w-5/6
+
+.building-floor-plan-nav
+  @apply bg-pink p-4 text-xl
+
+.building-floor-plan-name
+  @apply font-bold
+
+.building-floor-plan-building-info
+  @apply flex flex-row mt-4
+  .building-floor-plan-building-image
+    @apply bg-red h-24 w-24 m-2 rounded p-2
+
+
+
+
+// xlink:role="linkss"
+.classroom
+  path
+    fill: $um_maize !important
+    @apply bg-green text-red
+  &:hover
+    path
+      fill: $heather_blue !important
+  polygon
+    fill: $um_maize !important
+    @apply bg-green text-red
+  &:hover
+    polygon
+      fill: $heather_blue !important

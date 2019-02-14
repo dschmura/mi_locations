@@ -25,4 +25,12 @@ module ApplicationHelper
       false
     end
   end
+
+  def svg(floor)
+  # file_path = "#{Rails.root}/app/views/buildings/floors/#{name}.svg"
+  # file_path = "#{Rails.root}/app/views/buildings/floors/USB_Floor_1.svg"
+  file_path = floor.floor_svg
+    return File.read(file_path).html_safe if File.exists?(file_path)
+  file_path
+  end
 end
