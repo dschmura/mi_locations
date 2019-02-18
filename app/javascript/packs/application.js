@@ -24,6 +24,8 @@ import * as Clipboard from 'clipboard'
 // Specific frontend applications
 // import 'mi_locations'
 
+
+
 // import 'actiontext'
 // import 'trix/dist/trix.css'
 import '../mi_locations/stylesheets/_variables.sass'

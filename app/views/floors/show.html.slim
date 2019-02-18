@@ -24,13 +24,14 @@ p
 
     .building-floor-plan-building-info
       .building-floor-plan-building-image
-        | IMAGE
-      = @floor.building.name.titleize
-      = @floor.building.address.titleize
+        = image_tag asset_pack_path('media/usb.jpg'), alt: 'Undergraduate Science Building exterior', class: ' shadow-lg shadow-inner'
+      .building-floor-plan-address
+        = @floor.building.name.titleize
+        = @floor.building.address.titleize
 
     .building-floor-plans-other-floors
       / = @floor.building.floors
       = render @floor.building.floors
 = link_to 'Edit', edit_building_floor_path(@floor)
-| \|
+| |
 = link_to 'Back', building_floors_path

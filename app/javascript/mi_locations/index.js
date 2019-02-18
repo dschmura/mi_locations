@@ -26,8 +26,3 @@
   // require.context('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
   // require.context('./images', true, /\.(gif|jpg|jpeg|png|svg)$/i)
   // require('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
-  import './images/favicon.png'
-  import './images/MiLocationsLogo.png'
-  import './images/MiLocationsNamePlateBlue.png'
-  import './images/vistas/Burton.jpg'
-  import './images/building_originals/chem.jpg'
