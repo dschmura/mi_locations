@@ -7,32 +7,46 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import $ from 'jquery'
-global.$ = $
-global.jQuery = $
+// import $ from 'jquery'
+// global.$ = $
+// global.jQuery = $
+require("@rails/ujs").start()
+require("@rails/activestorage").start()
 
-import Rails from 'rails-ujs'
-Rails.start()
 
-import Turbolinks from 'turbolinks'
-Turbolinks.start()
+
+
+// import Turbolinks from 'turbolinks'
+// Turbolinks.start()
 
 import * as Clipboard from 'clipboard'
 
 // Specific frontend applications
-import 'mi_locations'
+// import 'mi_locations'
 
-import 'actiontext'
-import 'trix/dist/trix.css'
+// import 'actiontext'
+// import 'trix/dist/trix.css'
+import '../mi_locations/stylesheets/_variables.sass'
+import '../mi_locations/stylesheets/application.sass'
+import '../mi_locations/stylesheets/header.sass'
+import '../mi_locations/stylesheets/footer.sass'
+import '../mi_locations/stylesheets/pages.sass'
+import '../mi_locations/stylesheets/rooms.sass'
+import '../mi_locations/stylesheets/buildings.sass'
+import '../mi_locations/stylesheets/alerts.sass'
+import '../mi_locations/stylesheets/feedback.sass'
+import '../mi_locations/stylesheets/ribbons.sass'
+import '@fortawesome/fontawesome-free/js/all';
 
 document.addEventListener('turbolinks:load', () => {
   FontAwesome.dom.i2svg();
 })
+require.context('mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 
-$(document).ready(function(){
-  $( ".clipboard-btn" ).click(function() {
-    var clipboard = new Clipboard('.clipboard-btn');
-    console.log(clipboard);
-  });
+// $(document).ready(function(){
+//   $( ".clipboard-btn" ).click(function() {
+//     var clipboard = new Clipboard('.clipboard-btn');
+//     console.log(clipboard);
+//   });
 
-});
+// });

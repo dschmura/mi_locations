@@ -1,0 +1,22 @@
+= search_form_for @q, url: search_rooms_path, html: { method: :post } do |f|
+  .rooms-search-bar
+    .row.rooms-search-field
+      .input-group.mt-1.mx-4
+        = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, placeholder: 'Search...', class: 'form-control', "aria-describedby" => "Search for Rooms", "aria-label" => "Search for rooms", :placeholder => "Search", :type => "text", "aria-controls" => "rooms-search-filters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => ".rooms-search-filters"
+        .input-group-append
+          button#button-addon2.btn.btn-success type="button" aria-controls="rooms-search-filters" aria-expanded="false" data-toggle="collapse" href=(".rooms-search-filters" )
+            i.fas.fa-sliders-h
+            | Filters
+    .row.rooms-search-selects
+      .col.ml-2
+        select.form-control.form-control-sm.search-by-building
+          i.fas.fa-building
+          option Search By Building
+      .col.mr-2
+        select.form-control.form-control-sm.search-by-school-or-college
+          option
+            i.fas.fa-project-diagram
+            | Search By School or College
+
+    .rooms-search-matches
+      = "#{@q.result.size} Matches"

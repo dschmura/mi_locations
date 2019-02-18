@@ -1,0 +1,197 @@
+
+.rooms-search-filters.collapsed
+  section.filters
+    .filter-group
+      h5.filter-title
+        i.fas.fa-handshake
+        | Team Learning
+
+      .filter-checkboxes
+        .form-check
+          input#Chkbrd.form-check-input  type='checkbox', onchange: 'this.form.submit();'  
+          label.form-check-label  for=('TeamTables' )  Seating: Team Tables
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd', is_checked?('Chkbrd'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('TeamTech' )  Team Technology
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd', is_checked?('Chkbrd'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('TeamBoard' )  Team Writing Surface
+    .filter-group
+      h5.filter-title
+        i.fas.fa-handshake
+        | Room Design
+
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd', is_checked?('Chkbrd'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('TeamBoard' )  Tiered / Sloped Floor
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'PowerStud', is_checked?('PowerStud'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('PowerStud' )   Power for Students
+
+    .filter-group
+      h5.filter-title
+        i.fas.fa-chalkboard
+        | Writing Surface
+      .filter-checkboxes
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd', is_checked?('Chkbrd'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('Chkbrd' )  Chalkboard
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd_25', is_checked?('Chkbrd_25'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('Chkbrd_25' )  Chalkboard greater than 25'
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Whtbrd', is_checked?('Whtbrd'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('Whtbrd' )  Whiteboard
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Whtbrd_25', is_checked?('Whtbrd_25'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('Whtbrd_25' )  Whiteboard greater than 25'
+
+        / .form-check
+        /   .form-check-input
+        /     = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'ProjSlide', is_checked?('ProjSlide'), onchange: 'this.form.submit();' )
+        /   %label.form-check-label{ :for => 'ProjSlide' } Traditional Slide
+
+    .filter-group
+      h5.filter-title
+        i.fas.fa-film
+        | Audio Visual
+      .filter-checkboxes
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Blackout', is_checked?('Blackout'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('Blackout' )  Blackout (Room Darkening)
+
+        / .form-check
+        /   .form-check-input
+        /     = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'DVD', is_checked?('DVD'), onchange: 'this.form.submit();' )
+        /   %label.form-check-label{ :for => 'DVD' } DVD Player
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'BluRay', is_checked?('BluRay'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('BluRay' )  BluRay / DVD Player
+
+        / .form-check
+        /   .form-check-input
+        /     = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'VCR', is_checked?('VCR'), onchange: 'this.form.submit();' )
+        /   %label.form-check-label{ :for => 'VCR' } VCR
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'DocCam', is_checked?('DocCam'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('DocCam' )  Document Camera
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'IntrPen', is_checked?('IntrPen'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('IntrPen' )  Interactive Screen
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'LectureCap', is_checked?('LectureCap'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('LectureCap' )   Lecture Capture
+
+        / .form-check
+        /   .form-check-input
+        /     = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Telephone', is_checked?('Telephone'), onchange: 'this.form.submit();' )
+        /   %label.form-check-label{ :for => 'Telephone' }  Telephone
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'VideoConf', is_checked?('VideoConf'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('VideoConf' )   Video Conferencing
+    .filter-group
+      h5.filter-title
+        i.fas.fa-video
+        | Projection
+      .filter-checkboxes
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'ProjDigit', is_checked?('ProjDigit'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('ProjDigit' )  Projection Digital Data and Video
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Proj35mm', is_checked?('Proj35mm'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('Proj35mm' )  35mm Film
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'ProjD-Cin', is_checked?('ProjD-Cin'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('ProjD-Cin' )  Digital Cinema Projection (DCP)
+
+
+
+    .filter-group
+      h5.filter-title
+        i.fas.fa-laptop
+        | Podium Computer
+      .filter-checkboxes
+        | INSTRUCTOR COMPUTER COMBINES THESE
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompPodMac', is_checked?('CompPodMac'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('CompPodMac' )   Instructor Computer
+        .text-red INSTRUCTOR COMPUTER COMBINES THESE
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompPodMac', is_checked?('CompPodMac'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('CompPodMac' )   Mac
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompPodPC', is_checked?('CompPodPC'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('CompPodPC' )   PC
+
+    .filter-group
+      h5.filter-title
+        i.fas.fa-keyboard
+        | Computer Classroom / Lab
+      .filter-checkboxes
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompAny', is_checked?('CompAny'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('CompAny' )   Any
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompMac', is_checked?('CompMac'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('CompMac' )   Mac
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompPC', is_checked?('CompPC'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('CompPC' )   PC
+
+    / .filter-group
+      h5.filter-title
+        i.fas.fa-plug
+        | Power / Ethernet
+      .filter-checkboxes
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Ethernet', is_checked?('Ethernet'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('Ethernet' )   Ethernet for Instructor
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'EthrStud', is_checked?('EthrStud'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('EthrStud' )   Ethernet for Students
+
+        .form-check
+          .form-check-input
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'PowerStud', is_checked?('PowerStud'), onchange: 'this.form.submit();' )
+          label.form-check-label  for=('PowerStud' )   Power for Students

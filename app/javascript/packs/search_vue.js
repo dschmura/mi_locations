@@ -8,8 +8,8 @@ Vue.use(VueResource)
 
 import * as Clipboard from 'clipboard'
 
-import Search from '../components/search.vue'
-Vue.component('search', Search)
+// import Search from '../components/search.vue'
+// Vue.component('search', Search)
 
 Vue.config.ignoredElements = ['trix-toolbar', 'trix-editor']
 // import Map from '../components/buildings_maps.vue'

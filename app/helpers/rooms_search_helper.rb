@@ -55,7 +55,7 @@ module RoomsSearchHelper
   def room_characteristic_icon(room_characteristic)
     icon = ROOM_CHARACTERISTIC_ICONS[room_characteristic.chrstc_descrshort]
     "
-    <a role='button' class='toolytip' href='header_edit.php'><span class='tooltiptext' style=''>#{room_characteristic.chrstc_descr}</span><i class='fas fa-#{icon} fa-sm'></i></a>"
+    <a role='button' class='toolytip characteristic' href=''><span class='tooltiptext' style=''>#{room_characteristic.chrstc_descr}</span><i class='fas fa-#{icon} fa-sm'></i></a>"
     # room_characteristic.chrstc_descrshort.to_s
 
 

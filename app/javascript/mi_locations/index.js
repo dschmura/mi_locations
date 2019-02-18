@@ -1,7 +1,8 @@
-  // // Include external resources for this app_files
+
+// // Include external resources for this app_files
   // import 'bootstrap'
-  import 'actiontext'
-  import 'trix/dist/trix.css'
+  // import 'actiontext'
+  // import 'trix/dist/trix.css'
   // Include internal resources for this app
   // import './javascripts/application'
   // import fontawesome from "@fortawesome/fontawesome-free";
@@ -22,8 +23,11 @@
   import './stylesheets/ribbons.sass'
 
   // IMAGES
-  require.context('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
-
+  // require.context('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
+  // require.context('./images', true, /\.(gif|jpg|jpeg|png|svg)$/i)
+  // require('./images/', true, /.(gif|jpg|jpeg|png|svg)$/)
   import './images/favicon.png'
   import './images/MiLocationsLogo.png'
+  import './images/MiLocationsNamePlateBlue.png'
   import './images/vistas/Burton.jpg'
+  import './images/building_originals/chem.jpg'
