@@ -728,6 +728,13 @@
   resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.7.2.tgz#1498c3eb78ee7c78c5488418707de90aaf58d5d7"
   integrity sha512-Ha4HshKdCVKgu4TVCtG8XyPPYdzTzNW4/fvPnn+LT7AosRABryhlRv4cc4+o84dgpvVJN9reN7jo/c+nYujFug==
 
+"@rails/actiontext@^6.0.0-beta1":
+  version "6.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.0.0-beta1.tgz#26e70f1059e7d5f67e29480eedcab40d4e92dd21"
+  integrity sha512-5eCLcUJq2o7vciklGQT4IJEETqIXZoSpjDQs7X2fgrJw0A+L5S0LqnuzEgv8yEhuheA4mTpqGBn69tc/x1zF/Q==
+  dependencies:
+    "@rails/activestorage" "^6.0.0-alpha"
+
 "@rails/activestorage@^6.0.0-alpha":
   version "6.0.0-alpha"
   resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-6.0.0-alpha.tgz#6eb6c0f49bcaa4ad68fcd13a750b9a17f76f086f"
@@ -7568,6 +7575,11 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
+
+trix@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-1.0.0.tgz#e9cc98cf6030c908f8d54e317b5b072f927b0c6b"
+  integrity sha512-feli9QVXe6gzZOCUfpPGpNDURW9jMciIRVQ5gkDudOctcA1oMtI5K/qEbsL2rFCoGl1rSoeRt+HPhIFGyQscKg==
 
 "true-case-path@^1.0.2":
   version "1.0.3"

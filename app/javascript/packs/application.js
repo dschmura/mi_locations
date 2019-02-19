@@ -24,8 +24,6 @@ import * as Clipboard from 'clipboard'
 // Specific frontend applications
 // import 'mi_locations'
 
-
-
 // import 'actiontext'
 // import 'trix/dist/trix.css'
 import '../mi_locations/stylesheets/_variables.sass'
@@ -52,3 +50,6 @@ require.context('mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 //   });
 
 // });
+require("trix")
+require("@rails/actiontext")
+import 'trix/dist/trix.css'
