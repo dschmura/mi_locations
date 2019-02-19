@@ -34,6 +34,7 @@ gem 'sass-rails', '~> 5.0'
 # gem 'administrate', '~> 0.8.1'
 # gem 'haml-rails'
 gem 'slim-rails'
+gem 'coffee-script'
 
 gem 'sidekiq', '~> 5.0'
 gem 'uglifier'
