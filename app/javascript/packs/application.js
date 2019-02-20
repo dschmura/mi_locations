@@ -41,7 +41,7 @@ import '@fortawesome/fontawesome-free/js/all';
 document.addEventListener('turbolinks:load', () => {
   FontAwesome.dom.i2svg();
 })
-require.context('mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
+require.context('../mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 // $(document).ready(function(){
 //   $( ".clipboard-btn" ).click(function() {
 //     var clipboard = new Clipboard('.clipboard-btn');
