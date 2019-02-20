@@ -40,5 +40,9 @@ class Room < ApplicationRecord
     where(rmtyp_description: ['Classroom'] )
   end
 
+  def team_learning_classrooms?
+    room_characteristics.size >= 0
+  end
+
 
 end
