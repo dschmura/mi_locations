@@ -7,27 +7,22 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-// import $ from 'jquery'
-// global.$ = $
-// global.jQuery = $
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 
-
-
-
 // import Turbolinks from 'turbolinks'
 // Turbolinks.start()
+var Turbolinks = require("turbolinks")
+Turbolinks.start()
 
 import * as Clipboard from 'clipboard'
 
 // Specific frontend applications
 // import 'mi_locations'
 
-// import 'actiontext'
-// import 'trix/dist/trix.css'
 import '../mi_locations/stylesheets/_variables.sass'
 import '../mi_locations/stylesheets/application.sass'
+import '../mi_locations/stylesheets/feedback.sass'
 import '../mi_locations/stylesheets/header.sass'
 import '../mi_locations/stylesheets/footer.sass'
 import '../mi_locations/stylesheets/pages.sass'
