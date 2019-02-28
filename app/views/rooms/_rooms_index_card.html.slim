@@ -43,9 +43,14 @@
     .bg-cover.h-48 style=("background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');")
     / = image_tag asset_pack_path('media/building_originals/chem.jpg'), alt: 'Undergraduate ScienceP Building exterior'
     .border-b.px-4.pb-6
-      .text-center.sm:text-left.sm:flex.mb-4
-        .-mt-8.mr-4
-          = image_tag asset_pack_path('media/chem.jpg'), alt: 'Undergraduate Science Building exterior', class: 'rounded-full h-16 w-16 shadow-lg shadow-inner'
+
+      .rooms-index-card-building-badge
+        - if room.building.building_image.attached?
+          = image_tag room.building.building_image, alt: "#{room.building.name.titleize}"
+        - else
+          = room.building.abbreviation
+
+
       .py-2
         = link_to room_path(room) do
           h3.font-bold.text-2xl.mb-1
@@ -82,9 +87,10 @@
           strong.text-black
           = room.building.classrooms_labs.size
           | Classroom Labs
-      .characteristics.flex.flex-row.mr-2
+      .characteristics-row
         h2 Room Features
-        - room.room_characteristics.each do |rc|
-          .characteristic
+        .characteristics
+          - room.room_characteristics.each do |rc|
+
             = link_to('', 'popover')
             = room_characteristic_icon(rc).html_safe

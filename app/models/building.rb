@@ -27,6 +27,8 @@ class Building < ApplicationRecord
   has_many :classrooms_labs, -> { classrooms_labs }, class_name: 'Room'
   has_many :team_learning_classrooms, -> { team_learning_classrooms }, class_name: 'Room'
 
+  has_one_attached :building_image
+
   has_many :floors, dependent: :destroy
   has_many :alerts, as: :alertable, dependent: :destroy
 

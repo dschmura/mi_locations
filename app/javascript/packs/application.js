@@ -32,7 +32,7 @@ import '../mi_locations/stylesheets/alerts.sass'
 import '../mi_locations/stylesheets/feedback.sass'
 import '../mi_locations/stylesheets/ribbons.sass'
 import '@fortawesome/fontawesome-free/js/all';
-
+import '../mi_locations/stylesheets/tooltips.sass'
 document.addEventListener('turbolinks:load', () => {
   FontAwesome.dom.i2svg();
 })

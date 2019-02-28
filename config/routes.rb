@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get 'alerts/index'
   # get 'alerts/new'
   resources :alerts
-  resources :buildings, only: [:show, :index] do
+  resources :buildings, only: [:show, :index, :update] do
     resources :floors
     resources :alerts, module: :buildings
   end

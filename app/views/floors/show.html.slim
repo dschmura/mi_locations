@@ -24,7 +24,12 @@ p
 
     .building-floor-plan-building-info
       .building-floor-plan-building-image
-        = image_tag asset_pack_path('media/usb.jpg'), alt: 'Undergraduate Science Building exterior', class: ' shadow-lg shadow-inner'
+        / = image_tag asset_pack_path('media/usb.jpg'), alt: 'Undergraduate Science Building exterior', class: ' shadow-lg shadow-inner'
+        = image_tag @floor.floor_image
+        - if @floor.building.building_image.attached?
+          = image_tag @floor.building.building_image
+
+        / = image_tag "building_originals/#{@floor.building.abbreviation.camelcase}.jpg", alt: 'Undergraduate Science Building exterior', class: 'rounded-full h-16 w-16 shadow-lg shadow-inner'
       .building-floor-plan-address
         = @floor.building.name.titleize
         = @floor.building.address.titleize

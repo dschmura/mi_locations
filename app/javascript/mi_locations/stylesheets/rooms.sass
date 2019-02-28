@@ -57,6 +57,12 @@
 .rooms-index-card
   @apply font-sans leading-tight min-h-screen bg-grey-lighter p-8
 
+.rooms-index-card-building-badge
+  @apply bg-um-maize h-16 w-16 rounded-full mx-auto text-um-blue -mt-8
+  img
+    @apply rounded-full h-16 w-16 shadow-lg shadow-inner
+
+
 .rooms-room-directions-button
   @apply inline-flex rounded-full bg-green px-3 py-1 text-green-lightest
   &:hover
@@ -98,6 +104,7 @@
   @apply  w-1/3
 
 .tooltiptext
+.toolytip
 
 
 .grid-list-map-toggle
@@ -113,3 +120,11 @@
   @apply flex flex-row
   .toggle-button
     @apply p-1 mx-1
+
+.characteristics-row
+  @apply flex flex-row mr-2
+  h2
+    @apply font-semibold text-2xl text-um-blue-lighter
+
+.characteristics
+  @apply flex flex-wrap mt-1 ml-2

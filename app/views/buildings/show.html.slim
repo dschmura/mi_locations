@@ -2,12 +2,14 @@
   = @building.name
 .building-address
   = @building.address
+- if @building.building_image.attached?
+  = image_tag @building.building_image, alt: "#{@building.name.titleize}"
 .building-alerts
   = render partial: 'alerts/alerts', locals: {alertable: @building}
   = render partial: 'alerts/form', locals: {alertable: @building}
 .flex.flex-row.justify-around
   .building-classrooms
-    h3= "Classrooms in # @building.nick_name.titleize "
+    h3= "Classrooms in #{@building.nick_name.titleize}"
     - @building.rooms.classrooms.each do |classroom|
       .classroom-link= link_to "#{classroom.room_number} #{classroom.building.nick_name.titleize} ", classroom
 
@@ -19,3 +21,8 @@
     = render @building.floors
     h3 Add a Floor
     = render partial: 'floors/form', locals: {building: @building}
+
+
+    h3 Add an Image
+
+    = render partial: 'building_image_form', locals: {building: @building}
