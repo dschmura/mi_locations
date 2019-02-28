@@ -18,6 +18,7 @@ class RoomsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = Room.find(params[:id])
+      # @room = Room.find_by facility_code_heprod:(params[:id].upcase) || Room.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

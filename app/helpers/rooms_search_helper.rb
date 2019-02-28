@@ -52,14 +52,13 @@ module RoomsSearchHelper
     'Whtbrd>25' => 'fas fa-chalkboard',
     'Windows' => 'fas fa-window-close',
     'Wood' => 'fas fa-info-circle'}
+
   def room_characteristic_icon(room_characteristic)
     icon = ROOM_CHARACTERISTIC_ICONS[room_characteristic.chrstc_descrshort]
     "
-    <a role='button' class='toolytip characteristic' href=''><span class='tooltiptext' style=''>#{room_characteristic.chrstc_descr}</span><i class='fas fa-#{icon} fa-sm'></i></a>"
-    # room_characteristic.chrstc_descrshort.to_s
-
-
-
+    <a role='button' class='characteristic tooltip' href='' data-tooltip=#{room_characteristic.chrstc_descr}>
+    <i class='fas fa-#{icon} fa-sm'></i>
+    </a>"
 
   end
 
