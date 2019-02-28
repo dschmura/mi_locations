@@ -24,6 +24,7 @@ class Room < ApplicationRecord
   has_many :room_characteristics, dependent: :destroy
   has_one :room_contact, dependent: :destroy
   has_many :alerts, as: :alertable, dependent: :destroy
+  has_one_attached :room_image
 
   validates_presence_of :rmrecnbr, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :building_id
   validates :instructional_seating_count, presence: true, if: -> {:rmtyp_description == 'Classroom' || 'Classroom Laboratory'}

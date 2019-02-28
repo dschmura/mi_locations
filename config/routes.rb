@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :alerts, module: :buildings
   end
 
-  resources :rooms, only: [:show, :index] do
+  resources :rooms, only: [:show, :index,:update] do
     resources :alerts, module: :rooms
     collection do
       match 'search' => 'rooms#search', via: [:get, :post], as: :search
