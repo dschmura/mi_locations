@@ -25,7 +25,7 @@ p
     .building-floor-plan-building-info
       .building-floor-plan-building-image
         / = image_tag asset_pack_path('media/usb.jpg'), alt: 'Undergraduate Science Building exterior', class: ' shadow-lg shadow-inner'
-        = image_tag @floor.floor_image
+        = image_tag @floor.floor_image, alt: "Floor Plan for #{@floor.label} #{@floor.building.name.titleize}"
         - if @floor.building.building_image.attached?
           = image_tag @floor.building.building_image
 

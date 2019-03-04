@@ -2,7 +2,7 @@
 
   - if room.room_image.attached?
     .max-w-xl.mx-auto.bg-white.rounded-t-lg.overflow-hidden.shadow-lg
-    .bg-cover.h-48 style=("background-image: url('#{url_for(room.room_image)}')")
+    .bg-cover.h-48.bg-center style=("background-image: url('#{url_for(room.room_image)}')")
   - else
     .max-w-xl.mx-auto.bg-white.rounded-t-lg.overflow-hidden.shadow-lg
     .bg-cover.h-48 style=("background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');")
@@ -45,11 +45,11 @@
         = room.building.team_learning_classrooms.size
         | Team Learning Classrooms
 
-      i.fas.fa-flask
-      span.mx-3
-        strong.text-black
-        = room.building.classrooms_labs.size
-        | Classroom Labs
+      / i.fas.fa-flask
+      / span.mx-3
+      /   strong.text-black
+      /   = room.building.classrooms_labs.size
+      /   | Classroom Labs
     .characteristics-row
       h2 Room Features
       .characteristics
