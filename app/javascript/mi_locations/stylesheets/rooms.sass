@@ -31,19 +31,45 @@
   svg
     @apply w-full
 
+
 .rooms-search-bar
-  @apply bg-um-blue-light h-full
+  @apply bg-um-blue-light h-full w-screen
 
 .rooms-search-field
   padding: 1rem 0 1rem 0rem
+  input
+    @apply w-full h-12
 
 .search-by-building
   margin-bottom: 1rem
 
 .search-by-school-or-college
 
-.rooms-search-selects
+.rooms-search-bar
+  @apply bg-um-blue rounded-lg flex flex-col items-stretch  relative w-full mb-4 p-4
+  .row
+    @apply flex flex-row justify-between
 
+.rooms-search-group
+  @apply flex flex-wrap items-stretch w-full mx-auto my-4
+
+.rooms-search-field
+  @apply flex-shrink flex-grow flex-auto leading-normal flex-1 border h-10 border-grey-light rounded-lg rounded-r-none px-8 relative shadow-lg
+
+.rooms-search-button
+  @apply  flex items-center leading-normal bg-green rounded-lg rounded-l-none border border-l-0 border-grey-light  px-12 whitespace-no-wrap text-white text-lg h-10 -ml-2 shadow-lg
+  .SearchMe
+    @apply text-white text-xl bg-transparent
+.rooms-search-dropdowns
+  @apply flex flex-row justify-around px-8 h-32
+
+.rooms-search-filters-toggle
+  @apply text-white
+  svg
+    @apply text-xl ml-4
+
+.rooms-search-selects
+  @apply flex flex-row justify-around
 .rooms-search-matches
   color: white
 
