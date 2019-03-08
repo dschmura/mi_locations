@@ -8,7 +8,7 @@
 
       .filter-checkboxes
         .form-check
-          input#Chkbrd.form-check-input  type='checkbox', onchange: 'this.form.submit();'  
+          input#Chkbrd.form-check-input  type='checkbox', onchange: 'this.form.submit();'
           label.form-check-label  for=('TeamTables' )  Seating: Team Tables
 
         .form-check
@@ -73,7 +73,7 @@
         .form-check
           .form-check-input
             = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Blackout', is_checked?('Blackout'), onchange: 'this.form.submit();' )
-          label.form-check-label  for=('Blackout' )  Blackout (Room Darkening)
+          label.form-check-label  for=('Blackout' ) Blackout (Room Darkening)
 
         / .form-check
         /   .form-check-input

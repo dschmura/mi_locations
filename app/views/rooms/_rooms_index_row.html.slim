@@ -1,6 +1,5 @@
 .rooms-index-row
   .rooms-index-row-top
-
     .rooms-index-row-name
       = link_to room_path(room) do
         = room.room_number
@@ -18,7 +17,4 @@
       | Copy
   .rooms-index-row-bottom
     .rooms-index-row-team-learning
-      Team Learning Space: #{room.team_learning_classrooms?}
-    / %a.btn.btn-sm.toolytip{:href => "#", :role => "button"}
-    /   %span.tooltiptext{:style => "background-color: #FFC107; left: 100%;"} THIS IS THE TEXT
-    /   %i.fas.fa-edit.fa-sm
+      | Team Learning Space: #{room.team_learning_classrooms?}

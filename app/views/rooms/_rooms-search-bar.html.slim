@@ -12,7 +12,8 @@
       .col.ml-2
         select.form-control.form-control-sm.search-by-building
           i.fas.fa-building
-          option Search By Building
+          option
+            | Search By Building
       .col.mr-2
         select.form-control.form-control-sm.search-by-school-or-college
           option
@@ -24,14 +25,14 @@
         = "#{@q.result.size} Matches"
       .rooms-search-filters-toggle
         .rooms-search-filters-toggle-on
-          | Toggle Filters
+          | Toggle Filters On
           i.fas.fa-toggle-on
         .rooms-search-filters-toggle-off
-          | Toggle Filters
+          | Toggle Filters Off
           i.fas.fa-toggle-off
 
-        .alert-close aria-label="ToggleOn" data-dismiss="alert" onclick="this.parentElement.style.display='none'"
-          i.fas.fa-toggle-on
+        / .alert-close aria-label="ToggleOn" data-dismiss="alert" onclick="this.parentElement.style.display='none'"
+        /   i.fas.fa-toggle-on
 
 / = search_form_for @q do |f|
 /   .rooms--search-bar
