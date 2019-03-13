@@ -13,8 +13,8 @@
 
       = link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", :target => "_blank"
     .rooms-index-row-copy-button
-      i.fas.fa-copy
-      | Copy
+      %i.fas.fa-copy
+      Copy
   .rooms-index-row-bottom
     .rooms-index-row-team-learning
-      | Team Learning Space: #{room.team_learning_classrooms?}
+      Team Learning Space: #{room.team_learning_classrooms?}

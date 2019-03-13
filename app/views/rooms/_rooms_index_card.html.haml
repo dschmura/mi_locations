@@ -2,10 +2,10 @@
 
   - if room.room_image.attached?
     .max-w-xl.mx-auto.bg-white.rounded-t-lg.overflow-hidden.shadow-lg
-    .bg-cover.h-48.bg-center style=("background-image: url('#{url_for(room.room_image)}')")
+    .bg-cover.h-48.bg-center{:style=> "background-image: url('#{url_for(room.room_image)}')"}
   - else
     .max-w-xl.mx-auto.bg-white.rounded-t-lg.overflow-hidden.shadow-lg
-    .bg-cover.h-48 style=("background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');")
+    .bg-cover.h-48{:style => "background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');"}
 
   .border-b.px-4.pb-6
     .rooms-index-card-building-badge
@@ -16,40 +16,40 @@
 
     .py-2
       = link_to room_path(room) do
-        h3.font-bold.text-2xl.mb-1
+        %h3.font-bold.text-2xl.mb-1
           = room.room_number
           = room.building.name.titleize
 
-      button.rooms-room-directions-button
-        i.fas.fa-map-marked-alt.rounded-full.mr-2
+      %button.rooms-room-directions-button
+        %i.fas.fa-map-marked-alt.rounded-full.mr-2
 
-        | Directions
+        Directions
 
       .inline-flex.text-grey-dark.items-center
-        i.fas.fa-map-marker-alt.mr-1
+        %i.fas.fa-map-marker-alt.mr-1
         = room.building.address
     .flex
-      button.flex-1.rounded-full.bg-blue.text-white.antialiased.font-bold Details
-      button.flex-1.rounded-full.border-2.border-grey.font-semibold.text-black.px-4.py-2 Map
+      %button.flex-1.rounded-full.bg-blue.text-white.antialiased.font-bold Details
+      %button.flex-1.rounded-full.border-2.border-grey.font-semibold.text-black.px-4.py-2 Map
   .px-4.py-4
     .text-grey-darker.mb-4
-      i.fas.fa-chalkboard
-      span.mx-3
+      %i.fas.fa-chalkboard
+      .bg-scrollspan.mx-3
         strong.text-black
         = room.building.classrooms.size
-        / = room.team_learning_classrooms?
-        | Classrooms
-      i.fas.fa-handshake
-      span.mx-3
+        -# / = room.team_learning_classrooms?
+        Classrooms
+      %i.fas.fa-handshake
+      .bg-scrollspan.mx-3
         strong.text-black
         = room.building.team_learning_classrooms.size
-        | Team Learning Classrooms
+        Team Learning Classrooms
 
-      / i.fas.fa-flask
-      / span.mx-3
-      /   strong.text-black
-      /   = room.building.classrooms_labs.size
-      /   | Classroom Labs
+      -# %/ i.fas.fa-flask
+      -# span.mx-3
+      -#  strong.text-black
+      -#  = room.building.classrooms_labs.size
+      -#  Classroom Labs
     .characteristics-row
       h2 Room Features
       .characteristics

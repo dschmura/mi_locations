@@ -1,5 +1,5 @@
-h1 Rooms#show
-p Find me in app/views/rooms/show.html.haml
+%h1 Rooms#show
+%p Find me in app/views/rooms/show.html.haml
 - if @room.room_image.attached?
   = image_tag @room.room_image, alt: "#{@room.room_number.titleize} #{@room.building.nick_name.titleize} "
 
@@ -9,6 +9,6 @@ p Find me in app/views/rooms/show.html.haml
 = render partial: 'alerts/alerts', locals: {alertable: @room}
 = render partial: 'alerts/form', locals: {alertable: @room}
 
-h3 Add an Image
+%h3 Add an Image
 
 = render partial: 'room_image_form', locals: {room: @rooms}
