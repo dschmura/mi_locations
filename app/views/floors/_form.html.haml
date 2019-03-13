@@ -1,17 +1,17 @@
 = form_for [@building, @floor ||= Floor.new] do |f|
   - if @floor.errors.any?
     #error_explanation
-      h2= "#{pluralize(@floor.errors.count, "error")} prohibited this floor from being saved:"
-      ul
+      %h2= "#{pluralize(@floor.errors.count, "error")} prohibited this floor from being saved:"
+      %ul
         - @floor.errors.full_messages.each do |message|
-          li= message
+          %li= message
 
   .field
     = f.label :label
-    / = f.text_field :label
+    -# / = f.text_field :label
 
-    / = @building.rooms.pluck(:floor).uniq.sort
-    / select("label", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, { include_blank: true })
+    -# / = @building.rooms.pluck(:floor).uniq.sort
+    -# / select("label", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, { include_blank: true })
 
     = f.select :label, @building.rooms.pluck(:floor).uniq.sort , prompt: 'Select the floor'
     = f.file_field :floor_image

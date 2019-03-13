@@ -1,20 +1,20 @@
 p#notice= notice
 
 
-p
+%p
 
-  b Label:
+  %b Label:
   = @floor.label
 
-p
-  b Building:
+%p
+  %b Building:
   = @floor.building.name
-  / = render 'buildings/floors/_USB_Floor_1'.html_safe
+  -# / = render 'buildings/floors/_USB_Floor_1'.html_safe
 
 .building-floor-plan
   .building-floor-plan-svg
     = svg(@floor)
-  / = image_tag @floor.floor_image, alt: "Floor plan for #{@floor.building.name}"
+
 
   .building-floor-plan-nav
 
@@ -24,19 +24,18 @@ p
 
     .building-floor-plan-building-info
       .building-floor-plan-building-image
-        / = image_tag asset_pack_path('media/usb.jpg'), alt: 'Undergraduate Science Building exterior', class: ' shadow-lg shadow-inner'
+
         = image_tag @floor.floor_image, alt: "Floor Plan for #{@floor.label} #{@floor.building.name.titleize}"
         - if @floor.building.building_image.attached?
           = image_tag @floor.building.building_image
 
-        / = image_tag "building_originals/#{@floor.building.abbreviation.camelcase}.jpg", alt: 'Undergraduate Science Building exterior', class: 'rounded-full h-16 w-16 shadow-lg shadow-inner'
       .building-floor-plan-address
         = @floor.building.name.titleize
         = @floor.building.address.titleize
 
     .building-floor-plans-other-floors
-      / = @floor.building.floors
+      -# = @floor.building.floors
       = render @floor.building.floors
 = link_to 'Edit', edit_building_floor_path(@floor)
-| |
+|
 = link_to 'Back', building_floors_path
