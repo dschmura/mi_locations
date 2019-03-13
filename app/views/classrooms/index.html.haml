@@ -6,28 +6,28 @@
 
 .grid-list-map-toggle
   .grid-view
-    | Grid
+    Grid
   .list-view
-    | List
+    List
   .map-view
-    | Map
+    Map
 .toggler-nav
   .toggle-button.toggle-grid
-    / <a class="list-icon" v-bind:class="{ 'active': layout == 'list'}" v-on:click="layout = 'list'"></a
-    / %a{href: "#", v-bind:class="{ 'active': layout == 'list'} v-on:click="layout = 'list'"}
-      i.fas class="fa-th" 
+    -# / <a class="list-icon" v-bind:class="{ 'active': layout == 'list'}" v-on:click="layout = 'list'"></a
+    -# / %a{href: "#", v-bind:class="{ 'active': layout == 'list'} v-on:click="layout = 'list'"}
+    -#   i.fas class="fa-th"
 
-    / %div{ "v-on:click": "'layout' = 'list' " }
+    -# / %div{ "v-on:click": "'layout' = 'list' " }
 
 .rooms-index-rows-header
   .rooms-index-row-name
-    h2 Name
+    %h2 Name
   .rooms-index-row-capacity
-    h2 Capacity
+    %h2 Capacity
   .rooms-index-row-facility-code-heprod
-    h2 Facility Code
+    %h2 Facility Code
   .rooms-index-row-calandar-url
-    h2 Calandar
+    %h2 Calandar
 .rooms-index-rows
   = render partial: "./rooms/rooms_index_row", collection: @rooms, as: :room, cached: true
 
