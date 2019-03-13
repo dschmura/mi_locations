@@ -1,20 +1,20 @@
 - if alertable.alerts.any?
   - alertable.alerts.each do |alert|
 
-    div class=("mi-alert alert-#{alert.severity}") role="alert"
+    %div{:class => "mi-alert alert-#{alert.severity}", :role => "alert"}
 
-      strong.alert-severity
-        i.fas.fa-= severity_icon(alert.severity.to_sym)
+      %strong.alert-severity
+        %i.fas.fa-= severity_icon(alert.severity.to_sym)
         = alert.severity.upcase
       .alert-message
         = alert.message
 
 
       .alert-edit
-        i.fas.fa-ellipsis-h
+        %i.fas.fa-ellipsis-h
 
-      .alert-close aria-label="Close" data-dismiss="alert" onclick="this.parentElement.style.display='none'"
-        i.fas.fa-times
+      .alert-close{"aria-label" => "Close", "data-dismiss" => "alert", :onclick => "this.parentElement.style.display='none'"}
+        %i.fas.fa-times
 
       / .edit-button
       /   = link_to 'Edit', edit_alert_path
