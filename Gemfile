@@ -32,7 +32,7 @@ gem 'image_processing', '~> 1.2' # for Active Storage variants
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # gem 'administrate', '~> 0.8.1'
-# gem 'haml-rails'
+gem 'haml-rails'
 gem 'slim-rails'
 gem 'coffee-script'
 
