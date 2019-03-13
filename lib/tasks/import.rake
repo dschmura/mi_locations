@@ -15,6 +15,14 @@ namespace :import do
     puts "Buildings Time: #{time}"
   end
 
+  desc "Geocode Buildings"
+  task geocode_buildings: :environment do
+    time = Benchmark.measure do
+      Building.all.each { |b| GeocodeBuildingJob.perform_later(b.id) }
+    end
+    puts "Buildings Geocoded Time: #{time}"
+  end
+
   desc "Import Rooms from CSV file"
   task :rooms => [:environment] do
     time = Benchmark.measure do

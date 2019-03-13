@@ -39,6 +39,10 @@ class BuildingsImporter
     end
   end
 
+  def geocode_buildings
+    Building.all.each { |b| GeocodeBuildingJob.perform_later(b.id) }
+  end
+
   def update_building(row)
     @building = Building.find_by(bldrecnbr: row['BLDRECNBR'].to_i)
       if @building.update(bldrecnbr: row["BLDRECNBR"], name: row["BLD_DESCR50"], nick_name: row["BLD_DESCR"], abbreviation: row["BLD_DESCRSHORT"], address:  (" #{row['BLDSTREETNBR']}  #{row['BLDSTREETDIR']}  #{row['BLDSTREETNAME']}" ).strip.gsub(/\s+/, " ") , city: row["BLDCITY"], state: row["BLDSTATE"], zip: row["BLDPOSTAL"] , country: row["BLDCOUNTRY"] )
