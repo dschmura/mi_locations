@@ -1,8 +1,8 @@
-header
+%header
   = link_to root_path, class: '' do
     = image_tag(asset_pack_path('media/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'header-logo')
 
-  nav.header-links
+  %nav.header-links
 
     = link_to "Buildings", buildings_path
     = link_to "Classrooms", classrooms_path
