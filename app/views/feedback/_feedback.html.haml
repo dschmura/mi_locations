@@ -1,14 +1,14 @@
 /! Button trigger modal
-button.btn.btn-primary data-target="#feedback-mailer--modal" data-toggle="modal" type="button" 
-  | Feedback
+%button.btn.btn-primary{"data-target" => "#feedback-mailer--modal", "data-toggle" => "modal", :type => "button"}
+  Feedback
 /! Modal
-#feedback-mailer--modal.modal.fade.bd-example-modal-md aria-hidden="true" aria-labelledby="feedback-mailer--modalLabel" role="dialog" tabindex="-1" 
-  .modal-dialog.modal-md role="document" 
+#feedback-mailer--modal.modal.fade.bd-example-modal-md aria-hidden="true" aria-labelledby="feedback-mailer--modalLabel" role="dialog" tabindex="-1"
+  .modal-dialog.modal-md role="document"
     .modal-content
       .modal-header
-        h4.modal-title Submit Your Feedback
-        button.close aria-label="Close" data-dismiss="modal" type="button" 
-          span aria-hidden="true"  ×
+        %h4.modal-title Submit Your Feedback
+        %button.close aria-label="Close" data-dismiss="modal" type="button"
+          %span aria-hidden="true"  ×
       .modal-body
         = form_with model: @feedback do |f|
           .form-group
