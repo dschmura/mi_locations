@@ -39,10 +39,17 @@ describe Room do
     it { should validate_presence_of(:building_id) }
   end
 
+  describe "Room Visability By Role" do
+    # A room should only show if it is marked visible
+    # Rooms should only appear if they are marked visible
+  end
+
   let(:classroom) { build(:classroom) }
 
   describe "Valid Classrooms:" do
     it { should validate_presence_of(:instructional_seating_count) }
   end
+
+
 
 end

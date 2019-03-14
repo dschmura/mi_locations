@@ -33,7 +33,7 @@ gem 'image_processing', '~> 1.2' # for Active Storage variants
 gem 'sass-rails', '~> 5.0'
 # gem 'administrate', '~> 0.8.1'
 gem 'haml-rails'
-gem 'slim-rails'
+# gem 'slim-rails'
 gem 'coffee-script'
 
 gem 'sidekiq', '~> 5.0'

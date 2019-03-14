@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ message}}
   </div>
 </template>
 
@@ -12,7 +13,7 @@ export default {
   el: '.grid-list-map-toggle',
   data: function() {
     return {
-      layout: 'grid'
+
     };
   },
 
@@ -24,4 +25,5 @@ p {
   font-size: 2em;
   text-align: center;
 }
+
 </style>

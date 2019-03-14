@@ -23,19 +23,34 @@ document.addEventListener('turbolinks:load', () => {
   Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
   const app = new Vue({
-    el: '[data-behavior="vue"]',
+
+    el: '[data-behavior="vue-layout"]',
     data: {
-      message: "Can you say hello?"
-    },
-    components: {
-      Search
+      layout: 'card'
     }
+    });
+
+  const app2 = new Vue({
+    el: '[data-behavior="vue-filters-toggle"]',
+    data: {
+      tests: "Can you say hello?",
+      layout: 'card',
+      show_filters: 'on'
+    },
+    computed: {
+      filteredByLabel() {
+        let view_format = new RegExp(this.selected, 'i')
+        return this.posts.filter(el => el.label.match(filter))
+      },
+
+    }
+
+
+    //   components: {
+    //     Search
+    //   }
+    // })
   })
-})
-// $(document).ready(function(){
-//   $( ".clipboard-btn" ).click(function() {
-//     var clipboard = new Clipboard('.clipboard-btn');
-//     console.log(clipboard);
-//   });
-//
-// });
+
+
+});
