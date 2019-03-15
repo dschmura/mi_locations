@@ -1,4 +1,4 @@
-p#notice= notice
+%p#notice= notice
 
 
 %p
@@ -27,7 +27,7 @@ p#notice= notice
 
         = image_tag @floor.floor_image, alt: "Floor Plan for #{@floor.label} #{@floor.building.name.titleize}"
         - if @floor.building.building_image.attached?
-          = image_tag @floor.building.building_image
+          = image_tag @floor.building.building_image, alt: "Floor Plan for #{@floor.label} #{@floor.building.name.titleize}"
 
       .building-floor-plan-address
         = @floor.building.name.titleize
