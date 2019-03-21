@@ -1,9 +1,9 @@
 @import 'variables'
 
 .characteristic
-  @apply .flex .items-center .justify-center .text-grey-darker .font-semibold .border-2 .text-xs .border-grey-light .rounded-full .h-6 .w-6
+  @apply .flex .items-center .justify-center .text-gray-700 .font-semibold .border-2 .text-xs .border-gray-100 .rounded-full .h-6 .w-6
   &:hover
-    @apply .bg-indigo
+    @apply .bg-indigo-500
     color: white
 
 $hero-nav-badge-size: 8rem
@@ -17,7 +17,7 @@ $hero-nav-badge-size: 8rem
   align-items: center
   padding-top: 12rem
   h1
-    @apply text-um-blue
+    @apply text-blue-500
   .landing-page--brand
     padding: 1rem
     a
@@ -46,23 +46,23 @@ $hero-nav-badge-size: 8rem
   background-size: cover
 
 .landing-page--search-bar
-  @apply bg-um-blue-light rounded-lg flex flex-col items-stretch  p-6 relative mx-10
+  @apply bg-blue-100 rounded-lg flex flex-col items-stretch  p-6 relative mx-10
 
 .landing-page-search-group
   @apply flex flex-wrap items-stretch w-full mb-4 relative
 
 .landing-page-search-field
-  @apply flex-shrink flex-grow flex-auto leading-normal w-1/2 flex-1 border h-10 border-grey-light rounded rounded-r-none px-8 relative shadow-lg
+  @apply flex-shrink flex-grow flex-auto leading-normal w-1/2 flex-1 border h-10 border-gray-100 rounded rounded-r-none px-8 relative shadow-lg
 
 .landing-page-search-button
   span
-    @apply bg-red  flex items-center leading-normal bg-green rounded rounded-l-none border border-l-0 border-grey-light px-3 whitespace-no-wrap text-white text-sm h-10 -ml-2 shadow-lg
+    @apply bg-red-500  flex items-center leading-normal bg-green-500 rounded rounded-l-none border border-l-0 border-gray-100 px-3 whitespace-no-wrap text-white text-sm h-10 -ml-2 shadow-lg
   .SearchMe
     @apply text-white text-xl bg-transparent
 .landing-page-search-dropdowns
   @apply flex flex-row justify-around px-8 h-10
 
 .landing-page-filter-by-button
-  @apply bg-blue-lightest px-4 py-2 rounded-full
+  @apply bg-blue-100 px-4 py-2 rounded-full
   &:hover
-    @apply bg-blue-lighter
+    @apply bg-blue-100

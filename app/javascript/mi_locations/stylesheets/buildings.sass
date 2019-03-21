@@ -9,7 +9,7 @@
     .classroom-link
       @apply inline-block
 .building-floors-list
-  @apply  list-reset
+  @apply  list-none p-0
 .buidling-floor-actions
 
 // Index View building card
@@ -27,31 +27,31 @@
     @apply h-48 w-full rounded-t-none rounded-l
 
 .buildings-building-card-image2
-   border-r border-b border-l border-grey-light bg-white rounded-b  p-4 flex flex-col justify-between leading-normal
+   border-r border-b border-l border-gray-100 bg-white rounded-b  p-4 flex flex-col justify-between leading-normal
    @screen lg
 
-     // @apply border-l-0 border-t border-grey-light rounded-b-none rounded-r
+     // @apply border-l-0 border-t border-gray-100 rounded-b-none rounded-r
 .buildings-building-card-learning-spaces
-  @apply w-1/2 bg-um-blue-lightest p-4 rounded-lg
+  @apply w-1/2 bg-blue-100 p-4 rounded-lg
 
 .buildings-building-card-buttons
   @apply flex flex-col self-center
 .buildings-card-button
-  @apply  bg-um-blue-light text-white  py-2 px-3 rounded-full my-2
+  @apply  bg-blue-100 text-white  py-2 px-3 rounded-full my-2
   &:hover
-    @apply bg-um-blue-dark
+    @apply bg-blue-900
 // SHOW Floor
 .building-floors
-  @apply w-1/3 bg-um-blue-lightest p-4 rounded-lg shadow-lg mb-4
+  @apply w-1/3 bg-blue-100 p-4 rounded-lg shadow-lg mb-4
   h3
-    @apply text-2xl border-b-2 border-grey-dark p-2
+    @apply text-2xl border-b-2 border-gray-700 p-2
 .buildings-results
   padding: 0 2rem
 .buildings-search-bar
   background-color: $heather_blue
 
 .building-alerts
-  @apply  bg-um-maize-lightest
+  @apply  bg-yellow-500
 
 .buildings-search-field
   padding: 1rem 0 1rem 0rem
@@ -76,10 +76,10 @@
 .building-floor-plan
   @apply flex flex-row
 .building-floor-plan-svg
-  @apply bg-grey w-5/6
+  @apply bg-gray-500 w-5/6
 
 .building-floor-plan-nav
-  @apply  p-4 text-xl bg-blue-light
+  @apply  p-4 text-xl bg-blue-100
 
 .building-floor-plan-name
   @apply font-bold
@@ -97,13 +97,13 @@
 .classroom
   path
     fill: $um_maize !important
-    @apply bg-green text-red
+    @apply bg-green-500 text-red-500
   &:hover
     path
       fill: $heather_blue !important
   polygon
     fill: $um_maize !important
-    @apply bg-green text-red
+    @apply bg-green-500 text-red-500
   &:hover
     polygon
       fill: $heather_blue !important

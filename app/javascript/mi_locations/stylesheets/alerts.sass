@@ -2,9 +2,9 @@
 
 
 .alert-form
-  @apply bg-um-blue-lightest my-4 rounded-lg shadow-md
+  @apply bg-blue-100 my-4 rounded-lg shadow-md
   .alert-level
-    @apply bg-grey-light text-xl py-3 pl-2
+    @apply bg-gray-100 text-xl py-3 pl-2
   .alert-content
     @apply bg-white
 
@@ -19,26 +19,26 @@
     @apply text-xl mx-2
 
   .alert-close
-    @apply absolute pin-t pin-b pin-r px-2 py-1
+    @apply absolute top-0 bottom-0 right-0 px-2 py-1
     svg
       @apply text-sm
 
 .alert-severity
-  @apply border-r-2 border-um-blue mr-2 pr-2 text-xl w-48
+  @apply border-r-2 border-blue-500 mr-2 pr-2 text-xl w-48
 .alert-message
   @apply w-2/3 block
   @screen sm
     @apply inline
 
 .alert-edit
-  @apply absolute pin-t pin-r px-2 py-1 mr-6 text-grey-darkest
+  @apply absolute top-0 right-0 px-2 py-1 mr-6 text-gray-900
 
 // COLOR VARIATIONS
 .alert-success
-  @apply bg-green-lighter text-green-darker border-green p-1 mb-2
+  @apply bg-green-100 text-green-700 border-green-500 p-1 mb-2
 .alert-danger
-  @apply bg-red-lighter text-red-darker border-red p-1 mb-2
+  @apply bg-red-100 text-red-700 border-red-500 p-1 mb-2
 .alert-warning
-  @apply bg-orange-lighter text-orange-darker border-orange p-1 mb-2
+  @apply bg-orange-100 text-orange-700 border-orange-500 p-1 mb-2
 .alert-info
-  @apply bg-blue-lighter text-blue-darker border-blue p-1 mb-2
+  @apply bg-blue-100 text-blue-700 border-blue-500 p-1 mb-2
