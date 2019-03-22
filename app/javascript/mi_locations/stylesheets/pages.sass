@@ -1,11 +1,5 @@
 @import 'variables'
 
-.characteristic
-  @apply .flex .items-center .justify-center .text-gray-700 .font-semibold .border-2 .text-xs .border-gray-100 .rounded-full .h-6 .w-6
-  &:hover
-    @apply .bg-indigo-500
-    color: white
-
 $hero-nav-badge-size: 8rem
 
 .header-logo
@@ -17,7 +11,8 @@ $hero-nav-badge-size: 8rem
   align-items: center
   padding-top: 12rem
   h1
-    @apply text-blue-500
+    @apply .text-blue-900 text-4xl font-bold -mt-4 shadow-inner
+
   .landing-page--brand
     padding: 1rem
     a
@@ -46,17 +41,17 @@ $hero-nav-badge-size: 8rem
   background-size: cover
 
 .landing-page--search-bar
-  @apply bg-blue-100 rounded-lg flex flex-col items-stretch  p-6 relative mx-10
+  @apply bg-blue-800 rounded-lg flex flex-col items-stretch  p-6 relative mx-10
 
 .landing-page-search-group
   @apply flex flex-wrap items-stretch w-full mb-4 relative
 
 .landing-page-search-field
-  @apply flex-shrink flex-grow flex-auto leading-normal w-1/2 flex-1 border h-10 border-gray-100 rounded rounded-r-none px-8 relative shadow-lg
+  @apply flex-shrink flex-grow flex-auto leading-normal w-1/2 flex-1 border h-10 border-gray-100 rounded-lg rounded-r-none px-8 relative shadow-lg
 
 .landing-page-search-button
   span
-    @apply bg-red-500  flex items-center leading-normal bg-green-500 rounded rounded-l-none border border-l-0 border-gray-100 px-3 whitespace-no-wrap text-white text-sm h-10 -ml-2 shadow-lg
+    @apply bg-red-500  flex items-center leading-normal bg-green-600 rounded-lg rounded-l-none border border-l-0 border-gray-100 px-6 whitespace-no-wrap text-white text-sm h-10 -ml-2 shadow-lg
   .SearchMe
     @apply text-white text-xl bg-transparent
 .landing-page-search-dropdowns

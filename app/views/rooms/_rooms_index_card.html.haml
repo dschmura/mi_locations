@@ -1,5 +1,4 @@
 .rooms-index-card
-
   - if room.room_image.attached?
     .max-w-xl.mx-auto.bg-white.rounded-t-lg.overflow-hidden.shadow-lg
     .bg-cover.h-48.bg-center{:style=> "background-image: url('#{url_for(room.room_image)}')"}
@@ -28,13 +27,23 @@
       .inline-flex.text-gray-900.items-center
         %i.fas.fa-map-marker-alt.mr-1
         = room.building.address
-    .flex
-      %button.flex-1.rounded-full.bg-blue.text-white.antialiased.font-bold Details
-      %button.flex-1.rounded-full.border-2.border-gray-500.font-semibold.text-black.px-4.py-2 Map
+
+    .py-2
+
+      %button.rooms-room-directions-button
+        %i.fas.fa-map-marked-alt.rounded-full.mr-2
+
+        Directions
+
+      .inline-flex.text-gray-900.items-center
+        %i.fas.fa-map-marker-alt.mr-1
+        = room.building.address
+
+
   .px-4.py-4
-    .text-gray-700.mb-4
+    .text-gray-700.mb-4.flex.flex-row
       %i.fas.fa-chalkboard
-      .bg-scrollspan.mx-3
+      %span.mx-3
         %strong.text-black
         = room.building.classrooms.size
         -# / = room.team_learning_classrooms?
