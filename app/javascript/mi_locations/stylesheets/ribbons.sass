@@ -3,7 +3,7 @@
 
 .corner-ribbon
   width: 300px
-  background: $alert
+  background: #e43
   position: absolute
   top: 45px
   left: -50px
@@ -13,10 +13,11 @@
   color: #f0f0f0
   transform: rotate(-45deg)
   -webkit-transform: rotate(-45deg)
+  z-index: 0
   a
     color: #f0f0f0
     a:hover
-      color: gray
+      color: grey
 /* Custom styles
 
 .corner-ribbon.sticky
@@ -28,14 +29,14 @@
 /* Different positions
 
 .corner-ribbon.top-left
-  top: 145px
+  top: 140px
   left: -80px
   transform: rotate(-45deg)
   -webkit-transform: rotate(-45deg)
 
 .corner-ribbon.top-right
-  top: 145px
-  right: -70px
+  top: 120px
+  right: -80px
   left: auto
   transform: rotate(45deg)
   -webkit-transform: rotate(45deg)
@@ -54,36 +55,3 @@
   left: auto
   transform: rotate(-45deg)
   -webkit-transform: rotate(-45deg)
-
-/* Colors
-
-// .corner-ribbon.white
-//   background: #f0f0f0
-//   color: #555
-//
-// .corner-ribbon.black
-//   background: #333
-//
-// .corner-ribbon.gray
-//   background: #999
-//
-// .corner-ribbon.blue
-//   background: #39d
-//
-// .corner-ribbon.green
-//   background: #2c7
-//
-// .corner-ribbon.turquoise
-//   background: #1b9
-//
-// .corner-ribbon.purple
-//   background: #95b
-//
-// .corner-ribbon.red
-//   background: $theme-danger
-//
-// .corner-ribbon.orange
-//   background: #e82
-//
-// .corner-ribbon.yellow
-//   background: #ec0
