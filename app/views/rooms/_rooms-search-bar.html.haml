@@ -20,11 +20,11 @@
             Search By School or College
     .row
       .rooms-search-matches
-        = "#{@q.result.size} Matches"
+        = "#{ pluralize(@q.result.size, 'Match')}"
       .rooms-search-filters-toggle
         .rooms-search-filters-toggle-on
-          Toggle Filters On
+          Filters On
           %i.fas.fa-toggle-on
         .rooms-search-filters-toggle-off
-          Toggle Filters Off
+          Filters Off
           %i.fas.fa-toggle-off

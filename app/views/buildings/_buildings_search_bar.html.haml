@@ -1,0 +1,38 @@
+= search_form_for @q do |f|
+  .buildings-search-bar
+    .buildings-search-group
+      = f.search_field :name_or_nick_name_or_abbreviation_cont, class: 'buildings-search-field', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+      .buildings-search-button.-mr-px
+        %span
+          %i.fas.fa-search
+          = f.submit class: 'SearchMe'
+
+    -# .limit-to-schools-or-colleges
+    -#   = link_to(classrooms_path,  alt: 'Limit to these schools or colleges') do
+    -#     %button{:type => "submit"}
+    -#       Limit to these Schools or Colleges
+    -#       %i.fas.fa-chevron-down
+
+    .buildings-search-toolbar
+      .buildings-search-results-count
+        = "#{ pluralize(@q.result.size, 'Match')}"
+      .buidlings-search-sort
+        Sort
+        %i.fas.fa-chevron-down
+        .sort-options
+          .sort-by-name
+            Name
+          .sort-by-classrooms-count
+            Classrooms
+          .sort-by-team-rooms-count
+            Team Learning Classrooms
+          .sort-by-capacity
+            Capacity
+      .buidlings-search-filters
+        .rooms-search-filters-toggle
+          .rooms-search-filters-toggle-on
+            Filters On
+            %i.fas.fa-toggle-on
+          .rooms-search-filters-toggle-off
+            Filters Off
+            %i.fas.fa-toggle-off

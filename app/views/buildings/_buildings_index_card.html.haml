@@ -1,0 +1,54 @@
+.buildings-index-card
+  - if building.building_image.attached?
+    .max-w-xl.mx-auto.bg-white.rounded-t-lg.overflow-hidden.shadow-lg
+    .bg-cover.h-48.bg-center{:style=> "background-image: url('#{url_for(building.building_image)}')"}
+  - else
+    .max-w-xl.mx-auto.bg-white.rounded-t-lg.overflow-hidden.shadow-lg
+    .bg-cover.h-48{:style => "background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');"}
+
+  .border-b.px-4.pb-6
+    .buildings-index-card-building-badge
+      - if building.building_image.attached?
+        = image_tag building.building_image, alt: "#{building.name.titleize}"
+      - else
+        = building.abbreviation
+
+    .py-2
+      = link_to building_path(building) do
+        %h3.font-bold.text-2xl.mb-1
+
+          = building.name.titleize
+        .inline-flex.text-gray-900.items-center
+          -# %i.fas.fa-map-marker-alt.mr-1
+          = building.address
+    %button.buildings-building-directions-button
+      %i.fas.fa-map-marked-alt.rounded-full.mr-2
+      Directions
+
+
+    .py-2
+      %button.buildings-building-alerts-button.inline-flex.text-gray-900.items-center
+
+        .buildings-building-alerts-count
+          = building.alerts.size
+        Alerts
+        %i.fas.fa-exclamation-triangle.mr-1
+  .px-4.py-4
+    .text-gray-700.mb-4.flex.flex-row
+      %i.fas.fa-chalkboard
+      %span.mx-3
+        %strong.text-black
+        = building.classrooms.size
+        -# / = room.team_learning_classrooms?
+        Classrooms
+      %i.fas.fa-handshake
+      .bg-scrollspan.mx-3
+        %strong.text-black
+        = building.team_learning_classrooms.size
+        Team Learning Classrooms
+
+      -# %/ i.fas.fa-flask
+      -# %span.mx-3
+      -#  %strong.text-black
+      -#  = building.classrooms_labs.size
+      -#  Classroom Labs
