@@ -19,8 +19,6 @@
 #
 
 class Building < ApplicationRecord
-  has_one_attached :main_picture
-
   has_many :rooms, dependent: :destroy
   has_many :classrooms, -> { classrooms }, class_name: 'Room'
   has_many :classrooms_labs, -> { classrooms_labs }, class_name: 'Room'

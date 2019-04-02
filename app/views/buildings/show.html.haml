@@ -15,11 +15,12 @@
 
 
   .building-floors
-
+    %i.fas.fa-layer-group
     %h3= "Floors in #{@building.name.titleize }"
 
     = render @building.floors
     %h3 Add a Floor
+    %i.fas.fa-layer-plus
     = render partial: 'floors/form', locals: {building: @building}
 
     %h3 Add an Image
