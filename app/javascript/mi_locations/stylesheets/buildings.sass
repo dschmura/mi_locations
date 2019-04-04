@@ -107,7 +107,9 @@
 
 // BUIDLINGS SEARCH TOOLBAR
 .buildings-search-toolbar
-  @apply flex flex-row  justify-between bg-red-500 h-16 align-middle py-2 px-4
+  @apply flex flex-row  justify-between bg-red-500 h-12 align-middle py-2 px-4 rounded-lg
+  @screen sm
+    @apply bg-green-400
 
 .buildings-search-results-count
   @apply text-blue-100
@@ -117,7 +119,7 @@
   svg
     @apply mx-2
   .sort-options
-    @apply bg-gray-200 flex flex-row w-auto
+    @apply bg-gray-200 flex flex-col w-auto
 
     .sort-by-name
       @apply mx-2
@@ -129,24 +131,20 @@
 .buidlings-search-filters
   svg
     @apply mx-2
+
+.buildings-layout-selector
+  @apply inline-flex h-8
+
+  button
+    @apply flex bg-blue-300 text-gray-800 px-4 align-middle
+    &:hover
+      @apply bg-gray-400
+    svg
+      @apply mx-3 align-middle my-auto
+
+.filters-toggle
+  @apply flex inline-flex text-sm text-blue-100 align-middle
 // END BUIDLINGS SEARCH TOOLBAR
-
-
-// xlink:role="linkss"
-.classroom
-  path
-    fill: $um_maize !important
-    @apply bg-green-500 text-red-500
-  &:hover
-    path
-      fill: $heather_blue !important
-  polygon
-    fill: $um_maize !important
-    @apply bg-green-500 text-red-500
-  &:hover
-    polygon
-      fill: $heather_blue !important
-
 
 .buildings-index-card
   @apply font-sans leading-tight bg-gray-100 mb-4 mx-auto mx-2 bg-white rounded-lg overflow-hidden shadow-lg bg-cover
@@ -154,9 +152,11 @@
 .buildings-index-card-image
 
 .buildings-index-card-building-badge
-  @apply bg-yellow-500 h-16 w-16 rounded-full mx-auto text-blue-500 -mt-8
+  @apply bg-yellow-500 h-20 w-20 rounded-full mx-auto text-blue-500 -mt-8
   img
     @apply rounded-full h-16 w-16 shadow-lg shadow-inner
+  .buildings-index-card-building-badge-name
+    @apply  text-red-400 text-center pt-2 text-xs my-auto .align-middle
 
 .buildings-building-directions-button
   @apply inline-flex rounded-full bg-green-500 px-3 py-1 text-green-100
@@ -167,16 +167,3 @@
   @apply inline-flex rounded-full bg-red-500 px-3 py-1 text-red-100
 .buildings-building-alerts-count
   @apply bg-green-500 rounded-full p-1 mr-1 w-5 h-5 text-red-100 text-sm
-
-.buildings-layout-selector
-  @apply inline-flex h-8
-
-  button
-    @apply flex bg-blue-300 text-gray-800 font-bold  px-4 align-middle
-    &:hover
-      @apply bg-gray-400
-    svg
-      @apply mx-3 align-middle my-auto
-
-.filters-toggle
-  @apply flex inline-flex text-sm text-blue-100 align-middle

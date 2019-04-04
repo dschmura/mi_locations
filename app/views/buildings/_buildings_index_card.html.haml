@@ -11,7 +11,8 @@
       - if building.building_image.attached?
         = image_tag building.building_image, alt: "#{building.name.titleize}"
       - else
-        = building.abbreviation
+        .buildings-index-card-building-badge-name
+          = building.abbreviation
 
     .py-2
       = link_to building_path(building) do

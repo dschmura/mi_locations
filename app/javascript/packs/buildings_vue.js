@@ -28,7 +28,7 @@ document.addEventListener('turbolinks:load', () => {
 
     el: '[data-behavior="vue-layout"]',
     data: {
-      layout: 'card',
+      layout: 'list',
       filters: false,
       sort_options: false
     },
