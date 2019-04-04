@@ -9,7 +9,7 @@ class BuildingsImporter
 
   def initialize
     @bldrecnbrs = Building.all.pluck(:bldrecnbr)
-    import(find_file('uploads/buildings.csv'))
+    # import(find_file('uploads/buildings.csv'))
   end
 
   def building_logger
