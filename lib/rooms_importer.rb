@@ -31,7 +31,7 @@ class RoomsImporter
  }.freeze
 
   def initialize
-    file = find_file('uploads/rooms.csv')
+    file = Rails.root.join('uploads/Imports_04_04_2019/rooms.csv')
     @rmrecnbrs = Room.all.pluck(:rmrecnbr)
     @buildings = Building.all.group_by(&:bldrecnbr)
     @rooms = prepare_data_for_import(file)
