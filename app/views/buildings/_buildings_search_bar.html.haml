@@ -1,57 +1,14 @@
 = search_form_for @q do |f|
-  .buildings-search-bar{'data-behavior' => 'vue-layout'}
-    .buildings-search-group
-      = f.search_field :name_or_nick_name_or_abbreviation_cont, class: 'buildings-search-field', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
-      .buildings-search-button.-mr-px
-        %span
-          %i.fas.fa-search
-          = f.submit class: 'SearchMe'
 
-    -# .limit-to-schools-or-colleges
-    -#   = link_to(classrooms_path,  alt: 'Limit to these schools or colleges') do
-    -#     %button{:type => "submit"}
-    -#       Limit to these Schools or Colleges
-    -#       %i.fas.fa-chevron-down
+  .buildings-search-group
+    = f.search_field :name_or_nick_name_or_abbreviation_cont, class: 'buildings-search-field', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+    .buildings-search-button.-mr-px
+      %span
+        %i.fas.fa-search
+        = f.submit class: 'SearchMe'
 
-    .buildings-search-toolbar
-      .buildings-search-results-count
-        = "#{ pluralize(@q.result.size, 'Match')}"
-
-      .buidlings-search-sort
-        %button.filters-toggle{"@click.prevent" => "toggle_sort_options"}
-          Sort By
-          .span{"v-show" => "sort_options == true"}
-            %i.fas.fa-chevron-down
-          .span{"v-show" => "sort_options == false"}
-            %i.fas.fa-chevron-up
-        .sort-options{"v-show" => "sort_options == true"}
-          .sort-by-name
-            Name
-          .sort-by-classrooms-count
-            Classrooms
-          .sort-by-team-rooms-count
-            Team Learning Classrooms
-          .sort-by-capacity
-            Capacity
-
-      .buidlings-search-filters
-        %button.filters-toggle{"@click.prevent" => "toggle_filters"}
-          Filters
-          .rooms-search-filters-toggle-on{"v-show" => "filters == true"}
-            %i.fas.fa-toggle-on
-
-          .rooms-search-filters-toggle-off{"v-show" => "filters == false"}
-            %i.fas.fa-toggle-off
-
-
-      .buildings-layout-selector{'data-behavior' => 'vue-filters-toggle'}
-        %button.rounded-l-full{"@click.prevent" => "set_layout_list"}
-          %i.fas.fa-list
-          List
-        %button.layout-full{"@click.prevent" => "set_layout_grid"}
-          %i.fas.fa-th
-          Grid
-        %button.rounded-r-full{"@click.prevent" => "set_layout_map"}
-          %i.fas.fa-map
-          Map
-    %p Layout Selected: {{ layout }}
+  -# .limit-to-schools-or-colleges
+  -#   = link_to(classrooms_path,  alt: 'Limit to these schools or colleges') do
+  -#     %button{:type => "submit"}
+  -#       Limit to these Schools or Colleges
+  -#       %i.fas.fa-chevron-down

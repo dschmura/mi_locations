@@ -1,0 +1,47 @@
+%form.s-form
+
+  .buildings-search-toolbar
+    .buildings-search-results-count
+      = "#{ pluralize(@q.result.size, 'Match')}"
+
+    .buidlings-search-sort
+      %label.s-label{"@click.prevent" => "toggle_sort_options", :for => "grid-state"}
+        %i.fas.fa-sort-amount-down
+        Sort By
+      .relative
+        .span{"v-show" => "sort_options == true"}
+          %i.fas.fa-chevron-down
+        .span{"v-show" => "sort_options == false"}
+          %i.fas.fa-chevron-up
+        .sort-options{"v-show" => "sort_options == true"}
+          .sort-by-name
+            Name
+          .sort-by-classrooms-count
+            Classrooms
+          .sort-by-team-rooms-count
+            Team Learning Classrooms
+          .sort-by-capacity
+            Capacity
+
+    .buidlings-search-filters
+      %button.filters-toggle{"@click.prevent" => "toggle_filters"}
+        %i.fas.fa-filter
+        Filters
+        .rooms-search-filters-toggle-on{"v-show" => "filters == true"}
+          %i.fas.fa-toggle-on
+
+        .rooms-search-filters-toggle-off{"v-show" => "filters == false"}
+          %i.fas.fa-toggle-off
+
+
+.layout-selectors{'data-behavior' => 'vue-filters-toggle'}
+  %button.layout-selector{"@click.prevent" => "set_layout_list"}
+    %i.fas.fa-list
+    List
+  %button.layout-selector{"@click.prevent" => "set_layout_grid"}
+    %i.fas.fa-th
+    Grid
+  %button.layout-selector{"@click.prevent" => "set_layout_map"}
+    %i.fas.fa-map
+    Map
+%p Layout Selected: {{ layout }}

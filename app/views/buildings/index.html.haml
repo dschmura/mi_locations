@@ -2,12 +2,12 @@
   = javascript_pack_tag 'buildings_vue', 'data-turbolinks-track': 'reload'
 .buildings-results-map
   MAP
-
-
+.buildings-search-bar{'data-behavior' => 'vue-layout'}
   = render './buildings/buildings_search_bar'
 
-  .buildings-search-matches
-    = "#{@q.result.size} Matches"
+  = render 'buildings_search_tool_bar'
+
+
 -# / .building-badges.inline-flex.bg-blue.h-64.overflow-x-auto.w-100
 -#   - @buildings.each do |building|
 -#     = render partial: 'building_badge', locals: {building: building}

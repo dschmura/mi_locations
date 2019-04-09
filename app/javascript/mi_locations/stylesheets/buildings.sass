@@ -51,12 +51,6 @@
 .building-alerts
   @apply  bg-yellow-500
 
-.buildings-search-matches
-  color: white
-  padding-left: 1rem
-
-.building-badges
-.building-badge
 
 .floor-plans
 
@@ -107,17 +101,23 @@
 
 // BUIDLINGS SEARCH TOOLBAR
 .buildings-search-toolbar
-  @apply flex flex-row  justify-between bg-red-500 h-12 align-middle py-2 px-4 rounded-lg
-  @screen sm
-    @apply bg-green-400
+  @apply flex flex-col bg-red-500  align-middle py-2 px-4
+  @screen md
+    @apply bg-green-400 flex-row justify-around
 
 .buildings-search-results-count
-  @apply text-blue-100
+  @apply text-blue-100 px-4 border h-12 py-3
 
 .buidlings-search-sort
-  @apply w-1/3
+  @apply w-full bg-gray-100 px-3 inline-flex h-12
+  label
+    @apply
   svg
     @apply mx-2
+  button
+    @apply  text-gray-800 w-full
+  @screen md
+    @apply  w-1/3 align-middle items-center
   .sort-options
     @apply bg-gray-200 flex flex-col w-auto
 
@@ -129,18 +129,28 @@
       @apply mx-2
 
 .buidlings-search-filters
+  @apply h-12 bg-blue-300 py-4
+
   svg
-    @apply mx-2
+    @apply mx-auto
 
-.buildings-layout-selector
-  @apply inline-flex h-8
+.layout-selectors
+  @apply min-w-0 inline-flex rounded bg-blue-300 h-12 justify-around
+  .layout-selector
+    @apply px-4
+  @screen sm
+    @apply bg-blue-100 w-32 h-6
+    .layout-selector
+      @apply px-0 invisible
+      svg
+        @apply visible
+  @screen md
+    @apply bg-blue-100 w-64 h-6
+    .layout-selector
+      @apply px-0 visible
+      svg
+        @apply visible
 
-  button
-    @apply flex bg-blue-300 text-gray-800 px-4 align-middle
-    &:hover
-      @apply bg-gray-400
-    svg
-      @apply mx-3 align-middle my-auto
 
 .filters-toggle
   @apply flex inline-flex text-sm text-blue-100 align-middle
