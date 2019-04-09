@@ -47,3 +47,17 @@ require.context('../mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 require('trix')
 require('@rails/actiontext')
 import 'trix/dist/trix.css'
+
+document.addEventListener('turbolinks:load', () => {
+
+  function highlightCurrent() {
+    const curPage = document.URL;
+    const links = document.getElementsByTagName('a');
+    for (let link of links) {
+      if (link.href == curPage) {
+        link.classList.add("current");
+      }
+    }
+  }
+
+});
