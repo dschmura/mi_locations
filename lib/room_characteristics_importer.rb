@@ -14,11 +14,11 @@ class RoomCharacteristicsImporter
    'CHRSTC_EFF_STATUS' => :chrstc_eff_status,
    'CHRSTC_DESCRSHORT' => :chrstc_descrshort,
    'CHRSTC_DESCR' => :chrstc_descr,
-   'CHRSTC_DESC254' => :chrstc_desc254
+   'CHRSTC_DESCR254' => :chrstc_desc254
  }.freeze
 
   def initialize
-    file = find_file('uploads/room_characteristics.csv')
+    file = find_file('uploads/Imports_04_04_2019/room_characteristics.csv')
     # @rmrecnbrs = Room.all.pluck(:rmrecnbr)
     @classrooms = Room.classrooms.group_by(&:rmrecnbr)
     @room_characteristics = load_room_characteristics_from_csv(file)
