@@ -25,7 +25,8 @@ gem 'bootsnap', '>= 1.4.0', require: false
 # gem 'actiontext', github: 'rails/actiontext', require: 'action_text'
 gem 'image_processing', '~> 1.2' # for Active Storage variants
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 # gem 'administrate', '~> 0.8.1'
 gem 'haml-rails'
 # gem 'slim-rails'
@@ -82,9 +83,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.16.1'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'shoulda-matchers'
   gem 'ffaker'
   gem 'database_cleaner'
