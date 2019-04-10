@@ -3,8 +3,7 @@
 /* Add this attribute to the element that needs a tooltip */
 
 .tooltip
-  position: relative
-  cursor: pointer
+  @apply relative cursor-pointer
 
 /* Base styles for the entire tooltip */
 [data-tooltip]:before,
@@ -42,13 +41,14 @@
   border: 6px solid transparent
   background: transparent
   content: ""
+  @apply
 
 /* Base styles for the tooltip's content area */
 .tooltip:after,
 [data-tooltip]:after
   z-index: 1000
   content: attr(data-tooltip)
-  @apply bg-gray-100 h-auto text-base text-left text-blue-500 rounded-lg p-2 min-w-full w-32
+  @apply bg-gray-300 h-auto w-48 text-sm text-left text-blue-500 rounded-lg p-3
 /* Directions */
 
 /* Top (default) */
@@ -68,14 +68,15 @@
   margin-bottom: -12px
   border-top-color: #000
   border-top-color: hsla(0, 0%, 20%, 0.9)
-
-  @apply
+  border-top-color: #e2e8f0
+  // @apply border-blue-800 border-b-0 border-r-0 border-l-0 border-t-8
 
 /* Horizontally align top/bottom tooltips */
 [data-tooltip]:after,
 .tooltip:after,
 .tooltip-top:after
   margin-left: -80px
+  @apply h-auto  text-blue-900
 
 [data-tooltip]:hover:before,
 [data-tooltip]:hover:after,
@@ -94,79 +95,79 @@
   transform:         translateY(-12px)
 
 /* Left */
-.tooltip-left:before,
-.tooltip-left:after
-  right: 100%
-  bottom: 50%
-  left: auto
+// .tooltip-left:before,
+// .tooltip-left:after
+//   right: 100%
+//   bottom: 50%
+//   left: auto
 
-.tooltip-left:before
-  margin-left: 0
-  margin-right: -12px
-  margin-bottom: 0
-  border-top-color: transparent
-  border-left-color: #000
-  border-left-color: hsla(0, 0%, 20%, 0.9)
+// .tooltip-left:before
+//   margin-left: 0
+//   margin-right: -12px
+//   margin-bottom: 0
+//   border-top-color: transparent
+//   border-left-color: #000
+//   border-left-color: hsla(0, 0%, 20%, 0.9)
 
-.tooltip-left:hover:before,
-.tooltip-left:hover:after,
-.tooltip-left:focus:before,
-.tooltip-left:focus:after
-  -webkit-transform: translateX(-12px)
-  -moz-transform:    translateX(-12px)
-  transform:         translateX(-12px)
+// .tooltip-left:hover:before,
+// .tooltip-left:hover:after,
+// .tooltip-left:focus:before,
+// .tooltip-left:focus:after
+//   -webkit-transform: translateX(-12px)
+//   -moz-transform:    translateX(-12px)
+//   transform:         translateX(-12px)
 
-/* Bottom */
-.tooltip-bottom:before,
-.tooltip-bottom:after
-  top: 100%
-  bottom: auto
-  left: 50%
+// /* Bottom */
+// .tooltip-bottom:before,
+// .tooltip-bottom:after
+//   top: 100%
+//   bottom: auto
+//   left: 50%
 
-.tooltip-bottom:before
-  margin-top: -12px
-  margin-bottom: 0
-  border-top-color: transparent
-  border-bottom-color: #000
-  border-bottom-color: hsla(0, 0%, 20%, 0.9)
+// .tooltip-bottom:before
+//   margin-top: -12px
+//   margin-bottom: 0
+//   border-top-color: transparent
+//   border-bottom-color: #000
+//   border-bottom-color: hsla(0, 0%, 20%, 0.9)
 
-.tooltip-bottom:hover:before,
-.tooltip-bottom:hover:after,
-.tooltip-bottom:focus:before,
-.tooltip-bottom:focus:after
-  -webkit-transform: translateY(12px)
-  -moz-transform:    translateY(12px)
-  transform:         translateY(12px)
+// .tooltip-bottom:hover:before,
+// .tooltip-bottom:hover:after,
+// .tooltip-bottom:focus:before,
+// .tooltip-bottom:focus:after
+//   -webkit-transform: translateY(12px)
+//   -moz-transform:    translateY(12px)
+//   transform:         translateY(12px)
 
-/* Right */
-.tooltip-right:before,
-.tooltip-right:after
-  bottom: 50%
-  left: 100%
+// /* Right */
+// .tooltip-right:before,
+// .tooltip-right:after
+//   bottom: 50%
+//   left: 100%
 
-.tooltip-right:before
-  margin-bottom: 0
-  margin-left: -12px
-  border-top-color: transparent
-  border-right-color: #000
-  border-right-color: hsla(0, 0%, 20%, 0.9)
+// .tooltip-right:before
+//   margin-bottom: 0
+//   margin-left: -12px
+//   border-top-color: transparent
+//   border-right-color: #000
+//   border-right-color: hsla(0, 0%, 20%, 0.9)
 
 
-.tooltip-right:hover:before,
-.tooltip-right:hover:after,
-.tooltip-right:focus:before,
-.tooltip-right:focus:after
-  -webkit-transform: translateX(12px)
-  -moz-transform:    translateX(12px)
-  transform:         translateX(12px)
+// .tooltip-right:hover:before,
+// .tooltip-right:hover:after,
+// .tooltip-right:focus:before,
+// .tooltip-right:focus:after
+//   -webkit-transform: translateX(12px)
+//   -moz-transform:    translateX(12px)
+//   transform:         translateX(12px)
 
-/* Move directional arrows down a bit for left/right tooltips */
-.tooltip-left:before,
-.tooltip-right:before
-  top: 3px
+// /* Move directional arrows down a bit for left/right tooltips */
+// .tooltip-left:before,
+// .tooltip-right:before
+//   top: 3px
 
-/* Vertically center tooltip content for left/right tooltips */
-.tooltip-left:after,
-.tooltip-right:after
-  margin-left: 0
-  margin-bottom: -16px
+// /* Vertically center tooltip content for left/right tooltips */
+// .tooltip-left:after,
+// .tooltip-right:after
+//   margin-left: 0
+//   margin-bottom: -16px

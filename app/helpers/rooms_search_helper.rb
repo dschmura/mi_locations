@@ -12,8 +12,8 @@ module RoomsSearchHelper
     'CaptionDev' => 'fas fa-closed-captioning',
     'Carpet' => 'fas fa-info-circle',
     'ChairFix' => 'fas fa-info-circle',
-    'Chkbrd' => 'fas fa-chalkboard',
-    'Chkbrd>25' => 'fas fa-chalkboard',
+    'Chkbrd' => 'fas fa-chalkboard-teacher',
+    'Chkbrd>25' => 'fas fa-chalkboard-teacher',
     'CompLabAny' => 'fas fa-keyboard',
     'CompLabMac' => 'fas fa-keyboard',
     'CompLabPC' => 'fas fa-keyboard',
@@ -48,15 +48,15 @@ module RoomsSearchHelper
     'VCR' => 'fas fa-info-circle',
     'VideoConf' => 'fas fa-webcam',
     'WCInst' => 'fas fa-wheelchair',
-    'Whtbrd' => 'fas fa-chalkboard',
-    'Whtbrd>25' => 'fas fa-chalkboard',
+    'Whtbrd' => 'fas fa-chalkboard-teacher',
+    'Whtbrd>25' => 'fas fa-chalkboard-teacher',
     'Windows' => 'fas fa-window-close',
     'Wood' => 'fas fa-info-circle'}
 
   def room_characteristic_icon(room_characteristic)
     icon = ROOM_CHARACTERISTIC_ICONS[room_characteristic.chrstc_descrshort]
     "
-    <a role='button' class='characteristic tooltip' href='' data-tooltip=#{room_characteristic.chrstc_descr}>
+    <a role='button' class='characteristic tooltip tooltip-top' href='' data-tooltip='#{room_characteristic.chrstc_desc254}'>
     <i class='fas fa-#{icon} fa-sm'></i>
     </a>"
 
