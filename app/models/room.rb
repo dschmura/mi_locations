@@ -29,12 +29,18 @@ class Room < ApplicationRecord
   validates_presence_of :rmrecnbr, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :building_id
   validates :instructional_seating_count, presence: true, if: -> {:rmtyp_description == 'Classroom' || 'Classroom Laboratory'}
 
+  validates_uniqueness_of :rmrecnbr
+
   def self.classrooms
-    where(rmtyp_description: ['Classroom', 'Class Laboratory'] )
+    where(rmtyp_description: ['Classroom'] )
   end
 
   def self.classrooms_labs
     where(rmtyp_description: ['Class Laboratory'] )
+  end
+
+  def self.classrooms_including_labs
+    where(rmtyp_description: ['Classroom', 'Class Laboratory'] )
   end
 
   def self.team_learning_classrooms
@@ -44,6 +50,5 @@ class Room < ApplicationRecord
   def team_learning_classrooms?
     room_characteristics.size >= 0
   end
-
 
 end
