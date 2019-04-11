@@ -6,8 +6,7 @@ Vue.use(TurbolinksAdapter)
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
-import * as Clipboard from 'clipboard'
-import { listenerCount } from 'events';
+
 // import Search from '../components/search.vue'
 // Vue.component('search', Search)
 
