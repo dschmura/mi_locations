@@ -20,7 +20,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.0', require: false
+gem 'bootsnap', '>= 1.4.3', require: false
 
 # gem 'actiontext', github: 'rails/actiontext', require: 'action_text'
 gem 'image_processing', '~> 1.2' # for Active Storage variants
@@ -56,7 +56,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   # Invoke rake tasks on remote server.
   # example use: cap staging    invoke:rake TASK=db:seed
   gem 'capistrano',         require: false
