@@ -1,10 +1,9 @@
 %form.s-form
-
   .buildings-search-toolbar
     .buildings-search-results-count
       = "#{ pluralize(@q.result.size, 'Match')}"
 
-    .buidlings-search-sort
+    .buildings-search-sort
       %label.s-label{"@click.prevent" => "toggle_sort_options", :for => "grid-state"}
         %i.fas.fa-sort-amount-down
         Sort By
@@ -23,7 +22,7 @@
           .sort-by-capacity
             Capacity
 
-    .buidlings-search-filters
+    .buildings-search-filters
       %button.filters-toggle{"@click.prevent" => "toggle_filters"}
         %i.fas.fa-filter
         Filters
@@ -34,7 +33,7 @@
           %i.fas.fa-toggle-off
 
 
-.layout-selectors{'data-behavior' => 'vue-filters-toggle'}
+.layout-selectors
   %button.layout-selector{"@click.prevent" => "set_layout_list"}
     %i.fas.fa-list
     List
@@ -45,3 +44,11 @@
     %i.fas.fa-map
     Map
 %p Layout Selected: {{ layout }}
+
+.building-results-view
+  .building-grid{ "v-show" => "layout == 'grid'"}
+    Grid
+  .building-list{ "v-show" => "layout == 'list'"}
+    List
+  .building-map{ "v-show" => "layout == 'map'"}
+    Map

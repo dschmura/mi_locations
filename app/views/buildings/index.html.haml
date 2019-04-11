@@ -1,20 +1,21 @@
 - content_for :head do
   = javascript_pack_tag 'buildings_vue', 'data-turbolinks-track': 'reload'
-.buildings-results-map
-  MAP
-.buildings-search-bar{'data-behavior' => 'vue-layout'}
-  = render './buildings/buildings_search_bar'
+%div{'data-behavior' => 'vue-layout'}
+  .buildings-results-map
+    MAP
+  .buildings-search-bar
+    = render './buildings/buildings_search_bar'
 
-  = render 'buildings_search_tool_bar'
+    = render 'buildings_search_tool_bar'
+  = render 'building_results'
+  -# / .building-badges.inline-flex.bg-blue.h-64.overflow-x-auto.w-100
+  -#   - @buildings.each do |building|
+  -#     = render partial: 'building_badge', locals: {building: building}
+  -# .building-badges.inline-flex.overflow-x-auto.h-64.w-100
+  -#   = render @buildings
+  -# .row
+  -#   = render @buildings.first
 
 
--# / .building-badges.inline-flex.bg-blue.h-64.overflow-x-auto.w-100
--#   - @buildings.each do |building|
--#     = render partial: 'building_badge', locals: {building: building}
--# .building-badges.inline-flex.overflow-x-auto.h-64.w-100
--#   = render @buildings
--# .row
--#   = render @buildings.first
-
-.buildings-results
-  = render partial: './buildings/buildings_index_card', collection: @buildings, as: :building, casched: true
+  .buildings-results
+    = render partial: './buildings/buildings_index_card', collection: @buildings, as: :building, casched: true

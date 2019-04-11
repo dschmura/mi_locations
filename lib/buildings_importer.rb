@@ -13,7 +13,7 @@ class BuildingsImporter
   end
 
   def building_logger
-    @@building_logger ||= Logger.new("#{Rails.root}/log/buidling_importer.log")
+    @@building_logger ||= Logger.new("#{Rails.root}/log/building_importer.log")
   end
 
   def building_exists?(bldrecnbr)

@@ -103,7 +103,7 @@ class RoomsImporter
   ## MAPS
 
   def map_building_ids
-    @rooms.each.map { |room| room[:building_id] = bldrecnbr_to_buidling_id(room[:bldrecnbr].to_i) }
+    @rooms.each.map { |room| room[:building_id] = bldrecnbr_to_building_id(room[:bldrecnbr].to_i) }
   end
 
   def map_instructional_seating_count
@@ -133,7 +133,7 @@ class RoomsImporter
     @buildings.include?(bldrecnbr.to_i)
   end
 
-  def bldrecnbr_to_buidling_id(bldrecnbr)
+  def bldrecnbr_to_building_id(bldrecnbr)
     if building_exists?(bldrecnbr)
       @buildings[bldrecnbr][0].id
     else

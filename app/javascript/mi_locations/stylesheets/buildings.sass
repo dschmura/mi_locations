@@ -10,7 +10,7 @@
       @apply inline-block
 .building-floors-list
   @apply  list-none p-0
-.buidling-floor-actions
+.building-floor-actions
 
 // Index View building card
 .buildings-building-card
@@ -76,7 +76,7 @@
 
 // BUILDINGS SEARCH
 .buildings-search-bar
-  @apply bg-blue-800 rounded-lg flex flex-col items-stretch  p-6 relative mx-10
+  @apply bg-blue-800 rounded-lg flex flex-col items-stretch  p-6 relative mx-10 mb-4
 
 .buildings-search-group
   @apply flex flex-wrap items-stretch w-full mb-4 relative
@@ -99,7 +99,7 @@
       @apply bg-blue-300 text-gray-500
 // END BUILDINGS SEARCH
 
-// BUIDLINGS SEARCH TOOLBAR
+// buildingS SEARCH TOOLBAR
 .buildings-search-toolbar
   @apply flex flex-col bg-red-500  align-middle py-2 px-4
   @screen md
@@ -108,7 +108,7 @@
 .buildings-search-results-count
   @apply text-blue-100 px-4 border h-12 py-3
 
-.buidlings-search-sort
+.buildings-search-sort
   @apply w-full bg-gray-100 px-3 inline-flex h-12
   label
     @apply
@@ -119,7 +119,7 @@
   @screen md
     @apply  w-1/3 align-middle items-center
   .sort-options
-    @apply bg-gray-200 flex flex-col w-auto
+    @apply bg-gray-200 flex flex-col
 
     .sort-by-name
       @apply mx-2
@@ -128,7 +128,7 @@
     .sort-by-team-rooms-count
       @apply mx-2
 
-.buidlings-search-filters
+.buildings-search-filters
   @apply h-12 bg-blue-300 py-4
 
   svg
@@ -154,7 +154,7 @@
 
 .filters-toggle
   @apply flex inline-flex text-sm text-blue-100 align-middle
-// END BUIDLINGS SEARCH TOOLBAR
+// END buildingS SEARCH TOOLBAR
 
 .buildings-index-card
   @apply font-sans leading-tight bg-gray-100 mb-4 mx-auto mx-2 bg-white rounded-lg overflow-hidden shadow-lg bg-cover
@@ -177,3 +177,11 @@
   @apply inline-flex rounded-full bg-red-500 px-3 py-1 text-red-100
 .buildings-building-alerts-count
   @apply bg-green-500 rounded-full p-1 mr-1 w-5 h-5 text-red-100 text-sm
+
+.building-results-view
+  .building-grid
+    @apply bg-blue-200 h-12 w-full
+  .building-list
+    @apply bg-blue-500 h-12 w-full
+  .building-map
+    @apply bg-blue-700 h-12 w-full
