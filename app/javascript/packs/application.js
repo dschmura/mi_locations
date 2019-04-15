@@ -59,5 +59,6 @@ document.addEventListener('turbolinks:load', () => {
       }
     }
   }
+  highlightCurrent();
 
 });
