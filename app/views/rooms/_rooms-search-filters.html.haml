@@ -1,4 +1,7 @@
+-# .w-5.h-5.rounded.border.border-grey.inline-flex.justify-center.items-center.bg-white.cursor-pointer
 
+-# %svg.fill-current.text-white{:class => "w-1/2", :viewBox => "0 0 512 512"}
+-#   %path{:d => "M504.502,75.496c-9.997-9.998-26.205-9.998-36.204,0L161.594,382.203L43.702,264.311c-9.997-9.998-26.205-9.997-36.204,0c-9.998,9.997-9.998,26.205,0,36.203l135.994,135.992c9.994,9.997,26.214,9.99,36.204,0L504.502,111.7 C514.5,101.703,514.499,85.494,504.502,75.496z"}
 .rooms-search-filters.collapsed
   %section.filters
     .filter-group
@@ -7,133 +10,72 @@
         Team Learning
 
       .filter-checkboxes
-        .form-check
-          %input#Chkbrd.form-check-input{ :type => 'checkbox', onchange: 'this.form.submit();' }
-          %label.form-check-label{ :for => 'TeamTables' } Seating: Team Tables
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd', is_checked?('Chkbrd'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'TeamTech' } Team Technology
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd', is_checked?('Chkbrd'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'TeamBoard' } Team Writing Surface
-    .filter-group
-      %h5.filter-title
-        %i.fas.fa-handshake
-        Room Design
-
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd', is_checked?('Chkbrd'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'TeamBoard' } Tiered / Sloped Floor
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'PowerStud', is_checked?('PowerStud'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'PowerStud' }  Power for Students
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "TeamTables"}
+          %label{:for => "TeamTables"} Team Tables
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "TeamTech"}
+          %label{:for => "TeamTech"} Team Technology
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "TeamBoard"}
+          %label{:for => "TeamBoard"} Team Writing Surface
 
     .filter-group
       %h5.filter-title
         %i.fas.fa-chalkboard
         Writing Surface
       .filter-checkboxes
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd', is_checked?('Chkbrd'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'Chkbrd' } Chalkboard
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Chkbrd_25', is_checked?('Chkbrd_25'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'Chkbrd_25' } Chalkboard greater than 25'
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Whtbrd', is_checked?('Whtbrd'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'Whtbrd' } Whiteboard
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Whtbrd_25', is_checked?('Whtbrd_25'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'Whtbrd_25' } Whiteboard greater than 25'
-
-        -# .form-check
-        -#   .form-check-input
-        -#     = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'ProjSlide', is_checked?('ProjSlide'), onchange: 'this.form.submit();' )
-        -#   %label.form-check-label{ :for => 'ProjSlide' } Traditional Slide
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "Chkbrd"}
+          %label{:for => "Chkbrd"} Chalkboard
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "Chkbrd>25"}
+          %label{:for => "Chkbrd>25"} Chalkboard greater than 25'
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "Whtbrd"}
+          %label{:for => "Whtbrd"} Whiteboard
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "Whtbrd>25"}
+          %label{:for => "Whtbrd>25"} Whiteboard greater than 25'
 
     .filter-group
       %h5.filter-title
         %i.fas.fa-film
         Audio Visual
       .filter-checkboxes
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Blackout', is_checked?('Blackout'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'Blackout' } Blackout (Room Darkening)
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "Blackout"}
+          %label{:for => "Blackout"} Blackout (Room Darkening)
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "BluRay"}
+          %label{:for => "BluRay"} BluRay / DVD Player
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "DocCam"}
+          %label{:for => "DocCam"} Document Camera
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "IntrPen"}
+          %label{:for => "IntrPen"} Interactive Screen
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "LectureCap"}
+          %label{:for => "LectureCap"} Lecture Capture
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "VideoConf"}
+          %label{:for => "VideoConf"} Video Conferencing
 
-        -# .form-check
-        -#   .form-check-input
-        -#     = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'DVD', is_checked?('DVD'), onchange: 'this.form.submit();' )
-        -#   %label.form-check-label{ :for => 'DVD' } DVD Player
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'BluRay', is_checked?('BluRay'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'BluRay' } BluRay / DVD Player
-
-        -# .form-check
-        -#   .form-check-input
-        -#     = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'VCR', is_checked?('VCR'), onchange: 'this.form.submit();' )
-        -#   %label.form-check-label{ :for => 'VCR' } VCR
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'DocCam', is_checked?('DocCam'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'DocCam' } Document Camera
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'IntrPen', is_checked?('IntrPen'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'IntrPen' } Interactive Screen
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'LectureCap', is_checked?('LectureCap'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'LectureCap' }  Lecture Capture
-
-        -# .form-check
-        -#   .form-check-input
-        -#     = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Telephone', is_checked?('Telephone'), onchange: 'this.form.submit();' )
-        -#   %label.form-check-label{ :for => 'Telephone' }  Telephone
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'VideoConf', is_checked?('VideoConf'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'VideoConf' }  Video Conferencing
     .filter-group
       %h5.filter-title
         %i.fas.fa-video
         Projection
       .filter-checkboxes
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'ProjDigit', is_checked?('ProjDigit'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'ProjDigit' } Projection Digital Data and Video
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Proj35mm', is_checked?('Proj35mm'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'Proj35mm' } 35mm Film
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'ProjD-Cin', is_checked?('ProjD-Cin'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'ProjD-Cin' } Digital Cinema Projection (DCP)
-
-
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "ProjDigit"}
+          %label{:for => "ProjDigit"} Projection Digital Data and Video
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "Proj35mm"}
+          %label{:for => "Proj35mm"} 35mm Film
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "ProjD-Cin"}
+          %label{:for => "ProjD-Cin"} Digital Cinema Projection (DCP)
 
     .filter-group
       %h5.filter-title
@@ -141,57 +83,42 @@
         Podium Computer
       .filter-checkboxes
         INSTRUCTOR COMPUTER COMBINES THESE
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompPodMac', is_checked?('CompPodMac'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'CompPodMac' }  Instructor Computer
-        .text-red-500 INSTRUCTOR COMPUTER COMBINES THESE
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompPodMac', is_checked?('CompPodMac'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'CompPodMac' }  Mac
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompPodPC', is_checked?('CompPodPC'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'CompPodPC' }  PC
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "InstrComp, CompPodPC, CompPodMac"}
+          %label{:for => "InstrComp, CompPodPC, CompPodMac"} Instructor Computer
 
     .filter-group
       %h5.filter-title
         %i.fas.fa-keyboard
         Computer Classroom / Lab
       .filter-checkboxes
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompAny', is_checked?('CompAny'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'CompAny' }  Any
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompMac', is_checked?('CompMac'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'CompMac' }  Mac
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'CompPC', is_checked?('CompPC'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'CompPC' }  PC
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "CompMac"}
+          %label{:for => "CompMac"} Mac
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "CompPC"}
+          %label{:for => "CompPC"} PC
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "CompMac, CompPC, CompAny"}
+          %label{:for => "CompMac, CompPC, CompAny"} Any
 
     -# .filter-group
-      %h5.filter-title
-        %i.fas.fa-plug
-        Power / Ethernet
-      .filter-checkboxes
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'Ethernet', is_checked?('Ethernet'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'Ethernet' }  Ethernet for Instructor
+    -#   %h5.filter-title
+    -#     %i.fas.fa-plug
+    -#     Power / Ethernet
+    -#   .filter-checkboxes
+    -#     .filter-checkbox
+    -#       %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "Ethernet"}
+    -#       %label{:for => "Ethernet"} Ethernet for Instructor
+    -#     .filter-checkbox
+    -#       %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "EthrStud"}
+    -#       %label{:for => "EthrStud"} Ethernet for Students
+    -#     .filter-checkbox
+    -#       %input{:type => "checkbox", "v-model" => "room_characteristics_params",   :value => "PowerStud"}
+    -#       %label{:for => "PowerStud"} Power for Students
+.clear-filters
+  %button{"@click.prevent" => "reset_room_characteristics_params"}
+    Reset Filters
+SELECTED {{ room_characteristics_params }}
 
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'EthrStud', is_checked?('EthrStud'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'EthrStud' }  Ethernet for Students
-
-        .form-check
-          .form-check-input
-            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]', 'PowerStud', is_checked?('PowerStud'), onchange: 'this.form.submit();' )
-          %label.form-check-label{ :for => 'PowerStud' }  Power for Students
+-# Room.ransack(room_characteristics_chrstc_descrshort_cont_all: ["CompPC", "LectureCap", "Blackout", "Chkbrd", "TeamTech", "InstrComp, CompPodPC, CompPodMac", "Proj35mm", "ProjD-Cin", "DocCam"]).result.count
