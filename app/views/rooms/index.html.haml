@@ -1,7 +1,8 @@
-= render 'rooms-search-bar'
+- content_for :head do
+  = javascript_pack_tag 'buildings_vue', 'data-turbolinks-track': 'reload'
+%div{'data-behavior' => 'vue-layout'}
+  = render 'rooms-search-bar'
 
-= render 'rooms-search-filters'
+  = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
 
-= render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
-
-= paginate @rooms
+  -# = paginate @rooms
