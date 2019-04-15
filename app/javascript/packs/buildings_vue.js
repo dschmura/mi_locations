@@ -29,7 +29,8 @@ document.addEventListener('turbolinks:load', () => {
     data: {
       layout: 'list',
       filters: false,
-      sort_options: false
+      sort_options: false,
+      room_characteristics_params: []
     },
     methods: {
       set_layout_list() {
@@ -46,6 +47,12 @@ document.addEventListener('turbolinks:load', () => {
       },
       toggle_sort_options() {
         this.sort_options = this.sort_options ? false : true;
+      },
+      reset_room_characteristics_params(){
+        this.room_characteristics_params = [];
+      },
+      update_results_on_change() {
+        // axios submit room_characteristics_chrstc_descrshort_cont_all(this.room_characteristics_params)
       }
     }
   });
