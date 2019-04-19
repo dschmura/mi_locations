@@ -31,10 +31,13 @@ import '../mi_locations/stylesheets/buildings.sass'
 import '../mi_locations/stylesheets/alerts.sass'
 import '../mi_locations/stylesheets/feedback.sass'
 import '../mi_locations/stylesheets/ribbons.sass'
-import '@fortawesome/fontawesome-free/js/all';
-import '../mi_locations/stylesheets/tooltips.sass'
-import '../mi_locations/stylesheets/filters.sass'
 
+import '../mi_locations/stylesheets/filters.sass'
+import '../mi_locations/stylesheets/search.sass'
+import '../mi_locations/stylesheets/tooltips.sass'
+
+
+import '@fortawesome/fontawesome-free/js/all';
 require.context('../mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 // $(document).ready(function(){
 //   $( ".clipboard-btn" ).click(function() {

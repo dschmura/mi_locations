@@ -1,0 +1,120 @@
+.rooms-search-filters
+  %section.filters
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-handshake
+        Team Learning
+
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "TeamTables"}
+          %label{:for => "TeamTables"} Team Tables
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "TeamTech"}
+          %label{:for => "TeamTech"} Team Technology
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "TeamBoard"}
+          %label{:for => "TeamBoard"} Team Writing Surface
+
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-chalkboard
+        Writing Surface
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "Chkbrd"}
+          %label{:for => "Chkbrd"} Chalkboard
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "Chkbrd>25"}
+          %label{:for => "Chkbrd>25"} Chalkboard greater than 25'
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "Whtbrd"}
+          %label{:for => "Whtbrd"} Whiteboard
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "Whtbrd>25"}
+          %label{:for => "Whtbrd>25"} Whiteboard greater than 25'
+
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-film
+        Audio Visual
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "Blackout"}
+          %label{:for => "Blackout"} Blackout (Room Darkening)
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "BluRay"}
+          %label{:for => "BluRay"} BluRay / DVD Player
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "DocCam"}
+          %label{:for => "DocCam"} Document Camera
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "IntrPen"}
+          %label{:for => "IntrPen"} Interactive Screen
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "LectureCap"}
+          %label{:for => "LectureCap"} Lecture Capture
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "VideoConf"}
+          %label{:for => "VideoConf"} Video Conferencing
+
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-video
+        Projection
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "ProjDigit"}
+          %label{:for => "ProjDigit"} Projection Digital Data and Video
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "Proj35mm"}
+          %label{:for => "Proj35mm"} 35mm Film
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "ProjD-Cin"}
+          %label{:for => "ProjD-Cin"} Digital Cinema Projection (DCP)
+
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-laptop
+        Podium Computer
+      .filter-checkboxes
+        INSTRUCTOR COMPUTER COMBINES THESE
+        .filter-checkbox
+          %input{:type => "checkbox",  :value => "InstrComp, CompPodPC, CompPodMac"}
+          %label{:for => "InstrComp, CompPodPC, CompPodMac"} Instructor Computer
+
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-keyboard
+        Computer Classroom / Lab
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "CompMac"}
+          %label{:for => "CompMac"} Mac
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "CompPC"}
+          %label{:for => "CompPC"} PC
+        .filter-checkbox
+          %input{:type => "checkbox", :value => "CompMac, CompPC, CompAny"}
+          %label{:for => "CompMac, CompPC, CompAny"} Any
+
+    -# .filter-group
+    -#   %h5.filter-title
+    -#     %i.fas.fa-plug
+    -#     Power / Ethernet
+    -#   .filter-checkboxes
+    -#     .filter-checkbox
+    -#       %input{:type => "checkbox", :value => "Ethernet"}
+    -#       %label{:for => "Ethernet"} Ethernet for Instructor
+    -#     .filter-checkbox
+    -#       %input{:type => "checkbox", :value => "EthrStud"}
+    -#       %label{:for => "EthrStud"} Ethernet for Students
+    -#     .filter-checkbox
+    -#       %input{:type => "checkbox", :value => "PowerStud"}
+    -#       %label{:for => "PowerStud"} Power for Students
+.clear-filters
+  %button
+    Clear Filters
+
+
+-# Room.ransack(room_characteristics_chrstc_descrshort_cont_all: ["CompPC", "LectureCap", "Blackout", "Chkbrd", "TeamTech", "InstrComp, CompPodPC, CompPodMac", "Proj35mm", "ProjD-Cin", "DocCam"]).result.count

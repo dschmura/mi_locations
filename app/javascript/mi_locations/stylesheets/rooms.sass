@@ -53,21 +53,13 @@
 
 .search-by-school-or-college
 
+// ROOMS SEARCH
 .rooms-search-bar
   @apply bg-blue-800 rounded-lg flex flex-col items-stretch  relative w-full my-4 p-4
   .row
     @apply flex flex-row justify-between
 
-.rooms-search-group
-  @apply flex flex-wrap items-stretch w-full mx-auto my-4
 
-.rooms-search-field
-  @apply flex-shrink flex-grow flex-auto leading-normal flex-1 border h-10 border-gray-100 rounded-lg rounded-r-none px-8 relative shadow-lg
-
-.rooms-search-button
-  @apply  flex items-center leading-normal bg-green-500 rounded-lg rounded-l-none border border-l-0 border-gray-100  px-12 whitespace-no-wrap text-white text-lg h-10 -ml-2 shadow-lg
-  .SearchMe
-    @apply text-white text-xl bg-transparent
 .rooms-search-dropdowns
   @apply flex flex-row justify-around px-8 h-32
 
@@ -88,8 +80,12 @@
 .rooms-building-badge
   font-size: 0.8rem
 
+.rooms-index-cards
+  @apply flex inline-flex max-w-full overflow-x-scroll
+
 .rooms-index-card
-  @apply font-sans leading-tight bg-gray-100 mb-4 mx-auto mx-8 bg-white rounded-lg overflow-hidden shadow-lg bg-cover
+  @apply font-sans leading-tight bg-gray-100 mb-4 mx-auto mx-8 bg-white rounded-lg overflow-hidden shadow-lg bg-cover max-w-lg
+  min-width: 30%
 
 .rooms-index-card-image
 
@@ -174,11 +170,18 @@
   .toggle-button
     @apply p-1 mx-1
 
-.grid-list-map-toggle
-  @apply flex
-  .grid-view
-    @apply bg-green-500 h-12 w-24
-  .list-view
-    @apply bg-red-500 h-12 w-24
-  .map-view
-   @apply bg-blue-500 h-12 w-24
+.layouts
+  @apply flex flex-row items-center relative
+  width: 7rem
+  .layout
+    @apply py-1 px-4 bg-gray-400
+    &:hover
+      @apply bg-gray-500
+
+  .selected
+    @apply bg-red-500
+
+// .format
+//   @apply invisible
+// .format.format--current
+//   @apply visible

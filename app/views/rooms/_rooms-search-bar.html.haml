@@ -1,12 +1,12 @@
 = search_form_for @q, url: search_rooms_path, html: { method: :post } do |f|
   .rooms-search-bar
 
-    .rooms-search-group
-      = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'rooms-search-field', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
-      .rooms-search-button
-
-        %i.fas.fa-filter
-        Filters
+    .search-group
+      = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-field', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+      .search-button.-mr-px
+        %span
+          %i.fas.fa-search
+          = f.submit class: 'SearchMe'
     .rooms-search-selects
       .col.ml-2
         %select.form-control.form-control-sm.search-by-building
@@ -29,4 +29,4 @@
           Filters Off
           %i.fas.fa-toggle-off
 
-    = render 'rooms-search-filters'
+    = render 'rooms_search_filters'
