@@ -7,14 +7,26 @@
         = room.building.address.titleize
     .rooms-index-row-capacity
       = room.instructional_seating_count
+
+    -# .rooms-index-row-visible{"data-controller" => "room_visibility", "data-visibility-update-url" => "#{room_path(room)}"}
+    -#   %span{ "data-target" => "room_visibility.visible"}
+    -#   %input{"data-action" => "room_visibility#toggle", "data-target" => "room_visibility.visible", :type => "checkbox"}
+    -#   Visible?
+    -#   = room.visible?
+
+
     .rooms-index-row-facility-code-heprod
       = room.facility_code_heprod
     .rooms-index-row-calandar-url
-
       = link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", :target => "_blank"
-    .rooms-index-row-copy-button
-      %i.fas.fa-copy
-      Copy
+
+    .rooms-index-row-copy-button{ "data-controller" => "clipboard"}
+
+      %a.clipboard-button{"data-action" => "clipboard#copy", :href => "#"}
+        %i.fas.fa-copy
+        Copy
+      %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -1000px; top:-1000px;", :type => "text", :value => "#{room.to_json}"}/
+
   .rooms-index-row-bottom
     .rooms-index-row-team-learning
       Team Learning Space: #{room.team_learning_classrooms?}
