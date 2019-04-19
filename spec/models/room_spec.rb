@@ -17,6 +17,7 @@
 #  building_id                 :bigint(8)
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
+#  visible                     :boolean          default(FALSE), not null
 #
 
 require 'rails_helper'

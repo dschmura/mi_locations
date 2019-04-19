@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     @q = Room.ransack(params[:q])
-    @rooms = @q.result.includes(:building, :room_characteristics).page params[:page]
+    @rooms = @q.result(distinct: true).includes(:building, :room_characteristics).page params[:page]
   end
 
   def show
@@ -17,6 +17,7 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
+        format.js
         format.html { redirect_to @room, notice: 'room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
@@ -35,6 +36,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image)
+      params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :visible)
     end
 end
