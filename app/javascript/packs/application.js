@@ -15,7 +15,7 @@ require("@rails/activestorage").start()
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
 
-import * as Clipboard from 'clipboard'
+// import * as Clipboard from 'clipboard'
 
 // Specific frontend applications
 // import 'mi_locations'
@@ -33,9 +33,8 @@ import '../mi_locations/stylesheets/feedback.sass'
 import '../mi_locations/stylesheets/ribbons.sass'
 import '@fortawesome/fontawesome-free/js/all';
 import '../mi_locations/stylesheets/tooltips.sass'
-document.addEventListener('turbolinks:load', () => {
-  FontAwesome.dom.i2svg();
-})
+import '../mi_locations/stylesheets/filters.sass'
+
 require.context('../mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 // $(document).ready(function(){
 //   $( ".clipboard-btn" ).click(function() {
@@ -49,7 +48,7 @@ require('@rails/actiontext')
 import 'trix/dist/trix.css'
 
 document.addEventListener('turbolinks:load', () => {
-
+  FontAwesome.dom.i2svg();
   function highlightCurrent() {
     const curPage = document.URL;
     const links = document.getElementsByTagName('a');
@@ -62,3 +61,5 @@ document.addEventListener('turbolinks:load', () => {
   highlightCurrent();
 
 });
+
+import "controllers"
