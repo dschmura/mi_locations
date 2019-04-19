@@ -13,7 +13,7 @@ class RoomsImporter
   end
 
   ROOM_PARAMS = [:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count,
-  :building_id].freeze
+  :building_id, :visible].freeze
 
   HEADER_MAP = {'RMRECNBR' => :rmrecnbr,
    'DEPTID' => :dept_id,
@@ -78,14 +78,14 @@ class RoomsImporter
   end
 
   def import_rooms
-    create_rooms
+    # create_rooms
     update_rooms
   end
 
   def create_rooms
     puts 'Creating Rooms'
     filter_creatable_rooms(@rooms)
-    Room.import @creatable_rooms, recursive: true, validate: false, batch_size:  1000
+    Room.import @creatable_rooms, recursive: true, validate: true, batch_size:  1000
 
     room_logger.info "Created: #{@creatable_rooms.count} rooms."
   end

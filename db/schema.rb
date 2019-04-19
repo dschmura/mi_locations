@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_153536) do
+ActiveRecord::Schema.define(version: 2019_04_19_210758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_153536) do
     t.string "facility_code_heprod", null: false
     t.string "rmtyp_description"
     t.integer "dept_id"
-    t.integer "dept_grp"
+    t.string "dept_grp"
     t.integer "square_feet"
     t.integer "instructional_seating_count"
     t.bigint "building_id"
