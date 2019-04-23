@@ -40,6 +40,8 @@ gem 'geocoder'
 gem 'kaminari'
 gem 'ransack'
 gem 'activerecord-import'
+
+gem 'listen'
 # gem 'devise', '~> 4.4.3'
 # gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 # gem 'omniauth-facebook', '~> 4.0'
@@ -56,7 +58,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen'
+
   # Invoke rake tasks on remote server.
   # example use: cap staging    invoke:rake TASK=db:seed
   gem 'capistrano',         require: false
