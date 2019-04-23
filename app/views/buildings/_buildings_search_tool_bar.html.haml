@@ -31,24 +31,3 @@
 
         .rooms-search-filters-toggle-off{"v-show" => "filters == false"}
           %i.fas.fa-toggle-off
-
-
-.layout-selectors
-  %button.layout-selector{"@click.prevent" => "set_layout_list"}
-    %i.fas.fa-list
-    List
-  %button.layout-selector{"@click.prevent" => "set_layout_grid"}
-    %i.fas.fa-th
-    Grid
-  %button.layout-selector{"@click.prevent" => "set_layout_map"}
-    %i.fas.fa-map
-    Map
-%p Layout Selected: {{ layout }}
-
-.building-results-view
-  .building-grid{ "v-show" => "layout == 'grid'"}
-    Grid
-  .building-list{ "v-show" => "layout == 'list'"}
-    List
-  .building-map{ "v-show" => "layout == 'map'"}
-    Map

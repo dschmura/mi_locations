@@ -6,17 +6,3 @@
       %span
         %i.fas.fa-search
         = f.submit class: 'SearchMe'
-
-  -# .limit-to-schools-or-colleges
-  -#   = link_to(classrooms_path,  alt: 'Limit to these schools or colleges') do
-  -#     %button{:type => "submit"}
-  -#       Limit to these Schools or Colleges
-  -#       %i.fas.fa-chevron-down
-  .pagination-bar
-
-    = paginate @buildings
-    -# = page_entries_info @buildings
-    .per-page
-
-      = select_tag :per_page, options_for_select([15,25,50,100], @per_page.to_i), class: 'per_page', :style => "width: 60px;", onchange: 'this.form.submit();'
-      Per Page
