@@ -1,5 +1,5 @@
 server 'lsa-mis-rails-staging2.miserver.it.umich.edu', user: 'deployer', roles: %w{app db web}
-set :stage, :staging
+# set :stage, :staging
 set :branch, :master
 set :deploy_user, 'deployer'
 set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/mi_locations"
