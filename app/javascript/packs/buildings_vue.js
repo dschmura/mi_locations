@@ -48,7 +48,7 @@ document.addEventListener('turbolinks:load', () => {
       toggle_sort_options() {
         this.sort_options = this.sort_options ? false : true;
       },
-      reset_room_characteristics_params(){
+      clear_room_characteristics_params(){
         this.room_characteristics_params = [];
       },
       update_results_on_change() {

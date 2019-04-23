@@ -1,30 +1,27 @@
 - content_for :head do
   = javascript_pack_tag 'search_vue', 'data-turbolinks-track': 'reload'
 
-= render 'rooms-search-bar'
-/ = render 'rooms-search-filters'
+%div{'data-behavior' => 'vue-layout'}
+  %layout-button
+    THIS IS
 
-.grid-list-map-toggle
-  .grid-view
-    Grid
-  .list-view
-    List
-  .map-view
-    Map
-.toggler-nav
-  .toggle-button.toggle-grid
+  = render 'rooms-search-bar'
+  / = render 'rooms-search-filters'
+  .rooms-results{"data-controller" => "layout" }
+    -# = render 'results_layout_toggle'
+    .span
+    .rooms-index-rows-header
+      .rooms-index-row-name
+        %h2 Name
+      .rooms-index-row-capacity
+        %h2 Capacity
+      .rooms-index-row-facility-code-heprod
+        %h2 Facility Code
+      .rooms-index-row-calandar-url
+        %h2 Calandar
 
-
-.rooms-index-rows-header
-  .rooms-index-row-name
-    %h2 Name
-  .rooms-index-row-capacity
-    %h2 Capacity
-  .rooms-index-row-facility-code-heprod
-    %h2 Facility Code
-  .rooms-index-row-calandar-url
-    %h2 Calandar
-.rooms-index-rows
-  = render partial: "./rooms/rooms_index_row", collection: @rooms, as: :room, cached: true
-
-= render partial: "./rooms/rooms_index_card", collection: @rooms, as: :room, cached: true
+    .rooms-index-rows{"v-bind:class" => "{ active: isRow }"}
+      = render partial: "./rooms/rooms_index_row", collection: @rooms, as: :room, cached: true
+    .rooms-index-cards{"v-bind:class" => "{ active: isCard }"}
+      = render partial: "./rooms/rooms_index_card", collection: @rooms, as: :room, cached: true
+    .rooms-index-map

@@ -18,7 +18,7 @@
           %option
             %i.fas.fa-project-diagram
             Search By School or College
-    .row
+    -# .row
       .rooms-search-matches
         = "#{ pluralize(@q.result.size, 'Match')}"
       .rooms-search-filters-toggle
@@ -29,4 +29,4 @@
           Filters Off
           %i.fas.fa-toggle-off
 
-    = render 'rooms_search_filters'
+    -# = render 'rooms_search_filters'
