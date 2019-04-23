@@ -11,7 +11,7 @@
 #  facility_code_heprod        :string           not null
 #  rmtyp_description           :string
 #  dept_id                     :integer
-#  dept_grp                    :integer
+#  dept_grp                    :string
 #  square_feet                 :integer
 #  instructional_seating_count :integer
 #  building_id                 :bigint(8)
