@@ -64,7 +64,7 @@
     task :yarn_install do
       on roles(:web) do
         within release_path do
-          execute("cd #{release_path} && yarn install")
+          execute("cd #{release_path} && yarn install --check-files")
         end
       end
     end
@@ -86,8 +86,8 @@
     end
 
   before :starting,  :check_revision
-  # before "deploy:assets:precompile", "deploy:yarn_install"
-  # after  :finishing, :compile_assets
+  before "deploy:assets:precompile", "deploy:yarn_install"
+  after  :finishing, :compile_assets
   after  :finishing, :cleanup
 
   end
