@@ -3,8 +3,8 @@ import Vue from 'vue/dist/vue.esm'
 import TurbolinksAdapter from 'vue-turbolinks'
 Vue.use(TurbolinksAdapter)
 
-import VueResource from 'vue-resource'
-Vue.use(VueResource)
+// import VueResource from 'vue-resource'
+// Vue.use(VueResource)
 
 
 // import Search from '../components/search.vue'
@@ -21,7 +21,7 @@ FontAwesomeConfig = { autoReplaceSvg: 'nest' }//important addition!
 
 
 document.addEventListener('turbolinks:load', () => {
-  Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  // Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
   const app = new Vue({
 
