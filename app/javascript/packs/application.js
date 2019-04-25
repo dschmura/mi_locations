@@ -20,16 +20,14 @@ Turbolinks.start()
 // Specific frontend applications
 // import 'mi_locations'
 
-import '../mi_locations/stylesheets/_variables.sass'
+// import '../mi_locations/stylesheets/variables.sass'
 import '../mi_locations/stylesheets/application.sass'
-import '../mi_locations/stylesheets/feedback.sass'
 import '../mi_locations/stylesheets/header.sass'
 import '../mi_locations/stylesheets/footer.sass'
 import '../mi_locations/stylesheets/pages.sass'
 import '../mi_locations/stylesheets/rooms.sass'
 import '../mi_locations/stylesheets/buildings.sass'
 import '../mi_locations/stylesheets/alerts.sass'
-import '../mi_locations/stylesheets/feedback.sass'
 import '../mi_locations/stylesheets/ribbons.sass'
 
 import '../mi_locations/stylesheets/filters.sass'

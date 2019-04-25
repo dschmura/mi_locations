@@ -3,24 +3,23 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.0",
-    "@rails/actiontext": "^6.0.0-beta1",
+    "@rails/actiontext": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.0.2",
     "axios": "^0.18.0",
     "postcss-cssnext": "^3.1.0",
     "stimulus": "^1.1.1",
-    "tailwindcss": "^1.0.0-beta.4",
+    "tailwindcss": "^1.0.0-beta.5",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
     "vue-resource": "^1.5.1",
     "vue-template-compiler": "^2.6.10",
-    "vue-turbolinks": "^2.0.3"
+    "vue-turbolinks": "^2.0.4"
   },
   "devDependencies": {
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.3.1"
   }
 }

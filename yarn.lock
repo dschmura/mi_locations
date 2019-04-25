@@ -680,12 +680,13 @@
   resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.8.1.tgz#cbafbfe8894c4e3e3c3a9da6774e249ac1f2da8b"
   integrity sha512-GJtx6e55qLEOy2gPOsok2lohjpdWNGrYGtQx0FFT/++K4SYx+Z8LlPHdQBaFzKEwH5IbBB4fNgb//uyZjgYXoA==
 
-"@rails/actiontext@^6.0.0-beta1":
-  version "6.0.0-rc1"
-  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.0.0-rc1.tgz#fe2e467076664b31479b6abc847695b310dcedac"
-  integrity sha512-1QoBeRmBTxBEO4BYYGDAin6yauh5S9SN5FKpZR+K0Hl0QZJodABJa51HoKn+odSHYpJxuEUPHtRWaU8j57ZB1w==
+"@rails/actiontext@^6.0.0-alpha":
+  version "6.0.0-alpha"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.0.0-alpha.tgz#fde304c363f7b941c92cd1b7904d8477024a2d4f"
+  integrity sha512-lgSVfrXHcDtWnmMKRkZ6EDM+XbNlFkXpZhL43eVOtWro2HfSOkiIZ9HG4NYa0SiSBNiaYRoz2fCk4s7PghXkKw==
   dependencies:
     "@rails/activestorage" "^6.0.0-alpha"
+    trix "^1.0.0"
 
 "@rails/activestorage@^6.0.0-alpha":
   version "6.0.0-alpha"
@@ -7191,7 +7192,7 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tailwindcss@^1.0.0-beta.4:
+tailwindcss@^1.0.0-beta.5:
   version "1.0.0-beta.5"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.0.0-beta.5.tgz#0dd211b826ec1d26d3c0f33ba9aec036ddecf544"
   integrity sha512-NJAmboNZzBrruzf7CH738dFN5fGuSJa95a/SawmyyWufkchOt1UiUplH7So5QkoGKyikC2aZOMZ6esVYSNAzXw==
@@ -7663,7 +7664,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue-turbolinks@^2.0.3:
+vue-turbolinks@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/vue-turbolinks/-/vue-turbolinks-2.0.4.tgz#a64102b9641b2fc523570b84964620ea7b51aabb"
   integrity sha512-UnozEGA+HCrETxnBGM3xrsevOOVEsLf1aHKapIANKAf5GdyA2nMXr3yfwlZ5o81PypSx73tfp9XW1nugMeydRA==
@@ -7704,7 +7705,7 @@ webpack-assets-manifest@^3.1.1:
     tapable "^1.0.0"
     webpack-sources "^1.0.0"
 
-webpack-cli@^3.1.2, webpack-cli@^3.2.3:
+webpack-cli@^3.2.3:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.1.tgz#98b0499c7138ba9ece8898bd99c4f007db59909d"
   integrity sha512-c2inFU7SM0IttEgF7fK6AaUsbBnORRzminvbyRKS+NlbQHVZdCtzKBlavRL5359bFsywXGRAItA5di/IruC8mg==
@@ -7731,7 +7732,7 @@ webpack-dev-middleware@^3.6.2:
     range-parser "^1.0.3"
     webpack-log "^2.0.0"
 
-webpack-dev-server@^3.1.14:
+webpack-dev-server@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.3.1.tgz#7046e49ded5c1255a82c5d942bcdda552b72a62d"
   integrity sha512-jY09LikOyGZrxVTXK0mgIq9y2IhCoJ05848dKZqX1gAGLU1YDqgpOT71+W53JH/wI4v6ky4hm+KvSyW14JEs5A==
