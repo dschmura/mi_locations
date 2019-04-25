@@ -681,9 +681,9 @@
   integrity sha512-GJtx6e55qLEOy2gPOsok2lohjpdWNGrYGtQx0FFT/++K4SYx+Z8LlPHdQBaFzKEwH5IbBB4fNgb//uyZjgYXoA==
 
 "@rails/actiontext@^6.0.0-beta1":
-  version "6.0.0-beta3"
-  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.0.0-beta3.tgz#355d71894b4aa1f6d892a8d50b02408d78c2117b"
-  integrity sha512-BjX8lT5b6RfQRfVKnm7Q4lkn7EMFI2wJSbotUIHs0C2Fv6Rlf0AyBYAOttK6ORP3Cx5t0QDwkmb7qvOGyisQhw==
+  version "6.0.0-rc1"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.0.0-rc1.tgz#fe2e467076664b31479b6abc847695b310dcedac"
+  integrity sha512-1QoBeRmBTxBEO4BYYGDAin6yauh5S9SN5FKpZR+K0Hl0QZJodABJa51HoKn+odSHYpJxuEUPHtRWaU8j57ZB1w==
   dependencies:
     "@rails/activestorage" "^6.0.0-alpha"
 
@@ -699,7 +699,7 @@
   resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.0.0-alpha.tgz#d5761d93e19215f5f342229f934d5ca8f6dd22a5"
   integrity sha512-6AZcab77PeJQv8RdfryDYh6tAGcndcRnqYaciLiFclADBPFE9Ip978pGCPiKcKGgCg8S1P1nZII+1GNIrUrx+g==
 
-"@rails/webpacker@^4.0.0":
+"@rails/webpacker@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-4.0.2.tgz#2c2e96527500b060a84159098449ddb1615c65e8"
   integrity sha512-TDj/+UHnWaEg8X21E3cGKvptm3BbW1aUtOAXtrYwpK9tkiWq+Dc40Gm2RIZW7rU3jxDDBZgPRiqvr5B0dorIVw==
@@ -1839,11 +1839,11 @@ component-emitter@^1.2.1:
   integrity sha512-Rd3se6QB+sO1TwqZjscQrurpEPIfO0/yYnSin6Q/rD3mOutHvUrCAhJub3r90uNb+SESBuE0QYoB90YdfatsRg==
 
 compressible@~2.0.16:
-  version "2.0.16"
-  resolved "https://registry.yarnpkg.com/compressible/-/compressible-2.0.16.tgz#a49bf9858f3821b64ce1be0296afc7380466a77f"
-  integrity sha512-JQfEOdnI7dASwCuSPWIeVYwc/zMsu/+tRhoUvEfXz2gxOA2DNjmG5vhtFdBlhWPPGo+RdT9S3tgc/uH5qgDiiA==
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/compressible/-/compressible-2.0.17.tgz#6e8c108a16ad58384a977f3a482ca20bff2f38c1"
+  integrity sha512-BGHeLCK1GV7j1bSmQQAi26X+GgWcTjLr/0tzSvMCl3LH1w1IJ4PFSPoV5316b30cneTziC+B1a+3OjoSUcQYmw==
   dependencies:
-    mime-db ">= 1.38.0 < 2"
+    mime-db ">= 1.40.0 < 2"
 
 compression-webpack-plugin@^2.0.0:
   version "2.0.0"
@@ -2533,9 +2533,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.124, electron-to-chromium@^1.3.30:
-  version "1.3.125"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.125.tgz#dbde0e95e64ebe322db0eca764d951f885a5aff2"
-  integrity sha512-XxowpqQxJ4nDwUXHtVtmEhRqBpm2OnjBomZmZtHD0d2Eo0244+Ojezhk3sD/MBSSe2nxCdGQFRXHIsf/LUTL9A==
+  version "1.3.127"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.127.tgz#9b34d3d63ee0f3747967205b953b25fe7feb0e10"
+  integrity sha512-1o25iFRf/dbgauTWalEzmD1EmRN3a2CzP/K7UVpYLEBduk96LF0FyUdCcf4Ry2mAWJ1VxyblFjC93q6qlLwA2A==
 
 elliptic@^6.0.0:
   version "6.4.1"
@@ -4319,7 +4319,7 @@ miller-rabin@^4.0.0:
     bn.js "^4.0.0"
     brorand "^1.0.1"
 
-mime-db@1.40.0, "mime-db@>= 1.38.0 < 2":
+mime-db@1.40.0, "mime-db@>= 1.40.0 < 2":
   version "1.40.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.40.0.tgz#a65057e998db090f732a68f6c276d387d4126c32"
   integrity sha512-jYdeOMPy9vnxEqFRRo6ZvTZ8d9oPb+k18PKoYNYUe2stVEBPPwsln/qWzdbmaIvnhZ9v2P+CuecK+fpUfsV2mA==
