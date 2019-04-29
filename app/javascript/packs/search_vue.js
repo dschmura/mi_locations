@@ -17,6 +17,10 @@ axios.defaults.headers.common['Accept'] = 'application/json'
 import LayoutButton from '../components/layout_button.vue'
 Vue.component('layout-button', LayoutButton)
 
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
+import 'vue-select/src/scss/vue-select.scss'
+
 Vue.config.ignoredlements = ['trix-toolbar', 'trix-editor']
 
 FontAwesomeConfig = { autoReplaceSvg: 'nest' }//important addition!
@@ -43,14 +47,23 @@ document.addEventListener('turbolinks:load', () => {
       isRow: {
         type: Boolean,
         default: true
-      }
+      },
+      placeholder: {
+        type: String,
+        default: "HI Dave"
+      },
     },
     data: function () {
       return {
-
+        room_characteristics_params: [],
+        buildings: [],
+        schools_or_colleges: []
       }
     },
     methods: {
+      clear_room_characteristics_params() {
+        this.room_characteristics_params = [];
+      }
     },
 
   });
