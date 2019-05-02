@@ -3,7 +3,7 @@ class Buildings::AlertsController < AlertsController
 
   private
 
-    def set_alertable
-      @alertable = Building.find(params[:building_id])
-    end
+  def set_alertable
+    @alertable = Building.find(params[:building_id])
+  end
 end

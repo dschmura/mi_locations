@@ -20,9 +20,9 @@
 
 class Building < ApplicationRecord
   has_many :rooms, dependent: :destroy
-  has_many :classrooms, -> { classrooms }, class_name: 'Room'
-  has_many :classrooms_labs, -> { classrooms_labs }, class_name: 'Room'
-  has_many :team_learning_classrooms, -> { team_learning_classrooms }, class_name: 'Room'
+  has_many :classrooms, -> { classrooms }, class_name: "Room"
+  has_many :classrooms_labs, -> { classrooms_labs }, class_name: "Room"
+  has_many :team_learning_classrooms, -> { team_learning_classrooms }, class_name: "Room"
 
   has_one_attached :building_image
 
@@ -31,5 +31,5 @@ class Building < ApplicationRecord
 
   validates_presence_of :bldrecnbr, :name, :address, :city, :state, :zip, :country
 
-  geocoded_by :address   # can also be an IP address
+  geocoded_by :address # can also be an IP address
 end

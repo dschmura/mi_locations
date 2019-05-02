@@ -20,7 +20,7 @@
 #  visible                     :boolean          default(FALSE), not null
 #
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Room do
   let(:room) { build(:room) }
@@ -50,7 +50,4 @@ describe Room do
   describe "Valid Classrooms:" do
     it { should validate_presence_of(:instructional_seating_count) }
   end
-
-
-
 end

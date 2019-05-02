@@ -1,7 +1,7 @@
-require 'csv'
-require 'benchmark'
-require 'active_record'
-require 'activerecord-import'
+require "csv"
+require "benchmark"
+require "active_record"
+require "activerecord-import"
 
 CSV::Converters[:blank_to_nil] = lambda do |field|
   field && field.empty? ? nil : field
@@ -13,64 +13,62 @@ class RoomsImporter
   end
 
   ROOM_PARAMS = [:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count,
-  :building_id, :visible].freeze
+                 :building_id, :visible,].freeze
 
-  HEADER_MAP = {'RMRECNBR' => :rmrecnbr,
-   'DEPTID' => :dept_id,
+  HEADER_MAP = {"RMRECNBR" => :rmrecnbr,
+                "DEPTID" => :dept_id,
    # 'DEPT_DESCR' => :dept_description,
-   'DEPT_GRP' => :dept_grp,
-   'BLDRECNBR' => :bldrecnbr,
-   'FLOOR' => :floor,
-   'RMNBR' => :room_number,
-   'RMSQRFT' => :square_feet,
-   'RMTYP_DESCR50' => :rmtyp_description,
-   'FACILITY_ID' => :facility_code_heprod,
+                "DEPT_GRP" => :dept_grp,
+                "BLDRECNBR" => :bldrecnbr,
+                "FLOOR" => :floor,
+                "RMNBR" => :room_number,
+                "RMSQRFT" => :square_feet,
+                "RMTYP_DESCR50" => :rmtyp_description,
+                "FACILITY_ID" => :facility_code_heprod,
    # 'RMSTATIONCNT' => :station_count,
    # 'RMACFLAG' => :air_conditioning,
-   'RM_INST_SEAT_CNT' => :instructional_seating_count
- }.freeze
+                "RM_INST_SEAT_CNT" => :instructional_seating_count},.freeze
 
   def initialize
-    file = Rails.root.join('uploads/Imports_04_04_2019/rooms.csv')
+    file = Rails.root.join("uploads/Imports_04_04_2019/rooms.csv")
     @rmrecnbrs = Room.all.pluck(:rmrecnbr)
     @buildings = Building.all.group_by(&:bldrecnbr)
     @rooms = prepare_data_for_import(file)
   end
 
   def prepare_data_for_import(file)
-    time = Benchmark.measure do
+    time = Benchmark.measure {
       load_rooms_from_csv(file)
-    end
+    }
     puts "Load File: #{time}"
 
-    time = Benchmark.measure do
+    time = Benchmark.measure {
       map_building_ids
-    end
+    }
     puts "map_building_ids: #{time}"
 
-    time = Benchmark.measure do
+    time = Benchmark.measure {
       map_rooms_with_buildings
-    end
+    }
     puts "map_rooms_with_buildings: #{time}"
 
-    time = Benchmark.measure do
+    time = Benchmark.measure {
       map_instructional_seating_count
-    end
+    }
     puts "map_instructional_seating_count: #{time}"
 
-    time = Benchmark.measure do
+    time = Benchmark.measure {
       map_rooms_compact
-    end
+    }
     puts "map_rooms_compact: #{time}"
 
-    # time = Benchmark.measure do
-      map_rooms_for_import
+      # time = Benchmark.measure do
+    map_rooms_for_import
     # end
     # puts "map_rooms_for_import: #{time}"
   end
 
   def load_rooms_from_csv(file)
-
     @rooms = []
     CSV.foreach(file, headers: true, header_converters: lambda { |header| HEADER_MAP[header] }) do |row|
       @rooms << row.to_hash
@@ -83,19 +81,18 @@ class RoomsImporter
   end
 
   def create_rooms
-    puts 'Creating Rooms'
+    puts "Creating Rooms"
     filter_creatable_rooms(@rooms)
-    Room.import @creatable_rooms, recursive: true, validate: true, batch_size:  1000
+    Room.import @creatable_rooms, recursive: true, validate: true, batch_size: 1000
 
     room_logger.info "Created: #{@creatable_rooms.count} rooms."
   end
 
   def update_rooms
-
     filter_updatable_rooms(@rooms)
 
     Room.import @updatable_rooms, on_duplicate_key_update: {conflict_target: [:rmrecnbr], columns: [:floor, :room_number, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :facility_code_heprod, :instructional_seating_count,
-    :building_id] }, validate: false, batch_size:  1000
+                                                                                                    :building_id,],}, validate: false, batch_size:  1000
 
     room_logger.info "Updated: #{@updatable_rooms.count} rooms."
   end
@@ -111,7 +108,7 @@ class RoomsImporter
   end
 
   def map_facility_code_heprod
-    @rooms.each.map { |room| room[:facility_code_heprod] = 'clown car' }
+    @rooms.each.map { |room| room[:facility_code_heprod] = "clown car" }
   end
 
   def map_rooms_with_buildings
@@ -155,7 +152,6 @@ class RoomsImporter
     @updatable_rooms = rooms.select { |room| room_exists?(room[:rmrecnbr])}
     puts "Updating Rooms #{@updatable_rooms.count}"
     @updatable_rooms
-
   end
 
   def room_exists?(rmrecnbr)

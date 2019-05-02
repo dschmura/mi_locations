@@ -15,13 +15,13 @@ class Floor < ApplicationRecord
   before_save :set_building
 
   def set_building
-    self.building
+    building
   end
 
   def floor_svg
     ActiveStorage::Blob.service.send(:path_for, floor_image.key)
   end
- validates_uniqueness_of :label, :scope => :building_id
+  validates_uniqueness_of :label, scope: :building_id
 end
 
 # floors = Room.all.pluck(:floor).uniq

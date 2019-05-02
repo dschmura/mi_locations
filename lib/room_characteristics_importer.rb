@@ -1,24 +1,22 @@
-require 'csv'
-require 'benchmark'
-require 'active_record'
-require 'activerecord-import'
+require "csv"
+require "benchmark"
+require "active_record"
+require "activerecord-import"
 
 CSV::Converters[:blank_to_nil] = lambda do |field|
   field && field.empty? ? nil : field
 end
 
 class RoomCharacteristicsImporter
-
-  HEADER_MAP = {'RMRECNBR' => :rmrecnbr,
-   'CHRSTC' => :chrstc,
-   'CHRSTC_EFF_STATUS' => :chrstc_eff_status,
-   'CHRSTC_DESCRSHORT' => :chrstc_descrshort,
-   'CHRSTC_DESCR' => :chrstc_descr,
-   'CHRSTC_DESCR254' => :chrstc_desc254
- }.freeze
+  HEADER_MAP = {"RMRECNBR" => :rmrecnbr,
+                "CHRSTC" => :chrstc,
+                "CHRSTC_EFF_STATUS" => :chrstc_eff_status,
+                "CHRSTC_DESCRSHORT" => :chrstc_descrshort,
+                "CHRSTC_DESCR" => :chrstc_descr,
+                "CHRSTC_DESCR254" => :chrstc_desc254},.freeze
 
   def initialize
-    file = find_file('uploads/Imports_04_04_2019/room_characteristics.csv')
+    file = find_file("uploads/Imports_04_04_2019/room_characteristics.csv")
     # @rmrecnbrs = Room.all.pluck(:rmrecnbr)
     @classrooms = Room.classrooms.group_by(&:rmrecnbr)
     @room_characteristics = load_room_characteristics_from_csv(file)
@@ -47,7 +45,7 @@ class RoomCharacteristicsImporter
   end
 
   def rooms_with_characteristics
-    @rooms_with_characteristics = @room_characteristics.map{ |rc| rc[:rmrecnbr]}.uniq
+    @rooms_with_characteristics = @room_characteristics.map { |rc| rc[:rmrecnbr]}.uniq
   end
 
   def load_room_characteristics_from_csv(file)
@@ -57,7 +55,6 @@ class RoomCharacteristicsImporter
     end
     room_characteristics.each { |k| k.delete_if { |k, v| k.nil? } }
   end
-
 
   def map_room_ids
     @room_characteristics.each.map { |rc| rc[:room_id] = rmrecnbr_to_room_id(rc[:rmrecnbr].to_i) }
@@ -74,7 +71,7 @@ class RoomCharacteristicsImporter
   def import_room_characteristics
     map_room_ids
     RoomCharacteristic.delete_all
-    RoomCharacteristic.import @room_characteristics, recursive: true, validate: false, batch_size:  1000
+    RoomCharacteristic.import @room_characteristics, recursive: true, validate: false, batch_size: 1000
   end
 
   # def import(file)

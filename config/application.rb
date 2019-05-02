@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -31,7 +31,6 @@ module MiLocations
       g.channel         assets: false
     end
 
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -40,7 +39,7 @@ module MiLocations
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
-  ActiveStorage::Engine.config.active_storage.content_types_to_serve_as_binary.delete('image/svg+xml')
+  ActiveStorage::Engine.config.active_storage.content_types_to_serve_as_binary.delete("image/svg+xml")
 
-  ActiveStorage::Engine.config.active_storage.content_types_allowed_inline.append('image/svg+xml')
+  ActiveStorage::Engine.config.active_storage.content_types_allowed_inline.append("image/svg+xml")
 end

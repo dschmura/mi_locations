@@ -1,29 +1,27 @@
-require 'csv'
-require 'benchmark'
-require 'active_record'
-require 'activerecord-import'
+require "csv"
+require "benchmark"
+require "active_record"
+require "activerecord-import"
 
 CSV::Converters[:blank_to_nil] = lambda do |field|
   field && field.empty? ? nil : field
 end
 
 class RoomContactsImporter
-
-  HEADER_MAP = {'RMRECNBR' => :rmrecnbr,
-   'RM_SCHD_CNTCT_NAME' => :rm_schd_cntct_name,
-   'RM_SCHD_EMAIL' => :rm_schd_email,
-   'RM_SCHD_CNTCT_PHONE' => :rm_schd_cntct_phone,
-   'RM_DET_URL' => :rm_det_url,
-   'RM_USAGE_GUIDLNS_URL' => :rm_usage_guidlns_url,
-   'RM_SPPT_DEPTID' => :rm_sppt_deptid,
-   'RM_SPPT_DEPT_DESCR' => :rm_sppt_dept_descr,
-   'RM_SPPT_CNTCT_EMAIL' => :rm_sppt_cntct_email,
-   'RM_SPPT_CNTCT_PHONE' => :rm_sppt_cntct_phone,
-   'RM_SPPT_CNTCT_URL' => :rm_sppt_cntct_url
- }.freeze
+  HEADER_MAP = {"RMRECNBR" => :rmrecnbr,
+                "RM_SCHD_CNTCT_NAME" => :rm_schd_cntct_name,
+                "RM_SCHD_EMAIL" => :rm_schd_email,
+                "RM_SCHD_CNTCT_PHONE" => :rm_schd_cntct_phone,
+                "RM_DET_URL" => :rm_det_url,
+                "RM_USAGE_GUIDLNS_URL" => :rm_usage_guidlns_url,
+                "RM_SPPT_DEPTID" => :rm_sppt_deptid,
+                "RM_SPPT_DEPT_DESCR" => :rm_sppt_dept_descr,
+                "RM_SPPT_CNTCT_EMAIL" => :rm_sppt_cntct_email,
+                "RM_SPPT_CNTCT_PHONE" => :rm_sppt_cntct_phone,
+                "RM_SPPT_CNTCT_URL" => :rm_sppt_cntct_url},.freeze
 
   def initialize
-    file = find_file('uploads/room_contacts.csv')
+    file = find_file("uploads/room_contacts.csv")
     @rooms = Room.all.group_by(&:rmrecnbr)
     @room_contacts = load_room_contacts_from_csv(file)
     import_room_contacts
@@ -47,7 +45,7 @@ class RoomContactsImporter
   end
 
   def rooms_with_characteristics
-    @rooms_with_characteristics = @room_contacts.map{ |rc| rc[:rmrecnbr]}.uniq
+    @rooms_with_characteristics = @room_contacts.map { |rc| rc[:rmrecnbr]}.uniq
   end
 
   def load_room_contacts_from_csv(file)
@@ -73,7 +71,7 @@ class RoomContactsImporter
   def import_room_contacts
     map_room_ids
     RoomContact.delete_all
-    RoomContact.import @room_contacts, recursive: true, validate: false, batch_size:  1000
+    RoomContact.import @room_contacts, recursive: true, validate: false, batch_size: 1000
   end
 
   def find_room(row_rmrecnbr)

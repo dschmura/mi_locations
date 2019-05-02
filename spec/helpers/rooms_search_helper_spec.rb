@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 # Specs in this file have access to a helper object that includes
 # the RoomsSearchHelper. For example:
@@ -11,26 +11,24 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe RoomsSearchHelper, type: :helper do
-
   let(:room) { create(:room) }
 
-  let!(:valid_team_tables) { build(:room_characteristic, chrstc_descrshort: 'TeamTables') }
+  let!(:valid_team_tables) { build(:room_characteristic, chrstc_descrshort: "TeamTables") }
 
-  let!(:valid_team_writing) { build(:room_characteristic, chrstc_descrshort: 'TeamWriting') }
+  let!(:valid_team_writing) { build(:room_characteristic, chrstc_descrshort: "TeamWriting") }
 
-  let!(:invalid_characteristics) { build(:room_characteristic, chrstc_descrshort: '') }
+  let!(:invalid_characteristics) { build(:room_characteristic, chrstc_descrshort: "") }
 
-  subject(:room_characteristcs) {RoomCharacteristic.where(chrstc_descrshort: 'TeamTables')}
+  subject(:room_characteristcs) {RoomCharacteristic.where(chrstc_descrshort: "TeamTables")}
   # helper.team_learning?(room.room_characteristics)
-  describe  'team_learning?' do
-
-  it 'returns TRUE if a room includes TeamSeating' do
-    expect(team_learning?(valid_team_tables)).to eq(true)
-  end
+  describe "team_learning?" do
+    it "returns TRUE if a room includes TeamSeating" do
+      expect(team_learning?(valid_team_tables)).to eq(true)
+    end
     #
     # xit 'returns FALSE if a room does not include Team Attributes' do
     #   expect(helper.team_learning?(invalid_characteristics)).to eq(false)
     # end
-    it { expect(valid_team_tables.chrstc_descrshort).to include('TeamTables')}
+    it { expect(valid_team_tables.chrstc_descrshort).to include("TeamTables")}
   end
 end

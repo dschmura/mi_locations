@@ -12,7 +12,7 @@ class BuildingsController < ApplicationController
   def update
     respond_to do |format|
       if @building.update(building_params)
-        format.html { redirect_to @building, notice: 'building was successfully updated.' }
+        format.html { redirect_to @building, notice: "building was successfully updated." }
         format.json { render :show, status: :ok, location: @building }
       else
         format.html { render :edit }
@@ -22,12 +22,13 @@ class BuildingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_building
-      @building = Building.find(params[:id])
-    end
 
-    def building_params
-      params.require(:building).permit(:building_image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_building
+    @building = Building.find(params[:id])
+  end
+
+  def building_params
+    params.require(:building).permit(:building_image)
+  end
 end

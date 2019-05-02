@@ -1,7 +1,5 @@
 class GuestUser < ApplicationRecord
-
   def uniqname
-    'guest_user'
+    "guest_user"
   end
-  
 end

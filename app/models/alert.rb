@@ -16,12 +16,11 @@ class Alert < ApplicationRecord
   has_rich_text :message
   belongs_to :alertable, polymorphic: true
 
-  enum severity:  [ :info, :primary, :success, :warning, :danger]
+  enum severity: [:info, :primary, :success, :warning, :danger]
 
   validates :severity, presence: true
 
   def self.active
-    where('start_date <= ? AND end_date >= ?', Time.current, Time.current)
+    where("start_date <= ? AND end_date >= ?", Time.current, Time.current)
   end
-
 end
