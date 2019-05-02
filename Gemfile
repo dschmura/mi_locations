@@ -54,7 +54,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'annotate', '~> 2.7'
-
+  gem 'standard'
+  gem 'rubocop-performance'
 end
 
 group :development do
