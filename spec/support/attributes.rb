@@ -10,6 +10,6 @@ def building_attributes(overrides = {})
     city: "ANN ARBOR",
     state: "MI",
     zip: "48109-1055",
-    country: "USA"
+    country: "USA",
   }.merge(overrides)
 end

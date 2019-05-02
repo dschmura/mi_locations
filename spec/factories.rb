@@ -2,9 +2,9 @@ FactoryBot.define do
   factory :room_characteristic do
     rmrecnbr {1234567}
     chrstc {23}
-    chrstc_descrshort {'asdf'}
-    chrstc_descr {'asdf'}
-    chrstc_desc254 {'asdf'}
+    chrstc_descrshort {"asdf"}
+    chrstc_descr {"asdf"}
+    chrstc_desc254 {"asdf"}
     room_id {1234}
   end
 
@@ -19,7 +19,6 @@ FactoryBot.define do
     square_feet {673}
     instructional_seating_count {32}
     building_id {2598}
-
   end
   factory :building do
     bldrecnbr {1234567}
@@ -34,5 +33,4 @@ FactoryBot.define do
     zip {"48109-1055"}
     country {"USA"}
   end
-
 end

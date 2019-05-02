@@ -9,21 +9,18 @@
 #  updated_at  :datetime         not null
 #
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Floor do
   let(:building) { build(:building) }
 
-    describe "Valid Floors: " do
-      xit 'Floor has unique label within a building' do
-
-      end
+  describe "Valid Floors: " do
+    xit "Floor has unique label within a building" do
     end
+  end
 
-    describe "InValid Floors" do
-      xit 'does NOT allow two floors to have the same label within the same building' do
-      end
+  describe "InValid Floors" do
+    xit "does NOT allow two floors to have the same label within the same building" do
     end
-
-
+  end
 end

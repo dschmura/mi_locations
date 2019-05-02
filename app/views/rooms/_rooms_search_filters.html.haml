@@ -1,107 +1,110 @@
--# .rooms-search-filters
--#   %section.filters
--#     .filter-group
--#       %h5.filter-title
--#         %i.fas.fa-handshake
--#         Team Learning
+-# .rooms-search-filters{"data-controller" => "toggle"}
+.rooms-search-filters{"data-controller" => "filters"}
+  %section.filters{"data-target" => "toggle.thingToShow"}
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-handshake
+        Team Learning
 
--#       .filter-checkboxes
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamTables"}
--#           %label{:for => "TeamTables"} Team Tables
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamTech"}
--#           %label{:for => "TeamTech"} Team Technology
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamBoard"}
--#           %label{:for => "TeamBoard"} Team Writing Surface
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamTables"}
+          %label{:for => "TeamTables"} Team Tables
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamTech"}
+          %label{:for => "TeamTech"} Team Technology
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamBoard"}
+          %label{:for => "TeamBoard"} Team Writing Surface
 
--#     .filter-group
--#       %h5.filter-title
--#         %i.fas.fa-chalkboard
--#         Writing Surface
--#       .filter-checkboxes
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Chkbrd"}
--#           %label{:for => "Chkbrd"} Chalkboard
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Chkbrd>25"}
--#           %label{:for => "Chkbrd>25"} Chalkboard greater than 25'
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Whtbrd"}
--#           %label{:for => "Whtbrd"} Whiteboard
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Whtbrd>25"}
--#           %label{:for => "Whtbrd>25"} Whiteboard greater than 25'
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-chalkboard
+        Writing Surface
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Chkbrd"}
+          %label{:for => "Chkbrd"} Chalkboard
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Chkbrd>25"}
+          %label{:for => "Chkbrd>25"} Chalkboard greater than 25'
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Whtbrd"}
+          %label{:for => "Whtbrd"} Whiteboard
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Whtbrd>25"}
+          %label{:for => "Whtbrd>25"} Whiteboard greater than 25'
 
--#     .filter-group
--#       %h5.filter-title
--#         %i.fas.fa-film
--#         Audio Visual
--#       .filter-checkboxes
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Blackout"}
--#           %label{:for => "Blackout"} Blackout (Room Darkening)
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "BluRay"}
--#           %label{:for => "BluRay"} BluRay / DVD Player
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "DocCam"}
--#           %label{:for => "DocCam"} Document Camera
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "IntrPen"}
--#           %label{:for => "IntrPen"} Interactive Screen
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "LectureCap"}
--#           %label{:for => "LectureCap"} Lecture Capture
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "VideoConf"}
--#           %label{:for => "VideoConf"} Video Conferencing
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-film
+        Audio Visual
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Blackout"}
+          %label{:for => "Blackout"} Blackout (Room Darkening)
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "BluRay"}
+          %label{:for => "BluRay"} BluRay / DVD Player
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "DocCam"}
+          %label{:for => "DocCam"} Document Camera
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "IntrPen"}
+          %label{:for => "IntrPen"} Interactive Screen
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "LectureCap"}
+          %label{:for => "LectureCap"} Lecture Capture
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "VideoConf"}
+          %label{:for => "VideoConf"} Video Conferencing
 
--#     .filter-group
--#       %h5.filter-title
--#         %i.fas.fa-video
--#         Projection
--#       .filter-checkboxes
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "ProjDigit"}
--#           %label{:for => "ProjDigit"} Projection Digital Data and Video
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Proj35mm"}
--#           %label{:for => "Proj35mm"} 35mm Film
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "ProjD-Cin"}
--#           %label{:for => "ProjD-Cin"} Digital Cinema Projection (DCP)
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-video
+        Projection
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "ProjDigit"}
+          %label{:for => "ProjDigit"} Projection Digital Data and Video
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Proj35mm"}
+          %label{:for => "Proj35mm"} 35mm Film
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "ProjD-Cin"}
+          %label{:for => "ProjD-Cin"} Digital Cinema Projection (DCP)
 
--#     .filter-group
--#       %h5.filter-title
--#         %i.fas.fa-laptop
--#         Podium Computer
--#       .filter-checkboxes
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params",  :value => "InstrComp, CompPodPC, CompPodMac"}
--#           %label{:for => "InstrComp, CompPodPC, CompPodMac"} Instructor Computer
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-laptop
+        Podium Computer
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params",  :value => "InstrComp, CompPodPC, CompPodMac"}
+          %label{:for => "InstrComp, CompPodPC, CompPodMac"} Instructor Computer
 
--#     .filter-group
--#       %h5.filter-title
--#         %i.fas.fa-keyboard
--#         Computer Classroom / Lab
--#       .filter-checkboxes
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompMac"}
--#           %label{:for => "CompMac"} Mac
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompPC"}
--#           %label{:for => "CompPC"} PC
--#         .filter-checkbox
--#           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompMac, CompPC, CompAny"}
--#           %label{:for => "CompMac, CompPC, CompAny"} Any
+    .filter-group
+      %h5.filter-title
+        %i.fas.fa-keyboard
+        Computer Classroom / Lab
+      .filter-checkboxes
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompMac"}
+          %label{:for => "CompMac"} Mac
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompPC"}
+          %label{:for => "CompPC"} PC
+        .filter-checkbox
+          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompMac, CompPC, CompAny"}
+          %label{:for => "CompMac, CompPC, CompAny"} Any
 
--# .clear-filters
--#   %button{"@click.prevent" => "clear_room_characteristics_params"}
--#     Reset Filters
--# .submit-search
--#   %button{"@click.prevent" => "submit_search"}
--#     Submit
+  .clear-filters
+    %button{"@click.prevent" => "clear_room_characteristics_params"}
+      Reset Filters
 
--# -# SELECTED {{ room_characteristics_params }}
+  -# SELECTED {{ room_characteristics_params }}
+  -# .button.filters-button{"data-toggle-hidden" => "false", "data-action" => "click->toggle#toggle"}
+  -#   %span{"data-target" => "toggle.text"} Hide Filters
+
+  .button.filters-button{"data-toggle-shown" => "false", "data-action" => "click->toggle#toggle"}
+    %span{"data-target" => "toggle.text"} Show Filters

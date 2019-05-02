@@ -13,7 +13,7 @@
       .col.mr-2
 
         %v-select.vue-select{":options" => "['Canada','United States']", :multiple => "multiple", "v-model" => "schools_or_colleges", placeholder: 'Search By School or College'}
-      =console
+      -# =console
     -# .row
       .rooms-search-matches
         = "#{ pluralize(@q.result.size, 'Match')}"
@@ -25,4 +25,4 @@
           Filters Off
           %i.fas.fa-toggle-off
 
-    -# = render 'rooms_search_filters'
+    = render 'rooms_search_filters'

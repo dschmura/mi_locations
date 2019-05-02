@@ -26,14 +26,13 @@ class FloorsController < ApplicationController
   # POST /floors
   # POST /floors.json
   def create
-
     @floor = @building.floors.new(floor_params)
 
     respond_to do |format|
       if @floor.save
 
         # format.html redirect_to :back, notice: 'Floor was successfully created.'
-        format.html { redirect_to @building, notice: 'Floor was successfully created.' }
+        format.html { redirect_to @building, notice: "Floor was successfully created." }
         format.json { render :show, status: :created, location: @floor }
       else
         format.html { redirect_to @building }
@@ -47,7 +46,7 @@ class FloorsController < ApplicationController
   def update
     respond_to do |format|
       if @floor.update(floor_params)
-        format.html { redirect_to [@building, @floor], notice: 'Floor was successfully updated.' }
+        format.html { redirect_to [@building, @floor], notice: "Floor was successfully updated." }
         format.json { render :show, status: :ok, location: @floor }
       else
         format.html { render :edit }
@@ -61,23 +60,24 @@ class FloorsController < ApplicationController
   def destroy
     @floor.destroy
     respond_to do |format|
-      format.html { redirect_to [@building, @floor], notice: 'Floor was successfully destroyed.' }
+      format.html { redirect_to [@building, @floor], notice: "Floor was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    def set_building
-      @building = Building.find(params[:building_id])
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_floor
-      @floor = @building.floors.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def floor_params
-      params.require(:floor).permit(:label, :building_id, :floor_image)
-    end
+  def set_building
+    @building = Building.find(params[:building_id])
+  end
 
+  # Use callbacks to share common setup or constraints between actions.
+  def set_floor
+    @floor = @building.floors.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def floor_params
+    params.require(:floor).permit(:label, :building_id, :floor_image)
+  end
 end

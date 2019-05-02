@@ -1,23 +1,22 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Create building floor' do
+feature "Create building floor" do
   let(:building) { create(:building) }
 
-  scenario 'filling in add a floor form' do
+  scenario "filling in add a floor form" do
     visit new_building_building_floor_path(building)
-    expect(page).to have_content('Add Floor')
+    expect(page).to have_content("Add Floor")
 
-    fill_in "building_floor[floor_label]", with: '12'
-    click_button 'Create Floor'
+    fill_in "building_floor[floor_label]", with: "12"
+    click_button "Create Floor"
 
-    expect(page).to have_content('BuildingFloor was successfully created')
+    expect(page).to have_content("BuildingFloor was successfully created")
     expect(BuildingFloor.count).to eq 1
     building_floor = BuildingFloor.last
 
     expect(building_floor).to have_attributes(
       building_id: building.id
     )
-
   end
   # describe "Valid Buildings: " do
   #   it { should validate_presence_of(:bldrecnbr) }
@@ -29,5 +28,4 @@ feature 'Create building floor' do
   #   it { should validate_presence_of(:country) }
   #
   # end
-
 end

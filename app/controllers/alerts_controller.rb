@@ -5,7 +5,6 @@ class AlertsController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -34,7 +33,7 @@ class AlertsController < ApplicationController
   end
 
   def load_alertable
-    resource, id = request.path.split('/')[1,2]
+    resource, id = request.path.split("/")[1, 2]
     @alertable = resource.singularize.classify.constantize.find(id)
   end
 end

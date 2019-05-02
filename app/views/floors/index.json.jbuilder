@@ -1,1 +1,1 @@
-json.array! @floors, partial: 'floors/floor', as: :floor
+json.array! @floors, partial: "floors/floor", as: :floor

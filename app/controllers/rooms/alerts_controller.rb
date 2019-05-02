@@ -3,7 +3,7 @@ class Rooms::AlertsController < AlertsController
 
   private
 
-    def set_alertable
-      @alertable = Room.find(params[:room_id])
-    end
+  def set_alertable
+    @alertable = Room.find(params[:room_id])
+  end
 end

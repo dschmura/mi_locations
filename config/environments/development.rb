@@ -1,16 +1,16 @@
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              Rails.application.credentials.MI_LOCATIONS_EMAIL_SERVER,
-    domain:               Rails.application.credentials.MI_LOCATIONS_EMAIL_DOMAIN,
-    user_name:            Rails.application.credentials.MI_LOCATIONS_EMAIL_USERNAME,
-    password:             Rails.application.credentials.MI_LOCATIONS_EMAIL_PASSWORD,
-    authentication:       :login,
-    enable_starttls_auto: 'true',
-    port:                 '587'
+    address: Rails.application.credentials.MI_LOCATIONS_EMAIL_SERVER,
+    domain: Rails.application.credentials.MI_LOCATIONS_EMAIL_DOMAIN,
+    user_name: Rails.application.credentials.MI_LOCATIONS_EMAIL_USERNAME,
+    password: Rails.application.credentials.MI_LOCATIONS_EMAIL_PASSWORD,
+    authentication: :login,
+    enable_starttls_auto: "true",
+    port: "587",
   }
   # Verifies that versions and hashed value of the package contents in the project's package.json
-    config.webpacker.check_yarn_integrity = true
+  config.webpacker.check_yarn_integrity = true
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -20,21 +20,19 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-        config.action_view.raise_on_missing_translations = true
-
-
+  config.action_view.raise_on_missing_translations = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join('tmp', 'caching-dev.txt').exist?
+  if Rails.root.join("tmp", "caching-dev.txt").exist?
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
+      "Cache-Control" => "public, max-age=#{2.days.to_i}",
     }
   else
     config.action_controller.perform_caching = false

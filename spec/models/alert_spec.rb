@@ -12,9 +12,7 @@
 #  updated_at     :datetime         not null
 #
 
-
-
-require 'rails_helper'
+require "rails_helper"
 
 describe Alert do
   let(:alert) { build(:alert) }
@@ -25,7 +23,5 @@ describe Alert do
     it { is_expected.to belong_to(:alertable) }
     it { should validate_presence_of(:severity) }
     # it { should validate_presence_of(:message) }
-
   end
-
 end
