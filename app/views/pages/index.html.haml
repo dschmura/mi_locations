@@ -10,6 +10,8 @@
         / = link_to('Locations', root_path, class: 'site-name', id: root_path(anchor: 'page-top') )
       %h1.landing-page-headline Classroom Database
 
-    = render './buildings/buildings_search_bar'
+    = render 'coming_soon'
+    -if Rails.env.development?
+      -# = render './buildings/buildings_search_bar'
 
   search

@@ -22,6 +22,7 @@ Turbolinks.start()
 
 // import '../mi_locations/stylesheets/variables.sass'
 import '../mi_locations/stylesheets/application.sass'
+import '../mi_locations/stylesheets/coming_soon.sass'
 import '../mi_locations/stylesheets/header.sass'
 import '../mi_locations/stylesheets/footer.sass'
 import '../mi_locations/stylesheets/pages.sass'
