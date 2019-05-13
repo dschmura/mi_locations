@@ -27,7 +27,7 @@ class RoomsImporter
                 "FACILITY_ID" => :facility_code_heprod,
    # 'RMSTATIONCNT' => :station_count,
    # 'RMACFLAG' => :air_conditioning,
-                "RM_INST_SEAT_CNT" => :instructional_seating_count},.freeze
+                "RM_INST_SEAT_CNT" => :instructional_seating_count}.freeze
 
   def initialize
     file = Rails.root.join("uploads/Imports_04_04_2019/rooms.csv")
