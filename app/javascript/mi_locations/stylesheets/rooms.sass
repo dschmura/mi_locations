@@ -29,15 +29,20 @@
 
 
   .filter-checkbox
-    @apply inline-flex my-1
+    @apply flex flex-row my-1
     &:hover
       @apply cursor-pointer
     input
-      @apply w-6 h-5 mr-2 mt-1
+      @apply invisible
+      &:hover
+        @apply cursor-pointer
     label
-
-
-
+      &:hover
+        @apply cursor-pointer
+    p
+      @apply text-3xl p-0 text-green-500
+      &:hover
+        @apply cursor-pointer
 
 .filter-title
   @apply text-blue-800 items-end

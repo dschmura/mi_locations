@@ -1,0 +1,8 @@
+
+
+#rooms-results
+  .rooms-index-rows#rooms-index-rows
+    = render partial: "./rooms/rooms_index_row", collection: @rooms, as: :room, cached: true
+
+  #rooms-index-cards
+    = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true

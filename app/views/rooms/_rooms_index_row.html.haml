@@ -1,5 +1,12 @@
 .rooms-index-row
   .rooms-index-row-top
+    .rooms-index-row--image
+      -if room.room_image.attached?
+        'HI'
+
+      - else
+        .max-w-xl.mx-auto.bg-red-500{:style => "background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');"}
+
     .rooms-index-row-name
       = link_to room_path(room) do
         = room.room_number

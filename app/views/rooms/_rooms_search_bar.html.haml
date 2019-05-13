@@ -1,28 +1,42 @@
-= search_form_for @q, url: search_rooms_path, html: { method: :post } do |f|
-  .rooms-search-bar
-    .search-group
+= search_form_for @q, remote: true, url: search_rooms_path, html: { method: :post } do |f|
+
+  -#   .row
+
+  -#     .rooms-search-filters-toggle
+  -#       .rooms-search-filters-toggle-on
+  -#         Filters On
+  -#         %i.fas.fa-toggle-on
+  -#       .rooms-search-filters-toggle-off
+  -#         Filters Off
+  -#         %i.fas.fa-toggle-off
+
+    -# = render 'rooms_search_filters'
+  .search-form
+    .search-form--group
+      %label{:for => "grid-password"} Building by name or nickname
       = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-field', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
-      .search-button.-mr-px
-        %span
-          %i.fas.fa-search
-          = f.submit class: 'SearchMe'
-    .rooms-search-selects
-      .col.ml-2
 
-        %v-select.vue-select.search-by-building{":options" => "['Undergraduate Sciences Building','United States']", :multiple => "multiple", "v-model" => "buildings", placeholder: 'Search By Building'}
-      .col.mr-2
+    .search-form--secondary--group
+      %label{:for => "grid-city"} School or College
+      %input{:placeholder => "School of Social Work", :type => "text"}
+    .search-form--secondary--group
+      %label{:for => "grid-state"}
+        Building(s)
 
-        %v-select.vue-select{":options" => "['Canada','United States']", :multiple => "multiple", "v-model" => "schools_or_colleges", placeholder: 'Search By School or College'}
-      -# =console
-    -# .row
-      .rooms-search-matches
+      %select.search-form--buildings--select
+        %option Angell Hall
+        %option Burton Tower
+        %option North University Building
+        %option Undergraduate Sciences Building
+
+    .search-form--button
+      %button.search-form--button Search
+
+    .flex.flex-row.w-screen.justify-between.mt-4.mx-3
+      .rooms-search-matches#rooms-search-matches
         = "#{ pluralize(@q.result.size, 'Match')}"
-      .rooms-search-filters-toggle
-        .rooms-search-filters-toggle-on
-          Filters On
-          %i.fas.fa-toggle-on
-        .rooms-search-filters-toggle-off
-          Filters Off
-          %i.fas.fa-toggle-off
-
-    = render 'rooms_search_filters'
+      .inline-flex
+        %button.bg-gray-300.hover:bg-gray-400.text-gray-800.font-bold.py-2.px-4.rounded-l
+          Prev
+        %button.bg-gray-300.hover:bg-gray-400.text-gray-800.font-bold.py-2.px-4.rounded-r
+          Next

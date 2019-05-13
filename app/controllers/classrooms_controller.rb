@@ -4,8 +4,9 @@ class ClassroomsController < RoomsController
     @rooms = @q.result(distinct: true).includes(:building, :room_characteristics, :room_contact).order(id: :asc).page params[:page]
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @rooms }
+      format.js
     end
   end
 

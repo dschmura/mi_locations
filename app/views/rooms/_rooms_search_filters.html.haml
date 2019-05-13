@@ -7,13 +7,14 @@
         Team Learning
 
       .filter-checkboxes
-        .filter-checkbox
+        .filter-checkbox.filter-item
+          %p •
           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamTables"}
           %label{:for => "TeamTables"} Team Tables
-        .filter-checkbox
+        .filter-checkbox.filter-item
           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamTech"}
           %label{:for => "TeamTech"} Team Technology
-        .filter-checkbox
+        .filter-checkbox.filter-item
           %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamBoard"}
           %label{:for => "TeamBoard"} Team Writing Surface
 

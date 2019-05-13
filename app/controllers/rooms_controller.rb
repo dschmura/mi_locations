@@ -4,6 +4,11 @@ class RoomsController < ApplicationController
   def index
     @q = Room.ransack(params[:q])
     @rooms = @q.result(distinct: true).includes(:building, :room_characteristics).page params[:page]
+    respond_to do |format|
+      format.html
+      format.json { render json: @rooms }
+      format.js
+    end
   end
 
   def show
