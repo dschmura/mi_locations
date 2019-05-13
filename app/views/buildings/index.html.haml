@@ -1,12 +1,12 @@
 - content_for :head do
   = javascript_pack_tag 'buildings_vue', 'data-turbolinks-track': 'reload'
 %div{'data-behavior' => 'vue-layout'}
-  .buildings-results-map
+  .buildings-results-map#mapdisplay
     MAP
   .buildings-search-bar
     = render './buildings/buildings_search_bar'
 
     = render 'buildings_search_tool_bar'
     = render 'buildings_search_pagination_bar.html.haml'
-  .buildings-results
-    = render partial: './buildings/buildings_index_card', collection: @buildings, as: :building, casched: true
+
+  = render 'buildings_results.html.haml'
