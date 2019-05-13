@@ -18,7 +18,7 @@ class RoomContactsImporter
                 "RM_SPPT_DEPT_DESCR" => :rm_sppt_dept_descr,
                 "RM_SPPT_CNTCT_EMAIL" => :rm_sppt_cntct_email,
                 "RM_SPPT_CNTCT_PHONE" => :rm_sppt_cntct_phone,
-                "RM_SPPT_CNTCT_URL" => :rm_sppt_cntct_url},.freeze
+                "RM_SPPT_CNTCT_URL" => :rm_sppt_cntct_url}.freeze
 
   def initialize
     file = find_file("uploads/room_contacts.csv")
