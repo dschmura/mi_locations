@@ -9,7 +9,7 @@ namespace :import do
   desc "Import Buildings from CSV"
   task buildings: :environment do
     time = Benchmark.measure {
-      file = Rails.root.join("uploads/Imports_04_04_2019/buildings.csv")
+      file = Rails.root.join("uploads/buildings.csv")
       BuildingsImporter.new.import(file)
     }
     puts "Buildings Time: #{time}"
