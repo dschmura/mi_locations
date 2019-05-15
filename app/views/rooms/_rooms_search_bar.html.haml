@@ -13,14 +13,15 @@
     -# = render 'rooms_search_filters'
   .search-form
     .search-form--group
-      %label{:for => "grid-password"} Building by name or nickname
+      %label Building by name or nickname
       = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: '', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
 
     .search-form--secondary--group
-      %label{:for => "grid-city"} School or College
+      %label
+        School or College
       %input{:placeholder => "School of Social Work", :type => "text"}
     .search-form--secondary--group
-      %label{:for => "grid-state"}
+      %label
         Building(s)
 
       %select.search-form--buildings--select

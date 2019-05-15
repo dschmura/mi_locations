@@ -41,7 +41,9 @@
     @screen md
       @apply text-3xl
   label
-    @apply block tracking-wide text-white text-base font-bold mb-2
+    @apply block tracking-wide text-white  font-bold mb-2 text-3xl
+    @screen md
+      @apply text-base
   input
     @apply  appearance-none block w-full bg-gray-100 text-gray-700 rounded py-3 px-4 leading-tight
     &:focus
@@ -73,3 +75,18 @@
 
 .search-form-bg
   @apply bg-smoke-dark w-4/5
+
+.box
+  @apply h-24 w-full bg-blue-200
+  @screen sm
+    @apply bg-red-400
+  @screen md
+    @apply bg-yellow-400
+  @screen lg
+    @apply bg-orange-500
+.box-sm
+  @apply h-24 bg-red-200
+.box-md
+  @apply h-24 bg-yellow-200
+.box-lg
+  @apply h-24 bg-orange-200

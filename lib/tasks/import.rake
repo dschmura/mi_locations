@@ -26,6 +26,7 @@ namespace :import do
   desc "Import Rooms from CSV file"
   task rooms: [:environment] do
     time = Benchmark.measure {
+
       RoomsImporter.new.import_rooms
     }
     puts "Rooms Time: #{time}"
