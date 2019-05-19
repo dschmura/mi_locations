@@ -7,97 +7,113 @@
         Team Learning
 
       .filter-checkboxes
-        .filter-checkbox.filter-item
-          %p •
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamTables"}
-          %label{:for => "TeamTables"} Team Tables
-        .filter-checkbox.filter-item
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamTech"}
-          %label{:for => "TeamTech"} Team Technology
-        .filter-checkbox.filter-item
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "TeamBoard"}
-          %label{:for => "TeamBoard"} Team Writing Surface
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"TeamTech", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Team Technology
+
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"TeamBoard", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Team Writing Surface
 
     .filter-group
       %h5.filter-title
         %i.fas.fa-chalkboard
         Writing Surface
       .filter-checkboxes
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Chkbrd"}
-          %label{:for => "Chkbrd"} Chalkboard
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Chkbrd>25"}
-          %label{:for => "Chkbrd>25"} Chalkboard greater than 25'
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Whtbrd"}
-          %label{:for => "Whtbrd"} Whiteboard
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Whtbrd>25"}
-          %label{:for => "Whtbrd>25"} Whiteboard greater than 25'
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Chalkboard
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd>25", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Chalkboard greater than 25'
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Whiteboard
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd>25", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Whiteboard greater than 25'
 
     .filter-group
       %h5.filter-title
         %i.fas.fa-film
         Audio Visual
       .filter-checkboxes
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Blackout"}
-          %label{:for => "Blackout"} Blackout (Room Darkening)
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "BluRay"}
-          %label{:for => "BluRay"} BluRay / DVD Player
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "DocCam"}
-          %label{:for => "DocCam"} Document Camera
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "IntrPen"}
-          %label{:for => "IntrPen"} Interactive Screen
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "LectureCap"}
-          %label{:for => "LectureCap"} Lecture Capture
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "VideoConf"}
-          %label{:for => "VideoConf"} Video Conferencing
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Blackout", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Blackout (Room Darkening)
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"BluRay", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 BluRay / DVD Player
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"DocCam", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Document Camera
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"IntrPen", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Interactive Screen
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"LectureCap", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Lecture Capture
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"VideoConf", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Video Conferencing
 
     .filter-group
       %h5.filter-title
         %i.fas.fa-video
         Projection
       .filter-checkboxes
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "ProjDigit"}
-          %label{:for => "ProjDigit"} Projection Digital Data and Video
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "Proj35mm"}
-          %label{:for => "Proj35mm"} 35mm Film
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "ProjD-Cin"}
-          %label{:for => "ProjD-Cin"} Digital Cinema Projection (DCP)
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjDigit", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Projection Digital Data and Video
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Proj35mm", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 35mm Film
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjD-Cin", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Digital Cinema Projection (DCP)
 
     .filter-group
       %h5.filter-title
         %i.fas.fa-laptop
         Podium Computer
       .filter-checkboxes
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params",  :value => "InstrComp, CompPodPC, CompPodMac"}
-          %label{:for => "InstrComp, CompPodPC, CompPodMac"} Instructor Computer
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"InstrComp, CompPodPC, CompPodMac-Cin", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Instructor Computer
 
     .filter-group
       %h5.filter-title
         %i.fas.fa-keyboard
         Computer Classroom / Lab
       .filter-checkboxes
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompMac"}
-          %label{:for => "CompMac"} Mac
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompPC"}
-          %label{:for => "CompPC"} PC
-        .filter-checkbox
-          %input{:type => "checkbox", "v-model" => "room_characteristics_params", :value => "CompMac, CompPC, CompAny"}
-          %label{:for => "CompMac, CompPC, CompAny"} Any
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 Mac
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompPC", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 PC
+        %label
+          = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac, CompPC, CompAny", false, {class: 'sr-only'})
+          %span.form-checkbox.text-blue-700{"aria-hidden" => "true"}
+          %span.ml-2 CompPC, CompAny"} Any
 
   .clear-filters
     %button{"@click.prevent" => "clear_room_characteristics_params"}
