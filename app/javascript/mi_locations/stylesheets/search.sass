@@ -36,22 +36,19 @@
 
   @screen md
     @apply p-10
-  h1
-    @apply font-serif text-2xl leading-tight text-center font-normal text-white mb-8
-    @screen md
-      @apply text-3xl
+
   label
-    @apply block tracking-wide text-white  font-bold mb-2 text-3xl
+    @apply block tracking-wide text-white  font-thin mb-2 text-2xl
     @screen md
       @apply text-base
   input
-    @apply  appearance-none block w-full bg-gray-100 text-gray-700 rounded py-3 px-4 leading-tight
+    @apply  appearance-none block w-full bg-gray-100 text-gray-700 rounded py-3 px-4
     &:focus
       @apply outline-none bg-yellow-200 border-blue-500
   .search-form--group
     @apply  w-full px-3 mb-6
     input
-      @apply  appearance-none block w-full bg-blue-100 text-gray-700 border border-blue-100 rounded py-3 px-4 leading-tight
+      @apply  appearance-none block w-full bg-blue-100 text-gray-700 border border-blue-100 rounded py-3 px-4
       &:focus
         @apply outline-none bg-white border-blue-100
   .search-form--secondary--group

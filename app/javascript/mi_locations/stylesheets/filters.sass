@@ -1,6 +1,68 @@
+.filters
+  @apply flex flex-wrap bg-gray-300
+
+  @screen sm
+    @apply text-base
+    .filter-group
+      @apply w-1/2 text-base
+
+  @screen md
+    @apply text-base
+    .filter-group
+      @apply w-1/3  text-base text-xl
+
+  @screen lg
+    @apply text-base
+    .filter-group
+      @apply w-1/4
+
+.filter-group
+  @apply flex  text-base w-full px-6  rounded flex-col
+  .filter-title
+    @apply text-blue-700 font-light text-xl border-b border-blue-700 py-4 mb-2
+
+.filter-checkboxes
+  @apply flex flex-col
+  label
+    @apply text-blue-700 text-sm leading-loose px-1 bg-blue-200 rounded-full my-1
+    &:hover
+      @apply bg-blue-300
+    .form-checkbox
+      @apply h-4 w-4 leading-loose bg-blue-100 border-4 border-blue-700 ml-2 rounded-full
+
 .clear-filters
   @apply  w-auto max-w-xs w-32
   button
     @apply bg-red-200 text-red-800 mx-auto w-auto p-2 h-8 rounded-full align-middle
     &:hover
       @apply bg-red-300 text-red-900
+
+.toggle
+  @apply mx-auto
+
+//Style toggle
+.toggle-label
+
+  &:after
+    content: "+"
+    @apply text-white float-right font-semibold
+  @apply text-xl bg-blue-700 text-blue-100 p-1 cursor-pointer block shadow-lg  px-16
+
+
+.toggle-content
+  @apply text-gray-100 text-lg w-full
+
+.toggle-input
+  display: none //Hide input element
+
+  &:not(checked) ~ .toggle-content
+    display: none //Hide content
+
+//Display content when checkbox is "checked"
+.toggle-input:checked
+  ~ .toggle-content
+    display: block
+
+  ~ .toggle-label
+    &:after
+      content: "-" //Change label's '+' to '-' when checked

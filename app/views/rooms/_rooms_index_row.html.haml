@@ -15,13 +15,6 @@
     .rooms-index-row-capacity
       = room.instructional_seating_count
 
-    -# .rooms-index-row-visible{"data-controller" => "room_visibility", "data-visibility-update-url" => "#{room_path(room)}"}
-    -#   %span{ "data-target" => "room_visibility.visible"}
-    -#   %input{"data-action" => "room_visibility#toggle", "data-target" => "room_visibility.visible", :type => "checkbox"}
-    -#   Visible?
-    -#   = room.visible?
-
-
     .rooms-index-row-facility-code-heprod
       = room.facility_code_heprod
     .rooms-index-row-calandar-url
@@ -40,3 +33,5 @@
   .rooms-index-row-bottom
     .rooms-index-row-team-learning
       Visible: #{room.visible?}
+    .rooms-index-row-team-learning
+      %i.far.fa-heart

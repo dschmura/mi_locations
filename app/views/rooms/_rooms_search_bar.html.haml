@@ -1,16 +1,16 @@
-= search_form_for @q, remote: true, url: search_rooms_path, html: { method: :post } do |f|
+= search_form_for @q, remote: true, url: search_rooms_path do |f|
 
-  -#   .row
+  -# .row
 
-  -#     .rooms-search-filters-toggle
-  -#       .rooms-search-filters-toggle-on
-  -#         %i.fas.fa-toggle-on
-  -#         Filters On
-  -#       .rooms-search-filters-toggle-off
-  -#         Filters Off
-  -#         %i.fas.fa-toggle-off
+  -#   .rooms-search-filters-toggle
+  -#     .rooms-search-filters-toggle-on
+  -#       %i.fas.fa-toggle-on
+  -#       Filters On
+  -#     .rooms-search-filters-toggle-off
+  -#       Filters Off
+  -#       %i.fas.fa-toggle-off
 
-    -# = render 'rooms_search_filters'
+
   .search-form
     .search-form--group
       %label Building by name or nickname
@@ -41,3 +41,4 @@
           Prev
         %button.bg-gray-300.hover:bg-gray-400.text-gray-800.font-bold.py-2.px-4.rounded-r
           Next
+  = render 'rooms_search_filters'

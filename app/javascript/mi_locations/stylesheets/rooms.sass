@@ -1,54 +1,5 @@
 @import 'variables'
 
-.filters
-  @apply flex flex-wrap
-
-  @screen sm
-    @apply text-base
-    .filter-group
-      @apply w-1/2 text-base
-
-  @screen md
-    @apply text-base
-    .filter-group
-      @apply w-1/3  text-base text-xl
-
-  @screen lg
-    @apply text-base
-    .filter-group
-      @apply w-1/4
-
-.filter-group
-  @apply flex  text-base w-full bg-blue-100 p-2 border border-blue-500 rounded flex-col
-
-.filter-checkboxes
-  @apply flex flex-col
-
-  label
-    @apply text-blue-700 text-sm
-
-
-  .filter-checkbox
-    @apply flex flex-row my-1
-    &:hover
-      @apply cursor-pointer
-    input
-      @apply invisible
-      &:hover
-        @apply cursor-pointer
-    label
-      &:hover
-        @apply cursor-pointer
-    p
-      @apply text-3xl p-0 text-green-500
-      &:hover
-        @apply cursor-pointer
-
-.filter-title
-  @apply text-blue-800 items-end
-  svg
-    @apply w-full
-
 .rooms-search-bar
   @apply bg-blue-100 h-full w-screen
 
