@@ -14,17 +14,17 @@
   .search-form
     .search-form--group
       %label Building by name or nickname
-      = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: '', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+      = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'form-input', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
 
     .search-form--secondary--group
       %label
         School or College
-      %input{:placeholder => "School of Social Work", :type => "text"}
+      %input.form-input{:placeholder => "School of Social Work", :type => "text"}
     .search-form--secondary--group
       %label
         Building(s)
 
-      %select.search-form--buildings--select
+      %select.form-select
         %option Angell Hall
         %option Burton Tower
         %option North University Building
@@ -41,4 +41,6 @@
           Prev
         %button.bg-gray-300.hover:bg-gray-400.text-gray-800.font-bold.py-2.px-4.rounded-r
           Next
-  = render 'rooms_search_filters'
+  .blue-row
+    .characteristics-dropdowns
+      = render 'rooms_search_filters'

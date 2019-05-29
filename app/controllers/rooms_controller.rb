@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @rooms }
-      format.js
+      format.js { render :index}
     end
   end
 
@@ -16,7 +16,6 @@ class RoomsController < ApplicationController
 
   def search
     index
-    render :index
   end
 
   def update

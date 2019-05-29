@@ -1,68 +1,71 @@
-.filters
-  @apply flex flex-wrap bg-gray-300
+// .filters
+//   @apply flex flex-wrap bg-white
+//   .filter-group
+//     @apply w-full text-base
+//   @screen sm
+//     @apply text-base
+//     .filter-group
+//       @apply w-1/2 text-base
 
+//   @screen md
+//     @apply text-base
+//     .filter-group
+//       @apply w-1/3  text-base text-xl
+
+//   @screen lg
+//     @apply text-base
+//     .filter-group
+//       @apply w-1/4
+
+// .filter-group
+//   @apply flex  text-base  rounded flex-col
+//   .filter-title
+//     @apply text-blue-700 font-light text-xl border-b border-blue-700
+
+
+
+.characteristics-dropdowns
+  @apply flex flex-wrap mx-auto
   @screen sm
-    @apply text-base
-    .filter-group
-      @apply w-1/2 text-base
-
-  @screen md
-    @apply text-base
-    .filter-group
-      @apply w-1/3  text-base text-xl
-
-  @screen lg
-    @apply text-base
-    .filter-group
-      @apply w-1/4
-
-.filter-group
-  @apply flex  text-base w-full px-6  rounded flex-col
-  .filter-title
-    @apply text-blue-700 font-light text-xl border-b border-blue-700 py-4 mb-2
+    @apply visible justify-around
 
 .filter-checkboxes
-  @apply flex flex-col
+  @apply flex flex-col w-auto py-2 bg-blue-100
   label
-    @apply text-blue-700 text-sm leading-loose px-1 bg-blue-200 rounded-full my-1
+    @apply flex text-blue-700 text-base leading-loose
     &:hover
-      @apply bg-blue-300
+      @apply bg-blue-300 text-blue-800
     .form-checkbox
-      @apply h-4 w-4 leading-loose bg-blue-100 border-4 border-blue-700 ml-2 rounded-full
+      @apply border-2 border-blue-700 bg-blue-100 rounded-full ml-2 mt-1 h-6 w-6
+      &:hover
+        @apply bg-yellow-500
+    input[type="checkbox"]:checked
+      @apply bg-blue-500
 
-.clear-filters
-  @apply  w-auto max-w-xs w-32
-  button
-    @apply bg-red-200 text-red-800 mx-auto w-auto p-2 h-8 rounded-full align-middle
-    &:hover
-      @apply bg-red-300 text-red-900
+.hidden-if
+  @apply hidden
+  @screen sm
+    @apply block flex flex-wrap
 
-.toggle
-  @apply mx-auto
+.characteristics-group
+  @apply w-full m-0 p-0
+  @screen sm
+    @apply w-1/3
+  @screen md
+    @apply w-1/4
+  @screen lg
+    @apply w-1/5
+  @screen xl
+    @apply w-1/6
 
-//Style toggle
-.toggle-label
+.characteristics
+  @apply bg-blue-200 py-4
 
-  &:after
-    content: "+"
-    @apply text-white float-right font-semibold
-  @apply text-xl bg-blue-700 text-blue-100 p-1 cursor-pointer block shadow-lg  px-16
-
-
-.toggle-content
-  @apply text-gray-100 text-lg w-full
-
-.toggle-input
-  display: none //Hide input element
-
-  &:not(checked) ~ .toggle-content
-    display: none //Hide content
-
-//Display content when checkbox is "checked"
-.toggle-input:checked
-  ~ .toggle-content
-    display: block
-
-  ~ .toggle-label
-    &:after
-      content: "-" //Change label's '+' to '-' when checked
+.characteristics-groups
+  @apply border-0 min-w-0
+  @screen sm
+    @apply invisible
+  .characteristics
+    @apply w-full
+  .characteristics-group
+    @apply  border-l border-r

@@ -1,0 +1,34 @@
+// My overrides
+.toggle-label
+  @apply bg-blue-200 text-blue-800 p-1 px-2 rounded-b-lg
+  &:hover
+    @apply bg-blue-400 text-blue-900
+
+//Toggle Styles
+.toggle-label
+  @apply cursor-pointer block w-auto  min-w-full
+  svg
+    @apply ml-2 mr-4 mt-1
+  &:after
+    content: "+"
+    @apply font-semibold float-right mr-1
+    @screen lg
+      @apply mr-2
+
+.toggle-input
+  display: none //Hide input element
+  &:not(checked) ~ .toggle-content
+    display: none //Hide content
+
+//Display content when checkbox is "checked"
+.toggle-input:checked
+  ~ .toggle-content
+    @apply block
+  ~ .toggle-label
+    &:after
+      content: "-" //Change label's '+' to '-' when checked
+  ~ .toggle-label
+    @apply bg-yellow-400 rounded-b-none text-blue-900 font-bold
+
+.toggle-content
+  @apply  bg-yellow-200 rounded-b-lg

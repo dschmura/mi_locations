@@ -4,12 +4,16 @@ class ClassroomsController < RoomsController
     @rooms = @q.result(distinct: true).includes(:building, :room_characteristics, :room_contact).order(id: :asc).page params[:page]
 
     respond_to do |format|
-      format.html
+      format.html { render :index }
       format.json { render json: @rooms }
       format.js
     end
   end
 
+  def search
+    index
+    render :index
+  end
   private
 
   def set_room
