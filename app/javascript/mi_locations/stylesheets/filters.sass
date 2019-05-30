@@ -1,38 +1,14 @@
-// .filters
-//   @apply flex flex-wrap bg-white
-//   .filter-group
-//     @apply w-full text-base
-//   @screen sm
-//     @apply text-base
-//     .filter-group
-//       @apply w-1/2 text-base
-
-//   @screen md
-//     @apply text-base
-//     .filter-group
-//       @apply w-1/3  text-base text-xl
-
-//   @screen lg
-//     @apply text-base
-//     .filter-group
-//       @apply w-1/4
-
-// .filter-group
-//   @apply flex  text-base  rounded flex-col
-//   .filter-title
-//     @apply text-blue-700 font-light text-xl border-b border-blue-700
-
-
-
 .characteristics-dropdowns
   @apply flex flex-wrap mx-auto
+
   @screen sm
     @apply visible justify-around
 
 .filter-checkboxes
-  @apply flex flex-col w-auto py-2 bg-blue-100
+  @apply flex flex-col  py-2 bg-blue-100
+
   label
-    @apply flex text-blue-700 text-base leading-loose
+    @apply flex text-blue-700 text-base leading-loose block p-4
     &:hover
       @apply bg-blue-300 text-blue-800
     .form-checkbox
@@ -50,16 +26,14 @@
 .characteristics-group
   @apply w-full m-0 p-0
   @screen sm
-    @apply w-1/3
+    @apply w-full
   @screen md
-    @apply w-1/4
+    @apply w-1/3
   @screen lg
     @apply w-1/5
   @screen xl
     @apply w-1/6
 
-.characteristics
-  @apply bg-blue-200 py-4
 
 .characteristics-groups
   @apply border-0 min-w-0

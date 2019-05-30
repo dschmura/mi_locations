@@ -150,7 +150,7 @@
 
     %label
       = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd>25", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Chalkboard greater than 25'
+      %span.ml-2 Chalkboard > than 25'
 
     %label
       = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
@@ -158,7 +158,7 @@
 
     %label
       = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd>25", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Whiteboard greater than 25'
+      %span.ml-2 Whiteboard > than 25'
 
 .characteristics-group
   %input#audio-visual-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
@@ -194,8 +194,8 @@
 
   .filter-checkboxes.toggle-content
     %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjDigit", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Projection Digital Data and Video
+      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjDigit", false, {class: ' form-checkbox ', data: { url: search_rooms_path, remote: true }})
+      %span.ml-2 Projection Digital Data & Video
     %label
       = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Proj35mm", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
       %span.ml-2 35mm Film
