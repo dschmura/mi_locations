@@ -16,7 +16,25 @@
       .alert-close{"aria-label" => "Close", "data-dismiss" => "alert", :onclick => "this.parentElement.style.display='none'"}
         %i.fas.fa-times
 
-      / .edit-button
-      /   = link_to 'Edit', edit_alert_path
-      / .delete-button
-      /   = link_to 'Delete',  alert_path(alert.id), data: { confirm: 'Are you sure?' }, method: :delete
+    -# = render partial: 'alerts/form', locals: {alertable: @room}
+
+    -#   .edit-button
+    -#     = link_to 'Edit', edit_alert_path
+    -#   .delete-button
+    -#     = link_to 'Delete',  alert_path(alert.id), data: { confirm: 'Are you sure?' }, method: :delete
+    -# .a-alert
+
+    -#   .a-summary
+
+    -#     .a-alert--level
+    -#       %i.fas.fa-= severity_icon(alert.severity.to_sym)
+    -#       = alert.severity.upcase
+    -#   .a-message
+    -#     = alert.message
+    -#     .a-alert--form
+    -#       = render partial: 'alerts/form', locals: {alertable: @building}
+    -#   .a-nav
+    -#     .alert-edits
+    -#       %i.fas.fa-ellipsis-h
+    -#     .alert-close{"aria-label" => "Close", "data-dismiss" => "alert", :onclick => "this.parentElement.style.display='none'"}
+    -#       %i.fas.fa-times
