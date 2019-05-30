@@ -5,13 +5,13 @@ module RoomsSearchHelper
   # Match room_characteristics to icons (fontawesome v5)
   ROOM_CHARACTERISTIC_ICONS = {
     "AssistLis" => "fas fa-assistive-listening-systems",
-    "AudSeat" => "fas fa-info-circle",
+    "AudSeat" => "fas fa-chair",
     "Blackout" => "far fa-lightbulb",
     "BluRay" => "fas fa-compact-disc",
     "BluRay/DVD" => "fas fa-compact-disc",
     "CaptionDev" => "fas fa-closed-captioning",
     "Carpet" => "fas fa-info-circle",
-    "ChairFix" => "fas fa-info-circle",
+    "ChairFix" => "fas fa-chair",
     "Chkbrd" => "fas fa-chalkboard-teacher",
     "Chkbrd>25" => "fas fa-chalkboard-teacher",
     "CompLabAny" => "fas fa-keyboard",
