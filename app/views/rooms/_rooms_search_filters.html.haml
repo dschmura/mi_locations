@@ -119,14 +119,11 @@
               %span.ml-2 Any
 
 
-
 .characteristics-group
   %input#team-learning-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
   %label.toggle-label{:for => "team-learning-toggle"}
     %i.fas.fa-handshake
     Team Learning
-  -# %ul.characteristics
-
 
   .filter-checkboxes.toggle-content
     %label
@@ -204,33 +201,33 @@
       %span.ml-2 Digital Cinema Projection
 
 -# .characteristics-group
--#   %input#podium-computer-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
--#   %label.toggle-label{:for => "podium-computer-toggle"}
--#     %i.fas.fa-laptop
--#     Podium Computer
+  %input#podium-computer-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
+  %label.toggle-label{:for => "podium-computer-toggle"}
+    %i.fas.fa-laptop
+    Podium Computer
 
--#   .filter-checkboxes.toggle-content
--#     %label
--#       = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"InstrComp, CompPodPC, CompPodMac-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
--#       %span.ml-2 Instructor Computer
+  .filter-checkboxes.toggle-content
+    %label
+      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"InstrComp, CompPodPC, CompPodMac-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+      %span.ml-2 Instructor Computer
 
--# .characteristics-group
--#   %input#computer-classroom-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
--#   %label.toggle-label{:for => "computer-classroom-toggle"}
--#     %i.fas.fa-keyboard
--#     Computer Classroom / Lab
 
--#   .filter-checkboxes.toggle-content
--#     %label
--#       = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
--#       %span.ml-2 Mac
--#     %label
--#       = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompPC", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
--#       %span.ml-2 PC
--#       %label
--#         = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac, CompPC, CompAny", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
--#         %span.ml-2 Any
+.characteristics-group
+  %input#computer-classroom-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
+  %label.toggle-label{:for => "computer-classroom-toggle"}
+    %i.fas.fa-keyboard
+    Computer Classroom / Lab
 
+  .filter-checkboxes.toggle-content
+    %label
+      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+      %span.ml-2 Mac
+    %label
+      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompPC", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+      %span.ml-2 PC
+      %label
+        = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac, CompPC, CompAny", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+        %span.ml-2 Any
 
 .characteristics-group
   %input#computing-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
@@ -247,7 +244,6 @@
     %hr
 
     %h2 Computer Classroom
-
 
     %label
       = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})

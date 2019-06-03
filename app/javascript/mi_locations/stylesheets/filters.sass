@@ -1,11 +1,11 @@
 .characteristics-dropdowns
-  @apply flex flex-wrap mx-auto
+  @apply flex flex-wrap mx-auto w-full
 
   @screen sm
     @apply visible justify-around
 
 .filter-checkboxes
-  @apply flex flex-col  py-2 bg-blue-100
+  @apply flex flex-col  py-2
 
   label
     @apply flex text-blue-700 text-base leading-loose block p-4
@@ -33,6 +33,12 @@
     @apply w-1/5
   @screen xl
     @apply w-1/6
+  label
+    @apply bg-blue-300
+    .toggle-label
+      @apply text-red-800
+  input
+    @apply text-blue-800
 
 
 .characteristics-groups
@@ -43,3 +49,16 @@
     @apply w-full
   .characteristics-group
     @apply  border-l border-r
+
+#slider
+  @apply w-full h-2 shadow-xl mt-12
+  .noUi-connect
+    @apply bg-blue-700
+  .noUi-base
+    @apply bg-blue-400
+  .noUi-handle
+    @apply bg-yellow-500 rounded-full h-4 w-4
+  .noUi-horizontal
+    @apply hidden
+  .noUi-tooltip
+    @apply bg-gray-300 text-blue-800 text-xs rounded p-1 w-8 h-8

@@ -28,8 +28,8 @@ module RoomsSearchHelper
     "MoveTablet" => "fas fa-info-circle",
     "Platform" => "fas fa-info-circle",
     "PowerStud" => "fas fa-plug",
-    "Proj16mm" => "fas fa-film-alt",
-    "Proj35mm" => "fas fa-film-alt",
+    "Proj16mm" => "fas fa-film",
+    "Proj35mm" => "fas fa-film",
     "ProjD-Cin" => "fas fa-video",
     "ProjDigit" => "fas fa-video",
     "ProjSlide" => "fas fa-presentation",
@@ -40,7 +40,7 @@ module RoomsSearchHelper
     "TablesConf" => "fas fa-info-circle",
     "TablesFix" => "fas fa-info-circle",
     "TablesMov" => "fas fa-info-circle",
-    "TeamBoard" => "fas fa-users-class",
+    "TeamBoard" => "fas fa-users",
     "TeamTables" => "fas fa-info-circle",
     "TeamTech" => "fas fa-code-branch",
     "Telephone" => "fas fa-phone",
@@ -61,4 +61,15 @@ module RoomsSearchHelper
     <i class='fas fa-#{icon} fa-sm'></i>
     </a>"
   end
+
+
+  def room_characteristic_chicklet(room_characteristic)
+    icon = ROOM_CHARACTERISTIC_ICONS[room_characteristic.chrstc_descrshort]
+    "
+    <a role='button' class='characteristic-chicklet tooltip tooltip-top' href='' data-tooltip='#{room_characteristic.chrstc_desc254}'>
+    <i class='fas fa-#{icon} fa-sm'></i>
+    #{room_characteristic.chrstc_descrshort}
+    </a>"
+  end
+
 end
