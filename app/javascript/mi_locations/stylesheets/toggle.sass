@@ -1,19 +1,13 @@
-// My overrides
-.toggle-label
-  @apply  text-blue-800 p-1 px-2 rounded-lg border-blue-700 border mt-2
-  &:hover
-    @apply bg-blue-400 text-blue-900
-
 //Toggle Styles
 .toggle-label
   @apply cursor-pointer block w-auto  min-w-full
   @screen xl
     @apply
   svg
-    @apply ml-2 mr-4 mt-1
+    @apply ml-1 mr-2 mt-1
   &:after
     content: "+"
-    @apply font-semibold float-right mr-1
+    @apply font-semibold float-right
     @screen lg
       @apply mr-2
 
@@ -32,6 +26,13 @@
       content: "-" //Change label's '+' to '-' when checked
   ~ .toggle-label
     @apply bg-yellow-400 rounded-b-none text-blue-900 font-bold border-b-0
+
+
+// My overrides
+.toggle-label
+  @apply  p-1 px-2 rounded-lg border-blue-700 border mt-2
+  &:hover
+    @apply bg-blue-400 text-blue-900
 
 .toggle-content
   @apply  bg-yellow-200 rounded-b-lg border border-blue-700 border-t-2

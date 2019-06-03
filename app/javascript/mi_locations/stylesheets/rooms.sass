@@ -89,7 +89,7 @@
 .rooms-index-row-copy-button
   @apply mx-4 text-sm text-blue-500 p-1 bg-gray-100 rounded-full align-middle self-center
   &:hover
-    @apply bg-gray-500 text-blue-900
+    @apply bg-gray-300 text-blue-900 shadow
 
 .rooms-index-row-team-learning
   @apply  w-1/3
@@ -135,7 +135,8 @@
   .selected
     @apply bg-red-500
 
-// .format
-//   @apply invisible
-// .format.format--current
-//   @apply visible
+.characteristic-chicklet
+  @apply text-sm font-bold bg-blue-700 rounded-full text-gray-100 px-2  m-1 border font-light
+
+  &:hover
+    @apply bg-gray-300 text-blue-800 border border-gray-500 shadow-2xl

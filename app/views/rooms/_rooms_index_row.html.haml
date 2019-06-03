@@ -35,3 +35,9 @@
       Visible: #{room.visible?}
     .rooms-index-row-team-learning
       %i.far.fa-heart
+  .characteristics-row
+    %h3 Characteristics
+    .characteristics
+      - room.room_characteristics.each do |rc|
+        = link_to('', 'popover')
+        = room_characteristic_chicklet(rc).html_safe

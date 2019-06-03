@@ -10,11 +10,13 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 
+
 // import Turbolinks from 'turbolinks'
 // Turbolinks.start()
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
-
+var noUiSlider = require("nouislider");
+require('nouislider/distribute/nouislider.css')
 // import * as Clipboard from 'clipboard'
 
 // Specific frontend applications
@@ -49,6 +51,8 @@ require('trix')
 require('@rails/actiontext')
 import 'trix/dist/trix.css'
 
+import 'mi_locations/javascripts/application.js'
+
 document.addEventListener('turbolinks:load', () => {
   FontAwesome.dom.i2svg();
   function highlightCurrent() {
@@ -59,9 +63,58 @@ document.addEventListener('turbolinks:load', () => {
         link.classList.add("current");
       }
     }
+
+
   }
   highlightCurrent();
+  var slider = document.getElementById('slider');
+  var resetSlider = document.getElementById('reset-slider');
 
+  noUiSlider.create(slider, {
+    range: {
+      'min': 0,
+      'max': 2000
+    },
+    step: 5,
+    // Handles start at ...
+    start: [30,  200],
+    // Display colored bars between handles
+    connect: true,
+    // Put '0' at the bottom of the slider
+    direction: 'ltr',
+    orientation: 'horizontal',
+    // Move handle on tap, bars are draggable
+    behaviour: 'tap-drag',
+    tooltips: true,
+    format: {
+      to: function (value) {
+        return value + '';
+      },
+      from: function (value) {
+        return value.replace(',-', '');
+      }
+    },
+
+  });
+
+  resetSlider.addEventListener('click', function() {
+      slider.noUiSlider.reset();
+    })
+
+  slider.addEventListener('change', function () {
+    minimum.noUiSlider.set([null, this.value]);
+  });
 });
 
 import "controllers"
+
+
+// var inputFormat = document.getElementById('input-format');
+
+// sliderFormat.noUiSlider.on('update', function (values, handle) {
+//   inputFormat.value = values[handle];
+// });
+
+// inputFormat.addEventListener('change', function () {
+//   sliderFormat.noUiSlider.set(this.value);
+// });
