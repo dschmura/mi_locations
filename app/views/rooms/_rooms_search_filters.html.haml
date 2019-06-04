@@ -1,256 +1,130 @@
--# .toggle
-  / Checkbox toggle
-  %input#beethoven-joke.toggle-input{:type => "checkbox", :value => "selected"}/
-  %label.toggle-label{:for => "beethoven-joke"} Filters
-  / Content to toggle
-  .toggle-content
+%label Filter your results
+.search-filters.main-filter
 
-    -# .rooms-search-filters{"data-controller" => "toggle"}
-    .rooms-search-filters{"data-controller" => "filters", "role" => "toggle"}
-      %section.filters{"data-target" => "toggle.thingToShow"}
-        .filter-group
-          %h5.filter-title
-            %i.fas.fa-handshake
-            Team Learning
+  %input#filters-toggle.toggle-input{:type => "checkbox", :value => "selected"}
+  %label.toggle-label{:for => "filters-toggle"}
+    Filters
+  .filter-options.toggle-content
+    .characteristics-group
+      .student-capacity
+        %input#capacity-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
+        %label.toggle-label{:for => "capacity-toggle"}
+          %i.fas.fa-users
+          Capacity
+        .filter-checkboxes.toggle-content
+          #slider
+          #reset-slider
+            Reset
 
-          .filter-checkboxes
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"TeamTech", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true}})
-              %span.ml-2 Team Technology
+    .team-learning
+      .characteristics-group
 
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"TeamBoard", false,  {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }} )
-              %span.ml-2 Team Writing Surface
+        %input#team-learning-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
+        %label.toggle-label{:for => "team-learning-toggle"}
+          %i.fas.fa-handshake
+          Team Learning
 
-        .filter-group
-          %h5.filter-title
-            %i.fas.fa-chalkboard
-            Writing Surface
-          .filter-checkboxes
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-              %span.ml-2 Chalkboard
+        .filter-checkboxes.toggle-content
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"TeamTech", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true}})
+            .checkbox-label Team Technology
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"TeamBoard", false,  {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }} )
+            .checkbox-label Team Writing Surface
 
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd>25", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-              %span.ml-2 Chalkboard greater than 25'
+    .writing-surface
+      .characteristics-group
+        %input#writing-surface-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
+        %label.toggle-label{:for => "writing-surface-toggle"}
+          %i.fas.fa-chalkboard
+          Writing Surface
 
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-              %span.ml-2 Whiteboard
+        .filter-checkboxes.toggle-content
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Chalkboard
 
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd>25", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-              %span.ml-2 Whiteboard greater than 25'
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd>25", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Chalkboard > than 25'
 
-        .filter-group
-          %h5.filter-title
-            %i.fas.fa-film
-            Audio Visual
-          .filter-checkboxes
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Blackout", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Whiteboard
 
-              %span.ml-2 Blackout (Room Darkening)
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"BluRay", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd>25", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Whiteboard > than 25'
+    .audio-visual
+      .characteristics-group
+        %input#audio-visual-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
+        %label.toggle-label{:for => "audio-visual-toggle"}
+          %i.fas.fa-film
+          Audio / Visual
 
-              %span.ml-2 BluRay / DVD Player
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"DocCam", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+        .filter-checkboxes.toggle-content
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Blackout", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Blackout (Room Darkening)
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"BluRay", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label BluRay / DVD Player
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"DocCam", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Document Camera
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"IntrPen", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Interactive Screen
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"LectureCap", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Lecture Capture
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"VideoConf", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Video Conferencing
 
-              %span.ml-2 Document Camera
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"IntrPen", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+    .projection
+      .characteristics-group
+        %input#projection-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
+        %label.toggle-label{:for => "projection-toggle"}
+          %i.fas.fa-video
+          Projection
 
-              %span.ml-2 Interactive Screen
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"LectureCap", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+        .filter-checkboxes.toggle-content
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjDigit", false, {class: ' form-checkbox ', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Projection Digital Data & Video
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Proj35mm", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label 35mm Film
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjD-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Digital Cinema Projection
 
-              %span.ml-2 Lecture Capture
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"VideoConf", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+    .computing
+      .characteristics-group
+        %input#computing-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
+        %label.toggle-label{:for => "computing-toggle"}
+          %i.fas.fa-laptop
+          Computing
 
-              %span.ml-2 Video Conferencing
+        .filter-checkboxes.toggle-content
+          %h2 Podium Computer
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"InstrComp, CompPodPC, CompPodMac-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Instructor Computer
 
-        .filter-group
-          %h5.filter-title
-            %i.fas.fa-video
-            Projection
-          .filter-checkboxes
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjDigit", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+          %hr
 
-              %span.ml-2 Projection Digital Data and Video
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Proj35mm", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+          %h2 Computer Classroom
 
-              %span.ml-2 35mm Film
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjD-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Mac
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompPC", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label PC
+          %label
+            = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac, CompPC, CompAny", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+            .checkbox-label Any
 
-              %span.ml-2 Digital Cinema Projection
-
-        .filter-group
-          %h5.filter-title
-            %i.fas.fa-laptop
-            Podium Computer
-          .filter-checkboxes
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"InstrComp, CompPodPC, CompPodMac-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-
-              %span.ml-2 Instructor Computer
-
-        .filter-group
-          %h5.filter-title
-            %i.fas.fa-keyboard
-            Computer Classroom / Lab
-          .filter-checkboxes
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-
-              %span.ml-2 Mac
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompPC", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-
-              %span.ml-2 PC
-            %label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac, CompPC, CompAny", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-              %span.ml-2 Any
-
-
-.characteristics-group
-  %input#team-learning-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
-  %label.toggle-label{:for => "team-learning-toggle"}
-    %i.fas.fa-handshake
-    Team Learning
-
-  .filter-checkboxes.toggle-content
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"TeamTech", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true}})
-      %span.ml-2 Team Technology
-
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"TeamBoard", false,  {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }} )
-      %span.ml-2 Team Writing Surface
-
-.characteristics-group
-  %input#writing-surface-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
-  %label.toggle-label{:for => "writing-surface-toggle"}
-    %i.fas.fa-chalkboard
-    Writing Surface
-
-  .filter-checkboxes.toggle-content
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Chalkboard
-
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Chkbrd>25", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Chalkboard > than 25'
-
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Whiteboard
-
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Whtbrd>25", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Whiteboard > than 25'
-
-.characteristics-group
-  %input#audio-visual-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
-  %label.toggle-label{:for => "audio-visual-toggle"}
-    %i.fas.fa-film
-    Audio / Visual
-
-  .filter-checkboxes.toggle-content
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Blackout", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Blackout (Room Darkening)
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"BluRay", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 BluRay / DVD Player
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"DocCam", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Document Camera
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"IntrPen", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Interactive Screen
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"LectureCap", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Lecture Capture
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"VideoConf", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Video Conferencing
-
-.characteristics-group
-  %input#projection-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
-  %label.toggle-label{:for => "projection-toggle"}
-    %i.fas.fa-video
-    Projection
-
-  .filter-checkboxes.toggle-content
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjDigit", false, {class: ' form-checkbox ', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Projection Digital Data & Video
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"Proj35mm", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 35mm Film
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"ProjD-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Digital Cinema Projection
-
--# .characteristics-group
-  %input#podium-computer-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
-  %label.toggle-label{:for => "podium-computer-toggle"}
-    %i.fas.fa-laptop
-    Podium Computer
-
-  .filter-checkboxes.toggle-content
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"InstrComp, CompPodPC, CompPodMac-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Instructor Computer
-
-
--# .characteristics-group
-  %input#computer-classroom-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
-  %label.toggle-label{:for => "computer-classroom-toggle"}
-    %i.fas.fa-keyboard
-    Computer Classroom / Lab
-
-  .filter-checkboxes.toggle-content
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Mac
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompPC", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 PC
-      %label
-        = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac, CompPC, CompAny", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-        %span.ml-2 Any
-
-.characteristics-group
-  %input#computing-toggle.toggle-input{:type => "checkbox", :value => "selected"}/
-  %label.toggle-label{:for => "computing-toggle"}
-    %i.fas.fa-laptop
-    Computing
-
-  .filter-checkboxes.toggle-content
-    %h2 Podium Computer
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"InstrComp, CompPodPC, CompPodMac-Cin", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Instructor Computer
-
-    %hr
-
-    %h2 Computer Classroom
-
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 Mac
-    %label
-      = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompPC", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-      %span.ml-2 PC
-      %label
-        = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"CompMac, CompPC, CompAny", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-        %span.ml-2 Any
+    .reset-filters

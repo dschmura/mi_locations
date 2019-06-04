@@ -1,14 +1,3 @@
-
-.search-group
-  @apply flex flex-wrap items-stretch w-full mb-4 relative
-
-.search-field
-  @apply flex-shrink flex-grow flex-auto leading-normal w-1/2 flex-1    rounded-full rounded-r-none px-8 relative shadow-lg bg-blue-100 h-16
-  &:focus
-    @apply bg-yellow-200
-  &::placeholder
-    @apply text-2xl text-gray-900 font-light
-
 .search-button
   span
     @apply  flex items-center leading-normal bg-blue-200 rounded-full rounded-l-none  px-12 whitespace-no-wrap text-gray-800   -ml-2 shadow-lg h-16
@@ -17,15 +6,8 @@
   .SearchMe
     @apply  text-xl bg-transparent
 
-.vue-select
-  @apply bg-blue-100 rounded-lg
-
-.filters-button
-  @apply bg-green-200 text-green-800 rounded-full px-4 w-32
 .is-hidden
   @apply invisible h-0
-
-
 
 .bg-smoke-dark
   // background-color: rgba(0, 0, 0, 0.4)
@@ -33,29 +15,6 @@
 
 .search-form
   @apply bg-blue-800 p-6 w-full shadow-lg mx-auto flex flex-wrap
-
-  @screen md
-    @apply p-10
-
-  label
-    @apply block tracking-wide text-white  font-thin mb-2 text-2xl
-    @screen md
-      @apply text-base
-
-  .search-form--group
-    @apply  w-full px-3 mb-6
-    input
-      @apply  appearance-none block w-full bg-blue-100 text-gray-700 border border-blue-100 rounded py-3 px-4
-      &:focus
-        @apply outline-none bg-white border-blue-100
-  .search-form--secondary--group
-    @apply  px-3 mb-6
-    @screen sm
-      @apply w-1/2
-    @screen md
-      @apply mb-0 w-1/3
-    .form-select
-      @apply w-full
 
   .search-form--buildings--select
     @apply   block appearance-none w-full bg-gray-100 text-gray-700 py-3 px-4 pr-8 rounded leading-tight
@@ -68,7 +27,6 @@
       @apply mb-0 w-auto
     button
       @apply font-bold leading-tight text-blue-800 uppercase py-3 px-4 rounded bg-blue-200
-
       &:hover
         @apply bg-blue-300
 
@@ -79,20 +37,66 @@
   @apply bg-gray-300 text-blue-800 font-bold py-1 px-4
   &:hover
     @apply bg-gray-400 text-blue-700
-.box
-  @apply h-24 w-full bg-blue-200
-  @screen sm
-    @apply bg-red-400
-  @screen md
-    @apply bg-yellow-400
-  @screen lg
-    @apply bg-orange-500
-.box-sm
-  @apply h-24 bg-red-200
-.box-md
-  @apply h-24 bg-yellow-200
-.box-lg
-  @apply h-24 bg-orange-200
 
-#reset-slider
-  @apply p-1 bg-green-200 w-16 rounded-full text-center text-sm text-green-800 m-4
+.search-form
+  label
+    @apply block tracking-wide text-white  font-thin text-3xl
+    @screen md
+      @apply text-base
+  .search-field
+    @apply  w-full
+    input
+      @apply w-full
+
+  .main-filter
+    label
+      @apply bg-blue-500 h-12 align-middle pt-1 px-4 text-2xl text-center
+  .search-filters
+    @apply align-middle  w-full
+    .characteristics-group
+      .toggle-content
+        label
+          @apply bg-blue-700
+
+    .student-capacity
+      label
+        @apply text-left w-auto
+      .toggle-content
+        @apply px-8 py-2 bg-blue-800 h-32
+      #reset-slider
+        @apply float-right px-2 bg-red-300 text-red-800 rounded-full mt-2
+        &:hover
+          @apply bg-red-600 text-red-100
+    .team-learning
+      label
+        @apply text-left w-full
+      .characteristics-group
+        .filter-checkboxes
+          @apply bg-green-200
+    .writing-surface
+      label
+        @apply text-left w-full
+    .audio-visual
+      label
+        @apply text-left w-full
+    .projection
+      label
+        @apply text-left w-full
+    .computing
+
+      label
+        @apply text-left w-full
+    .reset-filters
+
+  .checkbox-label
+    @apply inline-block
+
+.search-tools
+  @apply flex flex-row justify-between  bg-gray-600 w-screen px-6 py-2
+  .search-results
+    @apply bg-yellow-500 p-1 px-4 rounded text-blue-800
+  .results-view--select
+    @apply hidden
+    @screen sm
+      @apply block
+  .results-pagination

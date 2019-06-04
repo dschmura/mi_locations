@@ -2,12 +2,12 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update]
 
   def index
-    @q = Room.ransack(params[:q])
+    @q = Room.classrooms.ransack(params[:q])
     @rooms = @q.result(distinct: true).includes(:building, :room_characteristics).page params[:page]
     respond_to do |format|
       format.html
       format.json { render json: @rooms }
-      format.js { render :index}
+      format.js
     end
   end
 
@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
 
   def search
     index
+    render :index
   end
 
   def update

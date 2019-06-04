@@ -1,53 +1,41 @@
+
 = search_form_for @q, remote: true, url: search_rooms_path do |f|
-
-  -# .row
-
-  -#   .rooms-search-filters-toggle
-  -#     .rooms-search-filters-toggle-on
-  -#       %i.fas.fa-toggle-on
-  -#       Filters On
-  -#     .rooms-search-filters-toggle-off
-  -#       Filters Off
-  -#       %i.fas.fa-toggle-off
-
-
   .search-form
-    .search-form--group
-      %label Building by name or nickname
+
+    .search-field
+
+      %label Search by building name or nick name
       = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'form-input', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
 
-    .search-form--secondary--group
-      %label
-        School or College
-      %input.form-input{:placeholder => "School of Social Work", :type => "text"}
+    = render 'rooms_search_filters'
 
-    .search-form--button
-      %button.search-form--button Search
-
-    .characteristics-dropdowns
-      = render 'rooms_search_filters'
-    .flex.flex-row.w-screen.justify-between.mt-4.mx-3
-    .rooms-search-matches#rooms-search-matches
-      = "#{ pluralize(@q.result.size, 'Match')}"
+.search-tools
+  .search-results#rooms-search-matches
+    = "#{ pluralize(@q.result.size, 'Match')}"
+  .results-view--select
     .inline-flex
       %button.pagination-button.rounded-l.border-r.border-gray-500
-        Prev
+        %i.fas.fa-list
+        List
       %button.pagination-button.rounded-r
-        Next
-  %label
-    Student Capacity
+        %i.fas.fa-th-large
+        Grid
 
-  #slider
-  #reset-slider
-    Reset
+  .results-pagination
+    .inline-flex
+
+      %button.pagination-button.rounded-l.border-r.border-gray-500
+        = link_to_prev_page @rooms, 'Prev', remote: true
+        %i.fas.fa-chevron-left
+      %button.pagination-button.rounded-r
+        = link_to_next_page @rooms, 'Next', remote: true
+        %i.fas.fa-chevron-right
 
 
+  -# = paginate @rooms
 
+  -# = page_entries_info @buildings
+  -# .per-page
 
-  -# = f.text_field :instructional_seating_count_gteq, :size => 3, :placeholder => '1', :style => "width: 34px;  float: left;", :id => "minimum"
-
-  -# %input#slider{ "data-slider-value" => [@q.instructional_seating_count_gteq, @q.instructional_seating_count_lteq], name: "q2", type: "text"}
-
-  -# = f.text_field :instructional_seating_count_lteq, :size => 3, :placeholder => '250', :style => "width: 34px; ",:id => "maximum"
-
-  -# -# alert(slider.noUiSlider.get());
+  -#   = select_tag :per_page, options_for_select([15,25,50,100], @per_page.to_i), class: 'per_page', :style => "width: 60px;", onchange: 'this.form.submit();'
+  -#   Per Page

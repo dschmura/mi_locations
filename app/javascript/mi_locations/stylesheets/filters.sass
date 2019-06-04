@@ -5,10 +5,10 @@
     @apply visible justify-around
 
 .filter-checkboxes
-  @apply flex flex-col  py-2
+  @apply flex flex-col
 
   label
-    @apply flex text-blue-700 text-base leading-loose block p-4
+    @apply flex text-blue-700 text-sm
     &:hover
       @apply bg-blue-300 text-blue-800
     .form-checkbox
@@ -23,20 +23,27 @@
   @screen sm
     @apply block flex flex-wrap
 
-.characteristics-group
-  @apply w-full m-0 p-0
-  @screen sm
-    @apply w-full
+.filter-options
+  @apply flex flex-col
   @screen md
-    @apply w-1/3
-  @screen lg
-    @apply w-1/5
-  @screen xl
-    @apply w-1/6
-  label
-    @apply bg-blue-300
-    .toggle-label
-      @apply text-red-800
+    @apply flex-row
+
+.characteristics-group
+  @apply w-full m-0 p-0 text-left
+  // @screen sm
+  //   @apply w-full
+  // @screen md
+
+  //   @apply w-1/3
+
+  // @screen lg
+  //   @apply w-1/5
+  // @screen xl
+  //   @apply w-1/6
+  // label
+  //   @apply bg-blue-300
+  //   .toggle-label
+  //     @apply text-red-800
   input
     @apply text-blue-800
 
@@ -58,6 +65,7 @@
     @apply bg-blue-400
   .noUi-handle
     @apply bg-yellow-500 rounded-full h-4 w-4
+
   .noUi-horizontal
     @apply hidden
   .noUi-tooltip

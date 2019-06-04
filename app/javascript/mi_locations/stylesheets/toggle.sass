@@ -4,7 +4,7 @@
   @screen xl
     @apply
   svg
-    @apply ml-1 mr-2 mt-1
+    @apply ml-1 mr-2
   &:after
     content: "+"
     @apply font-semibold float-right
@@ -25,14 +25,10 @@
     &:after
       content: "-" //Change label's '+' to '-' when checked
   ~ .toggle-label
-    @apply bg-yellow-400 rounded-b-none text-blue-900 font-bold border-b-0
-
+    @apply bg-yellow-200 rounded-b-none text-blue-900 font-bold
 
 // My overrides
 .toggle-label
-  @apply  p-1 px-2 rounded-lg border-blue-700 border mt-2
+  @apply px-2 rounded-none border
   &:hover
     @apply bg-blue-400 text-blue-900
-
-.toggle-content
-  @apply  bg-yellow-200 rounded-b-lg border border-blue-700 border-t-2
