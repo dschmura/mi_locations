@@ -40,19 +40,26 @@
 
 .search-form
   label
-    @apply block tracking-wide text-white  font-thin text-3xl
+    @apply block tracking-wide text-white  font-thin text-xl
     @screen md
-      @apply text-base
+      @apply text-3xl
   .search-field
     @apply  w-full
+    label
+      @apply hidden
     input
       @apply w-full
+    @screen sm
+      label
+        @apply block
 
   .main-filter
     label
       @apply bg-blue-500 h-12 align-middle pt-1 px-4 text-2xl text-center
   .search-filters
-    @apply align-middle  w-full
+    @apply align-middle  w-full mt-2
+    @screen sm
+      @apply mt-0
     .characteristics-group
       .toggle-content
         label
@@ -100,3 +107,8 @@
     @screen sm
       @apply block
   .results-pagination
+
+.filter-label
+  @apply hidden
+  @screen sm
+    @apply block
