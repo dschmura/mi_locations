@@ -1,6 +1,33 @@
 
 
 #rooms-results
+
+  .search-tools
+    .search-results#rooms-search-matches
+      = "#{ pluralize(@q.result.size, 'Match')}"
+    .results-view--select
+      .inline-flex
+        %button.pagination-button.rounded-l.border-r.border-gray-500
+          %i.fas.fa-list
+          List
+        %button.pagination-button.border-r.border-gray-500.rounded-r
+          %i.fas.fa-th-large
+          Grid
+        -# %button.pagination-button.rounded-r
+        -#   %i.fas.fa-map
+        -#   Map
+
+    .results-pagination
+      .inline-flex
+
+        %button.pagination-button.rounded-l.border-r.border-gray-500
+          = link_to_prev_page @rooms, remote: true do
+
+            %i.fas.fa-chevron-left
+            Prev
+        %button.pagination-button.rounded-r
+          = link_to_next_page @rooms, 'Next', remote: true
+          %i.fas.fa-chevron-right
   .rooms-index-rows#rooms-index-rows
     = render partial: "./rooms/rooms_index_row", collection: @rooms, as: :room, cached: true
 
