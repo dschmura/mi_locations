@@ -27,27 +27,46 @@
 .rooms-search-matches
   @apply text-white
 
-.rooms-card
-  background-color: transparentize($bone, 0.5)
-  margin: 1rem
+// .rooms-card
+//   background-color: transparentize($bone, 0.5)
+//   margin: 1rem
 
 .rooms-building-badge
   font-size: 0.8rem
 
 .rooms-index-cards
   @apply flex inline-flex max-w-full overflow-x-scroll
+  @screen md
+    @apply flex-wrap
 
 .rooms-index-card
-  @apply font-sans leading-tight bg-gray-100 mb-4 mx-auto mx-8 bg-white rounded-lg overflow-hidden shadow-lg bg-cover max-w-lg
-  min-width: 30%
+  @apply font-sans leading-tight bg-gray-100 mt-4 mx-auto border-4 border-white object-cover bg-white rounded-lg overflow-hidden shadow-lg bg-cover w-full
+  min-width: 90%
+  @screen sm
+    @apply   w-1/3
+    min-width: 40%
+  @screen md
+    @apply  w-full mx-2
 
-.rooms-index-card-image
+.room-image
+  @apply mx-auto rounded-t-lg overflow-hidden shadow-lg bg-cover h-48 bg-center
+  @screen md
+    @apply h-32
 
 .rooms-index-card-building-badge
-  @apply bg-yellow-500 h-16 w-16 rounded-full mx-auto text-blue-500 -mt-8
-  img
-    @apply rounded-full h-16 w-16 shadow-lg shadow-inner
+  @apply bg-blue-700 h-24 w-24 rounded-full mx-auto text-blue-500 -mt-12 shadow-lg mx-auto flex
 
+  img
+    @apply rounded-full h-24 w-24 shadow-xl
+
+  .room-builiding-abbreviation
+    @apply h-24 w-24 rounded text-blue-800 p-6 text-center ml-2
+
+  .bg-img
+    @apply h-24  bg-center bg-no-repeat rounded-none self-center justify-center text-center bg-cover
+
+  .bg-badge
+    background-size: 80% auto
 
 .rooms-room-directions-button
   @apply inline-flex rounded-full bg-green-200 px-3 py-1 text-green-900
@@ -66,13 +85,16 @@
   @apply bg-gray-100
 
 .rooms-index-row
-  @apply flex flex-col text-lg py-2 bg-blue-200 my-3
+  @apply flex flex-row text-lg py-2 bg-blue-200 my-3
 
-.rooms-index-row-top
-  @apply flex flex-row
+.rooms-index-row-info
+  @apply flex flex-row bg-green-400
 
 .rooms-index-row-bottom
   @apply flex flex-row
+
+.rooms-index-row--tools
+  @apply bg-pink-800 flex-col items-center
 
 .rooms-index-row-name
   @apply mx-auto w-1/3
@@ -87,25 +109,12 @@
   @apply mx-auto
 
 .rooms-index-row-copy-button
-  @apply mx-4 text-sm text-blue-500 p-1 bg-gray-100 rounded-full align-middle self-center
+  @apply mx-4 text-sm text-blue-500 px-2 bg-gray-100 rounded align-middle self-center
   &:hover
     @apply bg-gray-300 text-blue-900 shadow
 
 .rooms-index-row-team-learning
   @apply  w-1/3
-
-.characteristics-row
-  @apply flex flex-row mr-2
-  h2
-    @apply font-semibold text-2xl text-blue-700
-
-.characteristics
-  @apply flex flex-wrap mt-1 ml-1
-
-.characteristic
-  @apply flex items-center justify-center bg-blue-700 text-blue-100 font-semibold border-2 text-sm border-blue-100 rounded-full h-8 w-8 -ml-1
-  &:hover
-    @apply bg-blue-500 text-blue-800
 
 .layout-select-nav
   @apply inline-flex
@@ -135,8 +144,5 @@
   .selected
     @apply bg-red-500
 
-.characteristic-chicklet
-  @apply text-sm font-bold bg-blue-700 rounded-full text-gray-100 px-2  m-1 border font-light
-
-  &:hover
-    @apply bg-gray-300 text-blue-800 border border-gray-500 shadow-2xl
+.row-image-well
+  @apply w-24

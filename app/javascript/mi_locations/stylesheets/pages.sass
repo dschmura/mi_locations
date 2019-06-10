@@ -47,3 +47,101 @@ $hero-nav-badge-size: 8rem
   background-color: hsla(210, 41, 28, 0.8)
 .search-form-b
   @apply bg-smoke-dark p-6 w-full shadow-lg mx-auto flex flex-wrap
+.c-row
+  @apply p-2 bg-green-800 border-2 border-white
+  @screen md
+    @apply flex flex-row
+  .c-info
+    @apply  bg-green-200
+
+    .c-top
+      @apply bg-blue-400 flex flex-row justify-between
+      .c-building
+        @apply h-16 w-16 bg-blue-300 self-center mx-auto rounded-full bg-no-repeat bg-cover max-w-lg
+        .bg-img
+          @apply align-middle rounded-full
+        .c-building-image
+          @apply bg-cover h-full w-full bg-no-repeat
+      .c-name
+        @apply p-2 bg-yellow-200 text-2xl font-light not-italic
+        @screen sm
+          @apply text-3xl
+      .c-address
+        @apply p-2 bg-yellow-400 text-gray-700
+
+    .c-bottom
+      @apply  bg-indigo-600 flex
+      .c-characteristics
+        @apply p-2 bg-gray-300 flex flex-wrap w-4/5
+        button
+          @apply px-2 bg-blue-300 rounded-full text-sm text-blue-800 m-1
+
+  .c-vitals
+    @apply p-2 flex flex-col w-1/4
+    > span
+      @apply text-blue-900
+    .c-alerts
+      @apply bg-red-300  px-2 rounded-full text-red-800 w-24 text-center
+
+  .c-tools
+    @apply px-1 bg-pink-300 flex flex-row w-full justify-start text-sm
+    @screen sm
+      @apply bg-yellow-400 truncate
+    @screen md
+      @apply flex-col w-1/5
+    button
+      @apply bg-gray-200 rounded mx-1 w-full list-none block  mt-2 h-8
+      @screen md
+        @apply w-auto
+
+// row classroom picture
+.bg-img
+  @apply h-24  bg-center bg-no-repeat rounded-none self-center justify-center text-center bg-cover
+
+.bg-badge
+  background-size: 60% auto
+
+// HERE WE GO
+
+.d-card
+  @apply bg-gray-200 flex flex-col w-screen
+  @screen sm
+    @apply flex-row
+  .d-left-col
+    @apply bg-blue-200 flex flex-row  bg-fixed justify-center
+    @screen sm
+      @apply flex-col  justify-start
+    .d-building-image
+      @apply bg-red-400 w-48
+    .d-vitals
+      @apply p-2 flex flex-col
+      > span
+        @apply text-blue-800 flex flex-row align-middle font-semibold
+        svg
+          @apply mr-2 mt-1
+
+  .d-center-col
+    @apply bg-indigo-200 flex-auto
+    .d-address
+      @apply bg-orange-200  text-3xl font-light
+    .d-characteristics
+      @apply bg-green-200
+  .d-actions-col
+    @apply bg-gray-700  flex flex-row justify-around w-1/6
+    @screen sm
+      @apply flex flex-col
+    button
+      @apply bg-gray-200 rounded mx-1 w-full list-none inline-block mt-2 h-6 w-32
+      @screen md
+        @apply w-24
+
+.c-alerts
+  @apply bg-red-300  px-2 py-1 rounded-full text-red-800 w-24 text-center
+
+.d-filters-links
+  @apply  py-3 px-0 block border-b-2 border-transparent
+  @screen lg
+    @apply mb-0 px-4
+
+  &:hover
+    @apply border-blue-800

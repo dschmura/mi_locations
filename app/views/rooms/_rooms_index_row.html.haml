@@ -1,43 +1,142 @@
-.rooms-index-row
-  .rooms-index-row-top
-    .rooms-index-row--image
-      -if room.room_image.attached?
-        'HI'
+-# .rooms-index-row
+-#   .row-image-well
+-#     .row-image.h-32.w-32
+-#       - if room.room_image.attached?
+-#         .bg-img.bg-cover{:style => " background-image: url(#{rails_blob_url(room.room_image)})"}
+
+-#       - else
+-#         .bg-img{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
+-#   .rooms-index-row-info
+-#     .rooms-index-row-name
+-#       = link_to room_path(room) do
+-#         = room.room_number
+-#         = room.building.nick_name.titleize
+-#         = room.building.address.titleize
+-#     .rooms-index-row-capacity
+-#       = room.instructional_seating_count
+
+-#     .rooms-index-row-facility-code-heprod
+-#       = room.facility_code_heprod
+
+
+-#   .rooms-index-row-bottom
+-#     .rooms-index-row-team-learning
+-#       Team Learning Space: #{room.team_learning_classrooms?}
+-#   .rooms-index-row-bottom
+-#     .rooms-index-row-team-learning
+-#       Visible: #{room.visible?}
+
+-#   .characteristics-row
+-#     %h3 Characteristics
+-#     .characteristics
+-#       = render room.room_characteristics
+
+-#   .rooms-index-row--tools
+-#     .favorite-room
+-#       %i.far.fa-heart
+-#     .rooms-index-row-calandar-url
+-#       = link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", :target => "_blank"
+
+-#     .rooms-index-row-copy-button{ "data-controller" => "clipboard"}
+
+-#       %a.clipboard-button{"data-action" => "clipboard#copy", :href => "#"}
+-#         %i.fas.fa-copy
+-#         Copy
+-#       %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -1000px; top:-1000px;", :type => "text", :value => "#{room.to_json}"}/
+
+
+-# .c-row
+  -# .c-logo
+
+  -#   - if room.room_image.attached?
+  -#     .bg-img{:style => " background-image: url(#{rails_blob_url(room.room_image)})"}
+
+  -#   - else
+  -#     .bg-img{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
+
+  .c-info
+    .c-top
+      .flex.flex-col.w-64
+        .c-building.w-48
+          - if room.building.building_image.attached?
+            .c-building-image{:style => " background-image: url(#{rails_blob_url(room.building.building_image)})"}
+
+          - else
+            .bg-contain.h-24.bg-no-repeat{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
+
+      %address.c-location
+        .c-name Angell Hall AudB Angell Hall AudB
+        .c-address 535 South State St. Ann Arbor
+
+    .c-bottom
+      .c-vitals
+        %span
+          %i.fas.fa-users
+          Student Capacity
+          = room.instructional_seating_count
+        %span
+          %i.fas.fa-handshake
+          team learning
+        %span.c-alerts
+          %i.fas.fa-exclamation-triangle
+          8 alerts
+      .c-characteristics
+        = render room.room_characteristics
+
+  .c-tools
+    %button
+      %i.far.fa-heart
+      favorite
+    %button
+      %i.far.fa-calendar-alt
+      schedule
+    %button
+      %i.fas.fa-map-marker-alt
+      directions
+    %button
+      %i.far.fa-copy
+      copy
+
+.d-card
+  .d-left-col
+    .d-building-image.row-image.h-24.w-24
+      - if room.room_image.attached?
+        .bg-img.bg-cover{:style => " background-image: url(#{rails_blob_url(room.building.building_image)})"}
 
       - else
-        .max-w-xl.mx-auto.bg-red-500{:style => "background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');"}
+        .bg-img.bg-badge{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
+    .d-vitals
 
-    .rooms-index-row-name
+      %span
+        %i.fas.fa-users
+        Student Capacity
+        = room.instructional_seating_count
+      %span
+        %i.fas.fa-handshake
+        team learning
+
+  .d-center-col
+
+    .d-address
       = link_to room_path(room) do
         = room.room_number
         = room.building.nick_name.titleize
         = room.building.address.titleize
-    .rooms-index-row-capacity
-      = room.instructional_seating_count
-
-    .rooms-index-row-facility-code-heprod
-      = room.facility_code_heprod
-    .rooms-index-row-calandar-url
-      = link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", :target => "_blank"
-
-    .rooms-index-row-copy-button{ "data-controller" => "clipboard"}
-
-      %a.clipboard-button{"data-action" => "clipboard#copy", :href => "#"}
-        %i.fas.fa-copy
-        Copy
-      %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -1000px; top:-1000px;", :type => "text", :value => "#{room.to_json}"}/
-
-  .rooms-index-row-bottom
-    .rooms-index-row-team-learning
-      Team Learning Space: #{room.team_learning_classrooms?}
-  .rooms-index-row-bottom
-    .rooms-index-row-team-learning
-      Visible: #{room.visible?}
-    .rooms-index-row-team-learning
+    %span.c-alerts
+      %i.fas.fa-exclamation-triangle
+      8 alerts
+    .d-characteristics
+      = render room.room_characteristics
+  .d-actions-col
+    %button
       %i.far.fa-heart
-  .characteristics-row
-    %h3 Characteristics
-    .characteristics
-      - room.room_characteristics.each do |rc|
-        = link_to('', 'popover')
-        = room_characteristic_chicklet(rc).html_safe
+      favorite
+    %button
+      %i.far.fa-calendar-alt
+      schedule
+    %button
+      %i.fas.fa-map-marker-alt
+      directions
+    %button
+      %i.far.fa-copy
+      copy

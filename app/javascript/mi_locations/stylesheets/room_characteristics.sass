@@ -1,0 +1,38 @@
+.characteristics-groups
+  @apply border-0 min-w-0
+  @screen sm
+    @apply invisible
+  .characteristics
+    @apply w-full
+  .characteristics-group
+    @apply  border-l border-r
+
+
+// From Filters
+.characteristics-dropdowns
+  @apply flex flex-wrap mx-auto w-full
+
+  @screen sm
+    @apply visible justify-around
+
+// From Rooms
+.characteristics-row
+  @apply flex flex-row mr-2
+  h2
+    @apply font-semibold text-2xl text-blue-700
+
+.characteristics
+  @apply flex flex-wrap mt-1 ml-1
+
+.characteristic
+  @apply flex items-center justify-center bg-blue-700 text-blue-100 font-semibold border-2 text-sm border-blue-100 rounded-full h-8 w-8 -ml-1
+  &:hover
+    @apply bg-blue-500 text-blue-800
+
+.characteristic-chicklet
+  @apply text-sm font-bold bg-blue-700 rounded-full text-gray-100 px-2  m-1 border font-light inline-flex
+
+  &:hover
+    @apply bg-gray-300 text-blue-800 border border-gray-500 shadow-2xl
+  svg
+    @apply mt-1 mr-1

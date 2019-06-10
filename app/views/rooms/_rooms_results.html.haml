@@ -16,20 +16,26 @@
         -# %button.pagination-button.rounded-r
         -#   %i.fas.fa-map
         -#   Map
+    .results-view--sort
+      Sort by
 
-    .results-pagination
-      .inline-flex
+    .results-pagination.inline-flex
+      = paginate @rooms, remote: true
 
-        %button.pagination-button.rounded-l.border-r.border-gray-500
-          = link_to_prev_page @rooms, remote: true do
 
-            %i.fas.fa-chevron-left
-            Prev
-        %button.pagination-button.rounded-r
-          = link_to_next_page @rooms, 'Next', remote: true
-          %i.fas.fa-chevron-right
-  .rooms-index-rows#rooms-index-rows
+
+      -# .inline-flex
+
+      -#   %button.pagination-button.rounded-l.border-r.border-gray-500
+      -#     = link_to_prev_page @rooms, remote: true do
+
+      -#       %i.fas.fa-chevron-left
+      -#       Prev
+      -#   %button.pagination-button.rounded-r
+      -#     = link_to_next_page @rooms, 'Next', remote: true
+      -#     %i.fas.fa-chevron-right
+  -# .rooms-index-rows#rooms-index-rows
     = render partial: "./rooms/rooms_index_row", collection: @rooms, as: :room, cached: true
 
-  #rooms-index-cards
+  .rooms-index-cards#rooms-index-cards
     = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
