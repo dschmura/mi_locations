@@ -49,21 +49,31 @@
     @apply  w-full mx-2
 
 .room-image
-  @apply mx-auto rounded-t-lg overflow-hidden shadow-lg bg-cover h-48 bg-center
+  @apply mx-auto rounded-t-lg overflow-hidden shadow-lg bg-cover h-32 bg-center
   @screen md
-    @apply h-32
+    @apply h-20
 
 .rooms-index-card-building-badge
-  @apply bg-blue-700 h-24 w-24 rounded-full mx-auto text-blue-500 -mt-12 shadow-lg mx-auto flex
+  @apply bg-blue-700 h-24 w-24 rounded-full mx-auto text-blue-500 -mt-12 shadow-md mx-auto flex border border-blue-200
+  @screen sm
+    @apply h-16 w-16 -mt-8
+  @screen md
+    @apply ml-2 h-12 w-12 -mt-6
 
   img
     @apply rounded-full h-24 w-24 shadow-xl
+    @screen sm
+      @apply h-16 w-16
+    @screen md
+      @apply h-12 w-12
+
+
 
   .room-builiding-abbreviation
-    @apply h-24 w-24 rounded text-blue-800 p-6 text-center ml-2
+    @apply h-24 w-24 rounded text-blue-800 p-6 text-center ml-2 bg-no-repeat bg-center bg-no-repeat self-center justify-center text-center bg-cover
+    @screen md
+      @apply ml-0 h-8 w-8
 
-  .bg-img
-    @apply h-24  bg-center bg-no-repeat rounded-none self-center justify-center text-center bg-cover
 
   .bg-badge
     background-size: 80% auto

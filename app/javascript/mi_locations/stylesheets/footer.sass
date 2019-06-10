@@ -4,11 +4,14 @@
 footer
   @apply w-full bottom-0 bg-blue-800
   nav
-    @apply  font-sans flex flex-col text-center py-4 px-6 items-baseline
+    @apply  font-sans flex flex-col  py-4 px-6 items-center
     @screen sm
       @apply flex-row text-left justify-between
 .footer-logo
   max-height: 35px
+  @apply mb-1
+  @screen sm
+    @apply mb-0
 .footer-links
   a
     @apply text-lg no-underline text-blue-100 ml-2 px-2
