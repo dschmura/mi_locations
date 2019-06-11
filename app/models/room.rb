@@ -48,7 +48,7 @@ class Room < ApplicationRecord
     where(rmtyp_description: ["Classroom"])
   end
 
-  def team_learning_classrooms?
-    room_characteristics.size >= 0
+  def team_learning_classroom?
+    (self.room_characteristics.pluck(:chrstc_descrshort) & ['TeamTables', 'TeamBoard', 'TeamTech']).any?
   end
 end

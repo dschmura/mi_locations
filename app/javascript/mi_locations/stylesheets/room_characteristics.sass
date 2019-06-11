@@ -19,7 +19,11 @@
 .characteristics-row
   @apply flex flex-row mr-2
   h2
-    @apply font-semibold text-2xl text-blue-700
+    @apply font-semibold  text-blue-700 hidden
+    @screen md
+      @apply inline-block
+    @screen lg
+      @apply text-lg
 
 .characteristics
   @apply flex flex-wrap mt-1 ml-1
@@ -29,10 +33,20 @@
   &:hover
     @apply bg-blue-500 text-blue-800
 
+
 .characteristic-chicklet
-  @apply text-sm font-bold bg-blue-700 rounded-full text-gray-100 px-2  m-1 border font-light inline-flex
+  @apply text-sm bg-blue-700 rounded-full text-gray-100 px-1 h-6 w-6 m-1 border font-light inline-flex align-middle text-center justify-center
 
   &:hover
     @apply bg-gray-300 text-blue-800 border border-gray-500 shadow-2xl
+  @screen lg
+    @apply w-auto  px-2
   svg
-    @apply mt-1 mr-1
+    @apply mt-1
+
+    @screen lg
+      @apply mr-1
+  > span
+    @apply hidden
+    @screen lg
+      @apply block
