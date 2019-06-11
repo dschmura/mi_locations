@@ -17,7 +17,7 @@
 
 // From Rooms
 .characteristics-row
-  @apply flex flex-row mr-2
+  @apply flex flex-row mr-2 justify-start
   h2
     @apply font-semibold  text-blue-700 hidden
     @screen md
@@ -26,7 +26,7 @@
       @apply text-lg
 
 .characteristics
-  @apply flex flex-wrap mt-1 ml-1
+  @apply flex flex-wrap
 
 .characteristic
   @apply flex items-center justify-center bg-blue-700 text-blue-100 font-semibold border-2 text-sm border-blue-100 rounded-full h-8 w-8 -ml-1
@@ -36,10 +36,9 @@
 
 .characteristic-chicklet
   @apply text-sm bg-blue-700 rounded-full text-gray-100 px-1 h-6 w-6 m-1 border font-light inline-flex align-middle text-center justify-center
-
   &:hover
     @apply bg-gray-300 text-blue-800 border border-gray-500 shadow-2xl
-  @screen lg
+  @screen sm
     @apply w-auto  px-2
   svg
     @apply mt-1
@@ -48,5 +47,5 @@
       @apply mr-1
   > span
     @apply hidden
-    @screen lg
+    @screen md
       @apply block

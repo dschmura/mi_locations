@@ -68,7 +68,8 @@ module RoomsSearchHelper
     "
     <a role='button' class='characteristic-chicklet tooltip tooltip-top' href='' data-tooltip='#{room_characteristic.chrstc_desc254}'>
     <i class='fas fa-#{icon} fa-sm'></i>
-    #{room_characteristic.chrstc_descrshort}
+    <span>#{room_characteristic.chrstc_descrshort}
+    </span>
     </a>"
   end
 

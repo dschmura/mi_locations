@@ -1,80 +1,94 @@
-= link_to room do
-  .rooms-index-card
-    - if room.room_image.attached?
 
-      .room-image{:style=> "background-image: url('#{url_for(room.room_image)}')"}
-        .rooms-index-name
-          = room.room_number
-          = room.building.name.titleize
-          .text-gray-400.items-center.text-base
-            %i.fas.fa-map-marker-alt.mr-1
-            = room.building.address
-    - else
+.rooms-index-card
+  - if room.room_image.attached?
 
-      .room-image{:style => "background-image: url(#{asset_pack_path('media/mi_locations/images/vistas/Burton.jpg')});"}
-        .rooms-index-name
-          = room.room_number
-          = room.building.name.titleize
-          .text-gray-400.items-center.text-base
-            %i.fas.fa-map-marker-alt.mr-1
-            = room.building.address
+    .room-image{:style=> "background-image: url('#{url_for(room.room_image)}')"}
+      .rooms-index-name
+        = room.room_number
+        = room.building.name.titleize
+        .text-gray-400.items-center.text-base
+          %i.fas.fa-map-marker-alt.mr-1
+          = room.building.address
+    .rooms-index-card-building-badge
+      - if room.building.building_image.attached?
+        = image_tag room.building.building_image, alt: "#{room.building.name.titleize}"
+      - else
+        .room-builiding-abbreviation.bg-badge{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
+  - else
 
-      .rooms-index-card-building-badge
-        - if room.building.building_image.attached?
-          = image_tag room.building.building_image, alt: "#{room.building.name.titleize}"
-        - else
-          .room-builiding-abbreviation.bg-badge{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
+    .room-image{:style => "background-image: url(#{asset_pack_path('media/mi_locations/images/vistas/Burton.jpg')});"}
+      .rooms-index-name
+        = room.room_number
+        = room.building.name.titleize
+        .text-gray-400.items-center.text-base
+          %i.fas.fa-map-marker-alt.mr-1
+          = room.building.address
 
-
-
-
-
-      -# %button.button.rooms-room-alerts-button.inline-flex.text-gray-900
-      -#   .rooms-room-alerts-count
-      -#     = room.alerts.size
-      -#   Alerts
-      -#   %i.fas.fa-exclamation-triangle.mr-1
+    .rooms-index-card-building-badge
+      - if room.building.building_image.attached?
+        = image_tag room.building.building_image, alt: "#{room.building.name.titleize}"
+      - else
+        .room-builiding-abbreviation.bg-badge{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
 
 
-    .px-4.py-4.bg-gray-300
-      .feature-callout
-        %i.fas.fa-users
-        %span
-          %strong.text-black
-          Capacity
-          = room.instructional_seating_count
-          -# / = room.team_learning_classrooms?
-
-        -# - if room.team_learning_classroom?
-
-        .feature-callout
-          %i.fas.fa-handshake
-          .ml-1
-            %strong.text-black
-            Team Learning
 
 
-        -# %/ i.fas.fa-flask
-        -# %span.mx-3
-        -#  %strong.text-black
-        -#  = room.building.classrooms_labs.size
-        -#  Classroom Labs
-      .characteristics-row
-        %h2 Room Features
-        .characteristics
-          = render room.room_characteristics
-    .actions
-      %button.button.rooms-room-schedule-button
-        %i.far.fa-heart
-        %span Favorite
-      %button.button.rooms-room-directions-button
-        %i.fas.fa-map-marked-alt
-        %span Directions
 
-      %button.button.rooms-room-schedule-button
-        %i.fas.fa-calendar-alt
-        %span Schedule
+    -# %button.button.rooms-room-alerts-button.inline-flex.text-gray-900
+    -#   .rooms-room-alerts-count
+    -#     = room.alerts.size
+    -#   Alerts
+    -#   %i.fas.fa-exclamation-triangle.mr-1
 
-      %button.button.rooms-room-copy-button
-        %i.fas.fa-copy
-        %span Copy
+
+  .feature-callouts
+    .feature-callout
+      %i.fas.fa-users
+      %span
+        %strong.text-black
+        Capacity
+        = room.instructional_seating_count
+        -# / = room.team_learning_classrooms?
+
+      -# - if room.team_learning_classroom?
+
+    .feature-callout
+      %i.fas.fa-handshake
+      Team Learning
+
+    .feature-callout
+      %i.fas.fa-chalkboard
+      Writing Surface
+
+    .feature-callout
+      %i.fas.fa-film
+      Audio / Visual
+
+    .feature-callout
+      %i.fas.fa-video
+      Projection
+
+    .feature-callout
+      %i.fas.fa-laptop
+      Computing
+
+
+  .characteristics-row
+    %h2 Room Features
+    .characteristics
+      = render room.room_characteristics
+  .actions
+    %button.button.rooms-room-favorite-button
+      %i.far.fa-heart
+      %span Favorite
+    %button.button.rooms-room-directions-button
+      %i.fas.fa-map-marked-alt
+      %span Directions
+
+    %button.button.rooms-room-schedule-button
+      %i.fas.fa-calendar-alt
+      %span Schedule
+
+    %button.button.rooms-room-copy-button
+      %i.fas.fa-copy
+      %span Copy
