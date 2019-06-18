@@ -5,7 +5,7 @@
         %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
           %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
 
-      %input.block.w-full.bg-blue-200.focus:outline-none.focus:bg-white.focus:text-gray-900.text-blue-900.rounded-lg.pl-10.pr-4.py-2{:placeholder => "Search by building name or room number"}/
+      %input.search-input{:placeholder => "Search by building name or room number"}/
 
     %button.filters-button{"data-action" => "toggle#filtertoggle"}
       %svg.h-6.w-6.fill-current.text-gray-500{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg"}
@@ -13,7 +13,7 @@
       Filters
 
   .filters-dropdown
-    .lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs{ "data-target" => "toggle.filters" }
+    .hidden.lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs{ "data-target" => "toggle.filters" }
 
       .px-4.py-4.border-t.border-gray-900.xl:border-t-0.xl:w-full{:class => ""}
         .flex.flex-wrap.-mx-2
@@ -68,7 +68,7 @@
             %input.form-checkbox{:name => "bluray_dvd", :type => "checkbox"}
             %span{:class => "sm:w-full"} BluRay / DVD Player
 
-      %div{:class => "flex flex-col inline-block"}
+      %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
         .writing-surface{:class => "w-full"}
           %span.section-header Writing Surface
 

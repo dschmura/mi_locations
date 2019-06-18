@@ -1,5 +1,5 @@
-%header.bg-gray-900.sm:flex.sm:items-center.sm:justify-between.xl:bg-white
-  .flex.justify-between.px-4.py-3.xl:w-72.xl:bg-gray-900.xl:justify-center.xl:py-5
+%header.bg-blue-900.sm:flex.sm:items-center.sm:justify-between.xl:bg-blue-800
+  .flex.justify-between.px-4.py-3.xl:w-72.xl:bg-blue-800.xl:justify-center.xl:py-5
     %div
       = link_to root_path, class: '' do
         = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'header-logo')
@@ -25,7 +25,8 @@
     .px-5.py-5.sm:py-0.sm:ml-4.sm:px-0.sm:justify-end
       .flex.items-center
         %img.h-10.w-10.object-cover.rounded-full.border-2.border-gray-600.sm:h-8.sm:w-8.xl:border-gray-300{:alt => "User Photo", :src => "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1=eyJhcHBfaWQiOjEyMDd9=format=crop=256=80"}
-          %span.ml-4.font-semibold.text-gray-200.sm:hidden Isla Schoger
+
+          %span.ml-4.font-semibold.text-gray-200.sm:hidden Guest User
 
       .mt-5.sm:hidden
         %a.block.text-gray-400.hover:text-white{:href => "#"} Account settings
