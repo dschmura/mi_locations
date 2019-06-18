@@ -1,65 +1,25 @@
 
-:css
-  #menu-toggle:checked + #menu {
-    display: block;
-  }
-%span.flex-row
-  %header.lg:px-16.px-6.bg-blue-400.flex.flex-wrap.items-center.lg:py-0.py-2
-    .flex-1.flex.justify-between.items-center
-      %a{:href => "#"}
+.xl:flex-1.xl:flex.xl:overflow-y-hidden{ "data-controller" => "toggle"}
+  = render './search/search_filters'
+.canary
+  %h1 About MiLocations
+
+  %p
+    The
+    = link_to "MiLocations website",  about_url
+    was developed by the
+    = link_to "College of Literature, Science & the Arts Technology Services", about_iss_url
+    group to provide information about classrooms in the academic units at the University of Michigan.
+
+  %p
+    This application includes information about installed audio-visual technology, connectivity, room capacity and other characteristics. This data reflects the room attributes in M-Pathways and the Space Survey. In addition, the
+    = link_to "MiLocations rooms website",  about_url
+    site provides photographs, 3D panoramas, maps and contact information specific to each room.
+
+  %h4
+    Web Site Support
 
 
-        = image_tag "#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')}", alt: "MiLocations Logo", class: 'h-8'
-
-    %label.pointer-cursor.lg:hidden.block{:for => "menu-toggle"}
-      %svg.fill-current.text-gray-900{:height => "20", :viewbox => "0 0 20 20", :width => "20", :xmlns => "http://www.w3.org/2000/svg"}
-        %title menu
-        %path{:d => "M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"}
-    %input#menu-toggle.hidden{:type => "checkbox"}/
-    #menu.hidden.lg:flex.lg:items-center.lg:w-auto.w-full
-      %nav
-        %ul.lg:flex.items-center.justify-between.text-lg.text-gray-700.pt-2.lg:pt-0
-          %li
-            %input.lg:p-2.py-3.w-64.px-0.block.border-b-2.border-transparent.hover:border-indigo-400{:href => "#", placeholder: 'Search'}
-
-          %li
-            %a.d-filters-links{:href => "#"} Capacity
-          %li
-            %a.d-filters-links{:href => "#"} Team Learning
-          %li
-            %a.d-filters-links{:href => "#"} Writing Surface
-          %li
-            %a.d-filters-links{:href => "#"} Audio / Visual
-          %li
-            %a.d-filters-links{:href => "#"} Projection
-          %li
-            %a.d-filters-links{:href => "#"} Computing
-
-
-.room-card
-  .name
-  .image
-  .info-card
-
-
-%h1 About MiLocations
-
-%p
-  The
-  = link_to "MiLocations website",  about_url
-  was developed by the
-  = link_to "College of Literature, Science & the Arts Technology Services", about_iss_url
-  group to provide information about classrooms in the academic units at the University of Michigan.
-
-%p
-  This application includes information about installed audio-visual technology, connectivity, room capacity and other characteristics. This data reflects the room attributes in M-Pathways and the Space Survey. In addition, the
-  = link_to "MiLocations rooms website",  about_url
-  site provides photographs, 3D panoramas, maps and contact information specific to each room.
-
-%h4
-  Web Site Support
-
-
-%p
-  | Support for this web site is provided by LSA Technology Services. To report an issue, please contact us via telephone (734) 615-0100 or visit us at
-  = link_to "https://lsa.umich.edu/technology-services/instructional-support-services.html", "https://lsa.umich.edu/technology-services/instructional-support-services.html", target: "_blank"
+  %p
+    | Support for this web site is provided by LSA Technology Services. To report an issue, please contact us via telephone (734) 615-0100 or visit us at
+    = link_to "https://lsa.umich.edu/technology-services/instructional-support-services.html", "https://lsa.umich.edu/technology-services/instructional-support-services.html", target: "_blank"
