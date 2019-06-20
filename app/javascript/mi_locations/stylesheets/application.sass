@@ -135,12 +135,14 @@ a
     @apply text-right
 .sort-by-options
   @apply flex  max-w-lg text-right
+  @screen sm
+    @apply flex
   a
     @apply text-white
 
 .sort-by-link
   a
-    @apply ml-4 text-blue-100 w-full inline-block
+    @apply ml-4 text-blue-100 w-full inline-block truncate
 
     svg
       @apply
@@ -189,7 +191,8 @@ a
     @apply h-16 w-16 -mt-8
   @screen md
     @apply ml-2 h-12 w-12
-
+.form-checkbox
+  @apply h-5 w-5 rounded
 .canary
   @apply
   @screen sm

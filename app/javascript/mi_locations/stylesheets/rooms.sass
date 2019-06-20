@@ -33,13 +33,13 @@
   font-size: 0.8rem
 
 .rooms-index-cards
-  @apply flex inline-flex w-full overflow-x-scroll scrolling-touch
+  @apply flex flex-col w-full overflow-y-scroll scrolling-touch
 
   @screen md
     @apply flex-col
 
 .rooms-index-card
-  @apply  bg-gray-400  mx-auto rounded-lg shadow-lg bg-cover  m-1 flex flex-col justify-around
+  @apply  bg-yellow-100  mx-auto rounded-lg shadow-lg bg-cover bg-top m-1 flex flex-col justify-around
   min-height: 375px
   min-width: 300px
   @screen md
@@ -51,31 +51,33 @@
   @apply text-xl float-left text-blue-100  p-2 flex flex-col
 
 .room-image
-  @apply mx-auto rounded-t-lg overflow-hidden shadow-lg bg-cover h-32 w-full bg-center
+  @apply mx-auto rounded-t-lg overflow-hidden shadow-lg bg-cover h-32 w-full bg-center top-0 -mt-8
   @screen md
-    @apply h-32
+    @apply h-32 mt-0
 
 .rooms-index-card-building-badge
-  @apply bg-blue-700 h-16 w-16 rounded-full mx-auto text-blue-500 -mt-12 shadow-md mx-auto flex border border-blue-200
+  @apply bg-blue-700 h-12 w-12 rounded-full mx-auto text-blue-500 -mt-20 shadow-md mx-auto flex border border-blue-200
+
   @screen sm
-    @apply h-16 w-16 -mt-8
+    @apply h-12 w-12
   @screen md
-    @apply ml-2 h-12 w-12
+    @apply ml-2 h-12 w-12 -mt-8
 
   img
-    @apply rounded-full h-24 w-24 shadow-xl
+    @apply rounded-full  shadow-xl
     @screen sm
-      @apply h-16 w-16
+      // @apply h-16 w-16
     @screen md
       @apply h-12 w-12
 
   .room-builiding-abbreviation
-    @apply h-24 w-24 rounded text-blue-800 p-6 text-center ml-2 bg-no-repeat bg-center bg-no-repeat self-center justify-center text-center bg-cover
+    @apply  rounded text-blue-800 p-6 text-center ml-2 bg-no-repeat bg-center bg-no-repeat self-center justify-center text-center bg-cover
     @screen md
-      @apply ml-0 h-8 w-8
+      // @apply ml-0 h-8 w-8
 
   .bg-badge
-    background-size: 80% auto
+    background-size: 70% auto
+    @apply bg-left
 
 .button
   @apply inline-flex rounded-full items-center shadow-lg  cursor-pointer px-4 py-1 justify-center bg-blue-200 text-blue-800 my-2

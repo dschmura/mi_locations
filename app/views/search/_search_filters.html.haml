@@ -7,7 +7,6 @@
           %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
             %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
 
-
         = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-input', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
 
       %button.filters-button{"data-action" => "toggle#filtertoggle"}
@@ -15,10 +14,10 @@
           %path{:d => "M156.718 404.24l-67.994 72.002c-4.732 5.01-12.713 5.014-17.448 0L3.283 404.24C-3.883 396.652 1.428 384 12.007 384H56V44c0-6.627 5.373-12 12-12h24c6.627 0 12 5.373 12 12v340h43.994c10.587 0 15.884 12.658 8.724 20.24zM236 136h264c6.627 0 12-5.373 12-12v-24c0-6.627-5.373-12-12-12H236c-6.627 0-12 5.373-12 12v24c0 6.627 5.373 12 12 12zm-12 84v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H236c-6.627 0-12-5.373-12-12zm0 192v-24c0-6.627 5.373-12 12-12h72c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12zm0-96v-24c0-6.627 5.373-12 12-12h136c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H236c-6.627 0-12-5.373-12-12z"}
         Filters
 
-    .filters-dropdown
-      .hidden.lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs{ "data-target" => "toggle.filters" }
+    .filters-dropdown.hidden.xl:w-64{ "data-target" => "toggle.filters" }
+      .lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs
 
-        .px-4.py-4.border-t.border-gray-900.xl:border-t-0.xl:w-full{:class => ""}
+        .px-4.py-4.border-t.border-gray-900.xl:border-t-0{:class => ""}
           .flex.flex-wrap.-mx-2
             -# %label.filter.block.px-2{:class => "w-1/2 sm:w-1/4 lg:w-1/2"}
             -#   %span.section-header Campus
@@ -103,10 +102,10 @@
                 %span Digital Cinema (DCP)
               %label.filter-label{:class => ""}
                 %input.form-radio{:name => "projectionType", :type => "radio", :value => "projection_digital_data_and_video"}/
-                %span.w-auto{:class => "sm:w-full"}  Digital Data & Video
+                %span.w-auto{:class => ""}  Digital Data & Video
               %label.filter-label{:class => ""}
                 %input.form-radio{:name => "projectionType", :type => "radio", :value => "projection_slide"}/
-                %span.w-auto{:class => "sm:w-full"}  Slide Projector
+                %span.w-auto{:class => ""}  Slide Projector
 
       .filter-tools
         .search-results#rooms-search-matches.inline-flex
