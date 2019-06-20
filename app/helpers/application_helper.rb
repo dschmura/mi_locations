@@ -33,4 +33,10 @@ module ApplicationHelper
     return File.read(file_path).html_safe if File.exist?(file_path)
     file_path
   end
+
+  def pluralize_without_count(count, noun, text = nil)
+    if count != 0
+      count == 1 ? "#{noun}#{text}" : "#{noun.pluralize}#{text}"
+    end
+  end
 end

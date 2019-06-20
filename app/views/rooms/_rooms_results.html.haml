@@ -2,7 +2,7 @@
 
 #rooms-results
 
-  .search-tools
+  -# .search-tools
     .search-results#rooms-search-matches
       = "#{ pluralize(@q.result.size, 'Match')}"
     .results-view--select
@@ -19,8 +19,8 @@
     .results-view--sort
       Sort by
 
-    .results-pagination.inline-flex
-      = paginate @rooms, remote: true
+    -# .results-pagination.inline-flex
+    -#   = paginate @rooms, remote: true
 
 
 

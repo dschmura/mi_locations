@@ -1,98 +1,132 @@
-%section.search-filters
-  .flex.justify-between.px-4.py-3
-    .relative.max-w-lg.w-full
-      .absolute.inset-y-0.left-0.flex.items-center.pl-3
-        %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
-          %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
+= search_form_for @q, remote: true, url: search_rooms_path do |f|
 
-      %input.search-input{:placeholder => "Search by building name or room number"}/
+  %section.search-filters
+    .flex.justify-between.px-4.py-3
+      .relative.max-w-lg.w-full
+        .absolute.inset-y-0.left-0.flex.items-center.pl-3
+          %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+            %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
 
-    %button.filters-button{"data-action" => "toggle#filtertoggle"}
-      %svg.h-6.w-6.fill-current.text-gray-500{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg"}
-        %path{:d => "M156.718 404.24l-67.994 72.002c-4.732 5.01-12.713 5.014-17.448 0L3.283 404.24C-3.883 396.652 1.428 384 12.007 384H56V44c0-6.627 5.373-12 12-12h24c6.627 0 12 5.373 12 12v340h43.994c10.587 0 15.884 12.658 8.724 20.24zM236 136h264c6.627 0 12-5.373 12-12v-24c0-6.627-5.373-12-12-12H236c-6.627 0-12 5.373-12 12v24c0 6.627 5.373 12 12 12zm-12 84v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H236c-6.627 0-12-5.373-12-12zm0 192v-24c0-6.627 5.373-12 12-12h72c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12zm0-96v-24c0-6.627 5.373-12 12-12h136c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H236c-6.627 0-12-5.373-12-12z"}
-      Filters
 
-  .filters-dropdown
-    .hidden.lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs{ "data-target" => "toggle.filters" }
+        = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-input', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
 
-      .px-4.py-4.border-t.border-gray-900.xl:border-t-0.xl:w-full{:class => ""}
-        .flex.flex-wrap.-mx-2
-          %label.filter.block.px-2{:class => "w-1/2 sm:w-1/4 lg:w-1/2"}
-            %span.section-header Campus
-            %select.mt-1.form-select.block.w-full.text-white.shadow.focus:bg-gray-600
-              %option Ann Arbor Central Campus
-          %label.block.px-2{:class => "w-1/2 sm:w-1/4 lg:w-1/2"}
-            %span.section-header Department
-            %select.mt-1.form-select.block.w-full.text-white.shadow.focus:bg-gray-600
-              %option School of Education
-          %label.mt-4.block.w-full.px-2.sm:mt-0.lg:mt-4.lg:w-full{:class => "sm:w-1/2"}
-            %span.section-header Student Capacity
-            %select.mt-1.form-select.block.w-full.text-white.shadow.focus:bg-gray-600
-              %option Between 20 and 35
+      %button.filters-button{"data-action" => "toggle#filtertoggle"}
+        %svg.h-6.w-6.fill-current.text-gray-500{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg"}
+          %path{:d => "M156.718 404.24l-67.994 72.002c-4.732 5.01-12.713 5.014-17.448 0L3.283 404.24C-3.883 396.652 1.428 384 12.007 384H56V44c0-6.627 5.373-12 12-12h24c6.627 0 12 5.373 12 12v340h43.994c10.587 0 15.884 12.658 8.724 20.24zM236 136h264c6.627 0 12-5.373 12-12v-24c0-6.627-5.373-12-12-12H236c-6.627 0-12 5.373-12 12v24c0 6.627 5.373 12 12 12zm-12 84v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H236c-6.627 0-12-5.373-12-12zm0 192v-24c0-6.627 5.373-12 12-12h72c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12zm0-96v-24c0-6.627 5.373-12 12-12h136c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H236c-6.627 0-12-5.373-12-12z"}
+        Filters
 
-      .classroom-type
-        %span.section-header Classroom Type
-        .characteristics-arrangement
-          %label.filter-label
-            %input.form-radio{:name => "classroomType", :type => "radio", :value => "team_learning"}/
-            %span Team Learning
-          %label.filter-label
-            %input.form-radio{:name => "classroomType", :type => "radio", :value => "lecture_hall"}/
-            %span Lecture Hall
-          %label.filter-label
-            %input.form-radio{:name => "classroomType", :type => "radio", :value => "computer_classroom"}/
-            %span.w-auto Computer Classroom
+    .filters-dropdown
+      .hidden.lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs{ "data-target" => "toggle.filters" }
 
-      .classroom-amenities
-        %span.section-header Amenities
-        .characteristics-arrangement.sm:flex-wrap
-          %label.filter-label
-            %input.form-checkbox{:name => "video_projection", :type => "checkbox"}
-            %span Video Projection
-          %label.filter-label
-            %input.form-checkbox{:name => "podium_computer", :type => "checkbox"}/
-            %span Podium Computer
-          %label.filter-label
-            %input.form-checkbox{:name => "document_camera", :type => "checkbox"}/
-            %span Document Camera
-          %label.filter-label
-            %input.form-checkbox{:name => "lecture_capture", :type => "checkbox"}/
-            %span Lecture Capture
-          %label.filter-label
-            %input.form-checkbox{:name => "video_conferencing", :type => "checkbox"}/
-            %span Video Conferencing
-          %label.filter-label
-            %input.form-checkbox{:name => "interactive_screen", :type => "checkbox"}/
-            %span Interactive Screen
-          %label.filter-label{:class => "sm:w-1/2"}
-            %input.form-checkbox{:name => "bluray_dvd", :type => "checkbox"}
-            %span{:class => "sm:w-full"} BluRay / DVD Player
+        .px-4.py-4.border-t.border-gray-900.xl:border-t-0.xl:w-full{:class => ""}
+          .flex.flex-wrap.-mx-2
+            -# %label.filter.block.px-2{:class => "w-1/2 sm:w-1/4 lg:w-1/2"}
+            -#   %span.section-header Campus
+            -#   %select.mt-1.form-select.block.w-full.text-white.shadow.focus:bg-gray-600
+            -#     %option Ann Arbor Central Campus
+            %label.block.px-2{:class => "w-1/2 lg:w-full"}
+              %span.section-header.mb-4 Department
+              %select.mt-1.form-select.block.w-full.text-white.shadow.focus:bg-gray-600
+                %option School of Education
+            %label.mt-4.block.w-full.px-2.sm:mt-0.lg:mt-4.lg:w-full{:class => "sm:w-1/2"}
+              %div.section-header.mb-4 Student Capacity
+              %div.px-2.py-4.rounded-lg
+                #slider.w-full.shadow
+                -# #reset-slider.self-end
+                -#   Reset
 
-      %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
-        .writing-surface{:class => "w-full"}
-          %span.section-header Writing Surface
-
-          -# .sm:flex.sm:-mx-2.lg:block.lg:mx-0
-          .characteristics-arrangement{:class => "sm:w-full "}
-            %label.filter-label
-              %input.form-radio{:name => "boardType", :type => "radio", :value => "chalkboard"}/
-              %span{:class => "" } Chalkboard
-            %label.filter-label
-              %input.form-radio{:name => "boardType", :type => "radio", :value => "whiteboard"}/
-              %span{} Whiteboard
-
-        .projection-type
-          %span.section-header Projection
+        .classroom-type
+          %span.section-header Classroom Type
           .characteristics-arrangement
-            %label.filter-label{:class => ""}
-              %input.form-radio{:name => "projectionType", :type => "radio", :value => "35mm_film"}/
-              %span 35mm Film
-            %label.filter-label{:class => ""}
-              %input.form-radio{:name => "projectionType", :type => "radio", :value => "digital_cinema_projection"}/
-              %span Digital Cinema (DCP)
-            %label.filter-label{:class => "sm:w-1/2"}
-              %input.form-radio{:name => "projectionType", :type => "radio", :value => "projection_digital_data_and_video"}/
-              %span.w-auto{:class => "sm:w-full"}  Digital Data & Video
+            %label.filter-label
+              %input.form-radio{:name => "classroomType", :type => "radio", :value => "team_learning"}/
+              %span Team Learning
 
-    .bg-gray-900.px-4.py-4.mb-2.sm:text-right
-      %button.block.w-full.sm:w-auto.sm:inline-block.bg-blue-200.hover:bg-blue-300.font-semibold.text-blue-800.px-4.py-2.rounded-lg.xl:block.xl:w-full Update results
+            %label.filter-label
+              %input.form-radio{:name => "classroomType", :type => "radio", :value => "lecture_hall"}/
+              %span Lecture Hall
+            %label.filter-label
+              %input.form-radio{:name => "classroomType", :type => "radio", :value => "computer_classroom"}/
+              %span.w-auto Computer Classroom
+
+        .classroom-amenities
+          %span.section-header Amenities
+          .characteristics-arrangement.sm:flex-wrap
+            %label.filter-label
+              %input.form-checkbox{:name => "video_projection", :type => "checkbox"}
+              %span Video Projection
+            %label.filter-label
+
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]',"InstrComp, CompPodPC, CompPodMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+
+              %span Instructor Computer
+            %label.filter-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"DocCam", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+              %span Document Camera
+            %label.filter-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"LectureCap", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+              %span Lecture Capture
+            %label.filter-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"VideoConf", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+
+              %span Video Conferencing
+            %label.filter-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"IntrScreen", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+              %span Interactive Screen
+            %label.filter-label{}
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['BluRay'], false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+
+              -# .checkbox-label BluRay / DVD Player
+              %span{:class => "sm:w-full"} BluRay / DVD Player
+
+        %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
+          .writing-surface{:class => "w-full"}
+            %span.section-header Writing Surface
+
+            -# .sm:flex.sm:-mx-2.lg:block.lg:mx-0
+            .characteristics-arrangement{:class => "sm:w-full "}
+              %label.filter-label
+                %input.form-radio{:name => "boardType", :type => "radio", :value => "chalkboard"}/
+                %span{:class => "" } Chalkboard
+              %label.filter-label
+                %input.form-radio{:name => "boardType", :type => "radio", :value => "whiteboard"}/
+                %span{} Whiteboard
+
+          .projection-type
+            %span.section-header Projection
+            .characteristics-arrangement
+              %label.filter-label{:class => ""}
+                %input.form-radio{:name => "projectionType", :type => "radio", :value => "35mm_film"}/
+                %span 35mm Film
+              %label.filter-label{:class => ""}
+                %input.form-radio{:name => "projectionType", :type => "radio", :value => "digital_cinema_projection"}/
+                %span Digital Cinema (DCP)
+              %label.filter-label{:class => ""}
+                %input.form-radio{:name => "projectionType", :type => "radio", :value => "projection_digital_data_and_video"}/
+                %span.w-auto{:class => "sm:w-full"}  Digital Data & Video
+              %label.filter-label{:class => ""}
+                %input.form-radio{:name => "projectionType", :type => "radio", :value => "projection_slide"}/
+                %span.w-auto{:class => "sm:w-full"}  Slide Projector
+
+      .filter-tools
+        .search-results#rooms-search-matches.inline-flex
+          = @q.result.size
+          .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
+        .sort-by-options
+          .sort-by-capacity.sort-by-link
+            -# = sort_link(@q, :room_number) do
+            = link_to  root_path do
+              Capacity
+              %i.fas.fa-chevron-down
+
+          .sort-by-buidling-name.sort-by-link
+            = link_to  root_path do
+              Building
+              %i.fas.fa-chevron-down
+
+          .sort-by-room-number.sort-by-link
+            = link_to  root_path do
+              Room number
+              %i.fas.fa-chevron-down
+
+            -# %button.block.w-full.sm:w-auto.sm:block.bg-blue-200.hover:bg-blue-300.font-semibold.text-blue-800.px-4.py-2.rounded-lg.xl:block.xl:w-full Update results

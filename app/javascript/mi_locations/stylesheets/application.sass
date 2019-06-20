@@ -109,7 +109,7 @@ a
   @screen xl
     @apply w-full
   span
-    @apply ml-2 text-blue-900 text-xl font-light
+    @apply ml-2 text-blue-900 text-lg font-light
   input
     @apply bg-blue-500
     &:focus
@@ -121,13 +121,48 @@ a
     @apply bg-gray-600
   &:focus
     @apply outline-none shadow-outline
-  @screen lg
+  @screen xl
     @apply hidden
 
 .filters-dropdown
-  @apply bg-blue-200
+  @apply bg-gray-400
   @screen xl
     @apply block h-full flex flex-col justify-between
+
+.filter-tools
+  @apply  bg-blue-900 pl-3 pr-8 py-4 mb-2 flex justify-between
+  @screen sm
+    @apply text-right
+.sort-by-options
+  @apply flex  max-w-lg text-right
+  a
+    @apply text-white
+
+.sort-by-link
+  a
+    @apply ml-4 text-blue-100 w-full inline-block
+
+    svg
+      @apply
+    @screen md
+      @apply
+    @screen lg
+      @apply
+.search-results
+  @apply bg-yellow-500 px-4 py-1 rounded text-blue-800 self-center
+  .results-view--select
+    @apply hidden
+    @screen sm
+      @apply block
+
+.update-results-button
+  @apply  block w-full  bg-blue-200  font-semibold text-blue-800 px-4 py-2 rounded-lg
+  &:hover
+    @apply bg-blue-300
+  @screen sm
+    @apply w-auto inline-block
+  @screen xl
+    @apply block w-full
 
 .header-links
   @apply px-2 pt-2 pb-5 border-b border-gray-800

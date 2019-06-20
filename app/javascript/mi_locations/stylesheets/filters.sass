@@ -32,15 +32,21 @@
 
 
 #slider
-  @apply w-full h-2 shadow-xl mt-12
+  @apply h-2
   .noUi-connect
     @apply bg-blue-700
   .noUi-base
     @apply bg-blue-400
   .noUi-handle
-    @apply bg-yellow-500 rounded-full h-4 w-4
+    @apply bg-yellow-500 rounded-full h-5 w-5
+    &:before
+      @apply hidden
+    &:after
+      @apply hidden
+    &:focus
+      @apply border-none
 
-  .noUi-horizontal
-    @apply hidden
   .noUi-tooltip
-    @apply bg-gray-300 text-blue-800 text-xs rounded p-1 w-8 h-8
+    @apply bg-gray-300 text-blue-800 text-sm rounded  w-10 h-6
+    &:focus
+      @apply bg-green-400 outline-none
