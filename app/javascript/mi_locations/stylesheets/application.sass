@@ -136,13 +136,17 @@ a
   @apply  bg-blue-900 pl-3 pr-8 py-1  flex justify-between
   @screen sm
     @apply text-right
+  @screen xl
+    @apply flex flex-col py-2
 
 .sort-by-options
-  @apply flex  max-w-lg text-right
+  @apply flex  max-w-lg text-right self-center
   @screen sm
     @apply flex
   a
     @apply text-white
+
+
 
 .sort-by-link
   a
@@ -154,12 +158,16 @@ a
       @apply
     @screen lg
       @apply
+    @screen xl
+      @apply mt-4 text-xs ml-1 text-center self-center
 .search-results
   @apply bg-yellow-500 px-4 rounded-full text-blue-800 self-center
   .results-view--select
     @apply hidden
     @screen sm
       @apply block
+    @screen xl
+      @apply text-sm
 
 .update-results-button
   @apply  block w-full  bg-blue-200  font-semibold text-blue-800 px-4 py-2 rounded-lg
