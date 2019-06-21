@@ -44,6 +44,8 @@
   min-width: 300px
   @screen md
     @apply min-h-0
+  @screen xl
+    @apply ml-2 rounded-t-none
 .actions
   @apply flex flex-row w-full justify-between bg-blue-600 text-sm block text-center rounded-b
 
@@ -55,6 +57,8 @@
   @apply mx-auto rounded-t-lg overflow-hidden shadow bg-cover h-32 w-full bg-center top-0 z-10
   @screen md
     @apply h-32 mt-0 w-1/3 left-0 ml-0 rounded-tr-none rounded-br
+  @screen xl
+    @apply rounded-tl-sm
 
 .rooms-index-card-building-badge
   @apply bg-blue-700 h-12 w-12 rounded-full mx-auto text-blue-500 -mt-20 shadow-md mx-auto flex border border-blue-200
