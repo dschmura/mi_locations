@@ -87,10 +87,12 @@
       %i.fas.fa-map-marked-alt
       %span Directions
 
-    %button.button.rooms-room-schedule-button
+
+    = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", :target => "_blank", :role => "button",:class => "button rooms-room-schedule-button" do
       %i.fas.fa-calendar-alt
       %span Schedule
 
-    %button.button.rooms-room-copy-button
+    %button.button.rooms-room-copy-button{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#"}
       %i.fas.fa-copy
       %span Copy
+      %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -1000px; top:-1000px;", :type => "text", :value => "#{room.to_json}"}/
