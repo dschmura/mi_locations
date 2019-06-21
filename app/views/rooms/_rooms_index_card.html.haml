@@ -1,7 +1,6 @@
 
 .rooms-index-card
-  = link_to "#" do
-
+  = link_to room do
     - if room.room_image.attached?
 
       .room-image{:style=> "background-image: url('#{url_for(room.room_image)}')"}
@@ -32,53 +31,11 @@
         - else
           .room-builiding-abbreviation.bg-badge{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
 
-
-
-
-
-    -# %button.button.rooms-room-alerts-button.inline-flex.text-gray-900
-    -#   .rooms-room-alerts-count
-    -#     = room.alerts.size
-    -#   Alerts
-    -#   %i.fas.fa-exclamation-triangle.mr-1
-
-
-  -# .feature-callouts
-  -#   .feature-callout
-  -#     %i.fas.fa-users
-  -#     %span
-  -#       %strong.text-black
-  -#       Capacity
-  -#       = room.instructional_seating_count
-  -#       -# / = room.team_learning_classrooms?
-
-  -#     -# - if room.team_learning_classroom?
-
-  -#   .feature-callout
-  -#     %i.fas.fa-handshake
-  -#     Team Learning
-
-  -#   .feature-callout
-  -#     %i.fas.fa-chalkboard
-  -#     Writing Surface
-
-  -#   .feature-callout
-  -#     %i.fas.fa-film
-  -#     Audio / Visual
-
-  -#   .feature-callout
-  -#     %i.fas.fa-video
-  -#     Projection
-
-  -#   .feature-callout
-  -#     %i.fas.fa-laptop
-  -#     Computing
-
-
   .characteristics-row
-    %h2 Room Features
+    -# %h2 Room Features
     .characteristics
       = render room.room_characteristics
+
   .actions
     %button.button.rooms-room-favorite-button
       %i.far.fa-heart
@@ -86,7 +43,6 @@
     %button.button.rooms-room-directions-button
       %i.fas.fa-map-marked-alt
       %span Directions
-
 
     = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", :target => "_blank", :role => "button",:class => "button rooms-room-schedule-button" do
       %i.fas.fa-calendar-alt
