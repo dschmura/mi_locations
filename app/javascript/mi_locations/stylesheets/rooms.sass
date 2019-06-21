@@ -39,19 +39,20 @@
     @apply flex-wrap
 
 .rooms-index-card
-  @apply  bg-yellow-100  mx-auto rounded-lg shadow-lg bg-cover bg-top m-1 flex flex-col justify-around
+  @apply  bg-orange-100  mx-auto rounded-lg shadow-lg bg-cover bg-top m-1 flex flex-col justify-between
   min-height: 375px
   min-width: 300px
   @screen md
     @apply min-h-0
 .actions
-  @apply flex flex-row w-full justify-between bg-gray-800 text-sm block text-center
+  @apply flex flex-row w-full justify-between bg-blue-600 text-sm block text-center rounded-b
 
 .rooms-index-name
-  @apply text-xl float-left text-blue-100  p-2 flex flex-col
+  @apply text-xl text-blue-100  p-2 flex flex-col bg-cover text-left
+  background-color: hsla(210, 41, 28, 0.4)
 
 .room-image
-  @apply mx-auto rounded-t-lg overflow-hidden shadow-lg bg-cover h-32 w-full bg-center top-0 -mt-8
+  @apply mx-auto rounded-t-lg overflow-hidden shadow bg-cover h-32 w-full bg-center top-0 z-10
   @screen md
     @apply h-32 mt-0 w-1/3 left-0 ml-0 rounded-tr-none rounded-br
 
@@ -193,11 +194,3 @@
     @apply mt-1 mr-1
   @screen sm
     @apply text-sm inline-block
-
-.r-card
-  @apply bg-gray-500 w-full mt-1
-.r-image
-  img
-    @apply mx-auto rounded-t-lg overflow-hidden shadow-lg bg-cover h-32 w-full bg-center top-0 -mt-8
-    @screen md
-      @apply  mt-0 w-1/3 left-0 ml-0 rounded-tr-none rounded-br

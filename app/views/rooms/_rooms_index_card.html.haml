@@ -1,14 +1,4 @@
 
-.r-card
-  .r-image
-  - if room.room_image.attached?
-    %span{:style=> "background-image: url('#{url_for(room.room_image)}')"}
-  - else
-    %span{:style => "background-image: url(#{asset_pack_path('media/mi_locations/images/vistas/Burton.jpg')});"}
-  .r-address
-  .r-features
-  .r-actions
-
 .rooms-index-card
   = link_to "#" do
 

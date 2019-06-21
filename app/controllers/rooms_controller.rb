@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     @q = Room.classrooms.ransack(params[:q])
-    @rooms = @q.result(distinct: true).includes(:building, :room_characteristics).page params[:page]
+    @rooms = @q.result(distinct: true).includes(:building, :room_characteristics).page(params[:page])
     respond_to do |format|
       format.html
       format.json { render json: @rooms }
@@ -41,6 +41,6 @@ class RoomsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def room_params
-    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :visible)
+    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :visible, :page)
   end
 end
