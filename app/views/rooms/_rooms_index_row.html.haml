@@ -45,58 +45,6 @@
 -#       %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -1000px; top:-1000px;", :type => "text", :value => "#{room.to_json}"}/
 
 
--# .c-row
-  -# .c-logo
-
-  -#   - if room.room_image.attached?
-  -#     .bg-img{:style => " background-image: url(#{rails_blob_url(room.room_image)})"}
-
-  -#   - else
-  -#     .bg-img{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
-
-  .c-info
-    .c-top
-      .flex.flex-col.w-64
-        .c-building.w-48
-          - if room.building.building_image.attached?
-            .c-building-image{:style => " background-image: url(#{rails_blob_url(room.building.building_image)})"}
-
-          - else
-            .bg-contain.h-24.bg-no-repeat{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
-
-      %address.c-location
-        .c-name Angell Hall AudB Angell Hall AudB
-        .c-address 535 South State St. Ann Arbor
-
-    .c-bottom
-      .c-vitals
-        %span
-          %i.fas.fa-users
-          Student Capacity
-          = room.instructional_seating_count
-        %span
-          %i.fas.fa-handshake
-          team learning
-        %span.c-alerts
-          %i.fas.fa-exclamation-triangle
-          8 alerts
-      .c-characteristics
-        = render room.room_characteristics
-
-  .c-tools
-    %button
-      %i.far.fa-heart
-      favorite
-    %button
-      %i.far.fa-calendar-alt
-      schedule
-    %button
-      %i.fas.fa-map-marker-alt
-      directions
-    %button
-      %i.far.fa-copy
-      copy
-
 .d-card
   .d-left-col
     .d-building-image.row-image.h-24.w-24
