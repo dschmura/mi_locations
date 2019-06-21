@@ -1,9 +1,9 @@
 - content_for :head do
   = javascript_pack_tag 'buildings_vue', 'data-turbolinks-track': 'reload'
 %div{'data-behavior' => 'vue-layout'}
-  .buildings-results-map#mapdisplay
+  -# .buildings-results-map#mapdisplay
     MAP
-  .buildings-search-bar
+  -# .buildings-search-bar
     = render './buildings/buildings_search_bar'
 
     = render 'buildings_search_tool_bar'
