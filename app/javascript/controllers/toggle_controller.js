@@ -11,7 +11,10 @@ export default class extends Controller {
     })
   }
   filtertoggle() {
-    this.filtersTarget.classList.toggle("hidden")
+    this.filtersTargets.forEach((el, i) => {
+      el.classList.toggle("hidden")
+    })
+
 
   }
 }
