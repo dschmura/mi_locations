@@ -5,12 +5,14 @@ export default class extends Controller {
 
 
   toggle() {
+    event.preventDefault()
     this.mainnavTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
 
     })
   }
   filtertoggle() {
+    event.preventDefault()
     this.filtersTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
     })
