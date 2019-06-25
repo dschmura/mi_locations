@@ -9,12 +9,12 @@ end
 
 class RoomsImporter
 
-  ROOM_PARAMS = [:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count,
+  ROOM_PARAMS = [:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :dept_description, :square_feet, :instructional_seating_count,
                  :building_id, :visible].freeze
 
   HEADER_MAP = {"RMRECNBR" => :rmrecnbr,
                 "DEPTID" => :dept_id,
-   # 'DEPT_DESCR' => :dept_description,
+                "DEPT_DESCR" => :dept_description,
                 "DEPT_GRP" => :dept_grp,
                 "BLDRECNBR" => :bldrecnbr,
                 "FLOOR" => :floor,
@@ -63,7 +63,7 @@ class RoomsImporter
   def update_rooms
     filter_updatable_rooms(@rooms)
 
-    Room.import @updatable_rooms, on_duplicate_key_update: {conflict_target: [:rmrecnbr], columns: [:floor, :room_number, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :facility_code_heprod, :instructional_seating_count,
+    Room.import @updatable_rooms, on_duplicate_key_update: {conflict_target: [:rmrecnbr], columns: [:floor, :room_number, :rmtyp_description, :dept_id, :dept_grp, :dept_description, :square_feet, :facility_code_heprod, :instructional_seating_count,
     :building_id,]}, validate: false, batch_size:  1000
 
     room_logger.info "Updated: #{@updatable_rooms.count} rooms."
