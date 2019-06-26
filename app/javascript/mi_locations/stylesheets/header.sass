@@ -9,6 +9,8 @@
 
 .header-logo
   @apply min-h-full pl-4 py-2 max-w-xs h-12
+  @screen md
+    @apply max-w-sm h-auto
 
 .header-toggle
   @apply flex
@@ -30,8 +32,28 @@
   @apply  text-white  border-t border-gray-700
   @screen sm
     @apply flex items-center px-4 border-none
+
   @screen xl
     @apply flex justify-end max-w-lg w-full relative
+
+.header-links
+  @apply px-2 pt-2 pb-5 border-b border-gray-800
+  @screen sm
+    @apply flex border-b-0 py-0 px-0
+
+.header-link
+  a
+    @apply block px-3 py-1 rounded font-semibold text-white truncate
+    &:hover
+      @apply bg-gray-800
+    @screen sm
+      @apply text-sm px-2
+    @screen md
+      @apply text-2xl font-light px-4
+    @screen xl
+      @apply text-gray-900
+        &:hover
+          @applybg-gray-200
 
 .user-actions
   @apply  px-5 py-5 hidden
