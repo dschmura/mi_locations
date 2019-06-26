@@ -5,15 +5,23 @@
     @screen sm
       @apply flex-row text-left justify-between
 .footer-logo
-  @apply mb-1 h-8
+  @apply mb-1 h-6
   @screen sm
-    @apply mb-0
+    @apply mb-0 h-8
+  @screen md
+    @apply h-12
 .footer-links
   @apply
   a
     @apply text-sm no-underline text-blue-100 mx-1 px-2
+    @screen md
+      @apply text-xl
+    &:hover
+      @apply text-blue-100 bg-gray-800 rounded py-1
   .current
     @apply text-yellow-500
+    &:hover
+      @apply text-yellow-700 bg-blue-100
 
 .footer-copyright
   @apply text-center text-xs w-full
@@ -21,3 +29,5 @@
     @apply text-center text-gray-100
   @screen sm
     @apply text-left pl-6
+  @screen md
+    @apply text-base
