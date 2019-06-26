@@ -1,16 +1,34 @@
--# %header
--#   = link_to root_path, class: '' do
--#     = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'header-logo')
+.header-container{ "data-controller" => "toggle"}
+  %header.header
+    .flex.justify-between.px-4.py-3.xl:w-72.xl:justify-center.xl:py-5
+      %span
+        = link_to root_path, class: '' do
+          = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'header-logo')
 
--#   %nav.header-links
+      .header-toggle
+        %button.header-toggle-button{:type => "button", "data-action" => "toggle#toggle" }
 
--#     = link_to "Buildings", buildings_path
--#     = link_to "Classrooms", rooms_path
--#     = link_to "Rooms", rooms_path
--#     / %li= link_to "About", about_path
--#     / %li= link_to "Contact Us", contact_path
--#     / %li= link_to "Privacy", privacy_path
+          %svg{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", "data-target" => "toggle.mainnav"}
+            %path{:d => "M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"}
 
+          %svg.hidden{:viewbox => "0 0 320 512", :xmlns => "http://www.w3.org/2000/svg", "data-target" => "toggle.mainnav"}
+            %path{:d => "M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z"}
 
-%div.xl:flex-shrink-0{ "data-controller" => "toggle"}
-  = render './search/site_header'
+    %nav.header-nav.hidden{"data-target" => "toggle.mainnav"}
+      .header-links
+        .header-link
+          = link_to "About Us", about_path
+        .header-link
+          = link_to "Buildings", buildings_path
+        .header-link
+          = link_to "Classrooms", rooms_path
+
+      .user-actions
+        .flex.items-center
+          %img.user-avatar{:alt => "User Photo", :src => "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1=eyJhcHBfaWQiOjEyMDd9=format=crop=256=80"}
+            %span.user-name Guest User
+
+        .mt-5.sm:hidden
+          .user-action-link.-mt-3= link_to "Account settings", "#"
+          .user-action-link= link_to "Support", "#"
+          .user-action-link= link_to "Sign out", "#"

@@ -1,2 +1,57 @@
+.header-container
+  @screen xl
+    @apply flex-shrink-0
+
+.header
+  @apply bg-blue-900
+  @screen sm
+    @apply flex items-center justify-between
+
 .header-logo
-  @apply min-h-full pl-4 py-2 max-w-xs
+  @apply min-h-full pl-4 py-2 max-w-xs h-12
+
+.header-toggle
+  @apply flex
+  @screen sm
+    @apply hidden
+
+.header-toggle-button
+  @apply px-2 text-gray-500
+  @screen sm
+    @apply hidden
+  &:hover
+    @apply text-white
+  &:focus
+    @apply outline-none text-white
+  svg
+    @apply  h-6 w-6 fill-current
+
+.header-nav
+  @apply  text-white  border-t border-gray-700
+  @screen sm
+    @apply flex items-center px-4 border-none
+  @screen xl
+    @apply flex justify-end max-w-lg w-full relative
+
+.user-actions
+  @apply  px-5 py-5
+  @screen sm
+    @apply py-0 ml-4 px-0 justify-end
+
+.user-action-link
+  a
+    @apply  block text-gray-400 mt-3
+    &:hover
+      @apply text-white
+
+.user-avatar
+  @apply h-10 w-10 object-cover rounded-full border-2 border-gray-600
+  @screen sm
+    @apply h-8 w-8
+  @screen xl
+    @apply border-gray-300
+
+.user-name
+  @apply  ml-4 font-semibold text-gray-200
+  @screen sm
+    @apply hidden
