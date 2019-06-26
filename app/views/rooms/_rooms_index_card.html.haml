@@ -2,7 +2,6 @@
 .rooms-index-card
   = link_to room do
     - if room.room_image.attached?
-
       .room-image{:style=> "background-image: url('#{url_for(room.room_image)}')"}
         .rooms-index-name
           = room.room_number
@@ -16,7 +15,6 @@
         - else
           .room-builiding-abbreviation.bg-badge{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
     - else
-
       .room-image{:style => "background-image: url(#{asset_pack_path('media/mi_locations/images/vistas/Burton.jpg')});"}
         .rooms-index-name
           = room.room_number
