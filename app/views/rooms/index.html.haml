@@ -1,5 +1,6 @@
--# %div
--#   = render 'rooms_search_bar'
+- content_for :head do
+  = javascript_pack_tag 'search', 'data-turbolinks-track': 'reload'
+
 .xl:flex-1.xl:flex.xl:overflow-y-hidden{ "data-controller" => "toggle"}
   = render './search/search_filters'
   = render 'rooms_results'
