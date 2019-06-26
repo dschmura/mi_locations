@@ -2,7 +2,7 @@
   "name": "mi_locations",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.0",
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "@rails/actiontext": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
