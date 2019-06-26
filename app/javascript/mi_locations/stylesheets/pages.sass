@@ -4,10 +4,13 @@
   justify-content: center
   align-items: center
   padding-top: 12rem
-  background-color: hsla(210, 41, 28, 0.3)
-  h1
-    @apply .text-blue-900 text-4xl font-bold -mt-4 shadow-inner
+  background-color: hsla(210, 41, 28, 0.2)
+  .landing-page-headline
+    @apply text-4xl font-semibold -mt-4 shadow-lg tracking-wide leading-relaxed text-blue-100
 
+.landing-page--brand
+  img
+    @apply w-auto max-w-sm mb-2
 /* The hero image */
 .hero-image
   background-image: url("../images/vistas/Burton_Winter.jpg")
@@ -15,6 +18,8 @@
   height: 60vh
   /* Position and center the image to scale nicely on all screens */
   @apply bg-top bg-no-repeat bg-cover
+
+
 
 .bg-smoke-dark
   background-color: hsla(210, 41, 28, 0.8)
