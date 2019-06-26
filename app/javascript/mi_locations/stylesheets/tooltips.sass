@@ -3,7 +3,7 @@
 /* Add this attribute to the element that needs a tooltip */
 
 .tooltip
-  @apply relative cursor-pointer
+  @apply relative cursor-pointer z-20
 
 /* Base styles for the entire tooltip */
 [data-tooltip]:before,
@@ -37,18 +37,18 @@
 /* Base styles for the tooltip's directional arrow */
 .tooltip:before,
 [data-tooltip]:before
-  z-index: 1001
+
   border: 6px solid transparent
   background: transparent
   content: ""
-  @apply
+  @apply z-50
 
 /* Base styles for the tooltip's content area */
 .tooltip:after,
 [data-tooltip]:after
-  z-index: 1000
+
   content: attr(data-tooltip)
-  @apply bg-gray-300 h-auto w-48 text-sm text-left text-blue-500 rounded-lg p-3
+  @apply bg-gray-300 h-auto w-48 text-sm text-left text-blue-500 rounded-lg p-3 z-50
 /* Directions */
 
 /* Top (default) */

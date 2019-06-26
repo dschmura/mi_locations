@@ -47,12 +47,14 @@
     @apply ml-2 rounded-t-none
 
 
-.actions
-  @apply flex flex-row w-full justify-between bg-gray-500 text-sm block text-center rounded-br
+.room-card-actions
+  @apply flex flex-row w-full justify-between bg-gray-200 text-sm block text-center rounded-br
+
   @screen md
-    @apply flex-col w-auto max-w-xs
+    @apply flex-col w-32 max-w-xs
+
     .button
-      @apply w-32
+      @apply w-24 text-sm
 
 .rooms-index-name
   @apply text-xl text-blue-100  p-2 flex flex-col bg-cover text-left
@@ -89,7 +91,7 @@
     @apply bg-left
 
 .button
-  @apply inline-flex rounded-full items-center shadow-lg  cursor-pointer px-4 py-1 justify-center bg-blue-200 text-blue-800 my-2
+  @apply inline-flex rounded-lg items-center border border-blue-800  cursor-pointer px-3 justify-center bg-blue-200 text-blue-800 my-2
   @screen md
     @apply px-2 py-0 text-base w-auto mx-3
   &:hover

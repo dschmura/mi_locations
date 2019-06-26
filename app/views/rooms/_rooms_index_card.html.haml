@@ -34,19 +34,19 @@
     .characteristics
       = render room.room_characteristics
 
-  .actions
-    %button.button.rooms-room-favorite-button
+  .room-card-actions
+    %button.button.rooms-room-favorite-button.tooltip.tooltip-top{"data-tooltip" => "Add this room to your list of favorites", :href => "", :role => "button"}
       %i.far.fa-heart
       %span Favorite
-    %button.button.rooms-room-directions-button
+    %button.button.rooms-room-directions-button.tooltip.tooltip-top{"data-tooltip" => "Get directions to this room.", :href => "", :role => "button"}
       %i.fas.fa-map-marked-alt
       %span Directions
 
-    = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", :target => "_blank", :role => "button",:class => "button rooms-room-schedule-button" do
+    = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", :target => "_blank", :role => "button", :class => "button rooms-room-schedule-button tooltip tooltip-top ", "data-tooltip" => "Add this room to your list of favorites" do
       %i.fas.fa-calendar-alt
       %span Schedule
 
-    %button.button.rooms-room-copy-button{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#"}
+    %button.button.rooms-room-copy-button{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy this room's description and attributes.", :role => "button", :class => "tooltip tooltip-top" }
       %i.fas.fa-copy
       %span Copy
-      %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -1000px; top:-1000px;", :type => "text", :value => "#{room.to_json}"}/
+      %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -10000px; top:-1000px;", :type => "text", :value => "#{room.to_json}"}/
