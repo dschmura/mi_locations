@@ -10,33 +10,23 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 
-
-// import Turbolinks from 'turbolinks'
-// Turbolinks.start()
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
-var noUiSlider = require("nouislider");
-require('nouislider/distribute/nouislider.css')
-// import * as Clipboard from 'clipboard'
 
-// Specific frontend applications
-// import 'mi_locations'
-
-// import '../mi_locations/stylesheets/variables.sass'
 import '../mi_locations/stylesheets/application.sass'
-import '../mi_locations/stylesheets/coming_soon.sass'
-import '../mi_locations/stylesheets/toggle.sass'
 import '../mi_locations/stylesheets/header.sass'
 import '../mi_locations/stylesheets/footer.sass'
 import '../mi_locations/stylesheets/pages.sass'
 import '../mi_locations/stylesheets/rooms.sass'
 import '../mi_locations/stylesheets/room_characteristics.sass'
 import '../mi_locations/stylesheets/buildings.sass'
-import '../mi_locations/stylesheets/alerts.sass'
-import '../mi_locations/stylesheets/ribbons.sass'
 
+import '../mi_locations/stylesheets/alerts.sass'
+import '../mi_locations/stylesheets/coming_soon.sass'
 import '../mi_locations/stylesheets/filters.sass'
+import '../mi_locations/stylesheets/ribbons.sass'
 import '../mi_locations/stylesheets/search.sass'
+import '../mi_locations/stylesheets/toggle.sass'
 import '../mi_locations/stylesheets/tooltips.sass'
 
 import '@fortawesome/fontawesome-free/js/all';
@@ -64,58 +54,9 @@ document.addEventListener('turbolinks:load', () => {
         link.classList.add("current");
       }
     }
-
-
   }
   highlightCurrent();
-  var slider = document.getElementById('slider');
-  var resetSlider = document.getElementById('reset-slider');
 
-  noUiSlider.create(slider, {
-    range: {
-      'min': 0,
-      'max': 2000
-    },
-    step: 5,
-    // Handles start at ...
-    start: [30,  200],
-    // Display colored bars between handles
-    connect: true,
-    // Put '0' at the bottom of the slider
-    direction: 'ltr',
-    orientation: 'horizontal',
-    // Move handle on tap, bars are draggable
-    behaviour: 'tap-drag',
-    tooltips: true,
-    format: {
-      to: function (value) {
-        return value + '';
-      },
-      from: function (value) {
-        return value.replace(',-', '');
-      }
-    },
-
-  });
-
-  resetSlider.addEventListener('click', function() {
-      slider.noUiSlider.reset();
-    })
-
-  slider.addEventListener('change', function () {
-    minimum.noUiSlider.set([null, this.value]);
-  });
 });
 
 import "controllers"
-
-
-// var inputFormat = document.getElementById('input-format');
-
-// sliderFormat.noUiSlider.on('update', function (values, handle) {
-//   inputFormat.value = values[handle];
-// });
-
-// inputFormat.addEventListener('change', function () {
-//   sliderFormat.noUiSlider.set(this.value);
-// });
