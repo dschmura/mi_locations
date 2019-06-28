@@ -32,7 +32,7 @@ module RoomsSearchHelper
     "Proj35mm" => "fas fa-film",
     "ProjD-Cin" => "fas fa-video",
     "ProjDigit" => "fas fa-video",
-    "ProjSlide" => "fas fa-presentation",
+    "ProjSlide" => "fas fa-photo-video",
     "SoundPrgrm" => "fas fa-volume-up",
     "SoundVoice" => "fas fa-headset",
     "Stage" => "fas fa-info-circle",
