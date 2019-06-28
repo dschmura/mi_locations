@@ -3,7 +3,6 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = [ "dropdown", "filters", "mainnav"]
 
-
   mainnavtoggle() {
     event.preventDefault()
     this.mainnavTargets.forEach((el, i) => {
