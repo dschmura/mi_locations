@@ -4,6 +4,7 @@
 .xl:flex-1.xl:flex.xl:overflow-y-hidden{ "data-controller" => "toggle"}
   = render './search/search_filters'
 
-  #map.rooms-map.h-64
+  -# #map.rooms-map.h-64{ "data-controller" => "roomsmaps", "data-gmap" => "#{Rails.application.credentials.google_geocoder_api_key}", "data-target" => "roomsmaps.map"}
+  #map.rooms-map.h-64{ "data-controller" => "roomsmaps", "data-roomsmaps-gmap" => "false", "data-target" => "roomsmaps.map"}
     This will be an amazing race...
   = render 'rooms_results'
