@@ -9,7 +9,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     - if content_for? :head
       = yield :head
-  %body.min-h-screen
+  %body.min-h-screen{'data-environment' => Rails.env}
     #page-top
 
       - unless Rails.env.production? || Rails.env.staging?

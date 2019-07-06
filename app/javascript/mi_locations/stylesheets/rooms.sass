@@ -63,23 +63,25 @@
 .room-image
   @apply mx-auto rounded-t-lg overflow-hidden shadow bg-cover h-32 w-full bg-center top-0 z-10
   @screen md
-    @apply mt-0 w-64 left-0 ml-0 rounded-tr-none rounded-br
+    @apply mt-0 w-64 max-w-6xl left-0 ml-0 rounded-tr-none rounded-br
   @screen xl
     @apply rounded-tl-sm
 
 .rooms-index-card-building-badge
-  @apply bg-blue-700 h-12 w-12 rounded-full mx-auto text-blue-500 -mt-6 shadow-md mx-auto flex border border-blue-200
-  @screen sm
-    @apply h-12 w-12
-  @screen md
-    @apply ml-2 h-12 w-12 -mt-8
-
+  @apply -mt-6 h-12 w-12 rounded-full mx-auto
   img
-    @apply rounded-full  shadow-xl
-    @screen sm
-      // @apply h-16 w-16
-    @screen md
-      @apply h-12 w-12
+    @apply bg-blue-700 text-blue-500 h-10 w-10 max-w-xs rounded-full shadow-md mx-auto flex border
+    // @screen sm
+    //   @apply h-12 w-12
+    // @screen md
+    //   @apply ml-2 h-12 w-12 -mt-8
+
+
+
+.building-badge-slug
+  @apply p-1
+  img
+    @apply
 
   .room-builiding-abbreviation
     @apply  rounded text-blue-800 p-6 text-center ml-2 bg-no-repeat bg-center bg-no-repeat self-center justify-center text-center bg-cover
@@ -103,11 +105,6 @@
   svg
     @screen md
       @apply mr-2
-
-
-
-
-
 
 .rooms-room-directions-button
   // @apply bg-green-200  text-green-900

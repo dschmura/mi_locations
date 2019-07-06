@@ -9,11 +9,7 @@
           .text-gray-400.items-center.text-base
             %i.fas.fa-map-marker-alt.mr-1
             = room.building.address
-      .rooms-index-card-building-badge
-        - if room.building.building_image.attached?
-          = image_tag room.building.building_image, alt: "#{room.building.name.titleize}"
-        - else
-          .room-builiding-abbreviation.bg-badge{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
+      = render partial: 'rooms_index_card_building_badge', locals: {room: room}
     - else
       .room-image{:style => "background-image: url(#{asset_pack_path('media/mi_locations/images/vistas/Burton.jpg')});"}
         .rooms-index-name
@@ -23,11 +19,35 @@
             %i.fas.fa-map-marker-alt.mr-1
             = room.building.address
 
-      .rooms-index-card-building-badge
-        - if room.building.building_image.attached?
-          = image_tag room.building.building_image, alt: "#{room.building.name.titleize}"
-        - else
-          .room-builiding-abbreviation.bg-badge{:style => " background-image: url(#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')})"}
+      = render partial: 'rooms_index_card_building_badge', locals: {room: room}
+
+    .card-room-highlights
+      .card-room-highlight.capacity.tooltip.tooltip-top{"data-tooltip" => "Instructional seating count; the number of seats available for students."}
+        %div
+          %i.fas.fa-users
+          %span= room.instructional_seating_count
+        %div.text-sm
+          .label Capacity
+
+      .card-room-highlight.team-learning.tooltip.tooltip-top{"data-tooltip" => "Team Learning Classroom"}
+        %div
+          %i.far.fa-handshake
+          - if room.team_learning_classroom?
+            %i.fas.fa-thumbs-up
+          - else
+            %i.fas.fa-thumbs-down
+        %div.text-sm
+          .label Team Learning
+
+      .card-room-highlight.room-alerts.tooltip.tooltip-top{"data-tooltip" => "This room has #{room.alerts.count} alerts"}
+        %div
+          %i.fas.fa-exclamation-triangle
+          = room.alerts.size
+        %div.text-sm
+          .label Alerts
+
+
+
 
   .characteristics-row
     -# %h2 Room Features

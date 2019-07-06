@@ -3,8 +3,8 @@ class Map {
 
   static loadGoogleMapsApi() {
     // TODO
-    return loadGoogleMapsApi({ key: "<%= Rails.application.credentials[:google_geocoder_api_key] %>" });
-
+    // return loadGoogleMapsApi({ key: "<%= Rails.application.credentials[:google_geocoder_api_key] %>" });
+    return loadGoogleMapsApi({ key: "AIzaSyDanqx5Jg7UKmeh9tTVeV6ovANhFhxOFhk" });
   }
   static createMap(googleMaps, mapElement) {
     return new googleMaps.Map(mapElement, {
