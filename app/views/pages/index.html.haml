@@ -10,22 +10,22 @@
     -# = render 'coming_soon'
     -if Rails.env.development?
       -# = render './buildings/buildings_search_bar'
+    %search
+      = search_form_for @q, local: true do |f|
+        .search-form.search-form-bg
+          -# .search-form--group
+          -#   %label Building by name or nickname
+            -# = f.search_field :name_or_nick_name_or_abbreviation_cont, class: '', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
 
-    = search_form_for @q, local: true do |f|
-      .search-form.search-form-bg
-        -# .search-form--group
-        -#   %label Building by name or nickname
-          -# = f.search_field :name_or_nick_name_or_abbreviation_cont, class: '', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+          .flex.px-4.py-3.w-full.max-w-5xl.mx-auto
+            .relative.w-full
+              .absolute.inset-y-0.left-0.flex.items-center.pl-3
+                %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
 
-        .flex.px-4.py-3.w-full.max-w-5xl.mx-auto
-          .relative.w-full
-            .absolute.inset-y-0.left-0.flex.items-center.pl-3
-              %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
-                %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
-
-            = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-input rounded-l', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+              = f.search_field :facility_code_heprod_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-input rounded-l', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
 
 
 
-          .search-form--button
-            %button.search-form--button Search
+            .search-form--button
+              %button.search-form--button Search

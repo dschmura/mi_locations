@@ -1,7 +1,7 @@
 - content_for :head do
   = javascript_pack_tag 'search', 'data-turbolinks-track': 'reload'
   = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
-.xl:flex-1.xl:flex.xl:overflow-y-hidden{ "data-controller" => "toggle"}
+%search{ "data-controller" => "toggle"}
   = render './search/search_filters'
 
   #map.rooms-map.h-64
