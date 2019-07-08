@@ -49,12 +49,22 @@
 
 .room-card-actions
   @apply flex flex-row w-full justify-between bg-gray-200 text-sm block text-center rounded-br
-
   @screen md
-    @apply flex-col w-32 max-w-xs
+    @apply flex-col w-32
 
-    .button
-      @apply w-24 text-xs
+  .button
+    @apply inline-flex rounded-lg items-center border border-blue-800  cursor-pointer px-1 justify-center bg-blue-200 text-blue-800 my-2 w-24 mx-1
+    @screen md
+      @apply px-4 py-0 text-base w-full
+    &:hover
+      @apply bg-blue-300 text-blue-900
+    > span
+      @apply ml-1
+      @screen md
+        @apply block
+    svg
+      @screen md
+        @apply mr-2
 
 .rooms-index-name
   @apply text-xl text-blue-100  p-2 flex flex-col bg-cover text-left
@@ -92,19 +102,7 @@
     background-size: 70% auto
     @apply bg-left
 
-.button
-  @apply inline-flex rounded-lg items-center border border-blue-800  cursor-pointer px-3 justify-center bg-blue-200 text-blue-800 my-2
-  @screen md
-    @apply px-2 py-0 text-base w-auto mx-3
-  &:hover
-    @apply bg-blue-300 text-blue-900
-  > span
-    @apply hidden
-    @screen md
-      @apply block
-  svg
-    @screen md
-      @apply mr-2
+
 
 .rooms-room-directions-button
   // @apply bg-green-200  text-green-900
