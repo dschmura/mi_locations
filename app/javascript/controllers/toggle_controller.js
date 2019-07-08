@@ -20,6 +20,17 @@ export default class extends Controller {
       })
     }
   }
+  hideuseractions(){
+    const width = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+    if (width < 640 ){
+      this.dropdownTargets.forEach((el, i) => {
+        el.classList.add("hidden")
+      })
+    }
+  }
+
 
   filtertoggle() {
     event.preventDefault()
