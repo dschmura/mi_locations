@@ -162,6 +162,10 @@ a
 //   @screen lg
 //     @apply block mx-0
 
+.rooms-search
+  @screen xl
+    @apply flex flex-row
+
 .search-input
   @apply block w-full bg-blue-100 text-blue-900  pl-10 pr-4 py-2
   &:focus
@@ -172,7 +176,7 @@ a
 .search-filters
   @apply bg-blue-800
   @screen xl
-    @apply w-64
+    @apply w-64 inline-block
 
 .filter-label
   @apply  mt-3 flex items-center

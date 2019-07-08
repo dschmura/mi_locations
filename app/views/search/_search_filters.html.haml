@@ -115,11 +115,15 @@
                 %input.form-radio{:name => "projectionType", :type => "radio", :value => "projection_slide"}/
                 %span.w-auto{:class => ""}  Slide Projector
 
+
+
     .filter-tools
+
       .search-results#rooms-search-matches.inline-flex
         = @q.result.size
         .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
       .sort-by-options
+
         .sort-by-capacity.sort-by-link
           -# = sort_link(@q, :room_number) do
           = link_to  root_path do
