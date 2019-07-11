@@ -4,10 +4,42 @@
 
   %h2
     Coming Fall 2019
+  .highlights.main
+    %h3 Highlights
+    %ul
+      %li Better navigation
+      %li Improved search interface with live filtering
+      %li Directions from your current location to buildings and rooms.
+      %li Improved mobile experience
+      %li
+        Enhanced floor maps
+        %ul
+          %li svg files direct from the source without needing to do them manually.
+          %li Improved navigation.
 
-  %ul
-    %li Better navigation
-    %li Improved mobile experience
-    %li Enhanced floor maps
-    %li Building and Room alerts
-  .coming-soon--background
+      %li Building and Room alerts
+      %li Send feedback form added to make it easier to hear from our users.
+  .flex
+    .highlights.other-things
+      %h3 Other things we are working on
+      %ul
+        %li Nightly updates
+        %li Save your favorite rooms
+        %li Export lists of rooms
+    .highlights.technical
+      %h3 Technical improvements
+      %ul
+        %li
+          Upgraded to Rails 6
+          %ul
+            %li Webpacker for javascript and style dependencies
+            %li ActionText for Alerts
+            %li ActiveStorage for dyanmic resources (floor maps, classroom images, panoramas, building images)
+
+        %li Data models better aligned with the source data.
+        %li Added automated tests.
+        %li Tailwindcss for styling
+        %li Stimulus for javascript sprinkles
+        %li Rails ujs for some ajaxy stuff
+
+    .coming-soon--background

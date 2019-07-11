@@ -1,11 +1,32 @@
 .coming-soon
-  @apply bg-gray-100 w-1/2 mx-auto rounded-lg p-12 text-center shadow
+  @apply bg-gray-100  mx-auto rounded-lg p-12 text-center shadow
 
   h1
-    @apply text-yellow-600 text-4xl
+    @apply text-yellow-600 text-5xl
   h2
-    @apply text-3xl font-light text-blue-600
+    @apply text-4xl font-light text-blue-600
+  h3
+    @apply text-2xl text-left font-light
   ul
-    @apply text-2xl text-left mt-2 font-thin
+    @apply text-lg text-left mt-2 ml-8 font-thin
     li
-      @apply list-disc
+      @apply list-disc leading-loose
+  .highlights
+    @apply  p-4
+  .highlights.main
+      @apply w-full mx-auto bg-blue-100 text-blue-900
+      h3
+        @apply text-6xl text-center
+      ul
+        @apply text-center
+        li
+          @apply text-3xl list-none
+  .highlights.other-things
+      @apply w-1/2 bg-green-200 text-green-900
+      h3
+        @apply font-extrabold text-2xl
+      ul
+        li
+          @apply list-decimal text-2xl
+  .highlights.technical
+      @apply w-1/2 bg-pink-300 text-blue-700 font-mono
