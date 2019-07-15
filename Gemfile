@@ -3,7 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.6.3"
 
-gem "rails", "6.0.0.rc1"
+# gem "rails", "6.0.0.rc1"
+gem 'rails', github: 'rails/rails', branch: '6-0-stable'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
@@ -38,7 +40,7 @@ gem "ldap_lookup"
 gem "mini_magick"
 gem "geocoder"
 gem "kaminari"
-gem "ransack"
+# gem "ransack"
 gem "activerecord-import"
 
 gem "listen"
