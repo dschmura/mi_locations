@@ -65,10 +65,12 @@ import "controllers"
 
 
 import { Map } from './rooms_maps';
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('turbolinks:load', () => {
   let mapElement = document.getElementById('map');
 
   Map.loadGoogleMapsApi().then(function(googleMaps) {
     Map.createMap(googleMaps, mapElement);
+    // Map.createMarker(googleMaps, mapElement);
+
   });
 });
