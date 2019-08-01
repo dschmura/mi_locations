@@ -73,4 +73,11 @@ module RoomsSearchHelper
     </a>"
   end
 
+  def is_checked?(value)
+    if params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_any].present?
+        params[:q][:room_characteristics_chrstc_descrshort_eq_any].include?(value)
+    end
+
+  end
+  # params[:q][:room_characteristics_chrstc_descrshort_eq_any]
 end

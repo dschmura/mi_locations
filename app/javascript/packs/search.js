@@ -4,15 +4,22 @@ require('nouislider/distribute/nouislider.css')
 document.addEventListener('turbolinks:load', () => {
   var slider = document.getElementById('slider');
   var resetSlider = document.getElementById('reset-slider');
+  const minimumCapacity = document.getElementById('minimum-capacity');
+  const maximumCapacity = document.getElementById('maximum-capacity');
 
+  console.log(minimumCapacity.value)
+  var min = parseInt(minimumCapacity.value, 10)
+  var max = parseInt(maximumCapacity.value, 10)
   noUiSlider.create(slider, {
+
     range: {
       'min': 0,
-      'max': 2000
+      'max': 500
     },
+
     step: 5,
     // Handles start at ...
-    start: [30,  200],
+    start: [0 , 500],
     // Display colored bars between handles
     connect: true,
     // Put '0' at the bottom of the slider
@@ -36,7 +43,9 @@ document.addEventListener('turbolinks:load', () => {
   //     slider.noUiSlider.reset();
   //   }),
 
-  slider.addEventListener('change', function () {
-    minimum.noUiSlider.set([null, this.value]);
+  slider.noUiSlider.on('update', function () {
+    var capacity = slider.noUiSlider.get();
+    minimumCapacity.value = capacity[0];
+    maximumCapacity.value = capacity[1];
   });
 });

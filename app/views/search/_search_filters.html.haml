@@ -1,5 +1,5 @@
-= search_form_for @q, remote: true, url: search_rooms_path do |f|
 
+= search_form_for @q, remote: false, url: search_rooms_path do |f|
   %section.search-filters
     .flex.justify-between.px-4.py-3
       .relative.max-w-lg.w-full
@@ -36,10 +36,15 @@
               %div.section-header.mb-4 Student Capacity
               %div.px-2.py-4.rounded-lg.tooltip.tooltip-top{"data-tooltip" => "Only show rooms with a capacity between X and Y"}
                 #slider.w-full.shadow
+
+
+                = f.hidden_field :instructional_seating_count_gteq, :id => "minimum-capacity"
+                = f.hidden_field :instructional_seating_count_lteq, :id => "maximum-capacity"
+
                 -# #reset-slider.self-end
                 -#   Reset
 
-        .classroom-type
+        -# .classroom-type
           %span.section-header Classroom Type
           .characteristics-arrangement
             %label.filter-label
@@ -56,35 +61,40 @@
               %input.form-radio{:name => "classroomType", :type => "radio", :value => "computer_classroom"}/
               %span.w-auto General Classroom
 
+
+
         .classroom-amenities
           %span.section-header Amenities
           .characteristics-arrangement.sm:flex-wrap
-            %label.filter-label
-              %input.form-checkbox{:name => "video_projection", :type => "checkbox"}
-              %span Video Projection
-            %label.filter-label
 
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]',"InstrComp, CompPodPC, CompPodMac", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-
-              %span Instructor Computer
             %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"DocCam", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['InstrComp', 'CompPodPC', 'CompPodMac'], false, {class: ' form-checkbox'})
+              %span !! Instructor Computer
+              -# .search(:m => 'or', :room_characteristics_chrstc_descrshort_eq => "InstrComp", :room_characteristics_chrstc_descrshort_eq => "CompPodPC", room_characteristics_chrstc_descrshort_eq => "CompPodMac")
+
+            %label.filter-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', })
               %span Document Camera
+
             %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"LectureCap", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq][]', "LectureCap", is_checked?("LectureCap"), {class: 'form-checkbox'})
               %span Lecture Capture
-            %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"VideoConf", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
 
+            %label.filter-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "VideoConf", is_checked?("VideoConf"), {class: 'form-checkbox'})
               %span Video Conferencing
-            %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_all][]',"IntrScreen", false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
-              %span Interactive Screen
-            %label.filter-label{}
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['BluRay'], false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
 
+            %label.filter-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "IntrScreen", is_checked?("IntrScreen"), {class: 'form-checkbox'})
+              %span Interactive Screen
+
+
+            %label.filter-label{}
+              -# = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['BluRay'], false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
+
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "IntrScreen", is_checked?("IntrScreen"), {class: 'form-checkbox'})
               -# .checkbox-label BluRay / DVD Player
-              %span{:class => "sm:w-full"} BluRay / DVD Player
+              %span{:class => "sm:w-full"} !! BluRay / DVD Player
 
         %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
           .writing-surface{:class => "w-full"}
@@ -118,12 +128,14 @@
 
 
     .filter-tools
+      .submit-search
+        = f.submit
 
       .search-results#rooms-search-matches.inline-flex
         = @q.result.size
         .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
       .sort-by-options
-        Sort By:
+        Sort:
         .sort-by-capacity.sort-by-link
           = sort_link(@q, :instructional_seating_count) do
             Capacity
@@ -131,3 +143,7 @@
         .sort-by-room-number.sort-by-link
           = sort_link(@q, :room_number) do
             Room number
+-# #ransack
+-#   DUDE
+-# - if params[:q]
+-#   = params[:q]
