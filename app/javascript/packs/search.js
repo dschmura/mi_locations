@@ -1,5 +1,5 @@
 var noUiSlider = require("nouislider");
-require('nouislider/distribute/nouislider.css')
+import "nouislider/distribute/nouislider.min.css"
 
 document.addEventListener('turbolinks:load', () => {
   var slider = document.getElementById('slider');
