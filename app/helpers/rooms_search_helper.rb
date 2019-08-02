@@ -74,10 +74,24 @@ module RoomsSearchHelper
   end
 
   def is_checked?(value)
-    if params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_any].present?
-        params[:q][:room_characteristics_chrstc_descrshort_eq_any].include?(value)
+    if params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_all].present?
+        params[:q][:room_characteristics_chrstc_descrshort_eq_all].include?(value)
     end
-
   end
-  # params[:q][:room_characteristics_chrstc_descrshort_eq_any]
+  # params[:q][
+  # def is_checked?(value)
+
+  #   case is_checked?
+  #     when params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_all].present?
+  #       params[:q][:room_characteristics_chrstc_descrshort_eq_all].include?(value)
+
+
+  #     when params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_all].present?
+  #       params[:q][:room_characteristics_chrstc_descrshort_eq_all].include?(value)
+
+  #     when params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_all].present?
+  #       params[:q][:room_characteristics_chrstc_descrshort_eq_all].include?(value)
+  #   end
+  # end
+
 end

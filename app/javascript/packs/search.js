@@ -8,8 +8,22 @@ document.addEventListener('turbolinks:load', () => {
   const maximumCapacity = document.getElementById('maximum-capacity');
 
   console.log(minimumCapacity.value)
-  var min = parseInt(minimumCapacity.value, 10)
-  var max = parseInt(maximumCapacity.value, 10)
+  if (minimumCapacity !== null && minimumCapacity.value !== "") {
+    var min = parseInt(minimumCapacity.value, 10)
+  }
+  else {
+    var min = 0
+  }
+
+  if (maximumCapacity !== null && maximumCapacity.value !== "") {
+    var max = parseInt(maximumCapacity.value, 10)
+  }
+  else {
+    var max = 500
+  }
+  // var max = parseInt(maximumCapacity.value, 10)
+
+
   noUiSlider.create(slider, {
 
     range: {
@@ -19,7 +33,7 @@ document.addEventListener('turbolinks:load', () => {
 
     step: 5,
     // Handles start at ...
-    start: [0 , 500],
+    start: [min , max],
     // Display colored bars between handles
     connect: true,
     // Put '0' at the bottom of the slider

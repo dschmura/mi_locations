@@ -41,10 +41,10 @@
                 = f.hidden_field :instructional_seating_count_gteq, :id => "minimum-capacity"
                 = f.hidden_field :instructional_seating_count_lteq, :id => "maximum-capacity"
 
-                -# #reset-slider.self-end
-                -#   Reset
+                -# #reset-slider
+                  Reset
 
-        -# .classroom-type
+        .classroom-type
           %span.section-header Classroom Type
           .characteristics-arrangement
             %label.filter-label
@@ -70,18 +70,22 @@
             %label.filter-label
               = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['InstrComp', 'CompPodPC', 'CompPodMac'], false, {class: ' form-checkbox'})
               %span !! Instructor Computer
+
+            %label.filter-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['InstrComp', 'CompPodPC', 'CompPodMac'], false, {class: ' form-checkbox'})
+              %span !! Instructor Computer
               -# .search(:m => 'or', :room_characteristics_chrstc_descrshort_eq => "InstrComp", :room_characteristics_chrstc_descrshort_eq => "CompPodPC", room_characteristics_chrstc_descrshort_eq => "CompPodMac")
 
             %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', })
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_all][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', })
               %span Document Camera
 
             %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq][]', "LectureCap", is_checked?("LectureCap"), {class: 'form-checkbox'})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_all][]', "LectureCap", is_checked?("LectureCap"), {class: 'form-checkbox'})
               %span Lecture Capture
 
             %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "VideoConf", is_checked?("VideoConf"), {class: 'form-checkbox'})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_all][]', "VideoConf", is_checked?("VideoConf"), {class: 'form-checkbox'})
               %span Video Conferencing
 
             %label.filter-label
@@ -143,7 +147,7 @@
         .sort-by-room-number.sort-by-link
           = sort_link(@q, :room_number) do
             Room number
--# #ransack
--#   DUDE
--# - if params[:q]
--#   = params[:q]
+#ransack
+  DUDE
+- if params[:q]
+  = params[:q]
