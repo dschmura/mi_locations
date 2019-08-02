@@ -217,7 +217,7 @@ a
     @apply flex flex-col py-2
 
 .sort-by-options
-  @apply flex  max-w-lg text-right self-center mr-1 text-blue-100
+  @apply flex flex-row max-w-lg text-right self-center ml-1 text-blue-100 mt-2
   @screen sm
     @apply flex
   a
@@ -226,7 +226,6 @@ a
 .sort-by-link
   a
     @apply text-blue-100 w-full inline-block truncate px-2
-
     svg
       @apply
     @screen md
@@ -234,7 +233,7 @@ a
     @screen lg
       @apply
     @screen xl
-      @apply mt-4 text-xs ml-1 text-center self-center
+      @apply  text-sm ml-1 text-center self-center
 .search-results
   @apply bg-yellow-500 px-4 ml-1 rounded-full text-blue-800 self-center
   .results-view--select

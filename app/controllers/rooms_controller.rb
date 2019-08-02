@@ -2,12 +2,13 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update]
 
   def index
-    @q = Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
+    @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
     @rooms = @q.result(distinct: true).page(params[:page])
     respond_to do |format|
+      # format.js
       format.html
       format.json { render json: @rooms }
-      format.js
+
     end
   end
 
