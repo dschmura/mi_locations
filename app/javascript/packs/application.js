@@ -30,7 +30,7 @@ import '../mi_locations/stylesheets/ribbons.sass'
 import '../mi_locations/stylesheets/search.sass'
 import '../mi_locations/stylesheets/toggle.sass'
 import '../mi_locations/stylesheets/tooltips.sass'
-
+import "nouislider/distribute/nouislider.min.css"
 import '@fortawesome/fontawesome-free/js/all';
 require.context('../mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 // $(document).ready(function(){
