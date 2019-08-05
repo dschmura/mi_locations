@@ -78,6 +78,13 @@ module RoomsSearchHelper
         params[:q][:room_characteristics_chrstc_descrshort_eq_all].include?(value)
     end
   end
+
+  def is_instructor_computer_checked?
+
+    if params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_all].present?
+        params[:q][:room_characteristics_chrstc_descrshort_eq_all].include?(["InstrComp", "CompPodPC", "CompPodMAC"])
+    end
+  end
   # params[:q][
   # def is_checked?(value)
 
