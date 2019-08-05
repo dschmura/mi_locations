@@ -13,12 +13,8 @@ export default class extends Controller {
 
   checkboxtoggle(){
     this.checkboxTargets.forEach((el, i) => {
-      if(el.checked == true){
-        el.checked = false
-      }
-      else {
-        el.checked = true
-      }
+      el.checked = !el.checked;
+
     })
   }
 
