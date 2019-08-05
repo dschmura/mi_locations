@@ -68,13 +68,12 @@
           .characteristics-arrangement.sm:flex-wrap
 
             %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['InstrComp', 'CompPodPC', 'CompPodMac'], false, {class: ' form-checkbox'})
-              %span !! Instructor Computer
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', ['InstrComp'], instructor_computer_checked?("InstrComp"), {class: ' form-checkbox', "data-action" => "click->toggle#instructor_computer_checkboxtoggle"})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodPC'], instructor_computer_checked?("CompPodPC"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox" })
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodMac'], instructor_computer_checked?("CompPodMac"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox"})
 
-            %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['InstrComp', 'CompPodPC', 'CompPodMac'], false, {class: ' form-checkbox'})
-              %span !! Instructor Computer
-              -# .search(:m => 'or', :room_characteristics_chrstc_descrshort_eq => "InstrComp", :room_characteristics_chrstc_descrshort_eq => "CompPodPC", room_characteristics_chrstc_descrshort_eq => "CompPodMac")
+              %span Instructor Computer
+
 
             %label.filter-label
               = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_all][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', })
@@ -147,7 +146,6 @@
         .sort-by-room-number.sort-by-link
           = sort_link(@q, :room_number) do
             Room number
--# #ransack
--#   DUDE
--# - if params[:q]
--#   = params[:q]
+
+- if params[:q]
+  #ransack="QUERY: #{params[:q] }"

@@ -79,7 +79,7 @@ module RoomsSearchHelper
     end
   end
 
-  def is_instructor_computer_checked?(value)
+  def instructor_computer_checked?(value)
     if params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_any].present?
         params[:q][:room_characteristics_chrstc_descrshort_eq_any].include?(value)
     end

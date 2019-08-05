@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "dropdown", "filters", "mainnav", "checkbox"]
+  static targets = [ "dropdown", "filters", "mainnav", "instructor_computer_checkbox"]
 
   mainnavtoggle() {
     event.preventDefault()
@@ -11,11 +11,17 @@ export default class extends Controller {
     })
   }
 
-  checkboxtoggle(){
-    this.checkboxTargets.forEach((el, i) => {
+  instructor_computer_checkboxtoggle(){
+    this.instructor_computer_checkboxTargets.forEach((el, i) => {
       el.checked = !el.checked;
 
+
     })
+
+
+  }
+  get_checked() {
+    this.instructor_computer_checkboxTargets.filter(checkbox => checkbox.checked)
   }
 
   dropdowntoggle() {
