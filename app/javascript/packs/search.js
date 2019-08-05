@@ -21,8 +21,6 @@ document.addEventListener('turbolinks:load', () => {
   else {
     var max = 500
   }
-  // var max = parseInt(maximumCapacity.value, 10)
-
 
   noUiSlider.create(slider, {
 
