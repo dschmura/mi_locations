@@ -19,7 +19,7 @@
 
         %span.ml-2 Filters
 
-    .filters-dropdown.hidden.lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs{ "data-target" => "toggle.filters" }
+    .filters-dropdown.hiddens.lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs{ "data-target" => "toggle.filters" }
       .lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs
 
         .px-4.py-4.border-t.border-gray-900.xl:border-t-0
@@ -66,7 +66,7 @@
 
         .classroom-amenities
           %span.filters-section-header Amenities
-          .characteristics-arrangement.sm:flex-wrap
+          .characteristics-arrangement
 
             .filter-item-label
               = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', ['InstrComp'], instructor_computer_checked?("InstrComp"), {class: ' form-checkbox', "data-action" => "click->toggle#instructor_computer_checkboxtoggle"})
@@ -147,9 +147,3 @@
         .sort-by-room-number.sort-by-link
           = sort_link(@q, :room_number) do
             Room number
-
-- if params[:q]
-  #ransack-debug{'data-environment' => Rails.env}
-    .ransack-params="PARAMS: #{params[:q] }"
-
-    .ransack-query="SQL: #{@q.result.to_sql}"

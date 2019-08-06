@@ -9,17 +9,6 @@
 .bg-smoke-dark
   background-color: hsla(210, 41, 28, 0.8)
 
-.search-form
-  @apply   w-full mx-auto flex flex-wrap
-  .search-form--button
-    @apply  px-3   text-right -ml-2 h-10
-    @screen lg
-      // @apply mb-0 w-auto
-    button
-      @apply font-bold leading-tight text-blue-800 uppercase py-3 px-4 rounded bg-blue-200
-      &:hover
-        @apply bg-blue-300
-
 .search-form-bg
   background-color: hsla(210, 41, 28, 0.1)
 
@@ -46,13 +35,6 @@
 .search-tools
   @apply flex flex-row justify-between  bg-gray-600 w-screen px-6 py-2
 
-  .results-pagination
-
-// .filter-label
-//   @apply hidden
-//   @screen sm
-//     @apply block
-
 .prev
   a
     @apply text-blue-800  bg-gray-300 py-1 rounded-l border-r border-gray-500 font-semibold text-lg px-2 -mr-1
@@ -78,7 +60,9 @@
     &:hover
       @apply bg-green-400 text-green-900
 
-
-
-// params[:q][:room_characteristics_chrstc_descrshort_eq_any]
-// params[:q][:room_characteristics_chrstc_descrshort_eq_any].include?("InstrComp")
+#ransack-debug[data-environment="development"]
+  @apply
+  .ransack-params
+    @apply border-b-2 border-blue-800 p-3 bg-yellow-400 text-red-700
+  .ransack-query
+    @apply bg-green-200 text-green-800 p-3 border-b-2 border-blue-800

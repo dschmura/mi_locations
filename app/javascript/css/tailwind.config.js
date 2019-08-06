@@ -121,7 +121,7 @@ module.exports = {
           }
         },
 
-        'input, textarea, select, multiselect, checkbox, radio': {
+        'input, textarea, select, multiselect, checkbox': {
           backgroundColor: theme('colors.blue.100'),
           borderColor: theme('colors.blue.200'),
           borderRadius: defaultTheme.borderRadius.default,
@@ -133,22 +133,29 @@ module.exports = {
           '&:focus': {
             outline: 'none',
             boxShadow: defaultTheme.boxShadow.outline,
-            borderColor: defaultTheme.colors.blue[400],
+            borderColor: defaultTheme.colors.blue[200],
           },
         },
         checkbox: {
-          width: theme('spacing.6'),
-          height: theme('spacing.6'),
+          width: theme('spacing.4'),
+          height: theme('spacing.4'),
           '&:checked': {
             iconColor:  theme('colors.yellow.500'),
           },
+        },
+        radio: {
+          backgroundColor: theme('colors.red.500')
         },
         select: {
           color: defaultTheme.colors.gray[600],
           opacity: '1',
           '&:focus': {
-          },
-        }
+          }
+        },
+
+        // radio: {
+        //   borderRadius: theme('borderRadius.full'),
+        // }
         // textarea: {
         //   appearance: 'none',
         //   borderColor: defaultTheme.borderColor.default,
