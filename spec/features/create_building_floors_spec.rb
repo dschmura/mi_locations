@@ -4,7 +4,7 @@ feature "Create building floor" do
   let(:building) { create(:building) }
 
   scenario "filling in add a floor form" do
-    visit new_building_building_floor_path(building)
+    visit new_building_floor_path(building)
     expect(page).to have_content("Add Floor")
 
     fill_in "building_floor[floor_label]", with: "12"
