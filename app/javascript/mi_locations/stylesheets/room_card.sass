@@ -1,0 +1,39 @@
+.rooms-index-card
+  @apply  bg-orange-100  mx-auto rounded-lg shadow-lg bg-cover bg-top m-1 flex flex-col justify-between
+  min-width: 300px
+  @screen md
+    @apply min-h-0  flex-row
+  @screen xl
+    @apply ml-2 rounded-t-none
+
+.room-card-actions
+  @apply flex flex-row w-full justify-between bg-gray-200 text-sm block text-center rounded-br
+  @screen md
+    @apply flex-col w-32
+  .button
+    @apply inline-flex rounded-lg items-center border border-blue-800  cursor-pointer px-1 justify-center bg-blue-200 text-blue-800 my-2 w-24 mx-1
+    @screen md
+      @apply px-4 py-0 text-base w-full
+    &:hover
+      @apply bg-blue-300 text-blue-900
+    > span
+      @apply ml-1
+      @screen md
+        @apply block
+    svg
+      @screen md
+        @apply mr-2
+
+.card-room-highlights
+  @apply flex  bg-gray-300 justify-between py-1 px-4 mx-auto
+  @screen md
+    @apply w-full
+
+.card-room-highlight
+  @apply flex  text-center w-1/3 mx-auto justify-center inline-flex
+  .label
+    @apply ml-1 truncate
+  @screen md
+    @apply self-center flex-row
+    .label
+      @apply truncate w-12 ml-1 hidden

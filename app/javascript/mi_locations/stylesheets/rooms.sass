@@ -9,50 +9,13 @@
 .search-by-building
   margin-bottom: 1rem
 
-.search-by-school-or-college
-
-// ROOMS SEARCH
-.rooms-search-bar
-  @apply bg-blue-800 rounded-lg flex flex-col items-stretch  relative w-full my-4 p-4
-  .row
-    @apply flex flex-row justify-between
-
 .rooms-building-badge
   font-size: 0.8rem
 
 .rooms-index-cards
   @apply flex flex-col w-full overflow-y-scroll scrolling-touch
-
   @screen md
     @apply flex-wrap
-
-.rooms-index-card
-  @apply  bg-orange-100  mx-auto rounded-lg shadow-lg bg-cover bg-top m-1 flex flex-col justify-between
-  min-width: 300px
-  @screen md
-    @apply min-h-0  flex-row
-  @screen xl
-    @apply ml-2 rounded-t-none
-
-
-.room-card-actions
-  @apply flex flex-row w-full justify-between bg-gray-200 text-sm block text-center rounded-br
-  @screen md
-    @apply flex-col w-32
-
-  .button
-    @apply inline-flex rounded-lg items-center border border-blue-800  cursor-pointer px-1 justify-center bg-blue-200 text-blue-800 my-2 w-24 mx-1
-    @screen md
-      @apply px-4 py-0 text-base w-full
-    &:hover
-      @apply bg-blue-300 text-blue-900
-    > span
-      @apply ml-1
-      @screen md
-        @apply block
-    svg
-      @screen md
-        @apply mr-2
 
 .rooms-index-name
   @apply text-xl text-blue-100  p-2 flex flex-col bg-cover text-left
@@ -187,3 +150,10 @@
     @apply mt-1 mr-1
   @screen sm
     @apply text-sm inline-block
+
+#ransack-debug[data-environment="development"]
+  @apply bg-red-200 text-gray-700
+  .ransack-params
+    @apply border-b-2 border-blue-800 p-3
+  .ransack-query
+    @apply bg-green-200 p-3

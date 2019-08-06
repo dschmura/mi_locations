@@ -6,16 +6,11 @@
   .SearchMe
     @apply  text-xl bg-transparent
 
-.is-hidden
-  @apply invisible h-0
-
 .bg-smoke-dark
-  // background-color: rgba(0, 0, 0, 0.4)
   background-color: hsla(210, 41, 28, 0.8)
 
 .search-form
   @apply   w-full mx-auto flex flex-wrap
-
   .search-form--button
     @apply  px-3   text-right -ml-2 h-10
     @screen lg
@@ -48,51 +43,6 @@
       label
         @apply block
 
-  .main-filter
-    label
-      @apply bg-blue-500 h-12 align-middle pt-1 px-4 text-2xl text-center
-  .search-filters
-    @apply align-middle  w-full mt-2
-    @screen sm
-      @apply mt-0
-    .characteristics-group
-      .toggle-content
-        label
-          @apply bg-blue-700
-
-    .student-capacity
-      label
-        @apply text-left w-auto
-      .toggle-content
-        @apply px-8 py-2 bg-blue-800 h-32
-      #reset-slider
-        @apply float-right px-2 bg-red-300 text-red-800 rounded-full mt-2
-        &:hover
-          @apply bg-red-600 text-red-100
-    .team-learning
-      label
-        @apply text-left w-full
-      .characteristics-group
-        .filter-checkboxes
-          @apply bg-green-200
-    .writing-surface
-      label
-        @apply text-left w-full
-    .audio-visual
-      label
-        @apply text-left w-full
-    .projection
-      label
-        @apply text-left w-full
-    .computing
-
-      label
-        @apply text-left w-full
-    .reset-filters
-
-  .checkbox-label
-    @apply inline-block
-
 .search-tools
   @apply flex flex-row justify-between  bg-gray-600 w-screen px-6 py-2
 
@@ -120,7 +70,6 @@
   @apply hidden
 .page
   @apply hidden
-
 
 .submit-search
   @apply self-center

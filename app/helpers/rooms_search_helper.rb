@@ -46,7 +46,7 @@ module RoomsSearchHelper
     "Telephone" => "fas fa-phone",
     "Tile" => "fas fa-info-circle",
     "VCR" => "fas fa-info-circle",
-    "VideoConf" => "fas fa-webcam",
+    "VideoConf" => "fas fa-satellite",
     "WCInst" => "fas fa-wheelchair",
     "Whtbrd" => "fas fa-chalkboard-teacher",
     "Whtbrd>25" => "fas fa-chalkboard-teacher",
@@ -74,8 +74,8 @@ module RoomsSearchHelper
   end
 
   def is_checked?(value)
-    if params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_all].present?
-        params[:q][:room_characteristics_chrstc_descrshort_eq_all].include?(value)
+    if params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort__matches_all].present?
+        params[:q][:room_characteristics_chrstc_descrshort__matches_all].include?(value)
     end
   end
 

@@ -19,55 +19,56 @@
 
         %span.ml-2 Filters
 
-    .filters-dropdown.hidden{ "data-target" => "toggle.filters" }
+    .filters-dropdown.hidden.lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs{ "data-target" => "toggle.filters" }
       .lg:flex.xl:block.xl:overflow-y-auto.xl:max-w-xs
 
-        .px-4.py-4.border-t.border-gray-900.xl:border-t-0{:class => ""}
+        .px-4.py-4.border-t.border-gray-900.xl:border-t-0
           .flex.flex-wrap.-mx-2
             -# %label.filter.block.px-2{:class => "w-1/2 sm:w-1/4 lg:w-1/2"}
-            -#   %span.section-header Campus
+            -#   %span.filters-section-header Campus
             -#   %select.mt-1.form-select.block.w-full.text-white.shadow.focus:bg-gray-600
             -#     %option Ann Arbor Central Campus
             %label.block.px-2{:class => "w-1/2 lg:w-full"}
-              %span.section-header.mb-4 Department
+              %span.filters-section-header.mb-4 Department
               %select.form-select.department-multiselect
                 %option School of Education
-            %label.mt-4.block.w-full.px-2.sm:mt-0.lg:mt-4.lg:w-full{:class => "sm:w-1/2"}
-              %div.section-header.mb-4 Student Capacity
-              %div.px-2.py-4.rounded-lg.tooltip.tooltip-top{"data-tooltip" => "Only show rooms with a capacity between X and Y"}
-                #slider.w-full.shadow
+                %option Schoo of Information
+                %option School of Music
 
+            .capacity-slider.tooltip.tooltip-capacity-top{"data-tooltip" => "Only show rooms with a capacity between X and Y"}
+              .filters-section-header.mb-4 Student Capacity
 
-                = f.hidden_field :instructional_seating_count_gteq, :id => "minimum-capacity"
-                = f.hidden_field :instructional_seating_count_lteq, :id => "maximum-capacity"
+              #slider
+              = f.hidden_field :instructional_seating_count_gteq, :id => "minimum-capacity"
+              = f.hidden_field :instructional_seating_count_lteq, :id => "maximum-capacity"
 
-                -# #reset-slider
-                  Reset
+              -# #reset-slider
+                Reset
 
         .classroom-type
-          %span.section-header Classroom Type
+          %span.filters-section-header Classroom Type
           .characteristics-arrangement
-            %label.filter-label
+            .filter-item-label
               %input.form-radio{:name => "classroomType", :type => "radio", :value => "team_learning"}/
               %span Team Learning
 
-            %label.filter-label
+            .filter-item-label
               %input.form-radio{:name => "classroomType", :type => "radio", :value => "lecture_hall"}/
               %span Lecture Hall
-            %label.filter-label
+            .filter-item-label
               %input.form-radio{:name => "classroomType", :type => "radio", :value => "computer_classroom"}/
               %span.w-auto Computer Classroom
-            %label.filter-label
+            .filter-item-label
               %input.form-radio{:name => "classroomType", :type => "radio", :value => "computer_classroom"}/
               %span.w-auto General Classroom
 
 
 
         .classroom-amenities
-          %span.section-header Amenities
+          %span.filters-section-header Amenities
           .characteristics-arrangement.sm:flex-wrap
 
-            %label.filter-label
+            .filter-item-label
               = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', ['InstrComp'], instructor_computer_checked?("InstrComp"), {class: ' form-checkbox', "data-action" => "click->toggle#instructor_computer_checkboxtoggle"})
               = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodPC'], instructor_computer_checked?("CompPodPC"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox" })
               = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodMac'], instructor_computer_checked?("CompPodMac"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox"})
@@ -75,58 +76,58 @@
               %span Instructor Computer
 
 
-            %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_all][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', })
+            .filter-item-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', })
               %span Document Camera
 
-            %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_all][]', "LectureCap", is_checked?("LectureCap"), {class: 'form-checkbox'})
+            .filter-item-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "LectureCap", is_checked?("LectureCap"), {class: 'form-checkbox'})
               %span Lecture Capture
 
-            %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_all][]', "VideoConf", is_checked?("VideoConf"), {class: 'form-checkbox'})
+            .filter-item-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "VideoConf", is_checked?("VideoConf"), {class: 'form-checkbox'})
               %span Video Conferencing
 
-            %label.filter-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "IntrScreen", is_checked?("IntrScreen"), {class: 'form-checkbox'})
+            .filter-item-label
+              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "IntrScreen", is_checked?("IntrScreen"), {class: 'form-checkbox'})
               %span Interactive Screen
 
 
-            %label.filter-label{}
+            .filter-item-label{}
               -# = check_box_tag('q[room_characteristics_chrstc_descrshort_cont_any][]', ['BluRay'], false, {class: ' form-checkbox', data: { url: search_rooms_path, remote: true }})
 
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "IntrScreen", is_checked?("IntrScreen"), {class: 'form-checkbox'})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "BluRay", is_checked?("BluRay"), {class: 'form-checkbox'})
               -# .checkbox-label BluRay / DVD Player
               %span{:class => "sm:w-full"} !! BluRay / DVD Player
 
         %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
           .writing-surface{:class => "w-full"}
-            %span.section-header Writing Surface
+            %span.filters-section-header Writing Surface
 
             -# .sm:flex.sm:-mx-2.lg:block.lg:mx-0
             .characteristics-arrangement{:class => "sm:w-full "}
-              %label.filter-label
+              .filter-item-label
                 %input.form-radio{:name => "boardType", :type => "radio", :value => "chalkboard"}/
                 %span{:class => "" } Chalkboard
-              %label.filter-label
+              .filter-item-label
                 %input.form-radio{:name => "boardType", :type => "radio", :value => "whiteboard"}/
                 %span{} Whiteboard
 
           .projection-type
-            %span.section-header Projection
+            %span.filters-section-header Projection
             .characteristics-arrangement
-              %label.filter-label{:class => ""}
+              .filter-item-label
                 %input.form-radio{:name => "projectionType", :type => "radio", :value => "35mm_film"}/
                 %span 35mm Film
-              %label.filter-label{:class => ""}
+              .filter-item-label
                 %input.form-radio{:name => "projectionType", :type => "radio", :value => "digital_cinema_projection"}/
                 %span Digital Cinema (DCP)
-              %label.filter-label{:class => ""}
+              .filter-item-label
                 %input.form-radio{:name => "projectionType", :type => "radio", :value => "projection_digital_data_and_video"}/
-                %span.w-auto{:class => ""}  Digital Data & Video
-              %label.filter-label{:class => ""}
+                %span.w-auto  Digital Data & Video
+              .filter-item-label
                 %input.form-radio{:name => "projectionType", :type => "radio", :value => "projection_slide"}/
-                %span.w-auto{:class => ""}  Slide Projector
+                %span.w-auto  Slide Projector
 
 
 
@@ -148,4 +149,7 @@
             Room number
 
 - if params[:q]
-  #ransack="QUERY: #{params[:q] }"
+  #ransack-debug{'data-environment' => Rails.env}
+    .ransack-params="PARAMS: #{params[:q] }"
+
+    .ransack-query="SQL: #{@q.result.to_sql}"
