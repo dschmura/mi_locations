@@ -2,7 +2,7 @@
 #
 # Table name: buildings
 #
-#  id           :bigint(8)        not null, primary key
+#  id           :bigint           not null, primary key
 #  bldrecnbr    :integer
 #  latitude     :float
 #  longitude    :float

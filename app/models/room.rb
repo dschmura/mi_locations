@@ -2,7 +2,7 @@
 #
 # Table name: rooms
 #
-#  id                          :bigint(8)        not null, primary key
+#  id                          :bigint           not null, primary key
 #  rmrecnbr                    :integer          not null
 #  latitude                    :float
 #  longitude                   :float
@@ -14,10 +14,11 @@
 #  dept_grp                    :string
 #  square_feet                 :integer
 #  instructional_seating_count :integer
-#  building_id                 :bigint(8)
+#  building_id                 :bigint
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
 #  visible                     :boolean          default(FALSE), not null
+#  dept_description            :string
 #
 
 class Room < ApplicationRecord

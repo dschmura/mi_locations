@@ -2,8 +2,8 @@
 #
 # Table name: room_contacts
 #
-#  id                   :bigint(8)        not null, primary key
-#  room_id              :bigint(8)
+#  id                   :bigint           not null, primary key
+#  room_id              :bigint
 #  rmrecnbr             :integer
 #  rm_schd_cntct_name   :string
 #  rm_schd_email        :string

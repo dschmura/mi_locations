@@ -2,12 +2,12 @@
 #
 # Table name: alerts
 #
-#  id             :bigint(8)        not null, primary key
+#  id             :bigint           not null, primary key
 #  severity       :integer          default("info"), not null
 #  start_date     :datetime
 #  end_date       :datetime
 #  alertable_type :string
-#  alertable_id   :bigint(8)
+#  alertable_id   :bigint
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
