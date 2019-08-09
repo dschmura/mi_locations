@@ -22,6 +22,8 @@
 #
 
 class Room < ApplicationRecord
+  include PgSearch::Model
+  
   belongs_to :building
   has_many :room_characteristics, dependent: :destroy
   has_one :room_contact, dependent: :destroy

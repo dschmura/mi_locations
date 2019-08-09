@@ -2,7 +2,8 @@
   = javascript_pack_tag 'search', 'data-turbolinks-track': 'reload'
   = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
 %search.rooms-search{ "data-controller" => "toggle"}
-  = render './search/search_filters'
+  -# = render './search/search_filters'
+  = render './search/pg_search_filters'
 
 
   #map.rooms-map.h-64
