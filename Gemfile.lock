@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: d410d0123e92c266cb6936a425446ba733b48fca
+  revision: 35924e55938a34ea6033fe4e62e25badd7e88248
   specs:
     webpacker (4.0.7)
       activesupport (>= 4.2)
@@ -170,7 +170,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (5.1.1)
+    haml (5.1.2)
       temple (>= 0.8.0)
       tilt
     haml-rails (2.0.1)
@@ -275,7 +275,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.1.0)
+    rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
     railties (6.0.0.rc2)
       actionpack (= 6.0.0.rc2)
@@ -362,7 +362,7 @@ GEM
     sshkit (1.20.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    standard (0.1.0)
+    standard (0.1.2)
       rubocop (~> 0.72.0)
       rubocop-performance (~> 1.4.0)
     temple (0.8.1)
