@@ -7,7 +7,7 @@ ruby "2.6.3"
 gem 'rails', '~> 6.0.0.rc2'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
-gem 'pg_search'
+# gem 'pg_search'
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
 # Use Puma as the app server
@@ -43,6 +43,8 @@ gem "geocoder"
 gem "kaminari"
 # gem "ransack"
 gem "activerecord-import"
+
+gem 'acts-as-taggable-on', github: "mbleigh/acts-as-taggable-on"
 
 gem "listen"
 # gem 'devise', '~> 4.4.3'
