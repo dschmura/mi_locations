@@ -22,8 +22,7 @@
 #
 
 class Room < ApplicationRecord
-  include PgSearch::Model
-  
+
   belongs_to :building
   has_many :room_characteristics, dependent: :destroy
   has_one :room_contact, dependent: :destroy
@@ -34,6 +33,16 @@ class Room < ApplicationRecord
   validates :instructional_seating_count, presence: true, if: -> {:rmtyp_description == "Classroom" || "Classroom Laboratory"}
 
   validates_uniqueness_of :rmrecnbr
+
+  acts_as_taggable_on :amenities
+
+  # scope :instructor_computer, self.classrooms.tagged_with
+  # Room.classrooms.includes(:building, :room_characteristics).tagged_with(["IntrScreen", "DocCam"], :all => true )
+
+
+    # Named scope which returns posts whose tags have a specific ID
+  scope :tagged_with_instuctor_computer, lambda { |tag_name| joins(:taggings).where(:taggings => {:tag_name => tag_name}) }
+
 
   def self.classrooms
     where(rmtyp_description: ["Classroom"])

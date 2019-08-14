@@ -80,9 +80,17 @@ module RoomsSearchHelper
   end
 
   def instructor_computer_checked?(value)
-    if params[:q].present? && params[:q][:room_characteristics_chrstc_descrshort_eq_any].present?
-        params[:q][:room_characteristics_chrstc_descrshort_eq_any].include?(value)
+    if params[:ameneties_include_any].present? && params[:ameneties_include_any][:instuctor_computer].present?
+        params[:ameneties_include_any][:instuctor_computer].include?(value)
+    end
+  end
+
+  def bluray_dvd_checked?(value)
+    if params[:ameneties_include_any].present? && params[:ameneties_include_any][:bluray_dvd].present?
+        params[:ameneties_include_any][:bluray_dvd].include?(value)
     end
   end
 
 end
+
+# BluRay/DVD

@@ -2,8 +2,31 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update]
 
   def index
+
+
+    if params[:ameneties_include_any]
+      # @filtersin = params[:ameneties_include_any][:instuctor_computer].concat(params[:ameneties_include_any][:bluray_dvd]).flatten.reject(&:blank?)
+
+      @filtersin = params[:ameneties_include_any]
+
+      @filter = ["InstrComp", "CompPodPC", "CompPodMac"]
+      @a ||= Room.classrooms.includes(:building, :room_characteristics).tagged_with(@filter, :all => false )
+
+    else
+      @a = Room.classrooms.all
+      @filtersin = []
+    end
+
+
     @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
     @rooms = @q.result(distinct: true).page(params[:page])
+
+
+
+
+
+    @query = @q.result.merge(@a)
+
     respond_to do |format|
       # format.js
       format.html
@@ -42,6 +65,6 @@ class RoomsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def room_params
-    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :visible, :page)
+    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :visible, :page, :q, :ameneties_include_any)
   end
 end
