@@ -69,9 +69,9 @@
           .characteristics-arrangement
 
             .filter-item-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', ['InstrComp'], instructor_computer_checked?("InstrComp"), {class: ' form-checkbox', "data-action" => "click->toggle#instructor_computer_checkboxtoggle"})
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodPC'], instructor_computer_checked?("CompPodPC"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox" })
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodMac'], instructor_computer_checked?("CompPodMac"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox"})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', ['InstrComp'], is_checked?("InstrComp"), {class: ' form-checkbox', "data-action" => "click->toggle#instructor_computer_checkboxtoggle"})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodPC'], is_checked?("CompPodPC"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox" })
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodMac'], is_checked?("CompPodMac"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox"})
 
               %span Instructor Computer
 
