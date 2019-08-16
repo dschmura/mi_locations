@@ -34,19 +34,36 @@ class Room < ApplicationRecord
 
   validates_uniqueness_of :rmrecnbr
 
-  scope :instructor_computer, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["InstrComp", "CompPodPC", "CompPodMac"]}) }
-
-  scope :doccam, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["DocCam"]}) }
-
-  scope :vcr, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["VCR"]}) }
-
-  scope :bluray_dvd, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["BluRay/DVD", "BluRay"]}) }
-
-  scope :lecture_capture, ->  { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["LectureCap"]}) }
-
-  scope :video_conf, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["VideoConf"]}) }
-
-  scope :interactive_screen, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["IntrScreen"]}) }
+  scope :bluray_dvd, -> {
+    RoomCharacteristic.bluray_dvd.pluck(:rmrecnbr) }
+  scope :chalkboard, -> {
+    RoomCharacteristic.chalkboard
+  }
+  scope :doccam, -> {
+    RoomCharacteristic.doccam }
+  scope :interactive_screen, -> {
+    RoomCharacteristic.interactive_screen }
+  scope :instructor_computer, -> {
+    RoomCharacteristic.instructor_computer }
+  scope :lecture_capture, ->  {RoomCharacteristic
+    lecture_capture}
+  scope :projector_16mm, -> {
+    RoomCharacteristic.projector_16mm}
+  scope :projector_35mm, -> {
+    RoomCharacteristic.projector_35mm}
+  scope :projector_digital_cinema, -> {
+    RoomCharacteristic.projector_digital_cinema}
+  scope :projector_digial, -> {
+    RoomCharacteristic.projector_digial}
+  scope :projector_slide, -> {
+    RoomCharacteristic.projector_slide}
+  scope :vcr, -> {
+    RoomCharacteristic.vcr }
+  scope :video_conf, -> {
+    RoomCharacteristic.video_conf }
+  scope :whiteboard, -> {
+    RoomCharacteristic.whiteboard
+  }
 
   def self.classrooms
     where(rmtyp_description: ["Classroom"])
