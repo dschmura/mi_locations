@@ -34,6 +34,20 @@ class Room < ApplicationRecord
 
   validates_uniqueness_of :rmrecnbr
 
+  scope :instructor_computer, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["InstrComp", "CompPodPC", "CompPodMac"]}) }
+
+  scope :doccam, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["DocCam"]}) }
+
+  scope :vcr, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["VCR"]}) }
+
+  scope :bluray_dvd, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["BluRay/DVD", "BluRay"]}) }
+
+  scope :lecture_capture, ->  { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["LectureCap"]}) }
+
+  scope :video_conf, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["VideoConf"]}) }
+
+  scope :interactive_screen, -> { joins(:room_characteristics).where(room_characteristics: {chrstc_descrshort: ["IntrScreen"]}) }
+
   def self.classrooms
     where(rmtyp_description: ["Classroom"])
   end
