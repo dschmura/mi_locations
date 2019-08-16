@@ -1,10 +1,3 @@
-
-
 #rooms-results
-  - if params[:q]
-    #ransack-debug{'data-environment' => Rails.env}
-      .ransack-params="PARAMS: #{params[:q] }"
-
-      .ransack-query="SQL: #{@q.result.to_sql}"
   .rooms-index-cards
     = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
