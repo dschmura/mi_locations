@@ -5,7 +5,7 @@ ruby "2.6.3"
 
 # gem "rails", "6.0.0.rc1"
 gem 'rails', '~> 6.0.0'
-gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ransack'
 
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
