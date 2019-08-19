@@ -37,8 +37,7 @@ class Room < ApplicationRecord
   scope :bluray_dvd, -> {
     RoomCharacteristic.bluray_dvd.pluck(:rmrecnbr) }
   scope :chalkboard, -> {
-    RoomCharacteristic.chalkboard
-  }
+    RoomCharacteristic.chalkboard }
   scope :doccam, -> {
     RoomCharacteristic.doccam }
   scope :interactive_screen, -> {
