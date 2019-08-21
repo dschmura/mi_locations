@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :buildings, only: [:show, :index, :update] do
     resources :floors
     resources :alerts, module: :buildings
+    collection do
+      match "search" => "buildings#search", :via => [:get, :post], :as => :search
+    end
   end
 
   resources :rooms, only: [:show, :index, :update] do

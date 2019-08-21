@@ -4,6 +4,17 @@ class BuildingsController < ApplicationController
   def index
     @q = Building.ransack(params[:q])
     @buildings = @q.result(distinct: true).includes(:rooms, :team_learning_classrooms).page
+    respond_to do |format|
+      format.js
+      format.html
+      format.json { render json: @buildings }
+
+    end
+  end
+
+  def search
+    index
+    render :index
   end
 
   def show
