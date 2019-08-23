@@ -20,13 +20,15 @@
     &:focus
 
 .filters-button
-  @apply inline-flex bg-gray-700 rounded-lg pl-3 pr-4 shadow text-gray-200 mx-2 self-center py-2
+  @apply inline-flex bg-gray-600 rounded-full px-2 shadow text-gray-100 mx-2 self-center py-1 text-sm
   &:hover
     @apply bg-gray-600
   &:focus
     @apply outline-none shadow-outline
   @screen xl
     @apply hidden
+  svg
+    @apply fill-current text-gray-100
 
 .filters-dropdown
   @apply bg-gray-400
