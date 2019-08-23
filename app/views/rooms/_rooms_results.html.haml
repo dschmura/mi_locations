@@ -1,3 +1,7 @@
-#rooms-results
+-# #rooms-results
   .rooms-index-cards
     = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
+
+#rooms-results
+  .rooms-cards
+    = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true

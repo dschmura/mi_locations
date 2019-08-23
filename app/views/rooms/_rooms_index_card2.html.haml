@@ -1,0 +1,37 @@
+.room-card
+  .room-image
+    = link_to room do
+      - if room.room_image.attached?
+        = image_tag(url_for(room.room_image), alt: "#{room.room_number} #{room.building.name.titleize} picture")
+      - else
+        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{room.room_number} #{room.building.name.titleize} image not available")
+
+  .card-content-container
+    .card-content
+      .features
+        %span.feature-badge
+          Updated
+        .capacity
+          %i.fas.fa-users
+          = "#{room.instructional_seating_count} Students"
+      %h4.room-name
+        = "#{room.room_number} #{room.building.name.titleize}"
+      .room-address
+        .address
+          %i.fas.fa-map-marker-alt
+          = "#{room.building.address}"
+        .map-buttons
+          .map
+            %i.fas.fa-map
+            Map
+          .directions
+            %i.fas.fa-directions
+            Directions
+      -# .pricing
+      -#   .price
+      -#     $2000
+      -#     .per-unit / wk
+      -#   .property-rating
+      -#     * * * / stars
+      -#     .per-unit
+      -#       (based on 34 reviews)

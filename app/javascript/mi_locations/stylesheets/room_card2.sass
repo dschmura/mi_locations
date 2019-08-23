@@ -1,0 +1,80 @@
+.rooms-cards
+  @apply flex flex-wrap justify-center mt-4
+  @screen sm
+    @apply
+  @screen md
+    @apply
+  @screen lg
+    @apply
+  @screen xl
+    @apply justify-start
+
+.room-card
+  @apply  rounded-lg mb-6 overflow-hidden  antialiased text-gray-900 max-w-xl mx-8
+  @screen sm
+    @apply max-w-2xl
+  @screen md
+    @apply max-w-sm mx-4
+  @screen lg
+    @apply max-w-xs mx-4
+  @screen xl
+    @apply mx-2
+
+.room-image
+  @apply bg-gray-500 relative pb-2/3 rounded-lg overflow-hidden
+  img
+    @apply h-full w-full object-cover absolute top-0 shadow-md
+
+.card-content-container
+  @apply px-6
+
+.card-content
+  @apply relative p-6 bg-white -mt-10 rounded-lg shadow-lg
+.room-name
+  @apply font-semibold text-lg leading-tight truncate mt-1
+.room-address
+  @apply mt-2  text-blue-800 flex flex-row justify-between font-semibold
+
+  .map-buttons
+    @apply flex justify-end
+    @screen md
+      @apply flex-col justify-center
+
+    .map
+      @apply px-2 bg-green-200 text-green-800 rounded-full text-sm self-center
+      @screen md
+        @apply inline-flex items-center py-0 h-6 my-1 px-2
+        svg
+          @apply mx-1
+    .directions
+      @apply px-2 bg-blue-200 text-blue-800  rounded-full text-sm ml-2 self-center
+      @screen md
+        @apply inline-flex items-center py-0 h-6 my-1 px-1
+        svg
+          @apply mx-1
+
+.beds
+  @apply
+.baths
+  @apply
+
+.pricing
+  .price
+    @apply inline-flex mt-4
+  .per-unit
+    @apply text-gray-600 text-sm ml-1
+
+.property-rating
+  @apply flex mt-4 text-green-600 font-semibold
+  .per-unit
+    @apply text-gray-600
+
+.features
+  @apply flex items-center
+.feature-badge
+  @apply bg-green-200 px-2 text-green-800 text-xs inline-block rounded-full uppercase font-semibold tracking-wide
+
+.capacity
+  @apply text-gray-600 text-sm uppercase  font-semibold  tracking-wide flex flex-row align-middle ml-2
+  svg
+    @apply mr-2 mt-1
