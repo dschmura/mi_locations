@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 8845f37bb038ad0adff813326a7d6a034b9b9a81
+  revision: 3547917a3e568952b94cfefbbdf60b52db97737d
   specs:
     webpacker (4.0.7)
       activesupport (>= 4.2)
@@ -237,7 +237,7 @@ GEM
     public_suffix (3.1.1)
     puma (3.12.1)
     rack (2.0.7)
-    rack-protection (2.0.5)
+    rack-protection (2.0.7)
       rack
     rack-proxy (0.6.5)
       rack
@@ -319,9 +319,8 @@ GEM
     ruby_parser (3.13.1)
       sexp_processor (~> 4.9)
     rubyzip (1.2.3)
-    sassc (2.0.1)
+    sassc (2.1.0)
       ffi (~> 1.9)
-      rake
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
       sassc (>= 2.0)
