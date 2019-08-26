@@ -10,6 +10,7 @@
     "@rails/webpacker": "^4.0.2",
     "@tailwindcss/custom-forms": "^0.2.0",
     "core-js": "3",
+    "leaflet": "^1.5.1",
     "load-google-maps-api": "^2.0.0",
     "nouislider": "^13.1.5",
     "postcss-cssnext": "^3.1.0",

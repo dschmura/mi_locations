@@ -11,6 +11,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("load-google-maps-api")
 
+
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
 
@@ -65,7 +66,6 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import "controllers"
-
 
 import { Map } from './rooms_maps';
 document.addEventListener('turbolinks:load', () => {

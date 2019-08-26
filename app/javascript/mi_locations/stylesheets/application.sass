@@ -11,7 +11,6 @@ body
 // You Forgot The Alt Message
 body[data-environment="development"]
   img[alt=""], img:not([alt])
-    border: 5px dashed #c00
     @apply border-4 border-red-700 border-dotted p-2
 
 .debug_dump
@@ -29,3 +28,8 @@ a
     @apply h-16 w-16 -mt-8
   @screen md
     @apply ml-2 h-12 w-12
+
+#mapid
+  @apply h-64 bg-green-300
+  img[alt=""], img:not([alt])
+    @apply border-none p-0
