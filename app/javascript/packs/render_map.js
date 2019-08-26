@@ -19,6 +19,11 @@ document.addEventListener('turbolinks:load', () => {
     fillOpacity: 0.5,
     radius: 50
   }).addTo(mymap);
+
+
+  var marker = L.marker([42.276, -83.738]).addTo(mymap);
+
+
 });
 
 // Called after every non-initial page load
@@ -28,7 +33,7 @@ document.addEventListener('turbolinks:render', () =>
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1IjoidW1pY2hyYWlscyIsImEiOiJjanpzZng4bXAwNDFnM2pwOXl6NWVjcXJzIn0.rCEZ2pNHo_a9A9XPOsRxcA'
+    accessToken:  Rails.application.credentials.MI_LOCATIONS_OPENMAP_TOKEN
   }).addTo(mymap);
 
   // L.marker([42.276, -83.738]).addTo(mymap);
