@@ -6,7 +6,7 @@
   .rooms-cards
     = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 
-  .rooms-map-toggle
+  .rooms-map-toggle{"data-action" => "click->toggle#roomsmaptoggle"}
 
     %i.fas.fa-map
     Map
