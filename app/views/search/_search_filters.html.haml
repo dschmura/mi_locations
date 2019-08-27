@@ -1,5 +1,5 @@
 
-= search_form_for @q, remote: false, url: search_rooms_path do |f|
+= search_form_for @q, remote: true do |f|
   %section.search-filters
     .flex.justify-between.px-4.py-3
       .relative.max-w-lg.w-full
@@ -67,37 +67,36 @@
               %input.form-radio{:name => "classroomType", :type => "radio", :value => "computer_classroom"}/
               %span.w-auto General Classroom
 
-
         .classroom-amenities
           %span.filters-section-header Amenities
           .characteristics-arrangement
 
             .filter-item-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', ['InstrComp'], is_checked?("InstrComp"), {class: ' form-checkbox', "data-action" => "click->toggle#instructor_computer_checkboxtoggle"})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', ['InstrComp'], is_checked?("InstrComp"), {class: ' form-checkbox', "data-action" => "click->toggle#instructor_computer_checkboxtoggle", "data-remote" => "true" })
               = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodPC'], is_checked?("CompPodPC"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox" })
               = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'CompPodMac'], is_checked?("CompPodMac"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox"})
               %span Instructor Computer
 
 
             .filter-item-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', })
+              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', "data-remote" => "true" })
               %span Document Camera
 
             .filter-item-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "LectureCap", is_checked?("LectureCap"), {class: 'form-checkbox'})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "LectureCap", is_checked?("LectureCap"), {class: 'form-checkbox', "data-remote" => "true" })
               %span Lecture Capture
 
             .filter-item-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "VideoConf", is_checked?("VideoConf"), {class: 'form-checkbox'})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "VideoConf", is_checked?("VideoConf"), {class: 'form-checkbox', "data-remote" => "true" })
               %span Video Conferencing
 
             .filter-item-label
-              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "IntrScreen", is_checked?("IntrScreen"), {class: 'form-checkbox'})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "IntrScreen", is_checked?("IntrScreen"), {class: 'form-checkbox', "data-remote" => "true" })
               %span Interactive Screen
 
 
             .filter-item-label{}
-              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "BluRay", is_checked?("BluRay"), {class: 'form-checkbox'})
+              = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', "BluRay", is_checked?("BluRay"), {class: 'form-checkbox', "data-remote" => "true" })
               -# .checkbox-label BluRay / DVD Player
               %span{:class => "sm:w-full"} BluRay / DVD Player
 
@@ -108,36 +107,36 @@
             -# .sm:flex.sm:-mx-2.lg:block.lg:mx-0
             .characteristics-arrangement{:class => "sm:w-full "}
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "Whtbrd", is_checked?("Whtbrd"), {class: 'form-checkbox', })
+                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "Whtbrd", is_checked?("Whtbrd"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span Whiteboard
 
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "Chkbrd", is_checked?("Chkbrd"), {class: 'form-checkbox', "data-action" => "click->toggle#chalkboard_checkboxtoggle"})
+                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "Chkbrd", is_checked?("Chkbrd"), {class: 'form-checkbox', "data-action" => "click->toggle#chalkboard_checkboxtoggle", "data-remote" => "true" })
 
-                = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'Chkbrd>25'], is_checked?("Chkbrd>25"), {class: ' form-checkbox hidden', "data-target" => "toggle.chalkboard_checkbox"})
+                = check_box_tag('q[room_characteristics_chrstc_descrshort_eq_any][]', [ 'Chkbrd>25'], is_checked?("Chkbrd>25"), {class: ' form-checkbox hidden', "data-target" => "toggle.chalkboard_checkbox", "data-remote" => "true" })
                 %span Chalkboard
 
           .projection-type
             %span.filters-section-header Projection
             .characteristics-arrangement
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "Proj35mm", is_checked?("Proj35mm"), {class: 'form-checkbox', })
+                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "Proj35mm", is_checked?("Proj35mm"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span 35mm Film
 
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjD-Cin", is_checked?("ProjD-Cin"), {class: 'form-checkbox', })
+                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjD-Cin", is_checked?("ProjD-Cin"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span Digital Cinema (DCP)
 
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjDigit", is_checked?("ProjDigit"), {class: 'form-checkbox', })
+                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjDigit", is_checked?("ProjDigit"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span Digital Data & Video
 
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjSlide", is_checked?("ProjSlide"), {class: 'form-checkbox', })
+                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjSlide", is_checked?("ProjSlide"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span Slide Projector
 
     .filter-tools
-      .submit-search
+      -# .submit-search
         = f.submit
       .search-results#rooms-search-matches.inline-flex
         = @q.result.size

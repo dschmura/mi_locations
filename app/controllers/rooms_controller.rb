@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
     @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
     @rooms = @q.result(distinct: true).page(params[:page])
     respond_to do |format|
-      # format.js
+      format.js
       format.html
       format.json { render json: @rooms }
 
