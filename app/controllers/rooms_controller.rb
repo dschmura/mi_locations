@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :update]
+  before_action :set_room, only: [:show, :update, :toggle_visability]
 
   def index
     @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
@@ -30,6 +30,12 @@ class RoomsController < ApplicationController
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def toggle_visability
+    @room.toggle(:visible).save
+    index
+    render :index
   end
 
   private

@@ -7,10 +7,10 @@
   @screen lg
     @apply
   @screen xl
-    @apply justify-start
+    @apply
 
 .room-card
-  @apply  mb-6 overflow-hidden  antialiased text-gray-900 max-w-xl mx-8
+  @apply  mb-6 overflow-hidden antialiased text-gray-900 max-w-xl mx-8
   @screen sm
     @apply max-w-2xl
   @screen md
@@ -49,11 +49,18 @@
         svg
           @apply mx-1
     .directions
-      @apply px-2 bg-blue-200 text-blue-800  rounded-full text-sm ml-2 self-center
+      @apply pl-2 py-4 bg-blue-200 text-blue-800  rounded-full text-sm ml-2 self-center
       @screen md
-        @apply inline-flex items-center py-0 h-6 my-1 px-1
+        @apply inline-flex items-center py-0 h-6 my-1 px-2
         svg
-          @apply mx-1
+          @apply
+
+.room-visability-toggle
+  @apply px-2 bg-yellow-300 text-sm rounded-full inline-flex text-center
+  &:hover
+    @apply bg-yellow-400
+  svg
+    @apply align-middle text-xl
 
 .beds
   @apply

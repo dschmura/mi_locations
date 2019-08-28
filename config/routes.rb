@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     resources :alerts, module: :rooms
     collection do
       match "search" => "rooms#search", :via => [:get, :post], :as => :search
+
     end
   end
+  match "toggle_visability/:id" => "rooms#toggle_visability", :via => [:get, :post], :as => :toggle_visability
 
   resources :classrooms, only: [:show, :index] do
     collection do

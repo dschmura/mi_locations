@@ -1,0 +1,6 @@
+
+var room_visable = document.getElementById(@room.rmrecnbr)
+  room_visable.innerHTML = "<%= escape_javascript pluralize(@q.result.size, 'Match')%>"
+  room_visable = undefined;
+
+<%# var room_card = document.getElementById(@room.rmrecnbr) %>
