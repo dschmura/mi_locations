@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
+    @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
     @rooms = @q.result(distinct: true).page(params[:page])
     respond_to do |format|
       format.js
