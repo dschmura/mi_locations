@@ -1,7 +1,8 @@
 %footer.footer
   %nav
-    = link_to root_path do
-      = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'footer-logo' )
+    = link_to lsa_tech_services_url, target: "_blank" do
+      -# = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'footer-logo' )
+      = image_tag(asset_pack_path('media/mi_locations/images/LSA_TechnologyServices_Pill.png'), alt: 'MiLocations Logo, link to home page.', class: 'footer-logo' )
     .footer-links
       = link_to 'About', about_path
       = link_to 'Contact', contact_path
