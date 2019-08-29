@@ -49,11 +49,13 @@
         svg
           @apply mx-1
     .directions
-      @apply pl-2 py-4 bg-blue-200 text-blue-800  rounded-full text-sm ml-2 self-center
+      @apply px-2 py-1 bg-blue-200 text-blue-800  rounded-full text-sm self-center
       @screen md
         @apply inline-flex items-center py-0 h-6 my-1 px-2
         svg
           @apply
+      &:hover
+        @apply bg-blue-300
 
 .room-visability-toggle
   @apply px-2 bg-yellow-300 text-sm rounded-full inline-flex text-center
@@ -61,6 +63,8 @@
     @apply bg-yellow-400
   svg
     @apply align-middle text-xl
+.card-dimmed
+  @apply opacity-50
 
 .beds
   @apply
