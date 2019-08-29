@@ -34,8 +34,10 @@ class RoomsController < ApplicationController
 
   def toggle_visability
     @room.toggle(:visible).save
-    index
-    render :index
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

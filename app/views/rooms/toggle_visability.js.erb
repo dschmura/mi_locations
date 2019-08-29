@@ -1,6 +1,4 @@
+console.log(<%= j @room.rmrecnbr %>);
 
-var room_visable = document.getElementById(@room.rmrecnbr)
-  room_visable.innerHTML = "<%= escape_javascript pluralize(@q.result.size, 'Match')%>"
-  room_visable = undefined;
-
-<%# var room_card = document.getElementById(@room.rmrecnbr) %>
+var room_toggle = document.getElementById( "<%= j "toggle-#{@room.rmrecnbr}" %>")
+  room_toggle.innerHTML =  "<%= j render partial: "room_visability_toggle", locals: {room: @room} %>"

@@ -28,17 +28,8 @@
             %i.fas.fa-directions
             Directions
 
-      .room-visability-toggle{:id => room.rmrecnbr}
-        -# = link_to "Update", rooms_path(room), { method: "put", remote: true, "data-params" => "visible=true" }
-
-
-        = link_to  toggle_visability_path(room), method: "post", remote: true do
-          - if room.visible?
-            %i.fas.fa-toggle-on
-          -else
-            %i.fas.fa-toggle-off
-      Room
-      = room.visible ? "visible" : "hidden"
+      .room-visability-toggle{:id => "toggle-#{room.rmrecnbr}"}
+        = render "room_visability_toggle",  room: room
 
       -# .pricing
       -#   .price
