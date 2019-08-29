@@ -1,4 +1,5 @@
-.room-card{:id => "card-#{room.rmrecnbr}" }
+.room-card{:id => "card-#{room.rmrecnbr}", :class => "#{'card-dimmed' unless room.visible}" }
+
   .room-image
     = link_to room do
       - if room.room_image.attached?
