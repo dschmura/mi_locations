@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     end
   end
-  match "toggle_visability/:id" => "rooms#toggle_visability", :via => [:get, :post], :as => :toggle_visability
+  match "toggle_visibility/:id" => "rooms#toggle_visibility", :via => [:get, :post], :as => :toggle_visibility
 
   resources :classrooms, only: [:show, :index] do
     collection do

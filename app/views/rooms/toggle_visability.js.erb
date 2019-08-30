@@ -1,5 +1,5 @@
 var room_toggle = document.getElementById( "<%= j "toggle-#{@room.rmrecnbr}" %>")
-  room_toggle.innerHTML =  "<%= j render partial: "room_visability_toggle", locals: {room: @room} %>"
+  room_toggle.innerHTML =  "<%= j render partial: "room_visibility_toggle", locals: {room: @room} %>"
 
 
 var toggled_card = document.getElementById( "<%= j "card-#{@room.rmrecnbr}" %>")
