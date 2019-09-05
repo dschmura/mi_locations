@@ -18,6 +18,20 @@ class RoomCharacteristic < ApplicationRecord
   belongs_to :room
   validates_presence_of :rmrecnbr
 
+  scope :matches_params, ->  (params) {
+    where(chrstc_descrshort: params ).pluck(:rmrecnbr)
+  }
+
+  scope :has_all_characteristics, -> (params) {
+    rooms = self.matches_params(params)
+    number_of_params = params.size
+    number_of_params.times { |iteration| rooms = rooms & rooms}
+    # puts "REPORT:: #{rooms}"
+    puts "REPORT: unique: #{rooms.uniq.count} | total: #{rooms.count}"
+    rooms
+
+  }
+
   scope :bluray_dvd, -> {
     where(chrstc_descrshort: ["BluRay/DVD", "BluRay"]) }
   scope :chalkboard, -> {
