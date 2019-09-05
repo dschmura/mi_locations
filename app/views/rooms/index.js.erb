@@ -3,5 +3,5 @@ var results = document.getElementById("rooms-results")
   results = undefined;
 
 var matches = document.getElementById("rooms-search-matches")
-  matches.innerHTML = "<%= escape_javascript pluralize(@q.result.size, 'Match')%>"
+  matches.innerHTML = "<%= escape_javascript pluralize(@results.size, 'Match')%>"
   matches = undefined;

@@ -3,20 +3,31 @@ class RoomsController < ApplicationController
 
   def index
     if params[:q] && params[:q][:rooms_with_all_characteristics]
-    #   Need to run a query to get the rooms
+
       @params = params[:q][:rooms_with_all_characteristics]
 
-      @char_rooms = Room.rooms_with_all(@params)
+      # @char_rooms = Room.classrooms.rooms_with_all(@params)
+
+      @all_chars = RoomCharacteristic.has_all_characteristics(@params)
+      @char_rooms = Room.classrooms.includes(:building, :room_characteristics).where(rmrecnbr: @all_chars)
 
 
-      # RoomCharacterisic.contains_all(:params[:q][:rooms_with_all_characteristics].to_a)
-    #   Room.rooms_with_all_characteristics()
+      @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
+
+      @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
+
+      @results = @q.result.merge(@char_rooms)
+      @rooms = @results.page(params[:page])
+
+
+    else
+      @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
+      @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
+      @results = @q.result(distinct: true)
+      @rooms = @results.page(params[:page])
     end
-    @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
-    @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
-    @rooms = @q.result(distinct: true).page(params[:page])
     respond_to do |format|
-      # format.js
+      format.js
       format.html
       format.json { render json: @rooms }
 

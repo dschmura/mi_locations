@@ -22,15 +22,26 @@ class RoomCharacteristic < ApplicationRecord
     where(chrstc_descrshort: params ).pluck(:rmrecnbr)
   }
 
-  scope :has_all_characteristics, -> (params) {
-    rooms = self.matches_params(params)
-    number_of_params = params.size
-    number_of_params.times { |iteration| rooms = rooms & rooms}
-    # puts "REPORT:: #{rooms}"
-    puts "REPORT: unique: #{rooms.uniq.count} | total: #{rooms.count}"
-    rooms
+  def self.has_all_characteristics(params)
+    rmrecnbrs = self.matches_params(params)
+    result = []
+    rmrecnbrs.uniq.each do |rmrecnbr|
+      if rmrecnbrs.count(rmrecnbr) == params.count
+        result << rmrecnbr
+      end
+    end
+    result
+  end
 
-  }
+  # scope :has_all_characteristics, -> (params) {
+  #   rmrecnbrs = self.matches_params(params)
+  #   result = []
+  #   rmrecnbrs.uniq.each do |rmrecnbr|
+  #     if rmrecnbrs.count(rmrecnbr) == params.count
+  #       result << rmrecnbr
+  #     end
+  #   end
+  # }
 
   scope :bluray_dvd, -> {
     where(chrstc_descrshort: ["BluRay/DVD", "BluRay"]) }

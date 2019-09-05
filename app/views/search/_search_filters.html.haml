@@ -1,4 +1,4 @@
-= search_form_for @q, remote: false do |f|
+= search_form_for @q, remote: true do |f|
   %section.search-filters
     .flex.justify-between.px-4.py-3
       .relative.max-w-lg.w-full
@@ -119,19 +119,19 @@
             %span.filters-section-header Projection
             .characteristics-arrangement
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "Proj35mm", is_checked?("Proj35mm"), {class: 'form-checkbox', "data-remote" => "true"  })
+                = check_box_tag('q[rooms_with_all_characteristics][]', "Proj35mm", is_checked?("Proj35mm"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span 35mm Film
 
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjD-Cin", is_checked?("ProjD-Cin"), {class: 'form-checkbox', "data-remote" => "true"  })
+                = check_box_tag('q[rooms_with_all_characteristics][]', "ProjD-Cin", is_checked?("ProjD-Cin"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span Digital Cinema (DCP)
 
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjDigit", is_checked?("ProjDigit"), {class: 'form-checkbox', "data-remote" => "true"  })
+                = check_box_tag('q[rooms_with_all_characteristics][]', "ProjDigit", is_checked?("ProjDigit"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span Digital Data & Video
 
               .filter-item-label
-                = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "ProjSlide", is_checked?("ProjSlide"), {class: 'form-checkbox', "data-remote" => "true"  })
+                = check_box_tag('q[rooms_with_all_characteristics][]', "ProjSlide", is_checked?("ProjSlide"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span Slide Projector
 
     .filter-tools
@@ -139,7 +139,7 @@
         = f.submit
         = clear_filter
       .search-results#rooms-search-matches.inline-flex
-        = @q.result.size
+        = @results.size
         .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
       .sort-by-options
         Sort:
