@@ -6,7 +6,7 @@ ruby "2.6.4"
 # gem "rails", "6.0.0.rc1"
 gem 'rails', '~> 6.0.0'
 gem 'ransack'
-
+gem 'ransack_memory'
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
 # Use Puma as the app server

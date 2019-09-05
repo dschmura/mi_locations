@@ -34,35 +34,45 @@ class Room < ApplicationRecord
 
   validates_uniqueness_of :rmrecnbr
 
-  scope :bluray_dvd, -> {
-    RoomCharacteristic.bluray_dvd.pluck(:rmrecnbr) }
-  scope :chalkboard, -> {
-    RoomCharacteristic.chalkboard }
-  scope :doccam, -> {
-    RoomCharacteristic.doccam }
-  scope :interactive_screen, -> {
-    RoomCharacteristic.interactive_screen }
-  scope :instructor_computer, -> {
-    RoomCharacteristic.instructor_computer }
-  scope :lecture_capture, ->  {RoomCharacteristic
-    lecture_capture}
-  scope :projector_16mm, -> {
-    RoomCharacteristic.projector_16mm}
-  scope :projector_35mm, -> {
-    RoomCharacteristic.projector_35mm}
-  scope :projector_digital_cinema, -> {
-    RoomCharacteristic.projector_digital_cinema}
-  scope :projector_digial, -> {
-    RoomCharacteristic.projector_digial}
-  scope :projector_slide, -> {
-    RoomCharacteristic.projector_slide}
-  scope :vcr, -> {
-    RoomCharacteristic.vcr }
-  scope :video_conf, -> {
-    RoomCharacteristic.video_conf }
-  scope :whiteboard, -> {
-    RoomCharacteristic.whiteboard
+  # ransack_alias :rooms_with_all_characteristics, :author_first_name_or_author_last_name
+
+  scope :rooms_with_all, -> (params) {
+    where(rmrecnbr: RoomCharacteristic.has_all_characteristics(params))
+    # joins(:room_characteristics).merge(RoomCharacteristic.contains_all(params))
   }
+
+  scope :bluray_dvd, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.bluray_dvd) }
+  scope :chalkboard, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.chalkboard) }
+  scope :doccam, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.doccam) }
+  scope :interactive_screen, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.interactive_screen) }
+  scope :instructor_computer, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.instructor_computer)}
+  scope :lecture_capture, ->  {
+    joins(:room_characteristics).merge(RoomCharacteristic.lecture_capture) }
+  scope :projector_16mm, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.projector_16mm) }
+  scope :projector_35mm, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.projector_35mm) }
+  scope :projector_digital_cinema, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.projector_digital_cinema) }
+  scope :projector_digial, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.projector_digial) }
+  scope :projector_slide, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.projector_slide) }
+  scope :vcr, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.vcr) }
+  scope :video_conf, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.video_conf) }
+  scope :whiteboard, -> {
+    joins(:room_characteristics).merge(RoomCharacteristic.whiteboard) }
+
+  def self.with_doccam
+    joins(:room_characteristics).merge(RoomCharacteristic.doccam)
+  end
 
   def self.classrooms
     where(rmtyp_description: ["Classroom"])

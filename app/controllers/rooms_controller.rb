@@ -2,11 +2,21 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :toggle_visibility]
 
   def index
+    if params[:q] && params[:q][:rooms_with_all_characteristics]
+    #   Need to run a query to get the rooms
+      @params = params[:q][:rooms_with_all_characteristics]
+
+      @char_rooms = Room.rooms_with_all(@params)
+
+
+      # RoomCharacterisic.contains_all(:params[:q][:rooms_with_all_characteristics].to_a)
+    #   Room.rooms_with_all_characteristics()
+    end
     @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
     @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
     @rooms = @q.result(distinct: true).page(params[:page])
     respond_to do |format|
-      format.js
+      # format.js
       format.html
       format.json { render json: @rooms }
 
