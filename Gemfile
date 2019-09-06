@@ -44,7 +44,8 @@ gem "kaminari"
 gem "activerecord-import"
 
 gem "listen"
-# gem 'devise', '~> 4.4.3'
+gem 'devise' , '~> 4.7.0'
+
 # gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 # gem 'omniauth-facebook', '~> 4.0'
 # gem 'omniauth-twitter', '~> 1.4'

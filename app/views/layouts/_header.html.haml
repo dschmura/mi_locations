@@ -25,17 +25,27 @@
         .header-link
           = link_to "Classrooms", rooms_path
 
+
       .user-actions
+
         .flex.items-center
           %img.user-avatar{:alt => "User Photo", :src => "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1=eyJhcHBfaWQiOjEyMDd9=format=crop=256=80", "data-action" => "click->toggle#dropdowntoggle" }
             %span.user-name Guest User
 
 
+
         .mt-5.sm:hidden
           .user-action-link.-mt-3= link_to "Account settings", "#"
           .user-action-link= link_to "Support", "#"
-          .user-action-link= link_to "Sign out", "#"
+          - if user_signed_in?
+            .user-action-link= link_to "Sign out", "#"
+          - else
+            .user-action-link= link_to 'Sign in', new_user_session_path
         .user-action-dropdown.hidden{"data-target" => "toggle.dropdown"}
+
           .user-action-link.mt-1= link_to "Account settings", "#"
           .user-action-link= link_to "Support", "#"
-          .user-action-link= link_to "Sign out", "#"
+          - if user_signed_in?
+            .user-action-link= link_to "Sign out", "#"
+          - else
+            .user-action-link= link_to 'Sign in', new_user_session_path
