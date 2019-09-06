@@ -1,4 +1,4 @@
-= search_form_for @q, remote: true do |f|
+= search_form_for @q, remote: false do |f|
   %section.search-filters
     .flex.justify-between.px-4.py-3
       .relative.max-w-lg.w-full
@@ -7,6 +7,9 @@
             %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
 
         = f.search_field :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-input rounded-lg', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+      -# .search-results#rooms-search-matches.inline-flex
+      -#   = @results.size
+      -#   .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
 
       .filters-button{"data-action" => "click->toggle#filtertoggle"}
         %svg.h-6.w-6.fill-current.text-gray-500{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", "data-target" => "toggle.filters" }
@@ -17,6 +20,22 @@
 
 
         %span.ml-2 Filters
+
+
+    .filter-tools
+
+      .search-results#rooms-search-matches.inline-flex
+        = @results.size
+        .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
+      .sort-by-options
+        Sort:
+        .sort-by-capacity.sort-by-link
+          = sort_link(@q, :instructional_seating_count) do
+            Capacity
+
+        .sort-by-room-number.sort-by-link
+          = sort_link(@q, :room_number) do
+            Room number
 
     .filters-dropdown.hidden{ "data-target" => "toggle.filters" }
       .filters-container
@@ -134,19 +153,6 @@
                 = check_box_tag('q[rooms_with_all_characteristics][]', "ProjSlide", is_checked?("ProjSlide"), {class: 'form-checkbox', "data-remote" => "true"  })
                 %span Slide Projector
 
-    .filter-tools
       .submit-search
-        = f.submit
-        = clear_filter
-      .search-results#rooms-search-matches.inline-flex
-        = @results.size
-        .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
-      .sort-by-options
-        Sort:
-        .sort-by-capacity.sort-by-link
-          = sort_link(@q, :instructional_seating_count) do
-            Capacity
-
-        .sort-by-room-number.sort-by-link
-          = sort_link(@q, :room_number) do
-            Room number
+        .clear-filters= clear_filter
+        = f.submit "Apply Filters"

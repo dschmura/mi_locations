@@ -6,9 +6,8 @@ class RoomsController < ApplicationController
 
       @params = params[:q][:rooms_with_all_characteristics]
 
-      # @char_rooms = Room.classrooms.rooms_with_all(@params)
-
       @all_chars = RoomCharacteristic.has_all_characteristics(@params)
+
       @char_rooms = Room.classrooms.includes(:building, :room_characteristics).where(rmrecnbr: @all_chars)
 
 
@@ -27,7 +26,7 @@ class RoomsController < ApplicationController
       @rooms = @results.page(params[:page])
     end
     respond_to do |format|
-      format.js
+      # format.js
       format.html
       format.json { render json: @rooms }
 

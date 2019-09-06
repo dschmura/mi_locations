@@ -4,6 +4,8 @@
 
 -# #rooms-results
 .rooms-cards
+  .rooms-map.hidden{ "data-target" => "toggle.roomsmap" }
+    Map Goes Here
   = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 
 .rooms-map-toggle{"data-action" => "click->toggle#roomsmaptoggle"}
