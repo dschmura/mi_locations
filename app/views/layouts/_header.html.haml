@@ -38,14 +38,14 @@
         .mt-5.sm:hidden
 
           - if user_signed_in?
-            .user-action-link.-mt-3= link_to "Account settings", edit_user_registration_path
+            -# .user-action-link.-mt-3= link_to "Account settings", edit_user_registration_path
             .user-action-link= link_to('Sign out', destroy_user_session_path, method: :delete)
           - else
             .user-action-link= link_to 'Sign in', new_user_session_path
         .user-action-dropdown.hidden{"data-target" => "toggle.dropdown"}
 
           - if user_signed_in?
-            .user-action-link.mt-1= link_to "Account settings", edit_user_registration_path
+            -# .user-action-link.mt-1= link_to "Account settings", edit_user_registration_path
             .user-action-link= link_to('Sign out', destroy_user_session_path, method: :delete)
           - else
             .user-action-link= link_to 'Sign in', new_user_session_path
