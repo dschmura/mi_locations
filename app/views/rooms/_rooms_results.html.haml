@@ -3,8 +3,10 @@
     = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
 
 -# #rooms-results
+#rooms_found.hidden
+  =@rooms_json
 .rooms-cards
-  .rooms-map.hidden{ "data-target" => "toggle.roomsmap" }
+  #map.rooms-map.hidden{ "data-target" => "toggle.roomsmap" }
     Map Goes Here
   = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 

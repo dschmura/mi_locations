@@ -31,6 +31,9 @@
 
       .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
         = render "room_visibility_toggle",  room: room
+      .local 
+      - if room.latitude
+        = "#{room.latitude}, #{room.longitude}"
 
       -# .pricing
       -#   .price

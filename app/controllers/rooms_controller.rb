@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
 
       @results = @q.result.merge(@char_rooms)
       @rooms = @results.page(params[:page])
-
+      @rooms_json = @rooms.to_json
 
     else
       @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])

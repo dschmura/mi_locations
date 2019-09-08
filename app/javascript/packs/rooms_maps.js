@@ -26,21 +26,44 @@ class Map {
       center: { lat: 42.276868, lng: -83.738206 },
       zoom: 14
     });
-    var markers = [
-      ['First Building', 42.276868, -83.738206],
-      ['Second building', 42.276868, -83.758206 ]
+    var mapItems = document.getElementById('rooms_found');
+    var result_items = JSON.parse(mapItems.innerHTML);
+    var markers = result_items.map(function (obj) {
+      var building = new Array()
+      building[0] = '' + obj.facility_code_heprod + '';
+      building[1] = obj.latitude;
+      building[2] = obj.longitude;
+      return building;
+    });
+    
+    console.log(markers);
+    var markers1 = [
+
+      [ '120 WEISER HALL', 42.276, -83.736 ],
+      ['Second Building', 42.276868, -83.738206],
+
     ];
+    // console.log(markers1);
 
     // Info Window Content
     var infoWindowContent = [
       ['<div class="info_content">' +
-      '<h3>First building</h3>' +
+      '<h3>' + markers[0][0] + '</h3>' +
       '<p>The First Building is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
       ['<div class="info_content">' +
-      '<h3>Second building</h3>' +
+      '<h3>' + markers[1][0] + '</h3>' +
       '<p>The second building is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
       '</div>']
   ];
+  //   var infoWindowContent = [
+  //     ['<div class="info_content">' +
+  //     '<h3>'First building'</h3>' +
+  //     '<p>The First Building is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
+  //     ['<div class="info_content">' +
+  //     '<h3>Second building</h3>' +
+  //     '<p>The second building is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
+  //     '</div>']
+  // ];
 
       // Display multiple markers on a map
       var infoWindow = new google.maps.InfoWindow(), marker, i;

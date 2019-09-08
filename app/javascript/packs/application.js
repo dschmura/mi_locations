@@ -75,7 +75,5 @@ document.addEventListener('turbolinks:load', () => {
 
   Map.loadGoogleMapsApi().then(function(googleMaps) {
     Map.createMap(googleMaps, mapElement);
-    // Map.createMarker(googleMaps, mapElement);
-
   });
 });
