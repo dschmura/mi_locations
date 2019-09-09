@@ -17,18 +17,19 @@ class RoomsController < ApplicationController
 
       @results = @q.result.merge(@char_rooms)
       @rooms = @results.page(params[:page])
-
+      @rooms_json = @rooms.to_json(:include => :building)
 
     else
       @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
       @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
       @results = @q.result(distinct: true)
       @rooms = @results.page(params[:page])
+      @rooms_json = @rooms.to_json(:include => :building)
     end
     respond_to do |format|
       # format.js
       format.html
-      format.json { render json: @rooms }
+      format.json { render json: @rooms.to_json(:include => :building) }
 
     end
   end
