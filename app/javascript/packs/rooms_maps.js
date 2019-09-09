@@ -1,15 +1,3 @@
-// import { Map } from './rooms_maps';
-// document.addEventListener("DOMContentLoaded", function() {
-//   let mapElement = document.getElementById('map');
-
-//   Map.loadGoogleMapsApi().then(function(googleMaps) {
-//     Map.createMap(googleMaps, mapElement);
-//     // Map.createMarker(googleMaps, mapElement);
-
-//   });
-// });
-
-
 
 const loadGoogleMapsApi = require('load-google-maps-api');
 class Map {
@@ -34,19 +22,19 @@ class Map {
       return building;
     });
 
-    // Info Window Content
-    var infoWindowContent = [
-      ['<div class="info_content">' +
-      '<h3>' + markers[0][0] + '</h3>' +
-      '<p>The First Building is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
-      ['<div class="info_content">' +
-      '<h3>' + markers[1][0] + '</h3>' +
-      '<p>The second building is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
-      '</div>']
-  ];
-
-      // Display multiple markers on a map
-      var infoWindow = new google.maps.InfoWindow(), marker, i;
+  //   // Info Window Content
+  var infoWindowContent = [];
+  for( var info=0; info<markers.length; info++){
+    var temp = [ '<div class="info_content">' + 
+            '<h3>' + markers[info][0] + 
+            '</h3>' + 
+            '<p>The First Building is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +
+            '</div>' ];
+            infoWindowContent[info] = temp;
+  }
+  
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
     // Loop through our array of markers & place each one on the map
     for( var i = 0; i < markers.length; i++ ) {
       var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
