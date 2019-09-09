@@ -15,14 +15,14 @@ class RoomsController < ApplicationController
 
       @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
 
-      @results = @q.result.merge(@char_rooms)
+      @results = policy_scope( @q.result.merge(@char_rooms) )
       @rooms = @results.page(params[:page])
       @rooms_json = @rooms.to_json(:include => :building)
 
     else
       @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
       @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
-      @results = @q.result(distinct: true)
+      @results = policy_scope( @q.result(distinct: true) )
       @rooms = @results.page(params[:page])
       @rooms_json = @rooms.to_json(:include => :building)
     end
@@ -35,6 +35,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+
   end
 
   def search
@@ -67,6 +68,7 @@ class RoomsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_room
     @room = Room.find(params[:id])
+    authorize @room
     # @room = Room.find_by facility_code_heprod:(params[:id].upcase) || Room.find(params[:id])
   end
 

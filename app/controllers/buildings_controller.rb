@@ -2,8 +2,10 @@ class BuildingsController < ApplicationController
   before_action :set_building, only: [:show, :update]
 
   def index
+
     @q = Building.ransack(params[:q])
-    @buildings = @q.result(distinct: true).includes(:rooms, :team_learning_classrooms).page
+    @buildings = policy_scope(@q.result(distinct: true).includes(:rooms, :team_learning_classrooms).page)
+
     respond_to do |format|
       format.js
       format.html
@@ -37,6 +39,7 @@ class BuildingsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_building
     @building = Building.find(params[:id])
+    authorize @building
   end
 
   def building_params
