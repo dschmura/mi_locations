@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
+
   def index
+
     @q = Room.classrooms.ransack(params[:q])
-    @rooms = @q.result(distinct: true).includes(:building, :room_characteristics).page(params[:page])
+    @rooms = policy_scope(@q.result(distinct: true).includes(:building, :room_characteristics).page(params[:page]))
 
     respond_to do |format|
       format.html
@@ -11,11 +13,18 @@ class PagesController < ApplicationController
   end
 
   def about
+    authorize :page
   end
 
   def contact
+    authorize :page
   end
 
   def privacy
+    authorize :page
+  end
+
+  def project_status
+    authorize :page
   end
 end
