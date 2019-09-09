@@ -30,12 +30,12 @@ class Map {
     var result_items = JSON.parse(mapItems.innerHTML);
     var markers = result_items.map(function (obj) {
       var building = new Array()
-      building[0] = '' + obj.facility_code_heprod + '';
-      building[1] = obj.latitude;
-      building[2] = obj.longitude;
+      building[0] = '' + obj.building.name + '';
+      building[1] = obj.building.latitude;
+      building[2] = obj.building.longitude;
       return building;
     });
-    
+    console.log(result_items);
     console.log(markers);
     var markers1 = [
 
