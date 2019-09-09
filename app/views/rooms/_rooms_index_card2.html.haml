@@ -29,8 +29,9 @@
             %i.fas.fa-directions
             Directions
 
-      .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
-        = render "room_visibility_toggle",  room: room
+      - if user_signed_in?
+        .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
+          = render "room_visibility_toggle",  room: room
 
       -# .pricing
       -#   .price
