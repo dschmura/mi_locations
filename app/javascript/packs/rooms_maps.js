@@ -15,8 +15,6 @@ const loadGoogleMapsApi = require('load-google-maps-api');
 class Map {
 
   static loadGoogleMapsApi() {
-    // TODO
-    // return loadGoogleMapsApi({ key: "<%= Rails.application.credentials[:google_geocoder_api_key] %>" });
     return loadGoogleMapsApi({ key: "AIzaSyDanqx5Jg7UKmeh9tTVeV6ovANhFhxOFhk" });
   }
   static createMap(googleMaps, mapElement) {
@@ -35,15 +33,6 @@ class Map {
       building[2] = obj.building.longitude;
       return building;
     });
-    console.log(result_items);
-    console.log(markers);
-    var markers1 = [
-
-      [ '120 WEISER HALL', 42.276, -83.736 ],
-      ['Second Building', 42.276868, -83.738206],
-
-    ];
-    // console.log(markers1);
 
     // Info Window Content
     var infoWindowContent = [
@@ -55,15 +44,6 @@ class Map {
       '<p>The second building is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
       '</div>']
   ];
-  //   var infoWindowContent = [
-  //     ['<div class="info_content">' +
-  //     '<h3>'First building'</h3>' +
-  //     '<p>The First Building is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
-  //     ['<div class="info_content">' +
-  //     '<h3>Second building</h3>' +
-  //     '<p>The second building is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
-  //     '</div>']
-  // ];
 
       // Display multiple markers on a map
       var infoWindow = new google.maps.InfoWindow(), marker, i;
