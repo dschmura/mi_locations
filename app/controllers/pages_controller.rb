@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
   def about
     authorize :page
+
   end
 
   def contact

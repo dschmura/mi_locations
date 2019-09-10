@@ -2,13 +2,18 @@ class AlertsController < ApplicationController
   before_action :load_alertable
   def new
     @alert = Alert.new
+    authorize @alert
   end
 
   def edit
+    authorize @alert
   end
 
   def create
+
     @alert = @alertable.alerts.new(alert_params)
+    authorize @alert
+
     if @alert.save
       redirect_to @alertable, notice: "Your Alert was successfully created."
     else
@@ -19,6 +24,7 @@ class AlertsController < ApplicationController
 
   def destroy
     @alert = Alert.find(params[:id])
+    authorize @alert
     @alertable = @alert.alertable
     if @alert.destroy
       flash[:alert] = "Alert Destroyed!"

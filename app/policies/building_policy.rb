@@ -6,6 +6,8 @@ class BuildingPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    if user
+      true
+    end
   end
 end

@@ -7,7 +7,8 @@
 = @room.building.nick_name.titleize
 
 = render partial: 'alerts/alerts', locals: {alertable: @room}
-= render partial: 'alerts/form', locals: {alertable: @room}
+- if policy(@room).update?
+  = render partial: 'alerts/form', locals: {alertable: @room}
 
 %h3 Add an Image
 
