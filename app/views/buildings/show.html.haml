@@ -6,7 +6,8 @@
   = image_tag @building.building_image, alt: "#{@building.name.titleize}"
 .building-alerts
   = render partial: 'alerts/alerts', locals: {alertable: @building}
-  = render partial: 'alerts/form', locals: {alertable: @building}
+  - if policy(@building).update?
+    = render partial: 'alerts/form', locals: {alertable: @building}
 .flex.flex-row.justify-around
   .building-classrooms
     %h3= "Classrooms in #{@building.nick_name.titleize}"
@@ -17,11 +18,12 @@
   .building-floors
     %i.fas.fa-layer-group
     %h3= "Floors in #{@building.name.titleize }"
-
     = render @building.floors
-    %h3 Add a Floor
-    %i.fas.fa-layer-plus
-    = render partial: 'floors/form', locals: {building: @building}
+    - if policy(@building).update?
 
-    %h3 Add an Image
-    = render partial: 'building_image_form', locals: {building: @building}
+      %h3 Add a Floor
+      %i.fas.fa-layer-plus
+      = render partial: 'floors/form', locals: {building: @building}
+
+      %h3 Add an Image
+      = render partial: 'building_image_form', locals: {building: @building}

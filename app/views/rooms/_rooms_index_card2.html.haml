@@ -29,7 +29,8 @@
             %i.fas.fa-directions
             Directions
 
-      - if user_signed_in?
+
+      - if policy(room).update?
         .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
           = render "room_visibility_toggle",  room: room
 
