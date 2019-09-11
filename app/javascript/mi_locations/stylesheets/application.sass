@@ -17,7 +17,10 @@ body[data-environment="development"]
 .debug_dump
   @apply bg-blue-100 border-4 border-red-800 rounded-lg p-4 text-sm font-mono text-blue-900 mx-auto my-4 max-w-2xl w-auto
 
-
+.content
+  @apply relative
+  .flash-alerts
+    @apply  absolute z-50
 
 h4
   @apply text-2xl mt-4
@@ -33,7 +36,7 @@ a
     @apply ml-2 h-12 w-12
 
 .flash-alerts
-  @apply bg-blue-400
+  @apply bg-blue-400 absolute
     svg
     @apply text-xl mx-2
 
