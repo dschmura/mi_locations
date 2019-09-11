@@ -27,7 +27,7 @@ class FloorsController < ApplicationController
   # POST /floors.json
   def create
     @floor = @building.floors.new(floor_params)
-
+    authorize @floor
     respond_to do |format|
       if @floor.save
 
