@@ -10,20 +10,22 @@
 
 .room-content
   .room-title
-    = @room.room_number
-    = @room.building.nick_name.titleize
+    = @room.title
 
   .room-capacity
     %i.fas.fa-users
     = "Capacity #{@room.instructional_seating_count} "
-
   %hr
 
   .room-features
     %h2 Features
 
+    -# - @feature_characteristics.each do |feature|
+
     %li
-      %i.far.fa-envelope
+
+      = @room.room_characteristics.first.characteristic_icon
+      %i{ class: "#{@room.room_characteristics.first.characteristic_icon}" }
       Instructor Computer
     %li
       %i.far.fa-envelope
@@ -34,14 +36,16 @@
 
     %hr
     - @room.room_characteristics.each do |rc|
-      -# = room_characteristic_chicklet(rc).html_safe
-      = room_characteristic_icon(rc).html_safe
-      %b= rc.chrstc_descrshort
-      = rc.chrstc_descr
-      %br
-      = rc.chrstc_desc254
+      .room-characteristic
+        %i{ class: "#{rc.characteristic_icon}" }
 
-    = @room.room_characteristics.class
+        %b= rc.characteristic_label
+        = rc.chrstc_descr
+        %br
+        = rc.chrstc_desc254
+      %hr
+
+
   %hr
   .room-writing-surfaces
     %h2 Writing Surfaces
