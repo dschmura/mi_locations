@@ -1,15 +1,58 @@
-%h1 Rooms#show
-%p Find me in app/views/rooms/show.html.haml
-- if @room.room_image.attached?
-  = image_tag @room.room_image, alt: "#{@room.room_number.titleize} #{@room.building.nick_name.titleize} "
 
-= @room.room_number
-= @room.building.nick_name.titleize
 
+.room-show-image
+  = link_to @room do
+    - if @room.room_image.attached?
+      = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
+    - else
+      = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 = render partial: 'alerts/alerts', locals: {alertable: @room}
-- if policy(@room).update?
-  = render partial: 'alerts/form', locals: {alertable: @room}
 
-%h3 Add an Image
+.room-content
+  .room-title
+    = @room.room_number
+    = @room.building.nick_name.titleize
 
-= render partial: 'room_image_form', locals: {room: @rooms}
+  .room-capacity
+    %i.fas.fa-users
+    = "Capacity #{@room.instructional_seating_count} "
+
+  %hr
+
+  .room-features
+    %h2 Features
+
+    %li
+      %i.far.fa-envelope
+      Instructor Computer
+    %li
+      %i.far.fa-envelope
+      Document Camera
+    %li
+      %i.far.fa-envelope
+      Interactive Screen
+
+    %hr
+    - @room.room_characteristics.each do |rc|
+      -# = room_characteristic_chicklet(rc).html_safe
+      = room_characteristic_icon(rc).html_safe
+      %b= rc.chrstc_descrshort
+      = rc.chrstc_descr
+      %br
+      = rc.chrstc_desc254
+
+    = @room.room_characteristics.class
+  %hr
+  .room-writing-surfaces
+    %h2 Writing Surfaces
+
+  %hr
+  .room-projection
+    %h2 Projection
+
+  -# - if policy(@room).update?
+    = render partial: 'alerts/form', locals: {alertable: @room}
+
+    %h3 Add an Image
+
+    = render partial: 'room_image_form', locals: {room: @rooms}
