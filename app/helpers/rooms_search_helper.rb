@@ -77,4 +77,5 @@ module RoomsSearchHelper
       params[:q].each_value{ |k| k }.flatten(2).include?(value)
     end
   end
+
 end

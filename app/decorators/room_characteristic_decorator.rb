@@ -66,28 +66,31 @@ class RoomCharacteristicDecorator < Draper::Decorator
   end
 
   def characteristic_label
-    case object
-    when object.chrstc_descr.start_with?('Board:')
-        object.chrstc_descr.sub(/^Board:/, '')
-    when object.chrstc_descr.start_with?('Computer Lab:')
-        object.chrstc_descr.sub(/^Computer Lab:/, '')
-    when object.chrstc_descr.start_with?('Projection:')
-          object.chrstc_descr.sub(/^Projection:/, '')
-    when object.chrstc_descr.start_with?('Equipment:')
-        object.chrstc_descr.sub(/^Equipment:/, '')
-    when object.chrstc_descr.start_with?('Floor:')
-        object.chrstc_descr.sub(/^Floor:/, '')
-    when object.chrstc_descr.start_with?('Layout:')
-        object.chrstc_descr.sub(/^Layout:/, '')
-    when object.chrstc_descr.start_with?('Seating:')
-        object.chrstc_descr.sub(/^Seating:/, '')
-    when object.chrstc_descr.start_with?('Sound Amplification:')
-        object.chrstc_descr.sub(/^Sound Amplification:/, 'Amplification')
-    when object.chrstc_descr.start_with?('Wheelchair Access:')
-        object.chrstc_descr.sub(/^Wheelchair Access: Instructor/, 'Wheelchair Access: Instructor')
+    # case object
+    if object.chrstc_descr.start_with?('Board:')
+        object.chrstc_descr.gsub(/^Board:/, '')
+      elsif object.chrstc_descr.start_with?('Computer Lab:')
+          object.chrstc_descr.sub(/^Computer Lab:/, '')
+      elsif object.chrstc_descr.start_with?('Projection:')
+            object.chrstc_descr.sub(/^Projection:/, '')
+      elsif object.chrstc_descr.start_with?('Ethernet Connection:')
+        object.chrstc_descr.sub(/^Ethernet Connection:/, 'Ethernet:')
+      elsif object.chrstc_descr.start_with?('Equipment:')
+          object.chrstc_descr.sub(/^Equipment:/, '')
+      elsif object.chrstc_descr.start_with?('Floor:')
+          object.chrstc_descr.sub(/^Floor:/, '')
+      elsif object.chrstc_descr.start_with?('Layout:')
+          object.chrstc_descr.sub(/^Layout:/, '')
+      elsif object.chrstc_descr.start_with?('Seating:')
+          object.chrstc_descr.sub(/^Seating:/, '')
+      elsif object.chrstc_descr.start_with?('Sound Amplification:')
+          object.chrstc_descr.sub(/^Sound Amplification:/, 'Amplification')
+      elsif object.chrstc_descr.start_with?('Wheelchair Access:')
+          object.chrstc_descr.sub(/^Wheelchair Access: Instructor/, 'Wheelchair Access: Instructor')
     else
       object.chrstc_descr
     end
   end
+
 
 end

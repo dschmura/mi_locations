@@ -71,4 +71,55 @@ class RoomCharacteristic < ApplicationRecord
      where(chrstc_descrshort: ["VideoConf"]) }
   scope :whiteboard, -> {
     where(chrstc_descrshort: ["Whtbrd>25", "Whtbrd"]) }
+
+
+  def feature?
+    amenities = [ "AssistLis", "Blackout", "DocCam", "Ethernet", "EthrStud", "IntrScreen", "LectureCap", "VideoConf", "VCR"]
+    if amenities.include?(self.chrstc_descrshort)
+      self
+    end
+  end
+
+  def chalkboard_feature?
+    chalkboards = [ "Chkbrd", "Chkbrd>25"]
+    if chalkboards.include?(self.chrstc_descrshort)
+      self
+    end
+  end
+
+  def chalkboard_feature?
+    chalkboards = [ "Chkbrd", "Chkbrd>25"]
+    if chalkboards.include?(self.chrstc_descrshort)
+      self
+    end
+  end
+
+  def instructor_computer?
+    amenities = [ "InstrComp", "CompPodPC", "CompPodMac"]
+    if amenities.include?(self.chrstc_descrshort)
+      self
+    end
+  end
+
+  def ethernet?
+    ethernet = ["Proj16mm", "Proj35mm", "ProjD-Cin", "ProjDigit", "ProjSlide"]
+    if ethernet.include?(self.chrstc_descrshort)
+      
+    end
+  end
+
+  def projection_feature?
+    projectors = ["Proj16mm", "Proj35mm", "ProjD-Cin", "ProjDigit", "ProjSlide"]
+    if projectors.include?(self.chrstc_descrshort)
+      self
+    end
+  end
+
+
+  def whiteboard_feature?
+    whiteboards = [ "Whtbrd", "Whtbrd>25"]
+    if whiteboards.include?(self.chrstc_descrshort)
+      self
+    end
+  end
 end

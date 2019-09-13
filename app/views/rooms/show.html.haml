@@ -1,4 +1,4 @@
-
+-# = console
 
 .room-show-image
   = link_to @room do
@@ -8,55 +8,53 @@
       = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 = render partial: 'alerts/alerts', locals: {alertable: @room}
 
-.room-content
-  .room-title
-    = @room.title
+.room-info-pane
+  .left
+    .room-title
+      = @room.title
 
-  .room-capacity
-    %i.fas.fa-users
-    = "Capacity #{@room.instructional_seating_count} "
-  %hr
-
-  .room-features
-    %h2 Features
-
-    -# - @feature_characteristics.each do |feature|
-
-    %li
-
-      = @room.room_characteristics.first.characteristic_icon
-      %i{ class: "#{@room.room_characteristics.first.characteristic_icon}" }
-      Instructor Computer
-    %li
-      %i.far.fa-envelope
-      Document Camera
-    %li
-      %i.far.fa-envelope
-      Interactive Screen
-
-    %hr
-    - @room.room_characteristics.each do |rc|
-      .room-characteristic
-        %i{ class: "#{rc.characteristic_icon}" }
-
-        %b= rc.characteristic_label
-        = rc.chrstc_descr
-        %br
-        = rc.chrstc_desc254
-      %hr
+    .room-capacity
+      %i.fas.fa-users
+      = "Capacity #{@room.instructional_seating_count} "
+  .right
 
 
-  %hr
-  .room-writing-surfaces
+%section.room-features
+  %h2
+    Room Features
+  .px-8
+    
+    .room-chars
+      - @room.room_characteristics.select{ |c| c.feature?}.each do |rc|
+        .room-char
+          %i{ class: "#{rc.characteristic_icon}" }
+          %b= rc.characteristic_label
+          .room-char-description
+            = rc.chrstc_desc254
+
+
+%section.secondary-features
+  .writing-surfaces
     %h2 Writing Surfaces
 
-  %hr
-  .room-projection
+    .room-chars
+      -@room.room_characteristics.select{ |c| c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
+        .room-characteristic
+          %i{ class: "#{rc.characteristic_icon}" }
+          %b= rc.characteristic_label
+
+  .projection
     %h2 Projection
+    .room-chars
+      -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|
+        .room-characteristic
+          %i{ class: "#{rc.characteristic_icon}" }
+          %b= rc.characteristic_label
 
-  -# - if policy(@room).update?
-    = render partial: 'alerts/form', locals: {alertable: @room}
 
-    %h3 Add an Image
+-# - if policy(@room).update?
+  = render partial: 'alerts/form', locals: {alertable: @room}
 
-    = render partial: 'room_image_form', locals: {room: @rooms}
+  %h3 Add an Image
+
+  = render partial: 'room_image_form', locals: {room: @rooms}

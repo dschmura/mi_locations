@@ -1,15 +1,64 @@
-.room-content
-  @apply px-4
-  h2
-    @apply text-red-500
-.room-title
-  @apply text-3xl font-light
 
+.room-title
+  @apply text-2xl font-light
 
 .room-show-image
   @apply h-full
 
-.room-features
+.features-group
+  @apply flex flex-col w-full  
+  h2
+    @apply text-gray-700 text-2xl w-full
 
-.room-writing-surfaces
-.room-projection
+.room-features
+  h2
+    @apply text-3xl uppercase font-light text-gray-800 text-left ml-8 mb-4 
+  @apply  py-12 bg-blue-100
+
+.room-char-description
+  @apply 
+  
+.secondary-features
+  @apply mx-auto py-12 bg-green-100 flex flex-col px-8
+  @screen md 
+    @apply flex-row 
+  h2
+    @apply text-3xl uppercase font-light text-gray-800 text-left  
+
+  .writing-surfaces
+    @screen md
+      @apply w-1/2
+    .room-chars 
+      @apply flex flex-col text-left 
+      .room-characteristic
+        @apply self-start
+
+  .projection
+    @screen md
+      @apply w-1/2
+.room-info-pane
+  @apply h-32 flex flex-row px-8
+
+.room-chars
+  @apply  block w-full
+  @screen sm
+    @apply flex flex-wrap
+
+.room-char
+  @apply w-full px-5 text-left mb-8 text-blue-800 text-xl font-light
+  @screen sm 
+    @apply w-1/2 
+  @screen md
+    @apply w-1/4
+
+.room-characteristic
+  @apply inline-flex text-lg font-light  py-2 self-center text-blue-800
+  svg
+    @apply mr-2 self-center
+
+// .secondary-features
+//   @apply flex flex-row w-full px-8 bg-gray-300
+//   .room-writing-surfaces
+//     @apply w-1/2 bg-pink-400
+//   .room-projection
+//     @apply w-1/2 bg-yellow-300
