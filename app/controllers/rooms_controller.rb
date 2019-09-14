@@ -5,11 +5,9 @@ class RoomsController < ApplicationController
     if params[:q] && params[:q][:rooms_with_all_characteristics]
 
       @params = params[:q][:rooms_with_all_characteristics]
-
       @all_chars = RoomCharacteristic.has_all_characteristics(@params)
 
       @char_rooms = Room.classrooms.includes(:building, :room_characteristics).where(rmrecnbr: @all_chars)
-
 
       @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
 
@@ -35,6 +33,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room_json = @room.to_json(:include => :building)
 
   end
 
