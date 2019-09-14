@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "dropdown", "filters", "mainnav", "roomsmap", "instructor_computer_checkbox"]
+  static targets = [ "dropdown", "filters", "mainnav", "roomsmap", "roomsmap", "instructor_computer_checkbox"]
 
   mainnavtoggle() {
     event.preventDefault()
@@ -16,7 +16,17 @@ export default class extends Controller {
     this.roomsmapTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
 
-    })
+    });
+    window.scrollTo(0, 0);
+  }
+
+  roommaptoggle() {
+    event.preventDefault()
+    this.roomsmapTargets.forEach((el, i) => {
+      el.classList.toggle("hidden")
+
+    });
+    window.scrollTo(0, 0);
   }
   // instructor_computer_checkboxtoggle(){
   //   this.instructor_computer_checkboxTargets.forEach((el, i) => {

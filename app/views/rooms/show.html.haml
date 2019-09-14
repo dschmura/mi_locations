@@ -1,60 +1,85 @@
--# = console
+- content_for :head do
+  = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
+.room-show{ "data-controller" => "toggle"}
+  .room-show-image
+    = link_to @room do
+      - if @room.room_image.attached?
+        = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
+      - else
+        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 
-.room-show-image
-  = link_to @room do
-    - if @room.room_image.attached?
-      = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
-    - else
-      = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
-= render partial: 'alerts/alerts', locals: {alertable: @room}
+    .room-map-toggle{"data-action" => "click->toggle#roommaptoggle", }
+      .map{ "data-target" => "toggle.roomsmap"}
+        %i.fas.fa-map
+        Map
+      .close-map.hidden{ "data-target" => "toggle.roomsmap"}
+        %i.fas.fa-map
+        Close
+      
 
-.room-info-pane
-  .left
-    .room-title
-      = @room.title
+  #rooms_found.hidden
+    = @room_json
 
-    .room-capacity
-      %i.fas.fa-users
-      = "Capacity #{@room.instructional_seating_count} "
-  .right
-
-
-%section.room-features
-  %h2
-    Room Features
-  .px-8
+  #map.rooms-map.hidden{ "data-target" => "toggle.roomsmap" }
+    Map Goes Here
     
-    .room-chars
-      - @room.room_characteristics.select{ |c| c.feature?}.each do |rc|
-        .room-char
-          %i{ class: "#{rc.characteristic_icon}" }
-          %b= rc.characteristic_label
-          .room-char-description
-            = rc.chrstc_desc254
+  = render partial: 'alerts/alerts', locals: {alertable: @room}
+
+  .room-info-pane
+    .left
+      .room-title
+        = @room.title
+
+      .room-capacity
+        %i.fas.fa-users
+        = "Capacity #{@room.instructional_seating_count} "
+    .right
+      This isn't right (Think about it...)
+      %li Support
+      %li Scheduling
 
 
-%section.secondary-features
-  .writing-surfaces
-    %h2 Writing Surfaces
-
-    .room-chars
-      -@room.room_characteristics.select{ |c| c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
-        .room-characteristic
-          %i{ class: "#{rc.characteristic_icon}" }
-          %b= rc.characteristic_label
-
-  .projection
-    %h2 Projection
-    .room-chars
-      -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|
-        .room-characteristic
-          %i{ class: "#{rc.characteristic_icon}" }
-          %b= rc.characteristic_label
+  %section.room-features
+    %h2
+      Room Features
+    .px-8
+      
+      .room-chars
+        - @room.room_characteristics.select{ |c| c.feature?}.each do |rc|
+          .room-char
+            %i{ class: "#{rc.characteristic_icon}" }
+            %b= rc.characteristic_label
+            .room-char-description
+              = rc.chrstc_desc254
 
 
--# - if policy(@room).update?
-  = render partial: 'alerts/form', locals: {alertable: @room}
+  %section.secondary-features
+    .writing-surfaces
+      %h2 Writing Surfaces
 
-  %h3 Add an Image
+      .room-chars
+        -@room.room_characteristics.select{ |c| c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
+          .room-char
+            %i{ class: "#{rc.characteristic_icon}" }
+            %b= rc.characteristic_label
+            -# .room-char-description
+            -#   = rc.chrstc_desc254
 
-  = render partial: 'room_image_form', locals: {room: @rooms}
+    .projection
+      %h2 Projection
+      .room-chars
+        -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|
+          .room-char
+            %i{ class: "#{rc.characteristic_icon}" }
+            %b= rc.characteristic_label
+            -# .room-char-description
+            -#   = rc.chrstc_desc254
+
+
+  -# - if policy(@room).update?
+    = render partial: 'alerts/form', locals: {alertable: @room}
+
+    %h3 Add an Image
+
+    = render partial: 'room_image_form', locals: {room: @rooms}
+    

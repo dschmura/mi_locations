@@ -3,15 +3,24 @@
   -# .rooms-index-cards
     = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
 
--# #rooms-results
-#rooms_found.hidden
-  =@rooms_json
-.rooms-cards
-  #map.rooms-map.hidden{ "data-target" => "toggle.roomsmap" }
-    Map Goes Here
-  = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
+  #rooms_found.hidden
+    =@rooms_json
+  .rooms-cards#rooms-cards
+    #map.rooms-map.hidden{ "data-target" => "toggle.roomsmap" }
+      Map Goes Here
+    = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 
-.rooms-map-toggle{"data-action" => "click->toggle#roomsmaptoggle"}
 
-  %i.fas.fa-map
-  Map
+  .rooms-map-toggle{"data-action" => "click->toggle#roomsmaptoggle"}
+    .map{ "data-target" => "toggle.roomsmap"}
+      %i.fas.fa-map
+      Map
+    .close-map.hidden{ "data-target" => "toggle.roomsmap"}
+      %i.fas.fa-map
+      Close
+
+- unless @rooms.current_page == @rooms.total_pages
+  #view-more
+    = link_to_next_page @rooms, 'View More', remote: false
+
+-# = link_to 'TOP', '#', class: 'scroll-to--top'
