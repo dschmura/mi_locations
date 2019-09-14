@@ -6,7 +6,7 @@
   #rooms_found.hidden
     =@rooms_json
   .rooms-cards#rooms-cards
-    #map.rooms-map.hidden{ "data-target" => "toggle.roomsmap" }
+    #map.room-map.hidden{ "data-target" => "toggle.roomsmap" }
       Map Goes Here
     = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 

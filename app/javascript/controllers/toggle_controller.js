@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "dropdown", "filters", "mainnav", "roomsmap", "roomsmap", "instructor_computer_checkbox"]
+  static targets = [ "dropdown", "filters", "mainnav", "roomsmap", "roommap", "instructor_computer_checkbox"]
 
   mainnavtoggle() {
     event.preventDefault()
@@ -22,7 +22,7 @@ export default class extends Controller {
 
   roommaptoggle() {
     event.preventDefault()
-    this.roomsmapTargets.forEach((el, i) => {
+    this.roommapTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
 
     });
