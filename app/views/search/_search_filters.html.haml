@@ -158,5 +158,6 @@
                 %span Slide Projector
 
       .submit-search
-        .clear-filters= clear_filter
+        - if params[:q]
+          .clear-filters= clear_filter
         = f.submit "Apply Filters"
