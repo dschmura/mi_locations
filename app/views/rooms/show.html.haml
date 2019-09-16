@@ -1,29 +1,25 @@
 - content_for :head do
   = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
 .room-show{ "data-controller" => "toggle"}
-  #map.room-map.hidden{ "data-target" => "toggle.roommap" }
-    Map Goes Here
-  .room-show-image{ "data-target" => "toggle.roommap" }
-    = link_to @room do
-      - if @room.room_image.attached?
-        = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
-      - else
-        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
+  .h-64.mb-10
+    #rooms_found.hidden
+      = @room_json
+    #map.room-map.hidden{ "data-target" => "toggle.roommap" }
+      Map Goes Here
+    .room-show-image{ "data-target" => "toggle.roommap" }
+      = link_to @room do
+        - if @room.room_image.attached?
+          = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
+        - else
+          = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 
-  .room-map-toggle{"data-action" => "click->toggle#roommaptoggle", }
-    .map{ "data-target" => "toggle.roommap"}
-      %i.fas.fa-map
-      Map
-    .close-map.hidden{ "data-target" => "toggle.roommap"}
-      %i.fas.fa-map
-      Close
-      
-
-  #rooms_found.hidden
-    = @room_json
-
-  -# #map.rooms-map.hidden{ "data-target" => "toggle.roomsmap" }
-  -#   Map Goes Here
+    .room-map-toggle{"data-action" => "click->toggle#roommaptoggle", }
+      .map{ "data-target" => "toggle.roommap"}
+        %i.fas.fa-map
+        Map
+      .close-map.hidden{ "data-target" => "toggle.roommap"}
+        %i.fas.fa-map
+        Close
     
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
@@ -78,7 +74,7 @@
             -#   = rc.chrstc_desc254
 
 
-  -# - if policy(@room).update?
+  - if policy(@room).update?
     = render partial: 'alerts/form', locals: {alertable: @room}
 
     %h3 Add an Image

@@ -10,8 +10,10 @@
   .card-content-container
     .card-content
       .features
-        %span.feature-badge
-          Updated
+        -if room.alerts.any?
+          
+          %span.alert-badge
+            Alert!
         .capacity
           %i.fas.fa-users
           = "#{room.instructional_seating_count} Students"
