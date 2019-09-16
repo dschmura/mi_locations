@@ -33,17 +33,25 @@
       .room-capacity
         %i.fas.fa-users
         = "Capacity #{@room.instructional_seating_count} "
-    .right
-      This isn't right (Think about it...)
-      %li Support
-      %li Scheduling
+    .right.list-none
+      %li
+        %i.fas.fa-map-marked-alt
+        Directions
+      %li
+        %i.fas.fa-map
+        Map
+      %li
+        %i.fas.fa-calendar
+        Calendar
+
+
 
 
   %section.room-features
     %h2
       Room Features
     .px-8
-      
+
       .room-chars
         - @room.room_characteristics.select{ |c| c.feature?}.each do |rc|
           .room-char

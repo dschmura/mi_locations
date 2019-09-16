@@ -2,40 +2,38 @@
 .room-title
   @apply text-2xl font-light
 .image-container
-  @apply bg-red-300 pb-2/3 relative
+  @apply pb-2/3 relative
 .room-show-image
   img
-    @apply absolute w-full object-cover 
-  
-
+    @apply absolute w-full object-cover
 
 .features-group
-  @apply flex flex-col w-full  
+  @apply flex flex-col w-full
   h2
     @apply text-gray-700 text-2xl w-full
 
 .room-features
   @apply  py-4 bg-blue-100
   h2
-    @apply text-3xl uppercase font-light text-gray-800 text-left ml-8 mb-4 
-  
+    @apply text-3xl uppercase font-light text-gray-800 text-left ml-8 mb-4
+
 .room-char-description
-  @apply 
-  
+  @apply
+
 .secondary-features
   @apply mx-auto py-4 bg-green-100 flex flex-col px-8
-  @screen md 
-    @apply flex-row 
+  @screen md
+    @apply flex-row
   @screen lg
     @apply justify-between
   h2
-    @apply text-3xl uppercase font-light text-gray-800 text-left  
+    @apply text-3xl uppercase font-light text-gray-800 text-left
 
   .writing-surfaces
     @screen md
       @apply w-1/2
-    .room-chars 
-      @apply flex flex-col text-left 
+    .room-chars
+      @apply flex flex-col text-left
       .room-characteristic
         @apply self-start
 
@@ -45,9 +43,9 @@
 .room-info-pane
   @apply h-32 flex flex-row px-8 mt-4
   .left
-    @apply bg-green-400  w-full pr-4
+    @apply   w-full pr-4
   .right
-    @apply bg-yellow-800 w-full px-4
+    @apply  w-full px-4
 
 .room-chars
   @apply  block w-full
@@ -56,8 +54,8 @@
 
 .room-char
   @apply w-full px-5 text-left mb-8 text-blue-800 text-xl font-light
-  @screen sm 
-    @apply w-1/2 
+  @screen sm
+    @apply w-1/2
   @screen md
     @apply w-1/4
 
@@ -72,4 +70,3 @@
 //     @apply w-1/2 bg-pink-400
 //   .room-projection
 //     @apply w-1/2 bg-yellow-300
-

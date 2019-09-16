@@ -1,3 +1,11 @@
+.image-container
+  .building-show-image{ "data-target" => "toggle.roommap" }
+    = link_to @building do
+      - if @building.building_image.attached?
+        = image_tag(url_for(@building.building_image), alt: "#{@building.name.titleize} picture")
+      - else
+        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@building.name.titleize} image not available")
+
 .building-name
   = @building.name
 .building-address

@@ -32,4 +32,12 @@ class Building < ApplicationRecord
   validates_presence_of :bldrecnbr, :name, :address, :city, :state, :zip, :country
 
   geocoded_by :address # can also be an IP address
+
+  def self.classrooms
+    joins(:room).where(room: {rmtyp_description:  ["Classroom"]})
+  end
+
+  def self.classrooms?
+    where(room.classrooms.any?)
+  end
 end

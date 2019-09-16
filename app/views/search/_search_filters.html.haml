@@ -73,7 +73,7 @@
               -# #reset-slider
                 Reset
 
-        .classroom-type
+        -# .classroom-type
           %span.filters-section-header Classroom Type
           .characteristics-arrangement
             .filter-item-label
@@ -125,10 +125,10 @@
               %span{:class => "sm:w-full"} BluRay / DVD Player
 
 
-        -# .classroom-type
+        .classroom-type
           %span.filters-section-header Team Learning
           .characteristics-arrangement
-            
+
             .filter-item-label
               = check_box_tag('q[rooms_with_all_characteristics][]', "TeamBoard", is_checked?("TeamBoard"), {class: 'form-checkbox', "data-remote" => "true" })
               %span Team Board
