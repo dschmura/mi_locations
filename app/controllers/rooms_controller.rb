@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
 
       @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
 
-      @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
+      @q.sorts = ['room_number ASC', 'instructional_seating_count ASC' ] if @q.sorts.empty?
 
       @results = policy_scope( @q.result.merge(@char_rooms) )
       @rooms = @results.page(params[:page])

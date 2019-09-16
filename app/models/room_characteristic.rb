@@ -87,9 +87,9 @@ class RoomCharacteristic < ApplicationRecord
     end
   end
 
-  def chalkboard_feature?
-    chalkboards = [ "Chkbrd", "Chkbrd>25"]
-    if chalkboards.include?(self.chrstc_descrshort)
+  def teamboard_feature?
+    teamboards = [ "TeamBoard"]
+    if teamboards.include?(self.chrstc_descrshort)
       self
     end
   end

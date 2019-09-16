@@ -2,6 +2,13 @@ var results = document.getElementById("rooms-results")
 results.innerHTML = "#{escape_javascript render('rooms_results')}"
 results = undefined;
 
+var rooms-cards = document.getElementById("rooms-cards")
+rooms-cards.append("<%=j render(partial: 'rooms_index_card2', collection: @rooms, as: :room) %>");
+rooms-cards = undefined;
+
 var matches = document.getElementById("rooms-search-matches")
 matches.innerHTML = "#{escape_javascript pluralize(@results.size, 'Match')}"
 matches = undefined;
+
+
+

@@ -1,25 +1,27 @@
 - content_for :head do
   = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
 .room-show{ "data-controller" => "toggle"}
-  .h-64.mb-10
+  .h-64.mb-10.overflow-hidden
     #rooms_found.hidden
       = @room_json
     #map.room-map.hidden{ "data-target" => "toggle.roommap" }
       Map Goes Here
-    .room-show-image{ "data-target" => "toggle.roommap" }
-      = link_to @room do
-        - if @room.room_image.attached?
-          = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
-        - else
-          = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 
-    .room-map-toggle{"data-action" => "click->toggle#roommaptoggle", }
-      .map{ "data-target" => "toggle.roommap"}
-        %i.fas.fa-map
-        Map
-      .close-map.hidden{ "data-target" => "toggle.roommap"}
-        %i.fas.fa-map
-        Close
+    .image-container
+      .room-show-image{ "data-target" => "toggle.roommap" }
+        = link_to @room do
+          - if @room.room_image.attached?
+            = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
+          - else
+            = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
+
+      .room-map-toggle{"data-action" => "click->toggle#roommaptoggle", }
+        .map{ "data-target" => "toggle.roommap"}
+          %i.fas.fa-map
+          Map
+        .close-map.hidden{ "data-target" => "toggle.roommap"}
+          %i.fas.fa-map
+          Close
     
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
@@ -56,7 +58,21 @@
       %h2 Writing Surfaces
 
       .room-chars
-        -@room.room_characteristics.select{ |c| c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
+        -@room.room_characteristics.select{ |c| c.whiteboard_feature? || c.whiteboard_feature?}.each do |rc|
+          .room-char
+            %i{ class: "#{rc.characteristic_icon}" }
+            %b= rc.characteristic_label
+            -# .room-char-description
+            -#   = rc.chrstc_desc254
+
+
+        -@room.room_characteristics.select{ |c| c.chalkboard_feature? || c.chalkboard_feature?}.each do |rc|
+          .room-char
+            %i{ class: "#{rc.characteristic_icon}" }
+            %b= rc.characteristic_label
+            -# .room-char-description
+            -#   = rc.chrstc_desc254
+        -@room.room_characteristics.select{ |c| c.teamboard_feature? || c.teamboard_feature?}.each do |rc|
           .room-char
             %i{ class: "#{rc.characteristic_icon}" }
             %b= rc.characteristic_label

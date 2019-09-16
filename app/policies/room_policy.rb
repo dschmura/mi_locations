@@ -1,7 +1,7 @@
 class RoomPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user
+      if user && user.uniqname == 'admin'
         scope.all
       else
         scope.where(visible: true)
@@ -22,7 +22,7 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def update?
-    if user
+    if user && user.uniqname == 'admin'
       true
     else
       false
@@ -31,7 +31,7 @@ class RoomPolicy < ApplicationPolicy
 
 
   def toggle_visibility?
-    if user
+    if user && user.uniqname == 'admin'
       true
     else
       false
