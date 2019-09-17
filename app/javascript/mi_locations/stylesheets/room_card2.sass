@@ -20,6 +20,8 @@
   @screen xl
     @apply mx-2
 
+.copy-button
+  @apply bg-green-300 text-green-800 rounded-full
 .room-image
   @apply bg-gray-500 relative pb-2/3  overflow-hidden
   img
@@ -38,7 +40,7 @@
     @apply truncate text-sm
 
   .map-buttons
-    @apply flex justify-end
+    @apply flex flex-col justify-end
     @screen md
       @apply flex-col justify-center
 
@@ -58,7 +60,7 @@
         @apply bg-blue-300
 
 .room-visibility-toggle
-  @apply px-2 bg-yellow-300 text-sm rounded-full inline-flex text-center
+  @apply px-2 bg-yellow-300 text-sm rounded-full inline-flex text-center mt-1
   &:hover
     @apply bg-yellow-400
   svg
