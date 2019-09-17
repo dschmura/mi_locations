@@ -19,15 +19,16 @@ document.addEventListener('turbolinks:load', () => {
     var max = parseInt(maximumCapacity.value, 10)
   }
   else {
-    var max = 500
+    var max = 600
   }
 
   noUiSlider.create(slider, {
 
     range: {
       'min': 0,
-      'max': 500
+      'max': 600
     },
+
 
     step: 5,
     // Handles start at ...
@@ -40,13 +41,18 @@ document.addEventListener('turbolinks:load', () => {
     // Move handle on tap, bars are draggable
     behaviour: 'tap-drag',
     tooltips: true,
+
     format: {
       to: function (value) {
-        return value + '';
+        return parseInt(value) + '';
+
+
       },
       from: function (value) {
         return value.replace(',-', '');
-      }
+      },
+
+
     },
 
   });
