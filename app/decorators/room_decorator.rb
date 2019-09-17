@@ -50,6 +50,9 @@ class RoomDecorator < Draper::Decorator
     "#{room.room_number} #{room.building.nick_name.titleize}"
   end
 
+  def address
+   " #{room.building.address.titleize}, #{room.building.city.titleize}"
+  end
   def created_at
     helpers.content_tag :span, class: 'time' do
       object.created_at.strftime("%a %m/%d/%y")
@@ -60,7 +63,8 @@ class RoomDecorator < Draper::Decorator
     DEPARTMENTS[object.dept_grp]
   end
   def copy_text
-    %Q(#{self.title} : #{room.building.address}, #{room.building.city}. You can find details at  )
+    %Q(#{self.title.upcase} : #{self.address}. You can find details at https://rooms.umich.edu/rooms/#{room.id} including links to support and scheduling for this room.)
+
   end
 end
 class PaginatingDecorator < Draper::CollectionDecorator
