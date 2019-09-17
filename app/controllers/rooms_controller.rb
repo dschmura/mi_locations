@@ -14,14 +14,14 @@ class RoomsController < ApplicationController
       @q.sorts = ['room_number ASC', 'instructional_seating_count ASC' ] if @q.sorts.empty?
 
       @results = policy_scope( @q.result.merge(@char_rooms) )
-      @rooms = @results.page(params[:page])
+      @rooms = @results.page(params[:page]).decorate
       @rooms_json = @rooms.to_json(:include => :building)
 
     else
       @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
       @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
       @results = policy_scope( @q.result(distinct: true) )
-      @rooms = @results.page(params[:page])
+      @rooms = @results.page(params[:page]).decorate
       @rooms_json = @rooms.to_json(:include => :building)
     end
     respond_to do |format|

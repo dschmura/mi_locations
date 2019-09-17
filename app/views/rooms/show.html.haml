@@ -22,7 +22,7 @@
         .close-map.hidden{ "data-target" => "toggle.roommap"}
           %i.fas.fa-map
           Close
-    
+
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
   .room-info-pane
@@ -45,8 +45,6 @@
         Calendar
 
 
-
-
   %section.room-features
     %h2
       Room Features
@@ -66,7 +64,7 @@
       %h2 Writing Surfaces
 
       .room-chars
-        -@room.room_characteristics.select{ |c| c.whiteboard_feature? || c.whiteboard_feature?}.each do |rc|
+        -@room.room_characteristics.select{ |c| c.teamboard_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
           .room-char
             %i{ class: "#{rc.characteristic_icon}" }
             %b= rc.characteristic_label
@@ -74,18 +72,6 @@
             -#   = rc.chrstc_desc254
 
 
-        -@room.room_characteristics.select{ |c| c.chalkboard_feature? || c.chalkboard_feature?}.each do |rc|
-          .room-char
-            %i{ class: "#{rc.characteristic_icon}" }
-            %b= rc.characteristic_label
-            -# .room-char-description
-            -#   = rc.chrstc_desc254
-        -@room.room_characteristics.select{ |c| c.teamboard_feature? || c.teamboard_feature?}.each do |rc|
-          .room-char
-            %i{ class: "#{rc.characteristic_icon}" }
-            %b= rc.characteristic_label
-            -# .room-char-description
-            -#   = rc.chrstc_desc254
 
     .projection
       %h2 Projection

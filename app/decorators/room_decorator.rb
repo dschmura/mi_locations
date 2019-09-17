@@ -1,4 +1,7 @@
 class RoomDecorator < Draper::Decorator
+  def self.collection_decorator_class
+    PaginatingDecorator
+  end
   delegate_all
   decorates_association :room_characteristics
   DEPARTMENTS = {
@@ -56,5 +59,10 @@ class RoomDecorator < Draper::Decorator
   def department_name
     DEPARTMENTS[object.dept_grp]
   end
-
+  def copy_text
+    %Q(#{self.title} : #{room.building.address}, #{room.building.city}. You can find details at  )
+  end
+end
+class PaginatingDecorator < Draper::CollectionDecorator
+  delegate :current_page, :total_pages, :limit_value, :entry_name, :total_count, :offset_value, :last_page?, :next_page
 end

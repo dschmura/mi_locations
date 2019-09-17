@@ -11,14 +11,15 @@
     .card-content
       .features
         -if room.alerts.any?
-          
+
           %span.alert-badge
             Alert!
-        .capacity
-          %i.fas.fa-users
-          = "#{room.instructional_seating_count} Students"
+        - if current_user
+          .capacity
+            %i.fas.fa-users
+            = "#{room.instructional_seating_count} Students"
       %h4.room-name
-        = "#{room.room_number} #{room.building.name.titleize}"
+        = "#{room.title}"
       .room-address
         .address
           %i.fas.fa-map-marker-alt
@@ -27,20 +28,21 @@
           -# .map
             %i.fas.fa-map
             Map
+
           .directions
             %i.fas.fa-directions
             Directions
 
+          %button.copy-button{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy this room's description and attributes.", :role => "button", :class => "tooltip tooltip-top" }
 
-      - if policy(room).update?
-        .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
-          = render "room_visibility_toggle",  room: room
+            %i.fas.fa-copy
+            %span Copy
 
-      -# .pricing
-      -#   .price
-      -#     $2000
-      -#     .per-unit / wk
-      -#   .property-rating
-      -#     * * * / stars
-      -#     .per-unit
-      -#       (based on 34 reviews)
+            %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -10000px; top:-1000px;", :type => "text", :value => "#{room.copy_text}"}/
+
+          - if policy(room).update?
+            .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
+              = render "room_visibility_toggle",  room: room
+
+
+          -# = render "room_card_copy_text", room: room,  formats: [:text]
