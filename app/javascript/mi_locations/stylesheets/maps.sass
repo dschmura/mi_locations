@@ -1,19 +1,22 @@
 .rooms-map
   @apply h-64 min-w-full -mt-3
 .room-map
-  @apply h-64 min-w-full 
+  @apply h-64 min-w-full
 
 .rooms-map-toggle
   @apply bg-gray-300 px-2 rounded-full text-center justify-center mx-auto w-20 text-blue-700 shadow border border-gray-400 sticky bottom-0 opacity-75
   bottom: 20px
 
   &:hover
-    @apply bg-blue-400 text-blue-800 
+    @apply bg-blue-400 text-blue-800
 
 
 .room-map-toggle
-  @apply pl-4 bg-blue-100 relative -mt-12 w-24 rounded-full justify-start float-right mr-4 text-center inline-flex  text-blue-700 opacity-75
-  svg 
+  @apply pl-4 bg-blue-100 relative  w-20 rounded-full float-right mr-4 text-center inline-flex  text-blue-700 opacity-100
+  top: 200px
+  svg
     @apply text-blue-700 mr-1 self-center
   &:hover
-    @apply bg-blue-200 
+    @apply bg-blue-200
+  .close-map
+    @apply z-50
