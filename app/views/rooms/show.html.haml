@@ -43,7 +43,25 @@
       %li
         %i.fas.fa-calendar
         Calendar
+      %li
+        %i.fas.fa-people-carry
+        Layout
+    .what
+      = @room.room_contact.rm_schd_cntct_name
+      = @room.room_contact.rm_schd_cntct_phone
+      = @room.room_contact.rm_schd_email
 
+  -# #  rmrecnbr             :integer
+  -# #  rm_schd_cntct_name   :string
+  -# #  rm_schd_email        :string
+  -# #  rm_schd_cntct_phone  :string
+  -# #  rm_det_url           :string
+  -# #  rm_usage_guidlns_url :string
+  -# #  rm_sppt_deptid       :string
+  -# #  rm_sppt_dept_descr   :string
+  -# #  rm_sppt_cntct_email  :string
+  -# #  rm_sppt_cntct_phone  :string
+  -# #  rm_sppt_cntct_url    :string
 
   %section.room-features
     %h2
@@ -59,19 +77,28 @@
               = rc.chrstc_desc254
 
 
-  %section.secondary-features
-    .writing-surfaces
-      %h2 Writing Surfaces
 
+  %section.secondary-features
+
+    .projection
+      %h2 Team Learning
       .room-chars
-        -@room.room_characteristics.select{ |c| c.teamboard_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
+        -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |rc|
           .room-char
             %i{ class: "#{rc.characteristic_icon}" }
             %b= rc.characteristic_label
             -# .room-char-description
             -#   = rc.chrstc_desc254
+    .writing-surfaces
+      %h2 Writing Surfaces
 
-
+      .room-chars
+        -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
+          .room-char
+            %i{ class: "#{rc.characteristic_icon}" }
+            %b= rc.characteristic_label
+            -# .room-char-description
+            -#   = rc.chrstc_desc254
 
     .projection
       %h2 Projection
