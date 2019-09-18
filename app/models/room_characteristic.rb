@@ -94,6 +94,13 @@ class RoomCharacteristic < ApplicationRecord
     end
   end
 
+  def teamlearning_feature?
+    teamlearning = [ "TeamBoard", "TeamTables", "TeamTech"]
+    if teamlearning.include?(self.chrstc_descrshort)
+      self
+    end
+  end
+
   def instructor_computer?
     amenities = [ "InstrComp", "CompPodPC", "CompPodMac"]
     if amenities.include?(self.chrstc_descrshort)
@@ -104,7 +111,7 @@ class RoomCharacteristic < ApplicationRecord
   def ethernet?
     ethernet = ["Proj16mm", "Proj35mm", "ProjD-Cin", "ProjDigit", "ProjSlide"]
     if ethernet.include?(self.chrstc_descrshort)
-      
+
     end
   end
 
