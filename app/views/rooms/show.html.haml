@@ -1,7 +1,7 @@
 - content_for :head do
   = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
 .room-show{ "data-controller" => "toggle"}
-  .h-64.mb-10.overflow-hidden
+  .h-64.overflow-hidden
     #rooms_found.hidden
       = @room_json
     #map.room-map.hidden{ "data-target" => "toggle.roommap" }
@@ -33,6 +33,10 @@
       .room-capacity
         %i.fas.fa-users
         = "Capacity #{@room.instructional_seating_count} "
+      - if @room.team_learning_classroom?
+        .room-team-learning
+          %i.fas.fa-handshake
+          Team Learning
     .right.list-none
       %li
         %i.fas.fa-map-marked-alt
@@ -63,24 +67,23 @@
   -# #  rm_sppt_cntct_phone  :string
   -# #  rm_sppt_cntct_url    :string
 
-  %section.room-features
+  %section.room-features.features-group
     %h2
       Room Features
-    .px-8
-
-      .room-chars
-        - @room.room_characteristics.select{ |c| c.feature?}.each do |rc|
-          .room-char
-            %i{ class: "#{rc.characteristic_icon}" }
-            %b= rc.characteristic_label
-            .room-char-description
-              = rc.chrstc_desc254
 
 
+    .room-chars
+      - @room.room_characteristics.select{ |c| c.feature?}.each do |rc|
+        .room-char
+          %i{ class: "#{rc.characteristic_icon}" }
+          %b= rc.characteristic_label
+          -# .room-char-description
+            = rc.chrstc_desc254
 
-  %section.secondary-features
 
-    .projection
+
+  .secondary-features
+    %section.room-features.team-learning
       %h2 Team Learning
       .room-chars
         -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |rc|
@@ -89,26 +92,27 @@
             %b= rc.characteristic_label
             -# .room-char-description
             -#   = rc.chrstc_desc254
-    .writing-surfaces
-      %h2 Writing Surfaces
 
-      .room-chars
-        -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
-          .room-char
-            %i{ class: "#{rc.characteristic_icon}" }
-            %b= rc.characteristic_label
-            -# .room-char-description
-            -#   = rc.chrstc_desc254
+      %section.room-features.writing-surfaces
+        %h2 Writing Surfaces
 
-    .projection
-      %h2 Projection
-      .room-chars
-        -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|
-          .room-char
-            %i{ class: "#{rc.characteristic_icon}" }
-            %b= rc.characteristic_label
-            -# .room-char-description
-            -#   = rc.chrstc_desc254
+        .room-chars
+          -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
+            .room-char
+              %i{ class: "#{rc.characteristic_icon}" }
+              %b= rc.characteristic_label
+              -# .room-char-description
+              -#   = rc.chrstc_desc254
+
+      %section.room-features.projection
+        %h2 Projection
+        .room-chars
+          -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|
+            .room-char
+              %i{ class: "#{rc.characteristic_icon}" }
+              %b= rc.characteristic_label
+              -# .room-char-description
+              -#   = rc.chrstc_desc254
 
 
   - if policy(@room).update?

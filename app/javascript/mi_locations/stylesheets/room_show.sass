@@ -1,72 +1,63 @@
-
-.room-title
-  @apply text-2xl font-light
 .image-container
-  @apply pb-2/3 relative
+  @apply  relative
 .room-show-image
   img
     @apply absolute w-full object-cover
 
+
+.room-info-pane
+  @apply  flex flex-col bg-blue-100 p-8
+  @screen sm
+    @apply flex-row
+  .left
+    @apply   w-full pr-4
+  .right
+    @apply  w-full px-4
+.room-title
+  @apply text-2xl font-light
+
+
+
 .features-group
-  @apply flex flex-col w-full
-  h2
-    @apply text-gray-700 text-2xl w-full
+  @apply bg-blue-200
+
 
 .room-features
-  @apply  py-4 bg-blue-100
+  @apply  flex flex-col
   h2
     @apply text-3xl uppercase font-light text-gray-800 text-left ml-8 mb-4
+  @screen md
+    @apply flex-row
 
 .room-char-description
   @apply
 
 .secondary-features
-  @apply mx-auto py-4 bg-green-100 flex flex-col px-8
+  @apply  bg-yellow-100
   @screen md
-    @apply flex-row
+    @apply
   @screen lg
-    @apply justify-between
-  h2
-    @apply text-3xl uppercase font-light text-gray-800 text-left
+    @apply
+
+  .team-learning
+    @screen md
 
   .writing-surfaces
     @screen md
-      @apply w-1/2
-    .room-chars
-      @apply flex flex-col text-left
-      .room-characteristic
-        @apply self-start
+      @apply
 
   .projection
     @screen md
-      @apply w-1/2
-.room-info-pane
-  @apply h-32 flex flex-row px-8 mt-4
-  .left
-    @apply   w-full pr-4
-  .right
-    @apply  w-full px-4
+
 
 .room-chars
-  @apply  block w-full
+  @apply  block w-full px-8
   @screen sm
     @apply flex flex-wrap
 
 .room-char
-  @apply w-full px-5 text-left mb-8 text-blue-800 text-xl font-light
+  @apply   px-5 text-left mb-8 text-blue-800 text-xl font-light
   @screen sm
     @apply w-1/2
   @screen md
     @apply w-1/4
-
-.room-characteristic
-  @apply inline-flex text-lg font-light  py-2 self-center text-blue-800
-  svg
-    @apply mr-2 self-center
-
-// .secondary-features
-//   @apply flex flex-row w-full px-8 bg-gray-300
-//   .room-writing-surfaces
-//     @apply w-1/2 bg-pink-400
-//   .room-projection
-//     @apply w-1/2 bg-yellow-300
