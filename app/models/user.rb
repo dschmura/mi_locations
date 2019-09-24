@@ -11,11 +11,17 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
+#  provider               :string
+#  uid                    :string
 #
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable :registerable
+  # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable :registerable
   devise :database_authenticatable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:google_oauth2]
+
+  has_many :omni_auth_services, dependent: :destroy
+
 end
