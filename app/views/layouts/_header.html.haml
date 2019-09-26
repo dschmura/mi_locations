@@ -30,6 +30,7 @@
           - if user_signed_in?
             %img.user-avatar{:alt => "User Photo", :src => "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1=eyJhcHBfaWQiOjEyMDd9=format=crop=256=80", "data-action" => "click->toggle#dropdowntoggle" }
             %span.user-name
+              = get_uniqname(current_user.email)
           - else
             .user-action-link
               = link_to new_user_session_path do
@@ -39,13 +40,18 @@
 
           - if user_signed_in?
             -# .user-action-link.-mt-3= link_to "Account settings", edit_user_registration_path
-            .user-action-link= link_to('Sign out', destroy_user_session_path, method: :delete)
+
+            .user-action-link= link_to("Sign out #{get_uniqname(current_user.email)}", destroy_user_session_path, method: :delete)
+
+
           - else
             .user-action-link= link_to 'Sign in', new_user_session_path
         .user-action-dropdown.hidden{"data-target" => "toggle.dropdown"}
 
           - if user_signed_in?
             -# .user-action-link.mt-1= link_to "Account settings", edit_user_registration_path
-            .user-action-link= link_to('Sign out', destroy_user_session_path, method: :delete)
+            %span.user-name
+              = get_uniqname(current_user.email)
+            .user-action-link= link_to("Sign out #{get_uniqname(current_user.email)}", destroy_user_session_path, method: :delete)
           - else
             .user-action-link= link_to 'Sign in', new_user_session_path
