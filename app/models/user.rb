@@ -13,6 +13,7 @@
 #  remember_created_at    :datetime
 #  provider               :string
 #  uid                    :string
+#  avatar_url             :string
 #
 
 class User < ApplicationRecord

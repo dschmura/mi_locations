@@ -11,6 +11,9 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
+#  provider               :string
+#  uid                    :string
+#  avatar_url             :string
 #
 
 require "rails_helper"

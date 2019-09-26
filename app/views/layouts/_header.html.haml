@@ -28,7 +28,7 @@
       .user-actions
         .flex.items-center
           - if user_signed_in?
-            %img.user-avatar{:alt => "User Photo", :src => "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1=eyJhcHBfaWQiOjEyMDd9=format=crop=256=80", "data-action" => "click->toggle#dropdowntoggle" }
+            %img.user-avatar{:alt => "User Photo", :src => current_user.avatar_url, "data-action" => "click->toggle#dropdowntoggle" }
             %span.user-name
               = get_uniqname(current_user.email)
           - else

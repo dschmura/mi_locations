@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_151258) do
+ActiveRecord::Schema.define(version: 2019_09_26_145313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,20 @@ ActiveRecord::Schema.define(version: 2019_09_06_151258) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_floors_on_building_id"
+  end
+
+  create_table "omni_auth_services", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "access_token"
+    t.string "access_token_secret"
+    t.string "refresh_token"
+    t.datetime "expires_at"
+    t.text "auth"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_omni_auth_services_on_user_id"
   end
 
   create_table "room_characteristics", force: :cascade do |t|
@@ -173,6 +187,9 @@ ActiveRecord::Schema.define(version: 2019_09_06_151258) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "provider"
+    t.string "uid"
+    t.string "avatar_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uniqname"], name: "index_users_on_uniqname", unique: true
@@ -180,6 +197,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_151258) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "floors", "buildings"
+  add_foreign_key "omni_auth_services", "users"
   add_foreign_key "room_characteristics", "rooms"
   add_foreign_key "room_contacts", "rooms"
   add_foreign_key "rooms", "buildings"
