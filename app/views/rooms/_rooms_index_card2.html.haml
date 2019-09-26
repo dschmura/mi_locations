@@ -17,7 +17,7 @@
         - if current_user
           .capacity
             %i.fas.fa-users
-            = "#{room.instructional_seating_count} Students"
+            = room.student_capacity
       %h4.room-name
         = "#{room.title}"
       .room-address

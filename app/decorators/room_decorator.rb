@@ -62,6 +62,11 @@ class RoomDecorator < Draper::Decorator
   def department_name
     DEPARTMENTS[object.dept_grp]
   end
+
+  def student_capacity
+    helpers.pluralize(room.instructional_seating_count, 'Student')
+  end
+
   def copy_text
     %Q(#{self.title.upcase} : #{self.address}. | Student Capacity: #{room.instructional_seating_count}. | You can find details at https://rooms.umich.edu/rooms/#{room.id} including links to support and scheduling for this room.)
 
