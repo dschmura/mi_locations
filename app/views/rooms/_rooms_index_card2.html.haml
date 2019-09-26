@@ -40,7 +40,7 @@
 
             %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -10000px; top:-1000px;", :type => "text", :value => "#{room.copy_text}"}/
 
-          - if policy(room).update?
+          - if policy(room).toggle_visibility?
             .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
               = render "room_visibility_toggle",  room: room
 

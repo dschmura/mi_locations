@@ -1,4 +1,5 @@
 class RoomPolicy < ApplicationPolicy
+  include LdapableHelper
   class Scope < Scope
     def resolve
       if user && user.uniqname == 'admin'
@@ -22,7 +23,7 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def update?
-    if user && user.uniqname == 'admin'
+    if user && member_of_group?(user.uniqname, 'lsa-mis-rails-admins')
       true
     else
       false
@@ -32,6 +33,8 @@ class RoomPolicy < ApplicationPolicy
 
   def toggle_visibility?
     if user && user.uniqname == 'admin'
+      true
+    elsif user && member_of_group?(user.uniqname, 'lsa-mis-rails-admins')
       true
     else
       false

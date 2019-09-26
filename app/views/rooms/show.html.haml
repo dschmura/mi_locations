@@ -29,6 +29,8 @@
     .left
       .room-title
         = @room.title
+        = get_department(current_user.uniqname)
+        = member_of_group?(current_user.uniqname, 'lsa-mis-rails-admins')
 
       .room-capacity
         %i.fas.fa-users
