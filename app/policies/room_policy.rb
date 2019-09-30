@@ -2,7 +2,7 @@ class RoomPolicy < ApplicationPolicy
   include LdapableHelper
   class Scope < Scope
     def resolve
-      if user && user.uniqname == 'admin'
+      if user && user.uniqname
         scope.all
       else
         scope.where(visible: true)
