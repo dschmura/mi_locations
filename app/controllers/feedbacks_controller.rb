@@ -5,8 +5,9 @@ class FeedbacksController < ApplicationController
     if @feedback.valid?
       FeedbackMailer.send_feedback(@feedback).deliver_now
       redirect_back(fallback_location: root_path, notice: "feedback received, thanks!")
+
     else
-      redirect_back(fallback_location: root_path, notice: "There was an issue with your submission!")
+      redirect_back(fallback_location: root_path, alert: "There was an issue with your submission!")
     end
   end
 
