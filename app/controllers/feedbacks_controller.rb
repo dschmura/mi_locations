@@ -9,6 +9,9 @@ class FeedbacksController < ApplicationController
     else
       redirect_back(fallback_location: root_path, alert: "There was an issue with your submission!")
     end
+    respond_to do |format|
+      format.html     
+    end
   end
 
   private
