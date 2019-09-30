@@ -2,10 +2,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {address: "lsa-mis-rails-staging2.miserver.it.umich.edu"}
   config.action_mailer.smtp_settings = {
-    address: Rails.application.credentials.MI_LOCATIONS_EMAIL_SERVER,
-    domain: Rails.application.credentials.MI_LOCATIONS_EMAIL_DOMAIN,
-    user_name: Rails.application.credentials.MI_LOCATIONS_EMAIL_USERNAME,
-    password: Rails.application.credentials.MI_LOCATIONS_EMAIL_PASSWORD,
+    address: Rails.application.credentials.staging_mail[:MI_LOCATIONS_EMAIL_SERVER],
+    domain: Rails.application.credentials.staging_mail[:MI_LOCATIONS_EMAIL_DOMAIN],
+    user_name: Rails.application.credentials.staging_mail[:MI_LOCATIONS_EMAIL_USERNAME],
+    password: Rails.application.credentials.staging_mail[:MI_LOCATIONS_EMAIL_PASSWORD],
     authentication: :login,
     enable_starttls_auto: "true",
     port: "587",

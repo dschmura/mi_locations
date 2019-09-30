@@ -1,15 +1,20 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: Rails.application.credentials.MI_LOCATIONS_EMAIL_SERVER,
+  #   domain: Rails.application.credentials.MI_LOCATIONS_EMAIL_DOMAIN,
+  #   user_name: Rails.application.credentials.MI_LOCATIONS_EMAIL_USERNAME,
+  #   password: Rails.application.credentials.MI_LOCATIONS_EMAIL_PASSWORD,
+  #   authentication: :login,
+  #   enable_starttls_auto: "true",
+  #   port: "587",
+  # }
+
   config.action_mailer.smtp_settings = {
-    address: Rails.application.credentials.MI_LOCATIONS_EMAIL_SERVER,
-    domain: Rails.application.credentials.MI_LOCATIONS_EMAIL_DOMAIN,
-    user_name: Rails.application.credentials.MI_LOCATIONS_EMAIL_USERNAME,
-    password: Rails.application.credentials.MI_LOCATIONS_EMAIL_PASSWORD,
-    authentication: :login,
-    enable_starttls_auto: "true",
-    port: "587",
-  }
+    address: Rails.application.credentials.dev_mail[:MI_LOCATIONS_EMAIL_SERVER], 
+    port: 1025
+}
 
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = true
