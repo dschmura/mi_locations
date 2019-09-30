@@ -1,5 +1,8 @@
 Rails.application.configure do
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'mi.locations.feedback@umich.edu'}
+
   config.action_mailer.smtp_settings = {address: "lsa-mis-rails-staging2.miserver.it.umich.edu"}
   config.action_mailer.smtp_settings = {
     address: Rails.application.credentials.staging_mail[:MI_LOCATIONS_EMAIL_SERVER],
@@ -10,6 +13,8 @@ Rails.application.configure do
     enable_starttls_auto: "true",
     port: "587",
   }
+
+
 
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
