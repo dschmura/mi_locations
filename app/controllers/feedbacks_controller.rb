@@ -1,9 +1,11 @@
 class FeedbacksController < ApplicationController
   def create
+    @referrer = request.referer
     @feedback = Feedback.new feedback_params
+
     authorize @feedback
     if @feedback.valid?
-      FeedbackMailer.send_feedback(@feedback).deliver_now
+      FeedbackMailer.send_feedback(@feedback, @referrer).deliver_now
       redirect_back(fallback_location: root_path, notice: "feedback received, thanks!")
 
     else
