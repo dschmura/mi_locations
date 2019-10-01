@@ -7,9 +7,9 @@ class RoomsController < ApplicationController
       @params = params[:q][:rooms_with_all_characteristics]
       @all_chars = RoomCharacteristic.has_all_characteristics(@params)
 
-      @char_rooms = Room.classrooms.includes(:building, :room_characteristics).where(rmrecnbr: @all_chars)
+      @char_rooms = Room.classrooms.includes(:building, :room_characteristics, :room_image_attachment, :room_image_blob, :alerts).where(rmrecnbr: @all_chars)
 
-      @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
+      @q ||= Room.classrooms.includes(:building, :room_characteristics,:room_image_attachment, :room_image_blob, :alerts).ransack(params[:q])
 
       @q.sorts = ['room_number ASC', 'instructional_seating_count ASC' ] if @q.sorts.empty?
 
@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
       @rooms_json = @rooms.to_json(:include => :building)
 
     else
-      @q ||= Room.classrooms.includes(:building, :room_characteristics).ransack(params[:q])
+      @q ||= Room.classrooms.includes(:building, :room_characteristics,:room_image_attachment, :room_image_blob, :alerts).ransack(params[:q])
       @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
       @results = policy_scope( @q.result(distinct: true) )
       @rooms = @results.page(params[:page]).decorate
@@ -66,7 +66,7 @@ class RoomsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_room
-    @room = Room.find(params[:id]).decorate
+    @room = Room.includes(:building, :room_characteristics,:room_image_attachment, :alerts).find(params[:id]).decorate
     authorize @room
     # @room = Room.find_by facility_code_heprod:(params[:id].upcase) || Room.find(params[:id])
   end

@@ -32,7 +32,7 @@ class RoomPolicy < ApplicationPolicy
 
 
   def toggle_visibility?
-    if user && member_of_group?(user.uniqname, 'lsa-mis-rails-admins')
+    if user
       true
     else
       false
