@@ -1,5 +1,6 @@
 - content_for :head do
   = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
+
 .room-show{ "data-controller" => "toggle"}
   .h-64.overflow-hidden
     #rooms_found.hidden
@@ -9,19 +10,30 @@
 
     .image-container
       .room-show-image{ "data-target" => "toggle.roommap" }
-        = link_to @room do
-          - if @room.room_image.attached?
-            = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
-          - else
-            = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
+        - if @room.room_panorama.attached?
+          #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => "#{url_for(@room.room_panorama)}",  "data-pannellum-panopreview" => "#{url_for(@room.room_panorama.variant(resize: "25%").processed)}" }
 
-      .room-map-toggle{"data-action" => "click->toggle#roommaptoggle", }
-        .map{ "data-target" => "toggle.roommap"}
-          %i.fas.fa-map
-          Map
-        .close-map.hidden{ "data-target" => "toggle.roommap"}
-          %i.fas.fa-map
-          Close
+        - elsif @room.room_image.attached?
+          = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
+        -else
+          = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
+    .room-map-toggle{"data-action" => "click->toggle#roommaptoggle", }
+      .map{ "data-target" => "toggle.roommap"}
+        %i.fas.fa-map
+        Map
+      .close-map.hidden{ "data-target" => "toggle.roommap"}
+        %i.fas.fa-map
+        Close
+
+    -# .image-container
+    -#   .room-show-image{ "data-target" => "toggle.roommap" }
+    -#     = link_to @room do
+    -#       - if @room.room_image.attached?
+    -#         = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
+    -#       - else
+    -#         = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
+
+
 
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
@@ -123,3 +135,8 @@
     %h3 Add an Image
 
     = render partial: 'room_image_form', locals: {room: @rooms}
+
+    %h3 Add a Panorama
+    = @room.rmrecnbr
+
+    = render partial: 'room_panorama_form', locals: {room: @rooms}

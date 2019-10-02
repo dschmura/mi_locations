@@ -1,3 +1,5 @@
+require('pannellum')
+import 'pannellum/src/css/pannellum.css';
 
 const loadGoogleMapsApi = require('load-google-maps-api');
 class Map {
@@ -25,14 +27,14 @@ class Map {
   //   // Info Window Content
   var infoWindowContent = [];
   for( var info=0; info<markers.length; info++){
-    var temp = [ '<div class="info_content">' + 
-            '<h3>' + markers[info][0] + 
-            '</h3>' + 
+    var temp = [ '<div class="info_content">' +
+            '<h3>' + markers[info][0] +
+            '</h3>' +
             '<p>The First Building is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +
             '</div>' ];
             infoWindowContent[info] = temp;
   }
-  
+
     // Display multiple markers on a map
     var infoWindow = new google.maps.InfoWindow(), marker, i;
     // Loop through our array of markers & place each one on the map
