@@ -22,7 +22,7 @@ import '../mi_locations/stylesheets/header.sass'
 import '../mi_locations/stylesheets/footer.sass'
 import '../mi_locations/stylesheets/pages.sass'
 import '../mi_locations/stylesheets/devise.sass'
-import '../mi_locations/stylesheets/rooms.sass'
+// import '../mi_locations/stylesheets/rooms.sass'
 import '../mi_locations/stylesheets/room_show.sass'
 // import '../mi_locations/stylesheets/room_card.sass'
 import '../mi_locations/stylesheets/room_card2.sass'
@@ -40,6 +40,7 @@ import '../mi_locations/stylesheets/toggle.sass'
 import '../mi_locations/stylesheets/tooltips.sass'
 import "nouislider/distribute/nouislider.min.css"
 import '@fortawesome/fontawesome-free/js/all';
+
 
 require.context('../mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 
