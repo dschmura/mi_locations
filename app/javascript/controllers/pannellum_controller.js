@@ -8,8 +8,8 @@ export default class extends Controller {
     this.pano()
   }
   pano() {
-    var panoimage = this.data.get("panoimage")
-    var panopreview = this.data.get("panopreview")
+    let panoimage = this.data.get("panoimage")
+    let panopreview = this.data.get("panopreview")
 
     pannellum.viewer('panorama', {
       "type": "equirectangular",

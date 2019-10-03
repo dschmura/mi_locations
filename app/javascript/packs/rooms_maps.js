@@ -1,6 +1,3 @@
-require('pannellum')
-import 'pannellum/src/css/pannellum.css';
-
 const loadGoogleMapsApi = require('load-google-maps-api');
 class Map {
 
