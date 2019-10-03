@@ -24,7 +24,8 @@ class RoomPolicy < ApplicationPolicy
 
   def update?
     if user && member_of_group?(user.uniqname, 'lsa-mis-rails-admins')
-      true
+    # if user
+    #   true
     else
       false
     end
