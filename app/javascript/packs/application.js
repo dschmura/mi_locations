@@ -15,8 +15,6 @@ var Turbolinks = require("turbolinks")
 Turbolinks.start()
 require('pannellum')
 import 'pannellum/src/css/pannellum.css';
-
-
 import '../mi_locations/stylesheets/application.sass'
 import '../mi_locations/stylesheets/header.sass'
 import '../mi_locations/stylesheets/footer.sass'
@@ -67,11 +65,11 @@ document.addEventListener('turbolinks:load', () => {
 
 import "controllers"
 
-import { Map } from './rooms_maps';
-document.addEventListener('turbolinks:load', () => {
-  let mapElement = document.getElementById('map');
+// import { Map } from './rooms_maps';
+// document.addEventListener('turbolinks:load', () => {
+//   let mapElement = document.getElementById('map');
 
-  Map.loadGoogleMapsApi().then(function(googleMaps) {
-    Map.createMap(googleMaps, mapElement);
-  });
-});
+//   Map.loadGoogleMapsApi().then(function(googleMaps) {
+//     Map.createMap(googleMaps, mapElement);
+//   });
+// });
