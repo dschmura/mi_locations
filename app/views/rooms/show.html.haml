@@ -1,14 +1,23 @@
-- content_for :head do
-  = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
+-# - content_for :head do
+-#   = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
 
 .room-show{ "data-controller" => "toggle"}
-  .h-64.overflow-hidden
-    #rooms_found.hidden
-      = @room_json
-    #map.room-map.hidden{ "data-target" => "toggle.roommap" }
-      Map Goes Here
 
-    .image-container
+  .room-banner
+
+    .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle"}
+      .map{ "data-target" => "toggle.roomsmap"}
+        %i.fas.fa-map
+        Map
+      .close-map.hidden{ "data-target" => "toggle.roomsmap"}
+        %i.fas.fa-map
+        Close
+    .room-map.hidden{ "data-controller" => "map",
+            "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
+            "data-map-mapbox-room" => @room.to_json(:include => :building),
+            "data-target" => "toggle.roomsmap" }
+      #mapid
+    .image-containers
       .room-show-image{ "data-target" => "toggle.roommap" }
         - if @room.room_panorama.attached?
           #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => "#{url_for(@room.room_panorama)}",  "data-pannellum-panopreview" => "#{url_for(@room.room_panorama.variant(resize: "25%").processed)}" }
@@ -17,21 +26,6 @@
           = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
         -else
           = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
-      .room-map-toggle{"data-action" => "click->toggle#roommaptoggle", }
-        .map{ "data-target" => "toggle.roommap"}
-          %i.fas.fa-map
-          Map
-        .close-map.hidden{ "data-target" => "toggle.roommap"}
-          %i.fas.fa-map
-          Close
-
-    -# .image-container
-    -#   .room-show-image{ "data-target" => "toggle.roommap" }
-    -#     = link_to @room do
-    -#       - if @room.room_image.attached?
-    -#         = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
-    -#       - else
-    -#         = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 
 
 
