@@ -11,7 +11,7 @@
     = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 
 
-  .rooms-map-toggle{"data-action" => "click->toggle#roomsmaptoggle"}
+  .rooms-map-toggle{"data-action" => "click->toggle#roomsmapToggle"}
     .map{ "data-target" => "toggle.roomsmap"}
       %i.fas.fa-map
       Map
