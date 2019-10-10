@@ -13,8 +13,7 @@ require("load-google-maps-api")
 
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
-require('pannellum')
-import 'pannellum/src/css/pannellum.css';
+
 import '../mi_locations/stylesheets/application.sass'
 import '../mi_locations/stylesheets/header.sass'
 import '../mi_locations/stylesheets/footer.sass'
@@ -25,20 +24,18 @@ import '../mi_locations/stylesheets/room_show.sass'
 // import '../mi_locations/stylesheets/room_card.sass'
 import '../mi_locations/stylesheets/room_card2.sass'
 import '../mi_locations/stylesheets/rooms_search.sass'
-import '../mi_locations/stylesheets/room_characteristics.sass'
+// import '../mi_locations/stylesheets/room_characteristics.sass'
 import '../mi_locations/stylesheets/buildings.sass'
 import '../mi_locations/stylesheets/alerts.sass'
 import '../mi_locations/stylesheets/coming_soon.sass'
 import '../mi_locations/stylesheets/filters.sass'
 import '../mi_locations/stylesheets/feedback.sass'
-import '../mi_locations/stylesheets/maps.sass'
 import '../mi_locations/stylesheets/ribbons.sass'
-import '../mi_locations/stylesheets/search.sass'
+// import '../mi_locations/stylesheets/search.sass'
 import '../mi_locations/stylesheets/toggle.sass'
 import '../mi_locations/stylesheets/tooltips.sass'
 import "nouislider/distribute/nouislider.min.css"
 import '@fortawesome/fontawesome-free/js/all';
-
 
 require.context('../mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
 
@@ -46,7 +43,7 @@ require('trix')
 require('@rails/actiontext')
 import 'trix/dist/trix.css'
 
-import 'mi_locations/javascripts/application.js'
+// import 'mi_locations/javascripts/application.js'
 
 document.addEventListener('turbolinks:load', () => {
   FontAwesome.dom.i2svg();

@@ -1,10 +1,5 @@
--# - content_for :head do
--#   = javascript_pack_tag 'rooms_maps', 'data-turbolinks-track': 'reload'
-
 .room-show{ "data-controller" => "toggle"}
-
   .room-banner
-
     .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle"}
       .map{ "data-target" => "toggle.roomsmap"}
         %i.fas.fa-map
@@ -12,12 +7,14 @@
       .close-map.hidden{ "data-target" => "toggle.roomsmap"}
         %i.fas.fa-map
         Close
+
     .room-map.hidden{ "data-controller" => "map",
             "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
             "data-map-mapbox-room" => @room.to_json(:include => :building),
             "data-target" => "toggle.roomsmap" }
       #mapid
-    .image-containers
+
+    .room-image-container
       .room-show-image{ "data-target" => "toggle.roommap" }
         - if @room.room_panorama.attached?
           #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => "#{url_for(@room.room_panorama)}",  "data-pannellum-panopreview" => "#{url_for(@room.room_panorama.variant(resize: "25%").processed)}" }
@@ -26,8 +23,6 @@
           = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
         -else
           = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
-
-
 
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 

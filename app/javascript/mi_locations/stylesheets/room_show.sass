@@ -1,8 +1,7 @@
 .room-show
-  @apply
 
 .room-banner
-  @apply h-64 overflow-hidden -mt-6
+  @apply h-64 overflow-hidden
 
 .room-show-image
   img
@@ -51,8 +50,6 @@
 
   .projection
     @screen md
-
-
 .room-chars
   @apply  block w-full px-8
   @screen sm
@@ -64,3 +61,28 @@
     @apply w-1/2
   @screen md
     @apply w-1/4
+
+.rooms-map
+  @apply h-64 min-w-full -mt-3
+.room-map
+  @apply h-64 min-w-full w-full bg-blue-200
+#mapid
+  @apply min-w-full z-0 h-64
+  img
+    @apply border-none p-0
+.rooms-map-toggle
+  @apply bg-gray-300 px-2 rounded-full text-center justify-center mx-auto w-20 text-blue-700 shadow border border-gray-400 sticky bottom-0 opacity-75
+  bottom: 20px
+
+  &:hover
+    @apply bg-blue-400 text-blue-800
+
+.room-map-toggle
+  @apply pl-4 bg-blue-100 relative  w-24 rounded-full float-right mr-20 text-center inline-flex  text-blue-700 opacity-100 z-50
+  top: 200px
+  svg
+    @apply text-blue-700 mr-1 self-center
+  &:hover
+    @apply bg-blue-200
+  .close-map
+    @apply z-50

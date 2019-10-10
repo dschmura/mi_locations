@@ -1,20 +1,22 @@
 import { Controller } from "stimulus"
+require('pannellum')
+import 'pannellum/src/css/pannellum.css';
 
 export default class extends Controller {
   static targets = [ "panorama" ]
   // static values = { panoimage: String }
 
   connect(){
-    this.pano()
+    let panoImage = this.data.get("panoimage")
+    let panoPreview = this.data.get("panopreview")
+    this.pano(panoImage, panoPreview)
   }
-  pano() {
-    let panoimage = this.data.get("panoimage")
-    let panopreview = this.data.get("panopreview")
+  pano(panoImage, panoPreview) {
 
     pannellum.viewer('panorama', {
       "type": "equirectangular",
-      "panorama": panoimage,
-      "preview": panopreview
+      "panorama": panoImage,
+      "preview": panoPreview
     });
   }
 
