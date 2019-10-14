@@ -10,8 +10,7 @@
 
     .room-map.hidden{ "data-controller" => "map",
             "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
-            "data-map-mapbox-room" => @room.to_json(:include => :building),
-            "data-target" => "toggle.roomsmap" }
+            "data-map-mapbox-room" => @room_json, "data-target" => "toggle.roomsmap"}
       #mapid
 
     .room-image-container

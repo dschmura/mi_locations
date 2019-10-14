@@ -1,13 +1,14 @@
 #rooms-results
 
+
   -# .rooms-index-cards
     = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
+  .room-map.hidden{ "data-controller" => "map",
+          "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
+          "data-map-mapbox-room" => @rooms_json, "data-target" => "toggle.roomsmap"}
+    #mapid
 
-  #rooms_found.hidden
-    =@rooms_json
   .rooms-cards#rooms-cards
-    #map.room-map.hidden{ "data-target" => "toggle.roomsmap" }
-      Map Goes Here
     = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 
 
@@ -24,3 +25,5 @@
     = link_to_next_page @rooms, 'View More', remote: false
 
 -# = link_to 'TOP', '#', class: 'scroll-to--top'
+
+-# "data-map-mapbox-room" => "#{RoomSerializer.new(@room).to_json.html_safe}"

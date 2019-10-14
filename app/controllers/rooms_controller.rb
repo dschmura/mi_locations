@@ -15,14 +15,14 @@ class RoomsController < ApplicationController
 
       @results = policy_scope( @q.result.merge(@char_rooms) )
       @rooms = @results.page(params[:page]).decorate
-      @rooms_json = @rooms.to_json(:include => :building)
+      @rooms_json = serialize_index(@rooms).to_json
 
     else
       @q ||= Room.classrooms.includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
       @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
       @results = policy_scope( @q.result(distinct: true) )
       @rooms = @results.page(params[:page]).decorate
-      @rooms_json = @rooms.to_json(:include => :building)
+      @rooms_json = serialize_index(@rooms).to_json
     end
     respond_to do |format|
       # format.js
@@ -33,8 +33,11 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room_json = @room.to_json(:include => :building)
-
+    respond_to do |format|
+      # format.js
+      format.html
+      format.json { render json: @room, serializer: RoomSerializer }
+    end
   end
 
   def search
@@ -56,7 +59,6 @@ class RoomsController < ApplicationController
 
   def toggle_visibility
     @room.toggle(:visible).save
-
     respond_to do |format|
       format.js
     end
@@ -64,10 +66,21 @@ class RoomsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def serialize_index(rooms)
+    serialized = []
+    rooms.each { |room| serialized << serialize(room)}
+    return serialized
+  end
+
+  def serialize(room)
+    RoomSerializer.new(room).as_json
+  end
+
   def set_room
-    @room = Room.includes(:building, :room_characteristics,:room_image_attachment, :alerts).find(params[:id]).decorate
+    @room = Room.includes(:building, :room_characteristics,:room_image_attachment, :alerts).find(params[:id])
     authorize @room
+    @room_json = serialize_index([@room]).to_json
+    @room = @room.decorate
     # @room = Room.find_by facility_code_heprod:(params[:id].upcase) || Room.find(params[:id])
   end
 
