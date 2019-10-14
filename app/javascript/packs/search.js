@@ -2,12 +2,11 @@ var noUiSlider = require("nouislider");
 
 
 document.addEventListener('turbolinks:load', () => {
-  var slider = document.getElementById('slider');
-  var resetSlider = document.getElementById('reset-slider');
+  let slider = document.getElementById('slider');
+  let resetSlider = document.getElementById('reset-slider');
   const minimumCapacity = document.getElementById('minimum-capacity');
   const maximumCapacity = document.getElementById('maximum-capacity');
 
-  console.log(minimumCapacity.value)
   if (minimumCapacity !== null && minimumCapacity.value !== "") {
     var min = parseInt(minimumCapacity.value, 10)
   }

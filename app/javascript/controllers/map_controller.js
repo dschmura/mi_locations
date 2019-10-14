@@ -43,7 +43,6 @@ export default class extends Controller {
     let averageLongitude = 0;
     let roomCount = 0;
     for( var i = 0; i < room.length; i++ ) {
-      console.log(room[i].building.latitude)
       if (room[i].building.latitude != null || room[i].building.longitude != null){
         roomCount++;
 
