@@ -3,13 +3,13 @@ class RoomsController < ApplicationController
 
   def index
     if params[:q] && params[:q][:rooms_with_all_characteristics]
-
       @params = params[:q][:rooms_with_all_characteristics]
+      # Query RoomChaacteristics
       @all_chars = RoomCharacteristic.has_all_characteristics(@params)
 
-      @char_rooms = Room.classrooms.includes(:building, :room_image_attachment, :alerts).where(rmrecnbr: @all_chars)
+      @char_rooms = Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :alerts).where(rmrecnbr: @all_chars)
 
-      @q ||= Room.classrooms.includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
+      @q ||= Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
 
       @q.sorts = ['room_number ASC', 'instructional_seating_count ASC' ] if @q.sorts.empty?
 
@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
       @rooms_json = serialize_index(@rooms).to_json
 
     else
-      @q ||= Room.classrooms.includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
+      @q ||= Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
       @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
       @results = policy_scope( @q.result(distinct: true) )
       @rooms = @results.page(params[:page]).decorate

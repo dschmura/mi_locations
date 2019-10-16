@@ -33,9 +33,14 @@ class Building < ApplicationRecord
 
   geocoded_by :address # can also be an IP address
 
-  def self.classrooms
-    joins(:room).where(room: {rmtyp_description:  ["Classroom"]})
-  end
+  # Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).count
+  scope :ann_arbor_campus, -> {
+    where("zip ILIKE ANY ( array[?] )", ['48103%', '48104%', '48105%', '48109%'])
+  }
+
+  scope :with_classrooms, -> {
+    joins(:rooms).merge(Room.classrooms) }
+
 
   def self.classrooms?
     where(room.classrooms.any?)
