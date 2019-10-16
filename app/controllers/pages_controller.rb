@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  skip_filter :redirect_https
+  skip_before_action :redirect_https
 
   def index
 
