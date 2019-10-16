@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  skip_filter :redirect_https
+
   def index
 
     @q = Room.classrooms.ransack(params[:q])
