@@ -1,4 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_before_action :redirect_https
   before_action :set_omni_auth_service
   before_action :set_user
 
