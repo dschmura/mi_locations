@@ -19,8 +19,12 @@
     %nav.header-nav.hidden{"data-target" => "toggle.mainnav"}
       .header-links
         .header-link
+          = request.remote_ip
+        .header-link
           = link_to "About Us", about_path
         .header-link
+          = link_to 'Contact', contact_path
+        -# .header-link
           = link_to "Buildings", buildings_path
         .header-link
           = link_to "Classrooms", rooms_path
