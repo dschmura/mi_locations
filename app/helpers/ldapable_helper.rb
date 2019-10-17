@@ -126,7 +126,7 @@ module LdapableHelper
         end
       end
     end
-    get_ldap_response(ldap)
+    get_ldap_response(ldap_connection)
     false
   end
 
@@ -148,7 +148,7 @@ module LdapableHelper
       result_hash['group_email'] = item.umichGroupEmail.first
       result_hash['members'] = item.member
     end
-    get_ldap_response(ldap)
+    get_ldap_response(ldap_connection)
     result_hash
   end
 
