@@ -13,15 +13,15 @@
             "data-map-mapbox-room" => @room_json, "data-target" => "toggle.roomsmap"}
       #mapid
 
-    .room-image-container
-      .room-show-image{ "data-target" => "toggle.roommap" }
-        - if @room.room_panorama.attached?
-          #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => "#{url_for(@room.room_panorama)}",  "data-pannellum-panopreview" => "#{url_for(@room.room_panorama.variant(resize: "25%").processed)}" }
 
-        - elsif @room.room_image.attached?
-          = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
-        -else
-          = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
+    .room-show-image{ "data-target" => "toggle.roommap" }
+      - if @room.room_panorama.attached?
+        #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => "#{url_for(@room.room_panorama)}",  "data-pannellum-panopreview" => "#{url_for(@room.room_panorama.variant(resize: "25%").processed)}" }
+
+      - elsif @room.room_image.attached?
+        = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
+      -else
+        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
