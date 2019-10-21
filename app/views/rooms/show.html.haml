@@ -54,12 +54,9 @@
             %i.fas.fa-calendar
             Calendar
 
-
   %section.room-features.features-group
     %h2
       Room Features
-
-
     .room-chars
       - @room.room_characteristics.select{ |c| c.feature?}.each do |rc|
         .room-char
@@ -67,8 +64,6 @@
           %b= rc.characteristic_label
           -# .room-char-description
             = rc.chrstc_desc254
-
-
 
   %section.secondary-features
     .team-learning
