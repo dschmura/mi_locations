@@ -26,14 +26,25 @@
 
 .room-info-pane
   @apply  flex flex-col bg-blue-100 p-8
-  @screen sm
-    @apply flex-row
-  .left
-    @apply   w-full pr-4
-  .right
-    @apply  w-full px-4
-.room-title
-  @apply text-2xl font-light
+
+  .info
+    @apply flex flex-col w-full
+    @screen sm
+      @apply flex-row
+    .left
+      @apply  w-full list-none
+      @screen sm
+        @apply w-1/2
+    .right
+      @apply  w-full list-none
+      @screen sm
+        @apply w-1/2 text-right
+
+.room-name-address
+  @apply text-2xl font-semibold text-gray-800 leading-tight mb-4
+  .room-department
+    @apply text-base text-gray-600 font-light
+
 
 .features-group
   @apply bg-blue-200
@@ -41,7 +52,7 @@
 .room-features
   @apply  flex flex-col
   h2
-    @apply text-3xl uppercase font-light text-gray-800 text-left ml-8 mb-4
+    @apply text-2xl uppercase font-light text-gray-800 text-left ml-8 mb-4 inline-block w-1/2
   @screen md
     @apply flex-row
 
@@ -54,7 +65,8 @@
     @apply
   @screen lg
     @apply
-
+  h2
+    @apply text-2xl uppercase font-light text-gray-800 text-left ml-8 mb-4 inline-block w-1/2
   .team-learning
     @screen md
 
@@ -64,17 +76,15 @@
 
   .projection
     @screen md
+
 .room-chars
-  @apply  block w-full px-8
+  @apply   w-full px-8
   @screen sm
     @apply flex flex-wrap
 
 .room-char
-  @apply   px-5 text-left mb-8 text-blue-800 text-xl font-light
-  @screen sm
-    @apply w-1/2
-  @screen md
-    @apply w-1/4
+  @apply  block px-5 text-left mb-8 text-blue-800 text-sm font-light
+
 
 .rooms-map-toggle
   @apply bg-gray-300 px-2 rounded-full text-center justify-center mx-auto w-20 text-blue-700 shadow border border-gray-400 sticky bottom-0 opacity-75

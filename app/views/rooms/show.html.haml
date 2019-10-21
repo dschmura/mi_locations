@@ -26,48 +26,34 @@
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
   .room-info-pane
-    .left
+    .room-name-address
       .room-title
         = @room.title
+      .room-department
         = get_department(current_user.uniqname)
-        = member_of_group?(current_user.uniqname, 'lsa-mis-rails-admins')
+    .info
+      .left
+        %li.room-capacity
+          %i.fas.fa-users
+          = "Capacity #{@room.instructional_seating_count} "
+          - if @room.team_learning_classroom?
+            .room-team-learning
+              %i.fas.fa-handshake
+              Team Learning
+        %li.room-layout
+          %i.fas.fa-chair
+          Room Layout
 
-      .room-capacity
-        %i.fas.fa-users
-        = "Capacity #{@room.instructional_seating_count} "
-      - if @room.team_learning_classroom?
-        .room-team-learning
-          %i.fas.fa-handshake
-          Team Learning
-    .right.list-none
-      %li
-        %i.fas.fa-map-marked-alt
-        Directions
-      %li
-        %i.fas.fa-map
-        Map
-      %li
-        %i.fas.fa-calendar
-        Calendar
-      %li
-        %i.fas.fa-chair
-        Room Layout
-    .what
-      -# = @room.room_contact.rm_schd_cntct_name
-      -# = @room.room_contact.rm_schd_cntct_phone
-      -# = @room.room_contact.rm_schd_email
+      .right
+        %li.room-directions
+          %i.fas.fa-map-marked-alt
+          Directions
 
-  -# #  rmrecnbr             :integer
-  -# #  rm_schd_cntct_name   :string
-  -# #  rm_schd_email        :string
-  -# #  rm_schd_cntct_phone  :string
-  -# #  rm_det_url           :string
-  -# #  rm_usage_guidlns_url :string
-  -# #  rm_sppt_deptid       :string
-  -# #  rm_sppt_dept_descr   :string
-  -# #  rm_sppt_cntct_email  :string
-  -# #  rm_sppt_cntct_phone  :string
-  -# #  rm_sppt_cntct_url    :string
+        %li.room-calendar
+          = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@room.facility_code_heprod }", :target => "_blank", :role => "button", :class => " button tooltip tooltip-top ", "data-tooltip" => "Go to room schedule." do
+            %i.fas.fa-calendar
+            Calendar
+
 
   %section.room-features.features-group
     %h2
@@ -84,8 +70,8 @@
 
 
 
-  .secondary-features
-    %section.room-features.team-learning
+  %section.secondary-features
+    .team-learning
       %h2 Team Learning
       .room-chars
         -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |rc|
@@ -95,9 +81,8 @@
             -# .room-char-description
             -#   = rc.chrstc_desc254
 
-      %section.room-features.writing-surfaces
+      .writing-surfaces
         %h2 Writing Surfaces
-
         .room-chars
           -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
             .room-char
@@ -106,7 +91,7 @@
               -# .room-char-description
               -#   = rc.chrstc_desc254
 
-      %section.room-features.projection
+      .projection
         %h2 Projection
         .room-chars
           -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|

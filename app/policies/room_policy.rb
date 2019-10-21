@@ -15,6 +15,7 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def show?
+    # if user && member_of_department?
     if user
       true
     else
@@ -23,9 +24,9 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def update?
-    if user && member_of_group?(user.uniqname, 'lsa-mis-rails-admins')
-    # if user
-    #   true
+    # if user && member_of_group?(user.uniqname, 'lsa-mis-rails-admins')
+    if user
+      true
     else
       false
     end
