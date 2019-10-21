@@ -66,7 +66,7 @@
             = rc.chrstc_desc254
 
   %section.secondary-features
-    .team-learning
+    .team-learning.features-group
       %h2 Team Learning
       .room-chars
         -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |rc|
@@ -76,25 +76,25 @@
             -# .room-char-description
             -#   = rc.chrstc_desc254
 
-      .writing-surfaces
-        %h2 Writing Surfaces
-        .room-chars
-          -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
-            .room-char
-              %i{ class: "#{rc.characteristic_icon}" }
-              %b= rc.characteristic_label
-              -# .room-char-description
-              -#   = rc.chrstc_desc254
+    .writing-surfaces.features-group
+      %h2 Writing Surfaces
+      .room-chars
+        -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
+          .room-char
+            %i{ class: "#{rc.characteristic_icon}" }
+            %b= rc.characteristic_label
+            -# .room-char-description
+            -#   = rc.chrstc_desc254
 
-      .projection
-        %h2 Projection
-        .room-chars
-          -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|
-            .room-char
-              %i{ class: "#{rc.characteristic_icon}" }
-              %b= rc.characteristic_label
-              -# .room-char-description
-              -#   = rc.chrstc_desc254
+    .projection.features-group
+      %h2 Projection
+      .room-chars
+        -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|
+          .room-char
+            %i{ class: "#{rc.characteristic_icon}" }
+            %b= rc.characteristic_label
+            -# .room-char-description
+            -#   = rc.chrstc_desc254
 
 
   - if policy(@room).update?

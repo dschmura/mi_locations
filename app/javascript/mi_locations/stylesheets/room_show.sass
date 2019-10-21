@@ -47,43 +47,58 @@
 
 
 .features-group
-  @apply bg-blue-200
-
-.room-features
-  @apply  flex flex-col
-  h2
-    @apply text-2xl uppercase font-light text-gray-800 text-left ml-8 mb-2 inline-block w-1/2
+  @apply flex flex-col
   @screen md
     @apply flex-row h-32
+  @screen lg
+    @apply h-20
+
+.room-features
+  @apply   bg-blue-200
+  h2
+    @apply text-2xl uppercase font-light text-gray-800 text-left ml-8 mb-2 inline-block w-1/2
+
 
 .room-char-description
   @apply
 
 .secondary-features
-  @apply  bg-yellow-100
+  @apply  bg-yellow-100 flex-row
   @screen md
-    @apply
-  @screen lg
-    @apply
+    @apply flex flex-wrap
+
   h2
-    @apply text-2xl uppercase font-light text-gray-800 text-left ml-8  inline-block w-1/2
-  .team-learning
+    @apply text-2xl uppercase font-light text-gray-800 text-left ml-8
+
+  .features-group
+    @apply  flex flex-col h-auto
     @screen md
+      @apply p-4
+
+      h2
+        @apply mb-2
+  .team-learning
+    @apply flex-col w-auto
+    @screen md
+      @apply w-1/3
+
 
   .writing-surfaces
+    @apply flex-col w-auto
     @screen md
-      @apply
+      @apply w-1/3
 
   .projection
+    @apply flex-col w-full
     @screen md
-
+      @apply w-1/3
 .room-chars
   @apply   w-full ml-4 flex flex-col
   @screen sm
     @apply flex flex-wrap
 
 .room-char
-  @apply  block px-5 text-left text-blue-800 text-base font-light mb-2
+  @apply  block px-5 text-left text-blue-800 font-light mb-2
 
 
 .rooms-map-toggle
