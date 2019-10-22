@@ -17,6 +17,7 @@
     "postcss-cssnext": "^3.1.0",
     "stimulus": "^1.1.1",
     "tailwindcss": "^1.0.4",
+    "tailwindcss-stimulus-components": "^1.0.1",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0"
   },
