@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+
   private
   def sign_up_params
     params.require(:user).permit(:uniqname, :email, :password, :password_confirmation)
@@ -22,9 +23,10 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    flash[:alert] = 'You are not authorized to perform this action.'
-    redirect_back(fallback_location: root_path)
+    flash[:alert] = 'Please sign in to perform this action.'
+    redirect_back(fallback_location: :user_google_oauth2_omniauth_authorize_path)
  end
+
   # def current_user
   #   super || OpenStruct.new(uniqname: 'guest', email: 'guest@localhost.com')
   # end
