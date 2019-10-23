@@ -3,7 +3,7 @@
     @apply block uppercase tracking-wide text-blue-700 text-sm font-bold mb-2
 
 .feedback-name
-  @apply appearance-none block w-full  py-3 px-4 leading-tight
+  @apply appearance-none block w-full  py-3 px-4 leading-tight text-left
   &:focus
     @apply outline-none bg-white border-blue-500
 .feedback-topic
@@ -28,7 +28,15 @@
     @apply bg-blue-300
 
 .feedback-modal-container
-  @apply mx-auto
+  @apply w-full
+  top: 20%
+
 
 .feedback-modal-inner-container
-  @apply  max-h-screen w-full max-w-lg relative
+  @apply  max-h-screen w-full max-w-3xl relative mx-auto
+
+.feedback-modal-wrapper
+  @apply m-1 bg-white rounded shadow text-left p-8
+
+.feedback-close
+  @apply absolute top-0 right-0 mt-1 mr-3
