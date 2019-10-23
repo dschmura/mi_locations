@@ -1,4 +1,21 @@
 Rails.application.configure do
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'mi.locations.feedback@umich.edu'}
+
+  config.action_mailer.smtp_settings = {address: "mi-locations-production.miserver.it.umich.edu"}
+  config.action_mailer.smtp_settings = {
+    address: Rails.application.credentials.production_mail[:MI_LOCATIONS_EMAIL_SERVER],
+    domain: Rails.application.credentials.production_mail[:MI_LOCATIONS_EMAIL_DOMAIN],
+    user_name: Rails.application.credentials.production_mail[:MI_LOCATIONS_EMAIL_USERNAME],
+    password: Rails.application.credentials.production_mail[:MI_LOCATIONS_EMAIL_PASSWORD],
+    authentication: :login,
+    enable_starttls_auto: "true",
+    port: "587",
+  }
+
+
+  config.action_mailer.default_url_options = { host: 'lsa-mis-rails-staging2.miserver.it.umich.edu' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
