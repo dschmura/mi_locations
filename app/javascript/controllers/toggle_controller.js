@@ -21,6 +21,7 @@ export default class extends Controller {
   }
 
   roommapToggle() {
+    event.preventDefault()
     this.roommapTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
 
