@@ -67,6 +67,23 @@ class RoomDecorator < Draper::Decorator
     helpers.pluralize(room.instructional_seating_count, 'Student')
   end
 
+  def room_schedule_contact
+    if room.room_contact && room.room_contact.rm_schd_cntct_name
+      "#{room.room_contact.rm_schd_cntct_name.titleize} \n #{room.room_contact.rm_schd_email}".titleize
+    else
+      "Not Available"
+    end
+  end
+
+  def room_support_contact
+#  rm_sppt_cntct_url    :string
+    if room.room_contact && room.room_contact.rm_sppt_cntct_url
+      "#{room.room_contact.rm_sppt_cntct_url} \n #{room.room_contact.rm_schd_email}".titleize
+    else
+      "Not Available"
+    end
+  end
+
   def copy_text
     %Q(#{self.title.upcase} : #{self.address}. | Student Capacity: #{room.instructional_seating_count}. | You can find details at https://rooms.umich.edu/rooms/#{room.id} including links to support and scheduling for this room.)
 

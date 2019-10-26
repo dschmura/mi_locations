@@ -77,7 +77,7 @@ class RoomsController < ApplicationController
   end
 
   def set_room
-    @room = Room.includes(:building, :room_characteristics,:room_image_attachment, :alerts).find(params[:id])
+    @room = Room.includes(:building, :room_characteristics,:room_image_attachment, :alerts, :room_contact).find(params[:id])
     authorize @room
     @room_json = serialize_index([@room]).to_json
     @room = @room.decorate
@@ -86,6 +86,6 @@ class RoomsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def room_params
-    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :room_panorama, :visible, :page)
+    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :room_panorama, :room_layout, :visible, :page)
   end
 end

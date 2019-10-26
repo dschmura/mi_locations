@@ -3,9 +3,9 @@
   .room-image
     = link_to room do
       - if room.room_image.attached?
-        = image_tag(url_for(room.room_image), alt: "#{room.room_number} #{room.building.name.titleize} picture")
+        = image_tag(url_for(room.room_image), alt: "#{room.room_number} #{room.building.name.titleize} picture", loading: "lazy")
       - else
-        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{room.room_number} #{room.building.name.titleize} image not available")
+        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{room.room_number} #{room.building.name.titleize} image not available", loading: "lazy")
 
   .card-content-container
     .card-content

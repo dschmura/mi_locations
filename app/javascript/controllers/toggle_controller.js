@@ -12,7 +12,8 @@ export default class extends Controller {
   }
 
   roomsmapToggle() {
-    event.preventDefault()
+    event.preventDefault();
+
     this.roomsmapTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
 
@@ -21,7 +22,7 @@ export default class extends Controller {
   }
 
   roommapToggle() {
-    event.preventDefault()
+    event.preventDefault();
     this.roommapTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
 

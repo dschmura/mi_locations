@@ -1,5 +1,7 @@
-.room-show{ "data-controller" => "toggle"}
-  .room-banner
+.room-show{"data-controller" => "modal", "data-modal-allow-background-close" => "true"}
+  = render 'room_layout'
+  .room-banner{"data-controller" => "toggle"}
+
     .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle"}
       .map{ "data-target" => "toggle.roomsmap"}
         %i.fas.fa-map
@@ -13,7 +15,6 @@
             "data-map-mapbox-room" => @room_json, "data-target" => "toggle.roomsmap"}
       #mapid
 
-
     .room-show-image{ "data-target" => "toggle.roommap" }
       - if @room.room_panorama.attached?
         #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => "#{url_for(@room.room_panorama)}",  "data-pannellum-panopreview" => "#{url_for(@room.room_panorama.variant(resize: "25%").processed)}" }
@@ -23,6 +24,8 @@
       -else
         = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 
+
+
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
   .room-info-pane
@@ -30,7 +33,7 @@
       .room-title
         = @room.title
       .room-department
-        = get_department(current_user.uniqname)
+        = @room.department_name
     .info
       .left
         %li.room-capacity
@@ -41,8 +44,9 @@
               %i.fas.fa-handshake
               Team Learning
         %li.room-layout
-          %i.fas.fa-chair
-          Room Layout
+          %a{"data-action" => "click->modal#open", :href => "#"}
+            %i.fas.fa-chair
+            %span Room Layout
 
       .right
         %li.room-directions

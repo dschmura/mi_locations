@@ -1,0 +1,59 @@
+
+/ Modal Container
+.layout-modal-container.hidden.animated.fadeIn.fixed{"data-action" => "click->modal#closeBackground keyup@window->modal#closeWithKeyboard", "data-target" => "modal.container", :style => "z-index: 9999;"}
+  / Modal Inner Container
+  .layout-modal-inner-container
+    / Modal Card
+    .layout-modal-wrapper
+
+      = link_to '', {onclick: 'window.print();return false;', "aria-label" => "Print" } do
+
+        .layout-print{"aria-label" => "Print"}
+
+          %i.fas.fa-print
+          Print
+      .layout-close{"aria-label" => "Close", "data-action" => "click->modal#close"}
+        %i.fas.fa-times
+      .room-layout
+
+        .room-info-pane
+          .room-name-address
+            .room-title
+              = "#{@room.title}  "
+              .rmrecnbr
+                = "(#{@room.rmrecnbr})"
+            .room-department
+              = @room.department_name
+          .info
+            .left
+              %li.room-capacity
+                %i.fas.fa-users
+                = "Capacity #{@room.instructional_seating_count} "
+
+
+          .room-support-info
+            .room-schedule-contact
+              %h3 Scheduling Info:
+              = "#{@room.room_schedule_contact}"
+            .room-support-contact
+              %h3 Support Info:
+              = "#{@room.room_support_contact}"
+
+        - if @room.room_layout.attached?
+          -# = image_tag(url_for(@room.room_layout.variant(resize: "25%").processed), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} layout")
+          .room-layout
+            %b Room Layout:
+            Please return the furniture to this arrangment when finished.
+            = image_tag(url_for(@room.room_layout), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} layout", loading: "lazy")
+        -else
+          .room-layout-missing
+            There is no layout published for this room.
+        .modal-footer
+          %nav
+            = link_to root_path do
+              .layout-footer-mi-locations-logo
+                = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlateBlue.svg'), alt: 'MiLocations Logo, link to home page.' )
+            = link_to lsa_tech_services_url, target: "_blank" do
+
+              .layout-footer-mi-locations-logo
+                = image_tag(asset_pack_path('media/mi_locations/images/LSA_TechnologyServices_Pill.png'), alt: 'MiLocations Logo, link to home page.' )

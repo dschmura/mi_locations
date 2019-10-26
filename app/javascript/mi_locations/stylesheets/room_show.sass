@@ -1,13 +1,50 @@
 .room-show
+  @apply
 
+.room-layout
+  @apply mx-auto bg-blue-100 p-4
+  h3
+    @apply text-xl
+  img
+    @apply w-auto mx-auto bg-white mt-4 rounded-lg
+  @screen sm
+    img
+      @apply p-4
+
+.layout-modal-container
+  @apply bg-gray-300 w-full overflow-y-scroll
+.layout-modal-inner-container
+  @apply  max-h-screen w-full max-w-3xl relative mx-auto
+
+.layout-modal-wrapper
+  @apply m-1 bg-white rounded shadow text-left p-8
+
+.modal-footer
+  @apply p-0
+  img
+    @apply p-0
+  nav
+    @apply flex flex-row justify-between
+
+.layout-footer-mi-locations-logo
+  @apply w-64
+  img
+    @apply bg-gray-500
+.layout-close
+  @apply absolute top-0 right-0 mt-1 mr-3
+
+.layout-print
+  @apply absolute bottom-0 right-0 mt-4 mr-3 px-1 text-blue-800 rounded
+  &:hover
+    @apply bg-blue-100 text-blue-700
 
 .room-banner
-  @apply h-64 overflow-hidden
+  @apply  overflow-hidden h-80
 .room-map
-  @apply h-64 min-w-full w-full bg-blue-200
+  @apply  min-w-full w-full bg-blue-200 h-80
 
 #mapid
-  @apply min-w-full z-0 min-h-full
+  @apply min-w-full z-0 min-h-full h-80
   img
     @apply border-none p-0
 
@@ -44,7 +81,14 @@
   @apply text-2xl font-semibold text-gray-800 leading-tight mb-4
   .room-department
     @apply text-base text-gray-600 font-light
-
+.rmrecnbr
+  @apply text-base text-gray-600 inline-block
+.room-support-info
+  @apply py-4 flex flex-col
+  @screen md
+    @apply flex-row justify-between
+  h3
+    @apply text-xl underline leading-relaxed mb-2
 
 .features-group
   @apply flex flex-col
