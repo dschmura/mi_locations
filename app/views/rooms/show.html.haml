@@ -37,14 +37,19 @@
     .info
       .left
         %li.room-capacity
-          %i.fas.fa-users
-          = "Capacity #{@room.instructional_seating_count} "
-          - if @room.team_learning_classroom?
-            .room-team-learning
+          = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", "data-tooltip" => "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces.", "data-action" => "click->modal#open"} do
+            %i.fas.fa-users
+            = "Capacity #{@room.instructional_seating_count} "
+
+
+        - if @room.team_learning_classroom?
+          %li.room-team-learning
+            = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", "data-tooltip" => "Classroom is equiped with team-learning resources."} do
+
               %i.fas.fa-handshake
-              Team Learning
+              Team Learning Classroom
         %li.room-layout
-          %a{"data-action" => "click->modal#open", :href => "#"}
+          = link_to  "", :role => "button", :class => " button tooltip tooltip-top ", "data-tooltip" => "The room arrangement for this room and room support and scheduling contacts.", "data-action" => "click->modal#open" do
             %i.fas.fa-chair
             %span Room Layout
 
@@ -62,44 +67,28 @@
     %h2
       Room Features
     .room-chars
-      - @room.room_characteristics.select{ |c| c.feature?}.each do |rc|
-        .room-char
-          %i{ class: "#{rc.characteristic_icon}" }
-          %b= rc.characteristic_label
-          -# .room-char-description
-            = rc.chrstc_desc254
+      - @room.room_characteristics.select{ |c| c.feature?}.each do |characteristic|
+        = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
   %section.secondary-features
+
     .team-learning.features-group
       %h2 Team Learning
       .room-chars
-        -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |rc|
-          .room-char
-            %i{ class: "#{rc.characteristic_icon}" }
-            %b= rc.characteristic_label
-            -# .room-char-description
-            -#   = rc.chrstc_desc254
+        -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |characteristic|
+          = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
     .writing-surfaces.features-group
       %h2 Writing Surfaces
       .room-chars
-        -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |rc|
-          .room-char
-            %i{ class: "#{rc.characteristic_icon}" }
-            %b= rc.characteristic_label
-            -# .room-char-description
-            -#   = rc.chrstc_desc254
+        -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |characteristic|
+          = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
     .projection.features-group
       %h2 Projection
       .room-chars
-        -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |rc|
-          .room-char
-            %i{ class: "#{rc.characteristic_icon}" }
-            %b= rc.characteristic_label
-            -# .room-char-description
-            -#   = rc.chrstc_desc254
-
+        -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |characteristic|
+          = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
   - if policy(@room).update?
     = render partial: 'alerts/form', locals: {alertable: @room}

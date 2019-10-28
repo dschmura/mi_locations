@@ -1,0 +1,11 @@
+-# .room-char{"data-action" => "mouseover->popover#mouseOver mouseout->popover#mouseOut", "data-controller" => "popover", "data-popover-translate-x" => "25%", "data-popover-translate-y" => "-128%"}
+-#   %i{ class: "#{characteristic.characteristic_icon}" }
+-#   %b= characteristic.characteristic_label
+
+-#   .popover-content.hidden{"data-target" => "popover.content"}
+-#     = characteristic.chrstc_desc254
+
+.room-char
+  = link_to  "", :role => "button", :class => " tooltip tooltip-top ", "data-tooltip" => "#{characteristic.chrstc_desc254}" do
+    %i{ class: "#{characteristic.characteristic_icon}" }
+    %b= characteristic.characteristic_label
