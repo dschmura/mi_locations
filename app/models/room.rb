@@ -72,6 +72,9 @@ class Room < ApplicationRecord
   scope :whiteboard, -> {
     joins(:room_characteristics).merge(RoomCharacteristic.whiteboard) }
 
+  scope :ann_arbor, -> {
+    joins(:building).merge(Building.ann_arbor_campus)
+  }
   def self.with_doccam
     joins(:room_characteristics).merge(RoomCharacteristic.doccam)
   end
