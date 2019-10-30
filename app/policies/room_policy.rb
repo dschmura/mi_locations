@@ -6,6 +6,7 @@ class RoomPolicy < ApplicationPolicy
         scope.all
       else
         scope.where(visible: true)
+        # scope.all
       end
     end
   end
@@ -25,16 +26,21 @@ class RoomPolicy < ApplicationPolicy
 
   def update?
     # if user && member_of_group?(user.uniqname, 'lsa-mis-rails-admins')
-    if user
+    if user && user_in_group?
       true
     else
       false
     end
   end
 
+  def user_in_group?
+    # user.authorized_groups.includes?
+    user.mcommunity_groups.include?("mi-locations-notify")
+
+  end
 
   def toggle_visibility?
-    if user
+    if user && user_in_group
       true
     else
       false
