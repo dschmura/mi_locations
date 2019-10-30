@@ -50,7 +50,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
-  config.active_job.queue_adapter = :inline
+  config.active_job.queue_adapter = :asynch
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -86,6 +86,6 @@ Rails.application.configure do
     Bullet.bullet_logger = true
     Bullet.console = true
     Bullet.rails_logger = true
-    Bullet.add_footer = true
+    Bullet.add_footer = false
   end
 end

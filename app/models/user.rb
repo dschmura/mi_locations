@@ -14,13 +14,14 @@
 #  provider               :string
 #  uid                    :string
 #  avatar_url             :string
+#  mcommunity_groups      :text
 #
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable :registerable
   devise :database_authenticatable,
-         :recoverable, :rememberable, :validatable,
+         :recoverable, :rememberable, :validatable, :trackable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_many :omni_auth_services, dependent: :destroy

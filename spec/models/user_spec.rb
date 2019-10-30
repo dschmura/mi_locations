@@ -14,6 +14,7 @@
 #  provider               :string
 #  uid                    :string
 #  avatar_url             :string
+#  mcommunity_groups      :text
 #
 
 require "rails_helper"

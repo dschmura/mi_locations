@@ -2,7 +2,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :redirect_https
   before_action :set_omni_auth_service
   before_action :set_user
-
+  after_action :update_user_mcommunity_groups
   attr_reader :omni_auth_service, :user
 
   def google_oauth2
@@ -33,10 +33,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if user_signed_in?
       flash[:notice] = "Your #{kind} account was connected."
       redirect_to edit_user_registration_path
+
     else
       sign_in_and_redirect user, event: :authentication
       set_flash_message :notice, :success, kind: kind
     end
+  end
+
+  def update_user_mcommunity_groups
+    if user.last_sign_in_at < 30.minutes.ago
+      UpdateUserGroupsJob.perform_later(current_user)
+    end
+
   end
 
   def auth
@@ -56,8 +64,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # 5. User is logged out and they login to a new account which doesn't match their old one
       flash[:alert] = "An account with this email already exists. Please sign in with that account before connecting your #{auth.provider.titleize} account."
       redirect_to new_user_session_path
+
     else
       @user = create_user
+
+    end
+    if @user.updated_at > 3.hours.ago
+      puts "UPDATED"
     end
   end
 
@@ -80,6 +93,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       avatar_url: auth.info.image,
       password: Devise.friendly_token[0,20]
     )
+
   end
 
 end
