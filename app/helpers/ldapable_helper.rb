@@ -130,6 +130,17 @@ module LdapableHelper
     false
   end
 
+  def user_group_memberships(uid = nil)
+    ldap = ldap_connection
+    result_array = []
+    result_attrs = ["dn"]
+    ldap.search(filter: "member=uid=#{uid},ou=People,dc=umich,dc=edu", attributes: result_attrs) do |item|
+      item.each {|key,value| result_array << value.first.split("=")[1].split(",")[0]}
+    end
+    return result_array
+    get_ldap_response(ldap)
+  end
+
   ##############################################################################
   # Get the Name email and members of an LDAP group as a hash
   ##############################################################################
