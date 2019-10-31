@@ -3,7 +3,7 @@ set :repo_url,        "git@github.com:dschmura/mi_locations.git"
 set :user,            "deployer"
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-set :keep_releases, 2
+set :keep_releases, 3
 # Don't change these unless you know what you're doin
 set :pty,             true
 set :use_sudo,        false
@@ -75,11 +75,21 @@ namespace :deploy do
   end
 
   desc "Upload to shared/config"
-  task :upload do
+  task :upload_configs do
     on roles :app do
       upload! "config/master.key",  "#{shared_path}/config/master.key"
       upload! "config/puma.sample.rb", "#{shared_path}/config/puma.rb"
       upload! "config/nginx.sample.conf", "#{shared_path}/config/nginx.conf"
+    end
+  end
+
+  desc "Upload to shared/data"
+  task :upload_data do
+    on roles :app do
+      upload! "uploads/buildings.csv",  "#{shared_path}/data/master.key"
+      upload! "uploads/rooms.csv", "#{shared_path}/data/puma.rb"
+      upload! "uploads/room_characteristics.csv", "#{shared_path}/data/nginx.conf"
+      upload! "uploads/room_contacts.csv", "#{shared_path}/data/nginx.conf"
     end
   end
 
