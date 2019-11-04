@@ -190,7 +190,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_150157) do
     t.string "provider"
     t.string "uid"
     t.string "avatar_url"
-    t.text "mcommunity_groups"
+    t.text "mcommunity_groups", default: "", null: false
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"

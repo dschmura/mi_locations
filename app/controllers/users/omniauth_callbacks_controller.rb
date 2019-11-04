@@ -40,11 +40,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def update_user_mcommunity_groups
-    if user.last_sign_in_at < 30.minutes.ago
-      UpdateUserGroupsJob.perform_later(current_user)
-    end
+  def user_is_stale?
+    return unless user_signed_in?
+    current_user.last_sign_in_at < 15.minute.ago
+  end
 
+  end
+  def update_user_mcommunity_groups
+    return unless user_is_stale?
+    UpdateUserGroupsJob.perform_later(current_user)
   end
 
   def auth
