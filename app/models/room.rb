@@ -72,6 +72,9 @@ class Room < ApplicationRecord
   scope :whiteboard, -> {
     joins(:room_characteristics).merge(RoomCharacteristic.whiteboard) }
 
+  scope :visible, -> {
+    where(visible: true) }
+
   scope :ann_arbor, -> {
     joins(:building).merge(Building.ann_arbor_campus)
   }
@@ -98,4 +101,16 @@ class Room < ApplicationRecord
   def team_learning_classroom?
     (self.room_characteristics.pluck(:chrstc_descrshort) & ['TeamTables', 'TeamBoard', 'TeamTech']).any?
   end
+
+  def mark_rooms_as_hidden(rmrecnbrs)
+    rooms = Room.where(rmrecnbr: rmrecnbrs.compact )
+    rooms.update_all(visible: false)
+  end
+
+  def mark_rooms_as_visible(rmrecnbrs)
+    rooms = Room.where(rmrecnbr: rmrecnbrs.compact )
+    rooms.update_all(visible: true)
+  end
+
+
 end
