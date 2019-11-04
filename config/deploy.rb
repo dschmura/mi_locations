@@ -86,10 +86,7 @@ namespace :deploy do
   desc "Upload to shared/data"
   task :upload_data do
     on roles :app do
-      upload! "uploads/buildings.csv",  "#{shared_path}/data/master.key"
-      upload! "uploads/rooms.csv", "#{shared_path}/data/puma.rb"
-      upload! "uploads/room_characteristics.csv", "#{shared_path}/data/nginx.conf"
-      upload! "uploads/room_contacts.csv", "#{shared_path}/data/nginx.conf"
+      upload! "uploads/*",  "#{shared_path}/public/uploads/*"
     end
   end
 
@@ -116,5 +113,5 @@ end
 ## Linked Files & Directories (Default None):
 
 set :linked_files, %w[config/puma.rb config/nginx.conf config/master.key]
-set :linked_dirs,  %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system storage]
-set :linked_dirs, fetch(:linked_dirs, []).push("public/packs", "node_modules")
+set :linked_dirs,  %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads storage]
+set :linked_dirs, fetch(:linked_dirs, []).push("public/packs", "node_modules", "public/uploads storage")
