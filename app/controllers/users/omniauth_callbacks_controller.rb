@@ -42,12 +42,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def user_is_stale?
     return unless user_signed_in?
-    current_user.last_sign_in_at < 15.minute.ago
+    current_user.last_sign_in_at < 15.minutes.ago
+  end
   end
 
-  end
   def update_user_mcommunity_groups
-    return unless user_is_stale?
+
+    return if user_is_stale?
     UpdateUserGroupsJob.perform_later(current_user)
   end
 
@@ -100,7 +101,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   end
 
-end
 
 #<OmniAuth::AuthHash
 #credentials=#<OmniAuth::AuthHash expires=true expires_at=1506091894 token="EAABflKwUrhQBABqzaa8vayyVVTspYhjEN4ixhFGdgxSA6XXvFmylyyA6nDzWE4lmqPT31ZAKNJrRKZBylQQysaB1VsoGVRyaPVfihnsKIcVna4WAlzZAfo3DCTc02RFjgz0LF3NlZB8io0OUeSTvL1lDGfDv5zNhQ5vJSiXphQZDZD"> extra=#<OmniAuth::AuthHash raw_info=#<OmniAuth::AuthHash email="excid3@gmail.com" id="1225015704269784" name="Chris Oliver">> info=#<OmniAuth::AuthHash::InfoHash email="excid3@gmail.com" image="http://graph.facebook.com/v2.6/1225015704269784/picture" name="Chris Oliver"> provider="facebook" uid="1225015704269784">
