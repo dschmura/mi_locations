@@ -78,7 +78,7 @@ namespace :deploy do
   task :upload_configs do
     on roles :app do
       upload! "config/master.key",  "#{shared_path}/config/master.key"
-      upload! "config/puma.sample.rb", "#{shared_path}/config/puma.rb"
+      upload! "config/puma.#{:rails_env}.rb", "#{shared_path}/config/puma.rb"
       upload! "config/nginx.sample.conf", "#{shared_path}/config/nginx.conf"
     end
   end
@@ -103,6 +103,15 @@ task :seed do
       with rails_env: fetch(:rails_env) do
         execute :rake, "db:seed"
       end
+    end
+  end
+end
+
+desc "Create symlink for nginx."
+task :link_nginx do
+  on roles :app do
+    within '/etc/nginx/sites-enabled/' do
+      execute("ln -nfs /home/deployer/apps/mi_locations/current/config/nginx.conf /etc/nginx/sites-enabled/APP_NAME-puma")
     end
   end
 end
