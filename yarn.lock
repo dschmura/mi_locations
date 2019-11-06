@@ -6987,6 +6987,13 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
+stimulus-select2@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/stimulus-select2/-/stimulus-select2-0.0.4.tgz#13afc26dfa5d3bab8f41f8457f6402220e095980"
+  integrity sha512-QBAvl6WsyoiQRbL7THp+NkDZlWvzdhPS8NGYXbQGG+t1iZihaaTxZWWy+MXQAVMjjtH6H4w5DEcgDpFMRoTk9w==
+  dependencies:
+    stimulus "^1.1.1"
+
 stimulus@^1.1.0, stimulus@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-1.1.1.tgz#53c2fded6849e7b85eed3ed8dd76e33abd74bec5"
