@@ -79,14 +79,14 @@ namespace :deploy do
     on roles :app do
       upload! "config/master.key",  "#{shared_path}/config/master.key"
       upload! "config/puma.#{:rails_env}.rb", "#{shared_path}/config/puma.rb"
-      upload! "config/nginx.sample.conf", "#{shared_path}/config/nginx.conf"
+      upload! "config/nginx.#{:rails_env}.conf", "#{shared_path}/config/nginx.conf"
     end
   end
 
   desc "Upload to shared/data"
   task :upload_data do
     on roles :app do
-      upload! "uploads/*",  "#{shared_path}/public/uploads/*"
+      upload! 'uploads', "#{shared_path}", recursive: true
     end
   end
 
@@ -122,5 +122,5 @@ end
 ## Linked Files & Directories (Default None):
 
 set :linked_files, %w[config/puma.rb config/nginx.conf config/master.key]
-set :linked_dirs,  %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads storage]
-set :linked_dirs, fetch(:linked_dirs, []).push("public/packs", "node_modules")
+set :linked_dirs,  %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system storage]
+set :linked_dirs, fetch(:linked_dirs, []).push("public/packs", "node_modules", "uploads")

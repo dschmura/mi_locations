@@ -12,7 +12,7 @@ threads 4, 16
 
 bind "unix:///home/deployer/apps/mi_locations/shared/tmp/sockets/mi_locations-puma.sock"
 
-workers 0
+workers 2
 
 preload_app!
 on_restart do
