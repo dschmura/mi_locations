@@ -1,27 +1,18 @@
-= search_form_for @q, remote: false do |f|
+= search_form_for @q, data: { controller: "autosubmit", target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
   %section.search-filters
     .flex.justify-between.px-4.py-3.max-w-xl
       .relative.w-full
-        -# .absolute.inset-y-0.left-0.flex.items-center.pl-3
-          %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
-            %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
-
-        -# = f.search_field :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-input rounded-lg', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
 
         .absolute.inset-y-0.left-0.flex.items-center.pl-3
           %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
             %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
 
-        = f.search_field :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-input rounded-l-lg rounded-r-none', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+        = f.search_field :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_cont, class: 'search-input rounded-l-lg rounded-r-none', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text", data: { action: "keyup->autosubmit#save" }
 
       .search-form--button
         %button Search
+      %span.text-muted{"data-target" => "autosubmit.status"}
 
-
-
-      -# .search-results#rooms-search-matches.inline-flex
-      -#   = @results.size
-      -#   .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
       - if current_user
         .filters-button{"data-action" => "click->toggle#filtertoggle"}
           %svg.h-6.w-6.fill-current.text-gray-500{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", "data-target" => "toggle.filters" }
@@ -30,13 +21,9 @@
           %svg.h-6.w-6.fill-current.text-gray-500.hidden{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", "data-target" => "toggle.filters"}
             %path{:d => "M160 168v-48c0-13.3-10.7-24-24-24H96V8c0-4.4-3.6-8-8-8H72c-4.4 0-8 3.6-8 8v88H24c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h40v312c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8V192h40c13.3 0 24-10.7 24-24zm-32-8H32v-32h96v32zm152 160h-40V8c0-4.4-3.6-8-8-8h-16c-4.4 0-8 3.6-8 8v312h-40c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h40v88c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8v-88h40c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zm-8 64h-96v-32h96v32zm152-224h-40V8c0-4.4-3.6-8-8-8h-16c-4.4 0-8 3.6-8 8v152h-40c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h40v248c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8V256h40c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zm-8 64h-96v-32h96v32z"}
 
-
           %span.ml-2 Filters
 
-
-
     .filter-tools
-
       .search-results#rooms-search-matches.inline-flex
         = @results.size
         .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
@@ -50,7 +37,7 @@
           = sort_link(@q, :room_number) do
             Room number
 
-    .filters-dropdown.hidden{ "data-target" => "toggle.filters" }
+    .filters-dropdown.hiddens{ "data-target" => "toggle.filters" }
       .filters-container
 
         .px-4.py-4.border-t.border-gray-900.xl:border-t-0
@@ -69,12 +56,6 @@
 
               = f.select :dept_grp_eq, [['All Schools & Colleges',''],['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']], {}, {class: "form-select xl:w-full"}
 
-
-              -# collection_select(:post, :author_id, Author.find(:all),
-                  :id, :name_with_initial,
-                 {:prompt => 'Please select a department'})
-
-
             .capacity-slider.tooltip.tooltip-capacity-top{"data-tooltip" => "Only show rooms with a capacity between X and Y"}
               .filters-section-header.mb-4 Student Capacity
 
@@ -84,24 +65,6 @@
 
               -# #reset-slider
                 Reset
-
-        -# .classroom-type
-          %span.filters-section-header Classroom Type
-          .characteristics-arrangement
-            .filter-item-label
-              %input.form-radio{:name => "classroomType", :type => "radio", :value => "team_learning"}/
-              %span Team Learning
-
-            .filter-item-label
-              %input.form-radio{:name => "classroomType", :type => "radio", :value => "lecture_hall"}/
-              %span Lecture Hall
-            .filter-item-label
-              %input.form-radio{:name => "classroomType", :type => "radio", :value => "computer_classroom"}/
-              %span.w-auto Computer Classroom
-            .filter-item-label
-              %input.form-radio{:name => "classroomType", :type => "radio", :value => "computer_classroom"}/
-              %span.w-auto General Classroom
-
 
         .classroom-amenities
           %span.filters-section-header Amenities
@@ -113,9 +76,8 @@
               = check_box_tag('q[rooms_with_all_characteristics][]', [ 'CompPodMac'], is_checked?("CompPodMac"), {class: ' form-checkbox hidden', "data-target" => "toggle.instructor_computer_checkbox"})
               %span Instructor Computer
 
-
             .filter-item-label
-              = check_box_tag('q[rooms_with_all_characteristics][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', "data-remote" => "true" })
+              = check_box_tag('q[rooms_with_all_characteristics][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', data: { action: "input->autosubmit#click" } })
               %span Document Camera
 
             .filter-item-label
@@ -133,7 +95,6 @@
 
             .filter-item-label{}
               = check_box_tag('q[rooms_with_all_characteristics][]', "BluRay", is_checked?("BluRay"), {class: 'form-checkbox', "data-remote" => "true" })
-              -# .checkbox-label BluRay / DVD Player
               %span{:class => "sm:w-full"} BluRay / DVD Player
 
 
@@ -156,8 +117,6 @@
         %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
           .writing-surface{:class => "w-full"}
             %span.filters-section-header Writing Surface
-
-            -# .sm:flex.sm:-mx-2.lg:block.lg:mx-0
             .characteristics-arrangement{:class => "sm:w-full "}
               .filter-item-label
                 = check_box_tag('q[room_characteristics_chrstc_descrshort__matches_all][]', "Whtbrd", is_checked?("Whtbrd"), {class: 'form-checkbox', "data-remote" => "true"  })
