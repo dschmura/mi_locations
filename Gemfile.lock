@@ -160,6 +160,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffaker (2.13.0)
     ffi (1.11.1)
+    flamegraph (0.9.5)
     formatador (0.2.5)
     geocoder (1.5.2)
     globalid (0.4.2)
@@ -412,6 +413,7 @@ GEM
     sshkit (1.20.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    stackprof (0.2.13)
     standard (0.1.5)
       rubocop (~> 0.75.0)
       rubocop-performance (~> 1.5.0)
@@ -468,6 +470,7 @@ DEPENDENCIES
   erb2haml
   factory_bot_rails
   ffaker
+  flamegraph
   geocoder
   guard-bundler
   guard-rails
@@ -497,6 +500,7 @@ DEPENDENCIES
   sidekiq (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  stackprof
   standard
   terminal-notifier-guard
   tzinfo-data

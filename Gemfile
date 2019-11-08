@@ -56,6 +56,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop-performance'
   gem 'rack-mini-profiler'
+  gem 'flamegraph'
+  gem 'stackprof'
   gem 'standard'
 end
 
