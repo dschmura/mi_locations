@@ -32,7 +32,7 @@
           - if user_signed_in?
             %img.user-avatar{:alt => "User Photo", :src => current_user.avatar_url, "data-action" => "click->toggle#dropdowntoggle" }
             %span.user-name
-              = get_uniqname(current_user.email)
+              = current_user.uniqname
           - else
             .user-action-link
               = link_to user_google_oauth2_omniauth_authorize_path do
@@ -44,7 +44,7 @@
           - if user_signed_in?
             -# .user-action-link.-mt-3= link_to "Account settings", edit_user_registration_path
 
-            .user-action-link= link_to("Sign out #{get_uniqname(current_user.email)}", destroy_user_session_path, method: :delete)
+            .user-action-link= link_to("Sign out #{current_user.uniqname}", destroy_user_session_path, method: :delete)
 
 
         .user-action-dropdown.hidden{"data-target" => "toggle.dropdown"}
@@ -52,7 +52,7 @@
           - if user_signed_in?
             -# .user-action-link.mt-1= link_to "Account settings", edit_user_registration_path
             %span.user-name
-              = get_uniqname(current_user.email)
-            .user-action-link= link_to("Sign out #{get_uniqname(current_user.email)}", destroy_user_session_path, method: :delete)
+              = current_user.uniqname
+            .user-action-link= link_to("Sign out #{current_user.uniqname}", destroy_user_session_path, method: :delete)
           - else
             .user-action-link= link_to 'Sign in', user_google_oauth2_omniauth_authorize_path
