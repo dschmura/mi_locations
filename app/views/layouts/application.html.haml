@@ -16,13 +16,13 @@
         .corner-ribbon.bottom-right= link_to('Work in Progress', project_status_path)
 
         = render 'layouts/tailwind_breakpoints'
-      = render 'layouts/header'
+      = render 'layouts/header', cached: true
       %main.content#content{:class => controller.controller_name}
         %div.relative
-          = render 'layouts/flash_messages'
+          = render 'layouts/flash_messages', cached: true
         = yield
         - unless action_name == 'contact'
-          = render 'feedback/feedback_modal'
+          = render 'feedback/feedback_modal', cached: true
       -# = debug(params) if Rails.env.development? && current_user && current_user.uniqname == 'admin'
       -# = debug @user if Rails.env.development?
-    = render 'layouts/footer'
+    = render 'layouts/footer', cached: true
