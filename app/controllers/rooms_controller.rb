@@ -2,10 +2,11 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :toggle_visibility]
 
   def index
+
     if params[:q] && params[:q][:rooms_with_all_characteristics]
-      @params = params[:q][:rooms_with_all_characteristics]
+      q_params = params[:q][:rooms_with_all_characteristics]
       # Query RoomChaacteristics
-      @all_chars = RoomCharacteristic.has_all_characteristics(@params)
+      @all_chars = RoomCharacteristic.has_all_characteristics(q_params)
 
       @char_rooms = Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :alerts).where(rmrecnbr: @all_chars)
 
@@ -14,20 +15,24 @@ class RoomsController < ApplicationController
       @q.sorts = ['room_number ASC', 'instructional_seating_count ASC' ] if @q.sorts.empty?
 
       @results = policy_scope( @q.result.merge(@char_rooms) )
-      @rooms = @results.page(params[:page]).decorate
-      @rooms_json = serialize_index(@rooms).to_json
+      @rooms = @results.page(params[:page]).per(15).decorate
+      @rooms_json = serialize_rooms(@results)
 
     else
+      puts "NO PARAMS"
       @q ||= Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
       @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
+
       @results = policy_scope( @q.result(distinct: true) )
-      @rooms = @results.page(params[:page]).decorate
-      @rooms_json = serialize_index(@rooms).to_json
+      @rooms = @results.page(params[:page]).per(15).decorate
+      @rooms_json = serialize_rooms(@results)
+
     end
     respond_to do |format|
       # format.js
       format.html
-      format.json { render json: @rooms.to_json(:include => :building) }
+      # format.json { render json: @rooms.to_json(:include => :building) }
+      format.json  { render json: @results, each_serializer: RoomSerializer }
 
     end
   end
@@ -66,14 +71,8 @@ class RoomsController < ApplicationController
 
   private
 
-  def serialize_index(rooms)
-    serialized = []
-    rooms.each { |room| serialized << serialize(room)}
-    return serialized
-  end
-
-  def serialize(room)
-    RoomSerializer.new(room).as_json
+  def serialize_rooms(rooms)
+    ActiveModel::SerializableResource.new(rooms, each_serializer: RoomSerializer).to_json
   end
 
   def set_room
