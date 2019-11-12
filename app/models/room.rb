@@ -82,9 +82,9 @@ class Room < ApplicationRecord
     joins(:room_characteristics).merge(RoomCharacteristic.doccam)
   end
 
-  def self.classrooms
+  scope :classrooms, -> {
     where(rmtyp_description: ["Classroom"])
-  end
+  }
 
   def self.classrooms_labs
     where(rmtyp_description: ["Class Laboratory"])
