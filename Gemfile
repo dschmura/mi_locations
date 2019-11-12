@@ -49,15 +49,16 @@ gem 'pundit'
 # gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-google-oauth2'
 
+gem 'rack-mini-profiler'
+gem 'flamegraph'
+gem 'stackprof'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'rubocop-performance'
-  gem 'rack-mini-profiler'
-  gem 'flamegraph'
-  gem 'stackprof'
   gem 'standard'
 end
 
