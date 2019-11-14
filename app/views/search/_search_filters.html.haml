@@ -26,7 +26,7 @@
     .filter-tools
       .search-results#rooms-search-matches.inline-flex
         = @results.size
-        .hidden.ml-1.sm:block= "#{ pluralize_without_count(@q.result.size, 'Match')}"
+        .hidden.ml-1.sm:block= "#{ pluralize_without_count(@results.size, 'Match')}"
       .sort-by-options
         Sort:
         .sort-by-capacity.sort-by-link
@@ -77,7 +77,7 @@
               %span Instructor Computer
 
             .filter-item-label
-              = check_box_tag('q[rooms_with_all_characteristics][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', data: { action: "input->autosubmit#click" } })
+              = check_box_tag('q[rooms_with_all_characteristics][]', "DocCam", is_checked?("DocCam"), {class: 'form-checkbox', data: { action: "input->autosubmit#click"} })
               %span Document Camera
 
             .filter-item-label
