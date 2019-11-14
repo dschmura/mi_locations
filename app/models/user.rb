@@ -26,4 +26,6 @@ class User < ApplicationRecord
 
   has_many :omni_auth_services, dependent: :destroy
 
+  validates_presence_of :uniqname
+
 end
