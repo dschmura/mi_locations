@@ -29,14 +29,14 @@ export default class extends Controller {
     });
     window.scrollTo(0, 0);
   }
-  // instructor_computer_checkboxtoggle(){
-  //   this.instructor_computer_checkboxTargets.forEach((el, i) => {
-  //     el.checked = !el.checked;
-  //   })
-  // }
-  // get_checked() {
-  //   this.instructor_computer_checkboxTargets.filter(checkbox => checkbox.checked)
-  // }
+  instructor_computer_checkboxtoggle(){
+    this.instructor_computer_checkboxTargets.forEach((el, i) => {
+      el.checked = !el.checked;
+    })
+  }
+  get_checked() {
+    this.instructor_computer_checkboxTargets.filter(checkbox => checkbox.checked)
+  }
 
   dropdowntoggle() {
     const { clientWidth } = this.element
