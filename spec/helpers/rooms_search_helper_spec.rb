@@ -21,7 +21,7 @@ RSpec.describe RoomsSearchHelper, type: :helper do
 
   subject(:room_characteristcs) {RoomCharacteristic.where(chrstc_descrshort: "TeamTables")}
   # helper.team_learning?(room.room_characteristics)
-  describe "team_learning?" do
+  xdescribe "team_learning?" do
     it "returns TRUE if a room includes TeamSeating" do
       expect(team_learning?(valid_team_tables)).to eq(true)
     end
