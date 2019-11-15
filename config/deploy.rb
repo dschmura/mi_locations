@@ -83,7 +83,7 @@ namespace :deploy do
     end
   end
 
-  desc "Upload to shared/data"
+  desc "Upload to shared/uploads"
   task :upload_data do
     on roles :app do
       upload! 'uploads', "#{shared_path}", recursive: true
