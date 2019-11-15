@@ -3,9 +3,9 @@
   .room-image
     = link_to room do
       - if room.room_image.attached?
-        = image_tag(url_for(room.room_image.variant(resize: "50%").processed), alt: "#{room.room_number} #{room.building.name.titleize} picture", loading: "lazy")
+        = image_tag(url_for(room.room_image.variant(resize: "50%").processed), alt: "#{room.room_number} #{room.building.name.titleize} picture", loading: "lazy", width: "100px")
       - else
-        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton_card.jpg'), alt: "#{room.room_number} #{room.building.name.titleize} image not available", loading: "lazy")
+        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton_card.jpg'), alt: "#{room.room_number} #{room.building.name.titleize} image not available", loading: "lazy", width: "100px")
 
   .card-content-container
     .card-content
@@ -42,7 +42,7 @@
 
           - if policy(room).toggle_visibility?
             .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
-              = render "room_visibility_toggle",  room: room
+              = render "room_visibility_toggle",  room: room, cached: true
 
 
           -# = render "room_card_copy_text", room: room,  formats: [:text]
