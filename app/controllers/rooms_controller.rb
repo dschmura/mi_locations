@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
 
   def index
 
-    if params[:q] && params[:q][:rooms_with_all_characteristics]
-      q_params = params[:q][:rooms_with_all_characteristics]
+    if params.dig(:q, :rooms_with_all_characteristics)
+      q_params = params.fetch(:q, {}).fetch(:rooms_with_all_characteristics, [])
       # Query RoomChaacteristics
       @all_chars = RoomCharacteristic.has_all_characteristics(q_params)
 
@@ -72,13 +72,13 @@ class RoomsController < ApplicationController
   private
 
   def serialize_rooms(rooms)
-    ActiveModel::SerializableResource.new(rooms, each_serializer: RoomSerializer).to_json
+    ActiveModelSerializers::SerializableResource.new(rooms, each_serializer: RoomSerializer).to_json
   end
 
   def set_room
     @room = Room.includes(:building, :room_characteristics,:room_image_attachment, :alerts, :room_contact).find(params[:id])
     authorize @room
-    @room_json = serialize_index([@room]).to_json
+    @room_json = serialize_rooms([@room]).to_json
     @room = @room.decorate
     # @room = Room.find_by facility_code_heprod:(params[:id].upcase) || Room.find(params[:id])
   end
