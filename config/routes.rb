@@ -43,4 +43,7 @@ Rails.application.routes.draw do
   get "about_iss" => redirect("https://lsa.umich.edu")
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources "feedbacks", only: [:create]
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
