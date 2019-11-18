@@ -78,7 +78,7 @@ class RoomsController < ApplicationController
   def set_room
     @room = Room.includes(:building, :room_characteristics,:room_image_attachment, :alerts, :room_contact).find(params[:id])
     authorize @room
-    @room_json = serialize_rooms([@room]).to_json
+    @room_json = serialize_rooms([@room])
     @room = @room.decorate
     # @room = Room.find_by facility_code_heprod:(params[:id].upcase) || Room.find(params[:id])
   end
