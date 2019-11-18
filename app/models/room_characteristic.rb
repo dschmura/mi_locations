@@ -16,6 +16,7 @@
 
 class RoomCharacteristic < ApplicationRecord
   belongs_to :room
+
   validates_presence_of :rmrecnbr
 
   scope :matches_params, ->  (params) {
@@ -24,13 +25,7 @@ class RoomCharacteristic < ApplicationRecord
 
   def self.has_all_characteristics(params)
     rmrecnbrs = self.matches_params(params)
-    result = []
-    rmrecnbrs.uniq.each do |rmrecnbr|
-      if rmrecnbrs.count(rmrecnbr) == params.count
-        result << rmrecnbr
-      end
-    end
-    result
+    rmrecnbrs.uniq
   end
 
   # scope :has_all_characteristics, -> (params) {
