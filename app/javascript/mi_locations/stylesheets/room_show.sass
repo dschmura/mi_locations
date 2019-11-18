@@ -39,21 +39,29 @@
     @apply bg-blue-100 text-blue-700
 
 .room-banner
-  @apply  overflow-hidden h-64
+  @apply  overflow-hidden h-84 bg-gray-500
+  @screen md
+    @apply h-108
 .room-map
-  @apply  min-w-full w-full bg-blue-200 h-80
+  @apply  min-w-full w-full bg-blue-200 h-84
+  @screen md
+    @apply h-108
 
 #mapid
-  @apply min-w-full z-0 h-80
+  @apply min-w-full z-0 h-84
+  @screen md
+    @apply h-108
   img
     @apply border-none p-0
 
 .room-show-image
   img
-    @apply w-full object-fill h-80
+    @apply w-full object-cover h-96
+    @screen sm
+      @apply h-108 object-center object-cover
 
 #panorama
-  @apply  h-64  bg-green-300
+  @apply  h-108  bg-green-300 object-fill
   .pnlm-preview-img
     background-size: 360%
 
