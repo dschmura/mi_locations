@@ -2,7 +2,9 @@
   = render 'room_layout'
   .room-banner{"data-controller" => "toggle"}
 
-    .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle"}
+    .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle",  "data-controller" => "map",
+            "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
+            "data-map-mapbox-room" => @room_json}
       .map{ "data-target" => "toggle.roomsmap"}
         %i.fas.fa-map
         Map
@@ -10,9 +12,7 @@
         %i.fas.fa-map
         Close
 
-    .room-map.hidden{ "data-controller" => "map",
-            "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
-            "data-map-mapbox-room" => @room_json, "data-target" => "toggle.roomsmap"}
+    .room-map.hidden{"data-target" => "toggle.roomsmap"}
       #mapid
 
     .room-show-image{ "data-target" => "toggle.roommap" }

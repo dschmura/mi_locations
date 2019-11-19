@@ -11,14 +11,21 @@ export default class extends Controller {
     })
   }
 
+  get mapController() {
+    return this.application.getControllerForElementAndIdentifier(this.element, "mapid")
+  }
   roomsmapToggle() {
     event.preventDefault();
+
+
 
     this.roomsmapTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
 
     });
     window.scrollTo(0, 0);
+    window.dispatchEvent(new Event('resize'));
+
   }
 
   roommapToggle() {
