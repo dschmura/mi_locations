@@ -36,7 +36,7 @@ gem 'ldap_lookup'
 gem 'mini_magick'
 gem 'ransack'
 gem 'ransack_memory'
-gem 'sidekiq', '~> 5.0'
+gem 'sidekiq', '~> 6.0'
 gem 'uglifier'
 
 gem 'devise' , '~> 4.7.0'
