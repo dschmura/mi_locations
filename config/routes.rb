@@ -45,5 +45,9 @@ Rails.application.routes.draw do
   resources "feedbacks", only: [:create]
 
   require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+
+  # config/routes.rb
+  authenticate :user, lambda { |u| u.uniqname == 'dschmura' } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
