@@ -13,7 +13,7 @@
     "leaflet": "^1.5.1",
     "load-google-maps-api": "^2.0.0",
     "nouislider": "^13.1.5",
-    "pannellum": "^2.5.4",
+    "pannellum": "^2.5.5",
     "postcss-cssnext": "^3.1.0",
     "stimulus": "^1.1.1",
     "stimulus-select2": "^0.0.4",
