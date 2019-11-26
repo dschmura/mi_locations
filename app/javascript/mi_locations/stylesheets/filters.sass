@@ -119,9 +119,13 @@
 
   .characteristics-arrangement
     @screen md
-      @apply flex flex-row justify-between
+      @apply flex flex-row justify-start
       .filter-label
         @apply flex-row w-1/4 inline-block
+      .filter-item-label
+        @apply bg-green-400 w-1/4
+        input
+          @apply
     @screen lg
       @apply flex-col
       .filter-label
