@@ -72,9 +72,17 @@ module RoomsSearchHelper
     </a>"
   end
 
-  def is_checked?(value)
+  # def is_checked?(value)
+  #   if params[:q]
+  #     params[:q].each_value{ |k| k }.flatten(2).include?(value)
+  #   end
+  # end
+
+  def is_checked?(values)
     if params[:q]
-      params[:q].each_value{ |k| k }.flatten(2).include?(value)
+      values.each do |value|
+        params[:q].each_value{ |k| k }.flatten(2).include?(value)
+      end
     end
   end
 

@@ -19,14 +19,6 @@ module ApplicationHelper
     end
   end
 
-  def is_checked?(param)
-    if params[:q].instance_values.to_json.include?(param)
-      true
-    else
-      false
-    end
-  end
-
   def svg(floor)
     # file_path = "#{Rails.root}/app/views/buildings/floors/#{name}.svg"
     # file_path = "#{Rails.root}/app/views/buildings/floors/USB_Floor_1.svg"
