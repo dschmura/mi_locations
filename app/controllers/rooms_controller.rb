@@ -2,34 +2,24 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :toggle_visibility]
 
   def index
+    rooms_with_chacacteristics
+    @rwc = rooms_with_chacacteristics
+    puts "ROOMS WITH CHARS:: #{rooms_with_chacacteristics}"
 
-    if params.dig(:q, :rooms_with_all_characteristics)
-      q_params = params.fetch(:q, {}).fetch(:rooms_with_all_characteristics, [])
+    @char_rooms = Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :room_panorama_attachment, :alerts).where(rmrecnbr: @characteristics)
+
+    @q ||= Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
+
+
+    @results = policy_scope( @q.result.merge(@char_rooms) )
+    @rooms = @results.page(params[:page]).per(15).decorate
+    @rooms_json = serialize_rooms(@results)
+
+    @q.sorts = ['room_number ASC', 'instructional_seating_count ASC' ] if @q.sorts.empty?
       # Query RoomChaacteristics
-      @all_chars = RoomCharacteristic.has_all_characteristics(q_params)
 
-      @char_rooms = Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :alerts).where(rmrecnbr: @all_chars)
-
-      @q ||= Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
-
-      @q.sorts = ['room_number ASC', 'instructional_seating_count ASC' ] if @q.sorts.empty?
-
-      @results = policy_scope( @q.result.merge(@char_rooms) )
-      @rooms = @results.page(params[:page]).per(15).decorate
-      @rooms_json = serialize_rooms(@results)
-
-    else
-      puts "NO PARAMS"
-      @q ||= Room.classrooms.joins(:building).merge(Building.ann_arbor_campus).includes(:building,:room_image_attachment, :alerts).ransack(params[:q])
-      @q.sorts = ['instructional_seating_count asc', 'room_number asc'] if @q.sorts.empty?
-
-      @results = policy_scope( @q.result(distinct: true) )
-      @rooms = @results.page(params[:page]).per(15).decorate
-      @rooms_json = serialize_rooms(@results)
-
-    end
     respond_to do |format|
-      # format.js
+      format.js
       format.html
       # format.json { render json: @rooms.to_json(:include => :building) }
       format.json  { render json: @results, each_serializer: RoomSerializer }
@@ -70,6 +60,26 @@ class RoomsController < ApplicationController
   end
 
   private
+  def rooms_with_chacacteristics
+    # Returns an array of rmrecnbr s to search against.
+
+    if params.dig(:q, :rooms_with_any_characteristics)
+      any_params = params.fetch(:q, {}).fetch(:rooms_with_any_characteristics, []).first.split(' ')
+      @any_chars = RoomCharacteristic.has_any_characteristics(any_params).uniq
+    else
+      @any_chars = []
+    end
+
+    if params.dig(:q, :rooms_with_all_characteristics)
+      all_params = params.fetch(:q, {}).fetch(:rooms_with_all_characteristics, [])
+      @all_chars = RoomCharacteristic.has_all_characteristics(all_params).uniq
+    else
+      @all_chars = []
+    end
+
+      @characteristics = (@any_chars + @all_chars).uniq
+      @characteristics = Room.classrooms.pluck(:rmrecnbr).uniq unless @characteristics.count > 0
+  end
 
   def serialize_rooms(rooms)
     ActiveModelSerializers::SerializableResource.new(rooms, each_serializer: RoomSerializer).to_json

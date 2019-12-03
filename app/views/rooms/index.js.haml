@@ -1,11 +1,17 @@
 var results = document.getElementById("rooms-results")
-results.innerHTML = "#{escape_javascript render('rooms_results')}"
-results = undefined;
+-# results.innerHTML = "#{escape_javascript render partial: "rooms_results", locals: {rooms: @rooms}}"
 
-let roomCards = document.getElementById("rooms-cards")
-roomCards.append("<%=j render(partial: 'rooms_index_card2', collection: @rooms, as: :room) %>");
-roomCards = undefined;
+results.innerHTML = ("#{j render(partial: 'rooms_results', collection: @rooms, as: :room) }")
+-# results.append("#{j render partial: "rooms_results", locals: {rooms: @rooms}}")
 
-let matches = document.getElementById("rooms-search-matches")
+
+
+-# let roomCards = document.getElementById("rooms-cards")
+-# roomCards.append(" #{escape_javascript pluralize(@results.size, 'Match')} ");
+
+
+var matches = document.getElementById("rooms-search-matches")
 matches.innerHTML = "#{escape_javascript pluralize(@results.size, 'Match')}"
-matches = undefined;
+
+
+-# window.addEventListener('scroll', function() {

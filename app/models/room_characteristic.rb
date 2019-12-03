@@ -21,25 +21,23 @@ class RoomCharacteristic < ApplicationRecord
 
   scope :matches_params, ->  (params) {
     where(chrstc_descrshort: params ).pluck(:rmrecnbr)
+    # All of the RoomCharacteristics that have a chrstc_descrshort that matches the params
   }
 
   def self.has_all_characteristics(params)
+    # Give me all of the rmrecnbrs from the room_characteristics that have a chrstc_descrshort that is in the params.
     rmrecnbrs = self.matches_params(params)
-    rmrecnbrs.uniq
+    rmrecnbrs = rmrecnbrs.uniq.map{|t| [t,rmrecnbrs.count(t)]}.to_h
+    rmrecnbrs = rmrecnbrs.select { |k, v| v == params.count }
+    rmrecnbrs.keys
   end
 
-  # scope :has_all_characteristics, -> (params) {
-  #   rmrecnbrs = self.matches_params(params)
-  #   result = []
-  #   rmrecnbrs.uniq.each do |rmrecnbr|
-  #     if rmrecnbrs.count(rmrecnbr) == params.count
-  #       result << rmrecnbr
-  #     end
-  #   end
-  # }
+  def self.has_any_characteristics(params)
+    rmrecnbrs = self.matches_params(params)
+  end
 
   scope :bluray_dvd, -> {
-    where(chrstc_descrshort: ["BluRay/DVD", "BluRay"]) }
+    where(chrstc_descrshort: ["BluRay", "BluRay/DVD"]) }
   scope :chalkboard, -> {
     where(chrstc_descrshort: ["Chkbrd>25", "Chkbrd"]) }
   scope :doccam, -> {
