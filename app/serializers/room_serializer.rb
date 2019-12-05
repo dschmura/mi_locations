@@ -19,6 +19,7 @@
 #  updated_at                  :datetime         not null
 #  visible                     :boolean          default(FALSE), not null
 #  dept_description            :string
+#  characteristics             :text             default([]), is an Array
 #
 
 class RoomSerializer < ActiveModel::Serializer
