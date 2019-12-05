@@ -1,7 +1,7 @@
 var results = document.getElementById("rooms-results")
 -# results.innerHTML = "#{escape_javascript render partial: "rooms_results", locals: {rooms: @rooms}}"
 
-results.innerHTML = ("#{j render(partial: 'rooms_results', collection: @rooms, as: :room) }")
+results.innerHTML = ("#{j render(partial: 'rooms_results', locals: {rooms: @rooms}) }")
 -# results.append("#{j render partial: "rooms_results", locals: {rooms: @rooms}}")
 
 
