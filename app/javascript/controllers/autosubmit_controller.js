@@ -17,9 +17,9 @@ export default class extends Controller {
     }, this.duration)
   }
 
-  click() {
+  checkboxSubmit() {
 
-    this.formTarget.submit();
+    this.formTarget.submit()
   }
   success() {
     this.setStatus('Saved!')
