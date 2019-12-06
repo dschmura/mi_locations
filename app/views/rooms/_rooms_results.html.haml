@@ -1,24 +1,24 @@
-#rooms-results
 
 
-  -# .rooms-index-cards
-    = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
-  .room-map.hidden{ "data-controller" => "map",
-          "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
-          "data-map-mapbox-room" => @rooms_json, "data-target" => "toggle.roomsmap"}
-    #mapid
 
-  .rooms-cards#rooms-cards
-    = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
+-# .rooms-index-cards
+  = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
+.room-map.hidden{ "data-controller" => "map",
+        "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
+        "data-map-mapbox-room" => @rooms_json, "data-target" => "toggle.roomsmap"}
+  #mapid
+
+.rooms-cards#rooms-cards
+  = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 
 
-  .rooms-map-toggle{"data-action" => "click->toggle#roomsmapToggle"}
-    .map{ "data-target" => "toggle.roomsmap"}
-      %i.fas.fa-map
-      Map
-    .close-map.hidden{ "data-target" => "toggle.roomsmap"}
-      %i.fas.fa-map
-      Close
+.rooms-map-toggle{"data-action" => "click->toggle#roomsmapToggle"}
+  .map{ "data-target" => "toggle.roomsmap"}
+    %i.fas.fa-map
+    Map
+  .close-map.hidden{ "data-target" => "toggle.roomsmap"}
+    %i.fas.fa-map
+    Close
 
 
 

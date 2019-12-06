@@ -7,3 +7,7 @@
   -# #map.rooms-map.h-64
     Our sincerest appologies. Something is amiss, but fear not, we shall find the culpret and address it soon.
   #rooms-results= render 'rooms_results', cached: true
+
+- unless @rooms.current_page == @rooms.total_pages
+  #view-more
+    = link_to_next_page @rooms, 'View More', remote: false
