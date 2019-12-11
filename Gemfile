@@ -35,7 +35,6 @@ gem 'kaminari'
 gem 'ldap_lookup'
 gem 'mini_magick'
 gem 'ransack'
-gem 'ransack_memory'
 gem 'sidekiq', '~> 6.0'
 gem 'uglifier'
 

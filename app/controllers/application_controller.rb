@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
   include Pundit
   include LdapableHelper
-  include RansackMemory::Concern
   before_action :redirect_https
   before_action :create_feedback
-  before_action :save_and_load_filters
   after_action :verify_authorized, except: :index, unless: :devise_controller?
   after_action :verify_policy_scoped, only: :index
 
