@@ -19,10 +19,11 @@
 #  updated_at                  :datetime         not null
 #  visible                     :boolean          default(FALSE), not null
 #  dept_description            :string
+#  characteristics             :text             default([]), is an Array
 #
 
 class Room < ApplicationRecord
-
+  include Filterable
   belongs_to :building
   has_many :room_characteristics, dependent: :destroy
   has_one :room_contact, dependent: :destroy
@@ -36,55 +37,61 @@ class Room < ApplicationRecord
 
   validates_uniqueness_of :rmrecnbr
 
-  # ransack_alias :rooms_with_all_characteristics, :author_first_name_or_author_last_name
+  def update_room_characteristics_array
+    rmrecnbrs = RoomCharacteristic.pluck(:rmrecnbr).uniq
+    rmrecnbrs.each do |rmrecnbr|
+    room = Room.find_by(rmrecnbr: rmrecnbr)
+      chars = RoomCharacteristic.where(rmrecnbr: rmrecnbr).pluck(:chrstc_descrshort).uniq.sort
 
-  scope :rooms_with_all, -> (params) {
-    where(rmrecnbr: RoomCharacteristic.has_all_characteristics(params))
-    # joins(:room_characteristics).merge(RoomCharacteristic.contains_all(params))
-  }
+      room.characteristics = chars
+      room.save
+    end
+  end
 
-  scope :bluray_dvd, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.bluray_dvd) }
+  # Scopes for room characteristics stored in characteristics array column in Room model
+  scope :bluray, -> {
+    where("characteristics && ARRAY[?]", ["BluRay", "BluRay/DVD"]) }
   scope :chalkboard, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.chalkboard) }
+    where("characteristics && ARRAY[?]", ["Chkbrd>25", "Chkbrd"]) }
   scope :doccam, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.doccam) }
+    where("characteristics && ARRAY[?]", ["DocCam"]) }
   scope :interactive_screen, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.interactive_screen) }
+    where("characteristics && ARRAY[?]", ["IntrScreen"]) }
   scope :instructor_computer, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.instructor_computer)}
+    where("characteristics && ARRAY[?]", ["InstrComp", "CompPodPC", "CompPodMac"]) }
   scope :lecture_capture, ->  {
-    joins(:room_characteristics).merge(RoomCharacteristic.lecture_capture) }
+    where("characteristics && ARRAY[?]", ["LectureCap"]) }
   scope :projector_16mm, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.projector_16mm) }
+    where( "characteristics && ARRAY[?]", ["Proj16mm"]) }
   scope :projector_35mm, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.projector_35mm) }
+    where( "characteristics && ARRAY[?]", ["Proj35mm"]) }
   scope :projector_digital_cinema, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.projector_digital_cinema) }
+    where( "characteristics && ARRAY[?]", ["ProjD-Cin"]) }
   scope :projector_digial, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.projector_digial) }
+    where( "characteristics && ARRAY[?]", ["ProjDigit"]) }
   scope :projector_slide, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.projector_slide) }
+    where( "characteristics && ARRAY[?]", ["ProjSlide"]) }
+  scope :team_board, ->  {
+    where("characteristics && ARRAY[?]", ["TeamBoard"]) }
+  scope :team_tables, ->  {
+    where("characteristics && ARRAY[?]", ["TeamTables"]) }
+  scope :team_technology, ->  {
+    where("characteristics && ARRAY[?]", ["TeamTech"]) }
   scope :vcr, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.vcr) }
+    where("characteristics && ARRAY[?]", ["VCR"]) }
   scope :video_conf, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.video_conf) }
+     where("characteristics && ARRAY[?]", ["VideoConf"]) }
   scope :whiteboard, -> {
-    joins(:room_characteristics).merge(RoomCharacteristic.whiteboard) }
+    where("characteristics && ARRAY[?]", ["Whtbrd>25", "Whtbrd"]) }
 
   scope :visible, -> {
     where(visible: true) }
 
   scope :ann_arbor, -> {
-    joins(:building).merge(Building.ann_arbor_campus)
-  }
-  def self.with_doccam
-    joins(:room_characteristics).merge(RoomCharacteristic.doccam)
-  end
+    joins(:building).merge(Building.ann_arbor_campus) }
 
   scope :classrooms, -> {
-    where(rmtyp_description: ["Classroom"])
-  }
+    where(rmtyp_description: ["Classroom"]) }
 
   def self.classrooms_labs
     where(rmtyp_description: ["Class Laboratory"])
@@ -111,6 +118,5 @@ class Room < ApplicationRecord
     rooms = Room.where(rmrecnbr: rmrecnbrs.compact )
     rooms.update_all(visible: true)
   end
-
 
 end
