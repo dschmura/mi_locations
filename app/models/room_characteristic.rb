@@ -58,6 +58,12 @@ class RoomCharacteristic < ApplicationRecord
     where( chrstc_descrshort: ["ProjDigit"]) }
   scope :projector_slide, -> {
     where( chrstc_descrshort: ["ProjSlide"]) }
+  scope :team_board, -> {
+    where( chrstc_descrshort: ["TeamBoard"]) }
+  scope :team_tables, -> {
+    where( chrstc_descrshort: ["TeamTables"]) }
+  scope :team_technology, -> {
+    where( chrstc_descrshort: ["TeamTech"]) }
   scope :vcr, -> {
     where(chrstc_descrshort: ["VCR"]) }
   scope :video_conf, -> {
