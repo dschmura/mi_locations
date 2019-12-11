@@ -2,22 +2,22 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :toggle_visibility]
 
   def index
-    #Ransack search (returns ActiveRecord relation )
+    # Ransack search (returns ActiveRecord relation )
     @q ||= Room.classrooms.ransack(params[:q])
-    #Filter by characteristics search (returns ActiveRecord relation )
+    # Filter by characteristics search (returns ActiveRecord relation )
     rooms = Room.classrooms.filter_params(filtering_params)
 
-    @results = policy_scope( @q.result.merge(rooms).joins(:building).merge(Building.ann_arbor_campus).includes(:building,:room_image_attachment, :room_panorama_attachment, :alerts) )
+    @results = policy_scope(@q.result.merge(rooms).joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :room_panorama_attachment, :alerts))
     @rooms = @results.page(params[:page]).per(10).decorate
 
     @rooms_json = serialize_rooms(@results)
 
-    @q.sorts = ['room_number ASC', 'instructional_seating_count ASC' ] if @q.sorts.empty?
+    @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
     respond_to do |format|
       format.js
       format.html
-      format.json  { render json: @results, each_serializer: RoomSerializer }
+      format.json { render json: @results, each_serializer: RoomSerializer }
     end
   end
 
@@ -60,7 +60,7 @@ class RoomsController < ApplicationController
   end
 
   def set_room
-    @room = Room.includes(:building, :room_characteristics,:room_image_attachment, :alerts, :room_contact).find(params[:id])
+    @room = Room.includes(:building, :room_characteristics, :room_image_attachment, :alerts, :room_contact).find(params[:id])
     authorize @room
     @room_json = serialize_rooms([@room])
     @room = @room.decorate
@@ -73,6 +73,6 @@ class RoomsController < ApplicationController
   end
 
   def filtering_params
-    params.slice(:bluray, :chalkboard, :doccam, :interactive_screen, :instructor_computer, :lecture_capture, :projector_16mm, :projector_35mm, :projector_digital_cinema, :projector_digial, :projector_slide, :team_board, :team_tables, :team_technology, :vcr, :video_conf, :whiteboard ).values
+    params.slice(:bluray, :chalkboard, :doccam, :interactive_screen, :instructor_computer, :lecture_capture, :projector_16mm, :projector_35mm, :projector_digital_cinema, :projector_digial, :projector_slide, :team_board, :team_tables, :team_technology, :vcr, :video_conf, :whiteboard).values
   end
 end

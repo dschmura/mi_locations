@@ -1,22 +1,22 @@
 set :application, "mi_locations"
-set :repo_url,        "git@github.com:dschmura/mi_locations.git"
-set :user,            "deployer"
-set :puma_threads,    [4, 16]
-set :puma_workers,    0
+set :repo_url, "git@github.com:dschmura/mi_locations.git"
+set :user, "deployer"
+set :puma_threads, [4, 16]
+set :puma_workers, 0
 set :keep_releases, 3
 # Don't change these unless you know what you're doin
-set :pty,             true
-set :use_sudo,        false
+set :pty, true
+set :use_sudo, false
 # set :stage,           :production
-set :deploy_via,      :remote_cache
-set :deploy_to,       "/home/#{fetch(:user)}/apps/mi_locations"
+set :deploy_via, :remote_cache
+set :deploy_to, "/home/#{fetch(:user)}/apps/mi_locations"
 # Puma specific settings
-set :puma_bind,       "unix://#{shared_path}/tmp/sockets/mi_locations-puma.sock"
-set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
-set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
+set :puma_bind, "unix://#{shared_path}/tmp/sockets/mi_locations-puma.sock"
+set :puma_state, "#{shared_path}/tmp/pids/puma.state"
+set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
 set :puma_access_log, "#{release_path}/log/puma.error.log"
-set :puma_error_log,  "#{release_path}/log/puma.access.log"
-set :ssh_options,     {forward_agent: true, user: fetch(:user), keys: %w[~/.ssh/id_rsa.pub]}
+set :puma_error_log, "#{release_path}/log/puma.access.log"
+set :ssh_options, {forward_agent: true, user: fetch(:user), keys: %w[~/.ssh/id_rsa.pub]}
 set :puma_preload_app, false
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true # Change to false when not using ActiveRecord
@@ -77,23 +77,23 @@ namespace :deploy do
   desc "Upload to shared/config"
   task :upload_configs do
     on roles :app do
-      upload! "config/master.key",  "#{shared_path}/config/master.key"
-      upload! "config/puma.#{:rails_env}.rb", "#{shared_path}/config/puma.rb"
-      upload! "config/nginx.#{:rails_env}.conf", "#{shared_path}/config/nginx.conf"
+      upload! "config/master.key", "#{shared_path}/config/master.key"
+      upload! "config/puma.rails_env.rb", "#{shared_path}/config/puma.rb"
+      upload! "config/nginx.rails_env.conf", "#{shared_path}/config/nginx.conf"
     end
   end
 
   desc "Upload to shared/uploads"
   task :upload_data do
     on roles :app do
-      upload! 'uploads', "#{shared_path}", recursive: true
+      upload! "uploads", shared_path.to_s, recursive: true
     end
   end
 
   before :starting, :check_revision
   before "deploy:assets:precompile", "deploy:yarn_install"
-  after  :finishing, :compile_assets
-  after  :finishing, :cleanup
+  after :finishing, :compile_assets
+  after :finishing, :cleanup
 end
 
 desc "Run rake db:seed on a remote server."
@@ -110,7 +110,7 @@ end
 desc "Create symlink for nginx."
 task :link_nginx do
   on roles :app do
-    within '/etc/nginx/sites-enabled/' do
+    within "/etc/nginx/sites-enabled/" do
       execute("ln -nfs /home/deployer/apps/mi_locations/current/config/nginx.conf /etc/nginx/sites-enabled/APP_NAME-puma")
     end
   end
@@ -122,5 +122,5 @@ end
 ## Linked Files & Directories (Default None):
 
 set :linked_files, %w[config/puma.rb config/nginx.conf config/master.key]
-set :linked_dirs,  %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system storage]
+set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system storage]
 set :linked_dirs, fetch(:linked_dirs, []).push("public/packs", "node_modules", "uploads")

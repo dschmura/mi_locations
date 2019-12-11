@@ -13,7 +13,7 @@ class RoomCharacteristicsImporter
                 "CHRSTC_EFF_STATUS" => :chrstc_eff_status,
                 "CHRSTC_DESCRSHORT" => :chrstc_descrshort,
                 "CHRSTC_DESCR" => :chrstc_descr,
-                "CHRSTC_DESCR254" => :chrstc_desc254}.freeze
+                "CHRSTC_DESCR254" => :chrstc_desc254,}.freeze
 
   def initialize
     file = find_file("uploads/room_characteristics.csv")
@@ -45,7 +45,7 @@ class RoomCharacteristicsImporter
   end
 
   def rooms_with_characteristics
-    @rooms_with_characteristics = @room_characteristics.map { |rc| rc[:rmrecnbr]}.uniq
+    @rooms_with_characteristics = @room_characteristics.map { |rc| rc[:rmrecnbr] }.uniq
   end
 
   def load_room_characteristics_from_csv(file)
@@ -91,9 +91,6 @@ class RoomCharacteristicsImporter
   #     end
   #   end
   # end
-
-
-
 
   def find_room(row_rmrecnbr)
     Room.find_by(rmrecnbr: row_rmrecnbr) || nil

@@ -3,7 +3,7 @@ module Filterable
 
   module ClassMethods
     def filter_params(filtering_params)
-      results = self.where(nil)
+      results = where(nil)
       filtering_params.each do |key, value|
         results = results.public_send(key) if key.present?
       end

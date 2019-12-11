@@ -1,7 +1,7 @@
 Rails.application.configure do
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_options = {from: 'mi.locations.feedback@umich.edu'}
+  config.action_mailer.default_options = {from: "mi.locations.feedback@umich.edu"}
 
   config.action_mailer.smtp_settings = {address: "lsa-mis-rails-staging2.miserver.it.umich.edu"}
   config.action_mailer.smtp_settings = {
@@ -14,8 +14,7 @@ Rails.application.configure do
     port: "587",
   }
 
-
-  config.action_mailer.default_url_options = { host: 'lsa-mis-rails-staging2.miserver.it.umich.edu' }
+  config.action_mailer.default_url_options = {host: "lsa-mis-rails-staging2.miserver.it.umich.edu"}
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
@@ -30,7 +29,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -98,9 +97,9 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
   # Do not dump schema after migrations.

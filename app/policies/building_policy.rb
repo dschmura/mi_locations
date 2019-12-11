@@ -8,6 +8,7 @@ class BuildingPolicy < ApplicationPolicy
   def show?
     true
   end
+
   def update?
     if user
       true

@@ -17,7 +17,7 @@ module LdapableHelper
   # http://net-ldap.rubyforge.org/Net/LDAP.html#method-i-get_operation_result
   ##############################################################################
   def get_ldap_response(ldap)
-    msg = 'Response Code:'\
+    msg = "Response Code:"\
           "#{ldap.get_operation_result.code},"\
           " Message: #{ldap.get_operation_result.message}"
     raise msg unless ldap.get_operation_result.code.zero?
@@ -36,10 +36,10 @@ module LdapableHelper
   # @umich_bits = host: 'ldap.umich.edu', port: '389', base: 'dc=umich,dc=edu',
   # auth: { method: :anonymous }
   def ldap_connection
-    Net::LDAP.new host: 'ldap.umich.edu',
-                  port: '389',
-                  base: 'dc=umich,dc=edu',
-                  auth: { method: :anonymous }
+    Net::LDAP.new host: "ldap.umich.edu",
+                  port: "389",
+                  base: "dc=umich,dc=edu",
+                  auth: {method: :anonymous}
     # if ldap.bind
     #   # Redundant? Sure - the code will be 0 and the message will be "Success".
     #   puts "Connection successful!  Code:  #{ldap.get_operation_result.code}, message: #{ldap.get_operation_result.message}"
@@ -55,23 +55,23 @@ module LdapableHelper
     # Build filter
     search_filter = Net::LDAP::Filter.eq("mail", search_param)
     # Execute search
-    ldap_connection.search(filter: search_filter, attributes: result_attrs) { |item|
+    ldap_connection.search(filter: search_filter, attributes: result_attrs) do |item|
       return item.uid.first
-    }
+    end
     get_ldap_response(ldap_connection)
   end
 
   # GET THE DISPLAY NAME FOR A SINGLE USER
   def get_display_name(uniqname = nil)
-   # the AD account goes here
+    # the AD account goes here
     # Whatever you want to bring back in your result set goes here
     result_attrs = %w[displayName]
-    search_filter = Net::LDAP::Filter.eq('uid', uniqname)
+    search_filter = Net::LDAP::Filter.eq("uid", uniqname)
     # Execute search
     result_of_search = ldap_connection.search(filter: search_filter, attributes: result_attrs)[0]
-    if result_of_search.respond_to?(:displayname)
-      result_of_search = result_of_search.displayname.first
-    else result_of_search = "No associated displayname"
+    result_of_search = if result_of_search.respond_to?(:displayname)
+      result_of_search.displayname.first
+    else "No associated displayname"
     end
     result_of_search
   end
@@ -80,27 +80,26 @@ module LdapableHelper
     search_param = uniqname # the AD account goes here
     # Whatever you want to bring back in your result set goes here
     result_attrs = %w[mail]
-    search_filter = Net::LDAP::Filter.eq('uid', search_param)
+    search_filter = Net::LDAP::Filter.eq("uid", search_param)
     # Execute search
     result_of_search = ldap_connection.search(filter: search_filter, attributes: result_attrs)[0]
-    if result_of_search.respond_to?(:mail)
-      result_of_search = result_of_search.mail.first
-    else result_of_search = "No associated email address"
+    result_of_search = if result_of_search.respond_to?(:mail)
+      result_of_search.mail.first
+    else "No associated email address"
     end
     result_of_search
   end
 
   def get_department(uniqname = nil)
-
     search_param = uniqname # the AD account goes here
     # Whatever you want to bring back in your result set goes here
     result_attrs = %w[umichPostalAddressData]
-    search_filter = Net::LDAP::Filter.eq('uid', search_param)
+    search_filter = Net::LDAP::Filter.eq("uid", search_param)
     # Execute search
     result_of_search = ldap_connection.search(filter: search_filter, attributes: result_attrs)[0]
-    if result_of_search.respond_to?(:umichpostaladdressdata)
-      result_of_search = result_of_search.umichpostaladdressdata.first.split('}:{').first.split('=')[1]
-    else result_of_search = "No associated department"
+    result_of_search = if result_of_search.respond_to?(:umichpostaladdressdata)
+      result_of_search.umichpostaladdressdata.first.split("}:{").first.split("=")[1]
+    else "No associated department"
     end
     result_of_search
   end
@@ -113,15 +112,15 @@ module LdapableHelper
   def member_of_group?(uid = nil, group_name = nil)
     # GET THE MEMBERS OF AN E-MAIL DISTRIBUTION LIST
     search_param = group_name # the name of the distribution list
-    result_attrs = ['member']
+    result_attrs = ["member"]
     # Build filter
-    search_filter = Net::LDAP::Filter.eq('cn', search_param)
-    group_filter = Net::LDAP::Filter.eq('objectClass', 'group')
+    search_filter = Net::LDAP::Filter.eq("cn", search_param)
+    group_filter = Net::LDAP::Filter.eq("objectClass", "group")
     composite_filter = Net::LDAP::Filter.join(search_filter, group_filter)
     # Execute search, extracting the AD account name from each list member
     ldap_connection.search(filter: composite_filter, attributes: result_attrs) do |item|
       item.member.each do |entry|
-        if entry.split(',').first.split('=')[1] == uid
+        if entry.split(",").first.split("=")[1] == uid
           return true
         end
       end
@@ -135,7 +134,7 @@ module LdapableHelper
     result_array = []
     result_attrs = ["dn"]
     ldap.search(filter: "member=uid=#{uid},ou=People,dc=umich,dc=edu", attributes: result_attrs) do |item|
-      item.each {|key,value| result_array << value.first.split("=")[1].split(",")[0]}
+      item.each { |key, value| result_array << value.first.split("=")[1].split(",")[0] }
     end
     return result_array
     get_ldap_response(ldap)
@@ -150,14 +149,14 @@ module LdapableHelper
     search_param = group_name # the name of the distribution list
     result_attrs = %w[cn umichGroupEmail member]
     # Build filter
-    search_filter = Net::LDAP::Filter.eq('cn', search_param)
-    group_filter = Net::LDAP::Filter.eq('objectClass', 'group')
+    search_filter = Net::LDAP::Filter.eq("cn", search_param)
+    group_filter = Net::LDAP::Filter.eq("objectClass", "group")
     composite_filter = Net::LDAP::Filter.join(search_filter, group_filter)
     # Execute search, extracting the AD account name for each list member
     ldap_connection.search(filter: composite_filter, attributes: result_attrs) do |item|
-      result_hash['group_name'] = item.cn.first
-      result_hash['group_email'] = item.umichGroupEmail.first
-      result_hash['members'] = item.member
+      result_hash["group_name"] = item.cn.first
+      result_hash["group_email"] = item.umichGroupEmail.first
+      result_hash["members"] = item.member
     end
     get_ldap_response(ldap_connection)
     result_hash
@@ -173,25 +172,25 @@ module LdapableHelper
     search_param = gidNumber # the gidNumber of the distribution list
     result_attrs = %w[dn umichDirectMember umichGroupEmail umichPrivate umichExpiryTimestamp umichDescription suppressNoEmailError joinable RealtimeBlockList Membersonly gidNumber owner objectClass objectClass objectClass objectClass objectClass objectClass objectClass objectClass member cn]
     # Build filter
-    search_filter = Net::LDAP::Filter.eq('gidNumber', search_param)
-    group_filter = Net::LDAP::Filter.eq('objectClass', 'group')
+    search_filter = Net::LDAP::Filter.eq("gidNumber", search_param)
+    group_filter = Net::LDAP::Filter.eq("objectClass", "group")
     composite_filter = Net::LDAP::Filter.join(search_filter, group_filter)
     # Execute search, extracting the AD account name for each list member
     ldap_connection.search(filter: composite_filter, attributes: result_attrs) do |item|
-      result_hash['dn'] = item.dn
-      result_hash['umichDirectMember'] = item.umichDirectMember
-      result_hash['umichGroupEmail'] = item.umichGroupEmail
-      result_hash['umichPrivate'] = item.umichPrivate
-      result_hash['umichExpiryTimestamp'] = item.umichExpiryTimestamp
-      result_hash['umichDescription'] = item.umichDescription
-      result_hash['suppressNoEmailError'] = item.suppressNoEmailError
-      result_hash['joinable'] = item.joinable
-      result_hash['RealtimeBlockList'] = item.RealtimeBlockList
-      result_hash['Membersonly'] = item.Membersonly
-      result_hash['gidNumber'] = item.gidNumber
-      result_hash['owner'] = item.owner
-      result_hash['member'] = item.member
-      result_hash['cn'] = item.cn.first
+      result_hash["dn"] = item.dn
+      result_hash["umichDirectMember"] = item.umichDirectMember
+      result_hash["umichGroupEmail"] = item.umichGroupEmail
+      result_hash["umichPrivate"] = item.umichPrivate
+      result_hash["umichExpiryTimestamp"] = item.umichExpiryTimestamp
+      result_hash["umichDescription"] = item.umichDescription
+      result_hash["suppressNoEmailError"] = item.suppressNoEmailError
+      result_hash["joinable"] = item.joinable
+      result_hash["RealtimeBlockList"] = item.RealtimeBlockList
+      result_hash["Membersonly"] = item.Membersonly
+      result_hash["gidNumber"] = item.gidNumber
+      result_hash["owner"] = item.owner
+      result_hash["member"] = item.member
+      result_hash["cn"] = item.cn.first
     end
     get_ldap_response(ldap)
     result_hash

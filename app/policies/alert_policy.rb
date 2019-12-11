@@ -12,6 +12,7 @@ class AlertPolicy < ApplicationPolicy
       false
     end
   end
+
   def edit?
     if user
       true
@@ -19,6 +20,7 @@ class AlertPolicy < ApplicationPolicy
       false
     end
   end
+
   def create?
     if user
       true
@@ -26,6 +28,7 @@ class AlertPolicy < ApplicationPolicy
       false
     end
   end
+
   def destroy?
     if user
       true
@@ -33,5 +36,4 @@ class AlertPolicy < ApplicationPolicy
       false
     end
   end
-
 end

@@ -19,7 +19,7 @@ RSpec.describe RoomsSearchHelper, type: :helper do
 
   let!(:invalid_characteristics) { build(:room_characteristic, chrstc_descrshort: "") }
 
-  subject(:room_characteristcs) {RoomCharacteristic.where(chrstc_descrshort: "TeamTables")}
+  subject(:room_characteristcs) { RoomCharacteristic.where(chrstc_descrshort: "TeamTables") }
   # helper.team_learning?(room.room_characteristics)
   xdescribe "team_learning?" do
     it "returns TRUE if a room includes TeamSeating" do
@@ -29,6 +29,6 @@ RSpec.describe RoomsSearchHelper, type: :helper do
     # xit 'returns FALSE if a room does not include Team Attributes' do
     #   expect(helper.team_learning?(invalid_characteristics)).to eq(false)
     # end
-    it { expect(valid_team_tables.chrstc_descrshort).to include("TeamTables")}
+    it { expect(valid_team_tables.chrstc_descrshort).to include("TeamTables") }
   end
 end

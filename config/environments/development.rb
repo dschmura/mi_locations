@@ -13,8 +13,8 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     address: Rails.application.credentials.dev_mail[:MI_LOCATIONS_EMAIL_SERVER],
-    port: 1025
-}
+    port: 1025,
+  }
 
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = true
@@ -24,7 +24,7 @@ Rails.application.configure do
   config.cache_classes = false
   # config.reload_classes_only_on_change = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -34,13 +34,13 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join('tmp', 'caching-dev.txt').exist?
+  if Rails.root.join("tmp", "caching-dev.txt").exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
+      "Cache-Control" => "public, max-age=#{2.days.to_i}",
     }
   else
     config.action_controller.perform_caching = false

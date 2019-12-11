@@ -8,9 +8,8 @@ CSV::Converters[:blank_to_nil] = lambda do |field|
 end
 
 class RoomsImporter
-
   ROOM_PARAMS = [:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :dept_description, :square_feet, :instructional_seating_count,
-                 :building_id, :visible].freeze
+                 :building_id, :visible,].freeze
 
   HEADER_MAP = {"RMRECNBR" => :rmrecnbr,
                 "DEPTID" => :dept_id,
@@ -22,10 +21,10 @@ class RoomsImporter
                 "RMSQRFT" => :square_feet,
                 "RMTYP_DESCR50" => :rmtyp_description,
                 "FACILITY_ID" => :facility_code_heprod,
-                "RM_INST_SEAT_CNT" => :instructional_seating_count}.freeze
+                "RM_INST_SEAT_CNT" => :instructional_seating_count,}.freeze
 
   def initialize
-    puts 'method: initialize'
+    puts "method: initialize"
     file = Rails.root.join("uploads/rooms.csv")
     @rmrecnbrs = Room.all.pluck(:rmrecnbr)
     @buildings = Building.all.group_by(&:bldrecnbr)
@@ -33,12 +32,12 @@ class RoomsImporter
   end
 
   def prepare_data_for_import(file)
-      load_rooms_from_csv(file)
-      map_rooms_with_buildings
-      map_building_ids
-      map_instructional_seating_count
-      map_rooms_compact
-      map_rooms_for_import
+    load_rooms_from_csv(file)
+    map_rooms_with_buildings
+    map_building_ids
+    map_instructional_seating_count
+    map_rooms_compact
+    map_rooms_for_import
   end
 
   def load_rooms_from_csv(file)
@@ -64,7 +63,7 @@ class RoomsImporter
     filter_updatable_rooms(@rooms)
 
     Room.import @updatable_rooms, on_duplicate_key_update: {conflict_target: [:rmrecnbr], columns: [:floor, :room_number, :rmtyp_description, :dept_id, :dept_grp, :dept_description, :square_feet, :facility_code_heprod, :instructional_seating_count,
-    :building_id,]}, validate: false, batch_size:  1000
+                                                                                                    :building_id,],}, validate: false, batch_size:  1000
 
     room_logger.info "Updated: #{@updatable_rooms.count} rooms."
   end
@@ -89,9 +88,9 @@ class RoomsImporter
   end
 
   def map_rooms_compact
-    puts "before compact: "#{@rooms.size}
+    puts "before compact: " # {@rooms.size}
     @rooms.map { |row| row.compact! }
-    puts "after compact: "#{@rooms.size}
+    puts "after compact: " # {@rooms.size}
   end
 
   ## Remove fields that aren't in our model (ROOM_PARAMS is an array of acceptable fields)
@@ -119,13 +118,13 @@ class RoomsImporter
 
   def filter_creatable_rooms(rooms)
     @creatable_rooms = []
-    @creatable_rooms = rooms.reject { |room| room_exists?(room[:rmrecnbr])}
+    @creatable_rooms = rooms.reject { |room| room_exists?(room[:rmrecnbr]) }
     @creatable_rooms
   end
 
   def filter_updatable_rooms(rooms)
     @updateable_rooms = []
-    @updatable_rooms = rooms.select { |room| room_exists?(room[:rmrecnbr])}
+    @updatable_rooms = rooms.select { |room| room_exists?(room[:rmrecnbr]) }
     @updatable_rooms
   end
 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   # get 'alerts/create'
   # get 'alerts/destroy'
   # get 'alerts/index'
@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     resources :alerts, module: :rooms
     collection do
       match "search" => "rooms#search", :via => [:get, :post], :as => :search
-
     end
   end
   match "toggle_visibility/:id" => "rooms#toggle_visibility", :via => [:get, :post], :as => :toggle_visibility
@@ -44,10 +43,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources "feedbacks", only: [:create]
 
-  require 'sidekiq/web'
+  require "sidekiq/web"
 
   # config/routes.rb
-  authenticate :user, lambda { |u| u.uniqname == 'dschmura' } do
-    mount Sidekiq::Web => '/sidekiq'
+  authenticate :user, lambda { |u| u.uniqname == "dschmura" } do
+    mount Sidekiq::Web => "/sidekiq"
   end
 end

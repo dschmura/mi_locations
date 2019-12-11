@@ -18,8 +18,8 @@
 class OmniAuthService < ApplicationRecord
   belongs_to :user
 
-  %w{ google_oauth2 }.each do |provider|
-    scope provider, ->{ where(provider: provider) }
+  %w[google_oauth2].each do |provider|
+    scope provider, -> { where(provider: provider) }
   end
 
   def client
@@ -54,10 +54,8 @@ class OmniAuthService < ApplicationRecord
   end
 
   def google_oauth2_client
-
   end
 
-  def twitter_refresh_token!(token); end
-
-
+  def twitter_refresh_token!(token)
+  end
 end

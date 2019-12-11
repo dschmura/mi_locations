@@ -14,6 +14,7 @@ class ClassroomsController < RoomsController
     index
     render :index
   end
+
   private
 
   def set_room

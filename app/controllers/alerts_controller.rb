@@ -10,7 +10,6 @@ class AlertsController < ApplicationController
   end
 
   def create
-
     @alert = @alertable.alerts.new(alert_params)
     authorize @alert
 

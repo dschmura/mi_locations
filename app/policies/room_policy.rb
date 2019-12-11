@@ -2,7 +2,8 @@ class RoomPolicy < ApplicationPolicy
   include LdapableHelper
   class Scope < Scope
     def resolve
-      if user && user.uniqname
+      if
+user&.uniqname
         scope.all
       else
         scope.where(visible: true)
@@ -49,5 +50,4 @@ class RoomPolicy < ApplicationPolicy
       false
     end
   end
-
 end

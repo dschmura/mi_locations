@@ -2,7 +2,6 @@ class BuildingsController < ApplicationController
   before_action :set_building, only: [:show, :update]
 
   def index
-
     @q = Building.ransack(params[:q])
     @buildings = policy_scope(@q.result(distinct: true).includes(:rooms, :team_learning_classrooms).page)
 
@@ -10,7 +9,6 @@ class BuildingsController < ApplicationController
       format.js
       format.html
       format.json { render json: @buildings }
-
     end
   end
 
