@@ -39,7 +39,7 @@ class BuildingsImporter
   end
 
   def geocode_buildings
-    Building.all.each { |b| GeocodeBuildingJob.perform_later(b.id) }
+    Building.find_each { |b| GeocodeBuildingJob.perform_later(b.id) }
   end
 
   def update_building(row)
