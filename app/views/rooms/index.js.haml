@@ -1,17 +1,9 @@
-var results = document.getElementById("rooms-results")
--# results.innerHTML = "#{escape_javascript render partial: "rooms_results", locals: {rooms: @rooms}}"
+var results = document.getElementById("rooms-cards")
+console.log("I'm here")
 
-results.innerHTML = ("#{j render(partial: 'rooms_results', locals: {rooms: @rooms}) }")
--# results.append("#{j render partial: "rooms_results", locals: {rooms: @rooms}}")
-
-
-
--# let roomCards = document.getElementById("rooms-cards")
--# roomCards.append(" #{escape_javascript pluralize(@results.size, 'Match')} ");
-
+results.innerHTML = ("#{j render(partial: "room_search_filters", collection: @rooms, as: :room, cached: true) }")
 
 var matches = document.getElementById("rooms-search-matches")
 matches.innerHTML = "#{escape_javascript pluralize(@results.size, 'Match')}"
-
 
 -# window.addEventListener('scroll', function() {

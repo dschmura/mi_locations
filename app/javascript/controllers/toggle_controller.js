@@ -16,16 +16,11 @@ export default class extends Controller {
   }
   roomsmapToggle() {
     event.preventDefault();
-
-
-
     this.roomsmapTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
-
     });
     window.scrollTo(0, 0);
     window.dispatchEvent(new Event('resize'));
-
   }
 
   roommapToggle() {
