@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
     rooms = Room.classrooms.filter_params(filtering_params)
 
     @results = policy_scope(@q.result.merge(rooms).joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :room_panorama_attachment, :alerts))
-    @rooms = @results.page(params[:page]).per(10).decorate
+    @rooms = @results.page(params[:page]).per(30).decorate
 
     @rooms_json = serialize_rooms(@results)
 

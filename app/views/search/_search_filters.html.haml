@@ -1,6 +1,7 @@
 -# = console
-= search_form_for @q, data: { controller: "autosubmit", target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
-  %section.search-filters
+%section.search-filters
+  = search_form_for @q, data: { controller: "autosubmit", target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
+
     .flex.justify-between.px-4.py-3.max-w-xl
       .relative.w-full
 
