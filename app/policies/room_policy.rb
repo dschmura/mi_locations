@@ -1,8 +1,16 @@
 class RoomPolicy < ApplicationPolicy
   include LdapableHelper
   class Scope < Scope
+    def user_in_group?
+      # user.authorized_groups.includes?
+      if user.mcommunity_groups.include?("mi-locations-notify")
+        true
+      else
+        false
+      end
+    end
     def resolve
-      if user && user.uniqname
+      if user && user_in_group?
         scope.all
       else
         scope.where(visible: true)
