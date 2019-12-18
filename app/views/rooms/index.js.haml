@@ -1,7 +1,7 @@
 var results = document.getElementById("rooms-cards")
 console.log("I'm here")
 
-results.innerHTML = ("#{j render(partial: "room_search_filters", collection: @rooms, as: :room, cached: true) }")
+results.innerHTML = ("#{j render(partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true) }")
 
 var matches = document.getElementById("rooms-search-matches")
 matches.innerHTML = "#{escape_javascript pluralize(@results.size, 'Match')}"
