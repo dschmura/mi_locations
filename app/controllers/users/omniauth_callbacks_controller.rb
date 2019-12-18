@@ -49,7 +49,7 @@ end
 def update_user_mcommunity_groups
   return if user_is_stale?
   # UpdateUserGroupsJob.perform_later(current_user)
-  UpdateUserGroupsJob.perform_async(current_user)
+  UpdateUserGroupsJob.perform_later(current_user)
 end
 
 def auth
