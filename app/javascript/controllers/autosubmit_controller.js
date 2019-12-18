@@ -1,5 +1,4 @@
 import { Controller } from 'stimulus'
-
 export default class extends Controller {
   static targets = ['form', 'status']
 
@@ -12,13 +11,12 @@ export default class extends Controller {
     clearTimeout(this.timeout)
 
     this.timeout = setTimeout(() => {
-      this.statusTarget.textContent = 'Saving...'
+      this.statusTarget.textContent = 'Searching...'
       this.formTarget.submit()
     }, this.duration)
   }
 
   checkboxSubmit() {
-
     this.formTarget.submit()
   }
   success() {
