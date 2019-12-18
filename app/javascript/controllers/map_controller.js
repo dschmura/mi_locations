@@ -2,11 +2,12 @@ import { Controller } from "stimulus"
 import 'leaflet/dist/leaflet.css';
 import { get } from 'http'
 require("leaflet")
-
+import mapMarker from "../mi_locations/images/map-marker.svg"
 export default class extends Controller {
   static targets = ["mapid"]
 
   initialize(){
+
     let mapBoxToken = this.data.get("mapbox-token");
     const rooms = JSON.parse(this.data.get("mapbox-room"));
     this.createMap(rooms, mapBoxToken);
@@ -14,11 +15,14 @@ export default class extends Controller {
   }
 
   createMap(rooms, token){
+
+
     let centerPoints = this.findCenterPoint(rooms);
     const mymap = L.map('mapid').setView([centerPoints[0], centerPoints[1]], 15);
 
     this.addTile(mymap, token);
     this.addMarkers(mymap, rooms);
+    this.resizeMap(mymap);
 
   }
   addTile(map, token){
@@ -27,7 +31,6 @@ export default class extends Controller {
       id: 'mapbox.streets',
       accessToken: token
     }).addTo(map);
-
   }
 
   addCircle(map, room){
@@ -40,7 +43,8 @@ export default class extends Controller {
   }
 
   resizeMap(map){
-    setTimeout(function(){ map.invalidateSize()}, 100);
+    setTimeout(function(){ map.invalidateSize()}, 0);
+    map.getSize();
   }
 
   findCenterPoint(rooms){
@@ -51,9 +55,7 @@ export default class extends Controller {
 
     rooms.forEach(function(room, i){
       if (room.building.latitude != null || room.building.longitude != null){
-
         roomsCount++;
-
         averageLatitude = averageLatitude + rooms[i].building.latitude;
         averageLongitude = averageLongitude + rooms[i].building.longitude;
 
@@ -67,24 +69,26 @@ export default class extends Controller {
   }
 
   addMarker(map, room){
-    var greenIcon = L.icon({
-      iconUrl: '/packs/media/images/marker-icon-2273e3d8.png'
+    var mapIcon = L.icon({
+      iconUrl: mapMarker,
+      iconSize:     [38, 95]
     });
     var marker = L.marker([room[0], room[1]], {
-      icon: greenIcon
+      icon: mapIcon
     }).addTo(map);
 
   }
 
   addMarkers(map, rooms){
-    var greenIcon = L.icon({
-      iconUrl: '/packs/media/images/marker-icon-2273e3d8.png'
+    var mapIcon = L.icon({
+      iconUrl: mapMarker,
+      iconSize:     [38, 95]
     });
 
     for( var i = 0; i < rooms.length; i++ ) {
       if (rooms[i].building.latitude != null || rooms[i].building.longitude != null){
         let marker = L.marker([rooms[i].building.latitude, rooms[i].building.longitude], {
-          icon: greenIcon
+          icon: mapIcon
         }).addTo(map);
 
 
