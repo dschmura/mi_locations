@@ -105,13 +105,14 @@
     &:focus
       @apply bg-green-400 outline-none
 
+
 .classroom-type
   @apply px-4 py-4 border-t border-gray-900
   @screen sm
     label
       @apply flex-row-reverse self-end justify-between
   @screen lg
-    @apply border-l w-1/4
+    @apply border-l
     label
       @apply flex-row justify-start
   @screen xl
@@ -156,19 +157,32 @@
       .filter-item-label
         @apply flex-row w-full
 
+.stacked-filters
+  @apply flex flex-col w-full
+  @screen md
+    @apply
+  @screen lg
+    @apply  w-1/4
+  @screen xl
+    @apply w-full
 .writing-surface
   @apply px-4 py-4 border-t border-gray-900
   @screen sm
     label
       @apply flex-row-reverse self-end justify-between
+  @screen md
+
   @screen lg
+    @apply border-l
     label
       @apply flex-row justify-start
+  @screen xl
+    @apply w-full
   .characteristics-arrangement
     @screen md
-      @apply flex flex-row justify-start
+      @apply flex flex-wrap text-left
       .filter-item-label
-        @apply flex-row w-1/4 inline-block
+        @apply w-1/4
     @screen lg
       @apply flex-col
       .filter-item-label

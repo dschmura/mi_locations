@@ -88,25 +88,26 @@
               = check_box_tag "bluray", :bluray, params[:bluray].try(:include?, 'bluray'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
               %span{:class => "sm:w-full"} BluRay / DVD Player
 
-        .classroom-type
-          %span.filters-section-header Team Learning
-          .characteristics-arrangement
 
-            .filter-item-label
+        .stacked-filters
+          .classroom-type
+            %span.filters-section-header Team Learning
+            .characteristics-arrangement
 
-              = check_box_tag "team_board", :team_board, params[:team_board].try(:include?, 'team_board'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Team Board
+              .filter-item-label
 
-            .filter-item-label
-              = check_box_tag "team_tables", :team_tables, params[:team_tables].try(:include?, 'team_tables'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Team Tables
+                = check_box_tag "team_board", :team_board, params[:team_board].try(:include?, 'team_board'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+                %span Team Board
 
-            .filter-item-label
-              = check_box_tag "team_technology", :team_technology, params[:team_technology].try(:include?, 'team_technology'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Team Technology
+              .filter-item-label
+                = check_box_tag "team_tables", :team_tables, params[:team_tables].try(:include?, 'team_tables'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+                %span Team Tables
 
-        %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
-          .writing-surface{:class => "w-full"}
+              .filter-item-label
+                = check_box_tag "team_technology", :team_technology, params[:team_technology].try(:include?, 'team_technology'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+                %span Team Technology
+
+          .writing-surface
             %span.filters-section-header Writing Surface
             .characteristics-arrangement{:class => "sm:w-full "}
               .filter-item-label
@@ -116,7 +117,7 @@
               .filter-item-label
                 = check_box_tag "chalkboard", :chalkboard, params[:chalkboard].try(:include?, 'chalkboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
                 %span Chalkboard
-
+        %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
           .projection-type
             %span.filters-section-header Projection
             .characteristics-arrangement
