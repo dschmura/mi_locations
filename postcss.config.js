@@ -14,7 +14,8 @@ module.exports = {
         './node_modules/trix/**/*.*',
         './node_modules/pannellum/**/*.js',
         './node_modules/pannellum/**/*.css',
-        './node_modules/nouislider/distribute/*.*'
+        './node_modules/nouislider/distribute/*.*',
+        './node_modules/leaflet/dist/*.*'
       ],
       defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
     }),
