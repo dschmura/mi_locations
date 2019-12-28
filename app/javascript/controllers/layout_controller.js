@@ -1,34 +1,45 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["format"]
+  static targets = ["format", "list", "grid"]
 
   initialize() {
-    this.list()
+
   }
-  toggleVisability(format) {
-    this.formatTargets.forEach((el) => {
+  toggleVisability() {
+    console.log(this.formatTargets)
+    this.formatTargets.forEach((el, i) => {
       console.log(el)
-      if(el == format){
-        alert(format)
-        el.classList.toggle("format--current", el)
-      }
+        el.classList.toggle("hidden", el)
+
     })
   }
+
+  resetToggle() {
+    console.log("clicked")
+    event.preventDefault()
+    this.formatTargets.forEach((el, i) => {
+      el.classList.toggle("hidden")
+
+    })
+  }
+
   list() {
-    this.layout = 'list'
-    this.toggleVisability('list')
+
+    this.gridTarget.classList.remove("active")
+    this.listTarget.classList.add("active")
+
+    this.resetToggle()
+    localStorage.setItem('selectedLayout', "list");
 
   }
   grid() {
-    this.layout = 'grid'
-    console.log(this.layout)
-    this.toggleVisability('grid')
+
+    this.listTarget.classList.remove("active")
+    this.gridTarget.classList.add("active")
+    this.resetToggle()
+    localStorage.setItem('selectedLayout', "grid");
   }
-  map() {
-    this.layout = 'map'
-    console.log(this.layout)
-    this.toggleVisability('map')
-  }
+
 
 }

@@ -26,3 +26,21 @@
   @apply px-2 rounded-none border
   &:hover
     @apply bg-blue-400 text-blue-900
+
+
+.layout-toggle
+  @apply bg-gray-200 p-1 m-1 rounded-lg align-middle text-center flex flex-row justify-end border-gray-800 w-auto text-green-900
+  .layout-button
+    @apply  px-3 bg-gray-400 fill-current
+    &:hover
+      @apply bg-green-300
+    button
+      outline: none
+      &:hover
+        outline: none
+      &:active
+        outline: none
+  .active
+    @apply bg-green-500 text-green-100
+    &:hover
+      @apply bg-green-500
