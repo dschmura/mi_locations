@@ -184,32 +184,7 @@ module.exports = {
           opacity: '1',
           '&:focus': {
           }
-        },
-
-        // radio: {
-        //   borderRadius: theme('borderRadius.full'),
-        // }
-        // textarea: {
-        //   appearance: 'none',
-        //   borderColor: defaultTheme.borderColor.default,
-        //   borderWidth: defaultTheme.borderWidth.default,
-        //   borderRadius: defaultTheme.borderRadius.default,
-        //   paddingTop: defaultTheme.spacing[2],
-        //   paddingRight: defaultTheme.spacing[3],
-        //   paddingBottom: defaultTheme.spacing[2],
-        //   paddingLeft: defaultTheme.spacing[3],
-        //   fontSize: defaultTheme.fontSize.base,
-        //   lineHeight: defaultTheme.lineHeight.normal,
-        //   '&::placeholder': {
-        //     color: defaultTheme.colors.gray[500],
-        //     opacity: '1',
-        //   },
-        //   '&:focus': {
-        //     outline: 'none',
-        //     boxShadow: defaultTheme.boxShadow.outline,
-        //     borderColor: defaultTheme.colors.blue[400],
-        //   },
-        // },
+        }
       }
     })
 
