@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get "pages/project_status"
   get "lsa" => redirect("https://lsa.umich.edu")
   get "lsa_tech_services" => redirect("https://lsa.umich.edu/technology-services")
+  get "legacy_crdb" => redirect("https://rooms.lsa.umich.edu")
   get "about_iss" => redirect("https://lsa.umich.edu")
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources "feedbacks", only: [:create]
