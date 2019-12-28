@@ -15,7 +15,7 @@
   /* Set a specific height */
   height: 60vh
   /* Position and center the image to scale nicely on all screens */
-  @apply bg-top bg-no-repeat bg-cover -mt-20 z-0
+  @apply bg-top bg-no-repeat bg-cover -mt-20 z-0 -mx-10
 
 
 .bg-smoke-dark
@@ -37,3 +37,12 @@
 
 .pages
   @apply  mt-16
+
+.legacy-crdb
+  @apply mt-10  p-4 bg-blue-200 border border-blue-300 rounded-lg text-sm w-full mx-auto
+  h1
+    @apply text-lg font-semibold
+  @screen md
+    @apply w-1/2 max-w-3xl
+    h1
+      @apply text-xl

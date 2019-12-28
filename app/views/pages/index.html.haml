@@ -2,7 +2,7 @@
   .header { background: none;}
   .header-logo { display: none;}
 
-%section.-m-4
+%section
   .hero-image
     /! Promo Block Info
     .landing-page--banner
@@ -25,3 +25,10 @@
 
             .search-form--button
               %button Search
+
+%section.legacy-crdb
+  %h1 NEW! MiLocations Classroom Database
+  %p
+    Welcome to the new MiLocations Classroom Database. This will be the replacement of the
+    = link_to "legacy Classroom Databse system.", legacy_crdb_url, remote: true
+    During the rollout of the new Classroom Database additional features and functionality will be added. The legacy CRDB will be available during this period to ensure that existing functionality is available during the roll out and until we are confident all existing functionality has been transferred to the new application.
