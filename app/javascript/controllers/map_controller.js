@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import 'leaflet/dist/leaflet.css';
 import { get } from 'http'
 require("leaflet")
-import mapMarker from "../mi_locations/images/map-marker.svg"
+import mapMarker from "../mi_locations/images/icons/map-marker.svg"
 export default class extends Controller {
   static targets = ["mapid"]
 
@@ -10,12 +10,12 @@ export default class extends Controller {
 
     let mapBoxToken = this.data.get("mapbox-token");
     const rooms = JSON.parse(this.data.get("mapbox-room"));
+
     this.createMap(rooms, mapBoxToken);
 
   }
 
   createMap(rooms, token){
-
 
     let centerPoints = this.findCenterPoint(rooms);
     const mymap = L.map('mapid').setView([centerPoints[0], centerPoints[1]], 15);
@@ -71,7 +71,7 @@ export default class extends Controller {
   addMarker(map, room){
     var mapIcon = L.icon({
       iconUrl: mapMarker,
-      iconSize:     [38, 95]
+      iconSize:     [30, 95]
     });
     var marker = L.marker([room[0], room[1]], {
       icon: mapIcon
@@ -82,7 +82,8 @@ export default class extends Controller {
   addMarkers(map, rooms){
     var mapIcon = L.icon({
       iconUrl: mapMarker,
-      iconSize:     [38, 95]
+      className: 'map-marker-icon'
+
     });
 
     for( var i = 0; i < rooms.length; i++ ) {
