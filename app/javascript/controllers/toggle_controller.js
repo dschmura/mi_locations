@@ -1,7 +1,18 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "dropdown", "filters", "mainnav", "roomsmap", "roommap", "instructor_computer_checkbox"]
+  static targets = [ "dropdown", "filters", "mainnav", "roomsmap", "toggleable", "layout"]
+
+  connect() {
+    this.toggleClass = this.data.get('class') || 'hidden'
+  }
+
+  toggle(event) {
+    event.preventDefault()
+    this.toggleableTargets.forEach(target => {
+      target.classList.toggle(this.toggleClass)
+    })
+  }
 
   mainnavtoggle() {
     event.preventDefault()
@@ -11,9 +22,14 @@ export default class extends Controller {
     })
   }
 
-  get mapController() {
-    return this.application.getControllerForElementAndIdentifier(this.element, "mapid")
+  layoutToggle() {
+    event.preventDefault()
+    this.layoutTargets.forEach((el, i) => {
+      el.classList.toggle("active-layout")
+
+    })
   }
+
   roomsmapToggle() {
     event.preventDefault();
     this.roomsmapTargets.forEach((el, i) => {
@@ -21,23 +37,6 @@ export default class extends Controller {
     });
     window.scrollTo(0, 0);
     window.dispatchEvent(new Event('resize'));
-  }
-
-  roommapToggle() {
-    event.preventDefault();
-    this.roommapTargets.forEach((el, i) => {
-      el.classList.toggle("hidden")
-
-    });
-    window.scrollTo(0, 0);
-  }
-  instructor_computer_checkboxtoggle(){
-    this.instructor_computer_checkboxTargets.forEach((el, i) => {
-      el.checked = !el.checked;
-    })
-  }
-  get_checked() {
-    this.instructor_computer_checkboxTargets.filter(checkbox => checkbox.checked)
   }
 
   dropdowntoggle() {
@@ -49,6 +48,7 @@ export default class extends Controller {
       })
     }
   }
+
   hideuseractions(){
     const width = window.innerWidth
         || document.documentElement.clientWidth
@@ -59,7 +59,6 @@ export default class extends Controller {
       })
     }
   }
-
 
   filtertoggle() {
     event.preventDefault()

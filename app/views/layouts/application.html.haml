@@ -19,8 +19,8 @@
         = render 'layouts/tailwind_breakpoints', cached: true
       = render 'layouts/header', cached: true
       %main.content#content{:class => controller.controller_name}
-        %div.relative
-          = render 'layouts/flash_messages', cached: true
+
+        = render 'layouts/flash_messages', cached: true
         = yield
         - unless action_name == 'contact'
           = render 'feedback/feedback_modal', cached: true
