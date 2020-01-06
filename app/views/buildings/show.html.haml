@@ -1,5 +1,5 @@
 .image-container
-  .building-show-image{ "data-target" => "toggle.roommap" }
+  .building-show-image
     = link_to @building do
       - if @building.building_image.attached?
         = image_tag(url_for(@building.building_image), alt: "#{@building.name.titleize} picture")
