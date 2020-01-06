@@ -1,14 +1,32 @@
 class ClassroomsController < RoomsController
   def index
-    @q = Room.classrooms.ransack(params[:q])
-    @rooms = @q.result(distinct: true).includes(:building, :room_characteristics, :room_contact).order(id: :asc).page params[:page]
+    # Ransack search (returns ActiveRecord relation )
+    @q ||= Room.classrooms.ransack(params[:q])
+    # Filter by characteristics search (returns ActiveRecord relation )
+    rooms = Room.classrooms.filter_params(filtering_params)
+
+    @results = policy_scope(@q.result.merge(rooms).joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :room_panorama_attachment, :alerts))
+    @rooms = @results.page(params[:page]).per(10).decorate
+
+    @rooms_json = serialize_rooms(@results)
+
+    @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
     respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @rooms }
       format.js
+      format.html
+      format.json { render json: @results, each_serializer: RoomSerializer }
     end
   end
+
+  def show
+    respond_to do |format|
+      # format.js
+      format.html
+      format.json { render json: @room, serializer: RoomSerializer }
+    end
+  end
+
 
   def search
     index

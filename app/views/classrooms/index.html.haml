@@ -1,19 +1,11 @@
-= render 'rooms_search_bar'
--# = render 'rooms_search_filters'
-.rooms-results{"data-controller" => "layout" }
-  -# = render 'results_layout_toggle'
-  .span
-  .rooms-index-rows-header
-    .rooms-index-row-name
-      %h2 Name
-    .rooms-index-row-capacity
-      %h2 Capacity
-    .rooms-index-row-facility-code-heprod
-      %h2 Facility Code
-    .rooms-index-row-calandar-url
-      %h2 Calandar
+- content_for :head do
+  = javascript_pack_tag 'search', 'data-turbolinks-track': 'reload'
+.mt-64.p-0{data: {controller: "dropdown" }}
+  = render './search/search_filters_2'
 
-  = render 'classrooms_results'
-  .rooms-index-cards
-    = render partial: "./rooms/rooms_index_card", collection: @rooms, as: :room, cached: true
-  .rooms-index-map
+  .rooms-results
+    -# = render 'results_layout_toggle'
+    = render 'classrooms_results'
+    .rooms-index-cards
+      = render partial: "./rooms/rooms_index_card", collection: @rooms, as: :room, cached: true
+    .rooms-index-map
