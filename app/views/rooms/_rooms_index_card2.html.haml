@@ -1,6 +1,6 @@
 .room-card{:id => "card-#{room.rmrecnbr}", :class => "#{'card-dimmed' unless room.visible}" }
-
   .room-image
+
     = link_to room do
       - if room.room_panorama.attached?
         = image_tag(url_for(room.room_panorama.variant(resize: "25%").processed), alt: "#{room.room_number} #{room.building.name.titleize} picture", loading: "lazy", width: "100px")
@@ -10,42 +10,47 @@
       - else
         = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton_card.jpg'), alt: "#{room.room_number} #{room.building.name.titleize} image not available", loading: "lazy", width: "100px")
 
+  - if policy(room).toggle_visibility?
+    .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
+      = render "room_visibility_toggle",  room: room, cached: true
+
   .card-content-container
     .card-content
       .features
-        -if room.alerts.any?
 
-          %span.alert-badge
-            Alert!
         - if current_user
           .capacity
             %i.fas.fa-users
             = room.student_capacity
+        -if room.alerts.any?
+
+          %span.alert-badge
+            Alert!
       %h4.room-name
         = "#{room.title}"
       .room-address
         .address
           %i.fas.fa-map-marker-alt
           = "#{room.building.address.titleize}"
-        .map-buttons
-          -# .map
-            %i.fas.fa-map
-            Map
+      .card-actions
+        -# .map
+          %i.fas.fa-map
+          Map
 
-          .directions-button
+        -# .directions-button.actions-button.tooltip.tooltip-top{   "data-tooltip" => "Get directions to to #{room.building.name.titleize}"}
+          = link_to "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }" do
             %i.fas.fa-directions
-            Directions
+            %span Directions
 
-          %button.copy-button{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy this room's description and attributes.", :role => "button", :class => "tooltip tooltip-top" }
-
-            %i.fas.fa-copy
-            %span Copy
-
-            %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -10000px; top:-1000px;", :type => "text", :value => "#{room.copy_text}"}/
-
-          - if policy(room).toggle_visibility?
-            .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
-              = render "room_visibility_toggle",  room: room, cached: true
+        .schedule-button.actions-button.tooltip.tooltip-top{  "data-tooltip" => "See the schedule for #{room.room_number} #{room.building.name.titleize}. ** Open's new page." }
+          = link_to "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }" do
+            %i.fas.fa-calendar-alt
+            %span Schedule
 
 
-          -# = render "room_card_copy_text", room: room,  formats: [:text]
+        %button.copy-button.actions-button.tooltip.tooltip-top{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy this room's description and attributes.", :role => "button" }
+
+          %i.fas.fa-copy
+          %span Copy
+
+          %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -10000px; top:-1000px;", :type => "text", :value => "#{room.copy_text}"}

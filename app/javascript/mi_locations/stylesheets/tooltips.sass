@@ -3,7 +3,7 @@
 /* Add this attribute to the element that needs a tooltip */
 
 .tooltip
-  @apply relative cursor-pointer z-40 mx-2
+  @apply relative cursor-pointer z-50 mx-2
 
 /* Base styles for the entire tooltip */
 .tooltip:before,
@@ -13,7 +13,7 @@
   -moz-transform:    translate3d(0, 0, 0)
   transform:         translate3d(0, 0, 0)
   pointer-events: none
-  @apply absolute opacity-0 inline-block
+  @apply absolute opacity-0
 
 /* Show the entire tooltip on hover and focus */
 [data-tooltip]:hover:before,
@@ -37,15 +37,15 @@
 
 [data-tooltip]:after
   content: attr(data-tooltip)
-  @apply absolute bg-gray-300 h-auto w-64 max-w-xs text-sm text-left rounded-lg p-3 z-50 h-auto border border-blue-400
+  @apply absolute bg-gray-300 h-auto min-w-full w-64 max-w-sm text-sm text-left rounded-lg p-3 z-50 border border-blue-400
 /* Directions */
 
 /* Top (default) */
 [data-tooltip]:after,
 .tooltip-top:before
   bottom: 110%
-  left: 55%
-  @apply mx-auto absolute
+  left: 45%
+  @apply mx-auto absolute z-50
 
 // .tooltip:before
   // @apply bg-orange-500
