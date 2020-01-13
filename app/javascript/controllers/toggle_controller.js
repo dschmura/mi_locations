@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "dropdown", "filters", "mainnav", "roomsmap", "toggleable", "layout"]
+  static targets = [ "dropdown", "filters", "mainnav", "roomsmap", "toggleable", "layout", "sort"]
 
   connect() {
     this.toggleClass = this.data.get('class') || 'hidden'
@@ -26,6 +26,14 @@ export default class extends Controller {
     event.preventDefault()
     this.layoutTargets.forEach((el, i) => {
       el.classList.toggle("active-layout")
+
+    })
+  }
+
+  sortToggle() {
+    event.preventDefault()
+    this.sortTargets.forEach((el, i) => {
+      el.classList.toggle("hidden")
 
     })
   }
