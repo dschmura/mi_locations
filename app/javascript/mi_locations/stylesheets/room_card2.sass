@@ -24,17 +24,28 @@
   @apply h-96 relative
 
 .room-image
-  @apply bg-gray-500 relative pb-2/3  overflow-hidden
+  @apply bg-gray-500 relative pb-2/3  overflow-hidden max-w-xl
   img
     @apply h-full w-full object-cover absolute top-0 shadow-md
 
 .card-content-container
-  @apply px-4
+  @apply px-4 -mt-48 max-w-sm mx-auto static
+  top: 300px
+  @screen sm
+    @apply -mt-10
+  @screen md
+    @apply -mt-48
+  @screen lg
+    @apply -mt-56
+
 
 .card-content
-  @apply relative pt-3 pb-6  px-6 bg-white -mt-48 rounded-lg shadow-lg border border-b-0
+  @apply relative pt-3 pb-6  px-6 bg-white  rounded-lg shadow-lg border border-b-0
+  @screen md
+
   .features
     @apply
+
 .room-name
   @apply font-semibold text-lg leading-tight truncate mt-1
 .room-address
@@ -51,7 +62,7 @@
       svg
         @apply mx-1
   .actions-button
-    @apply  text-blue-800  self-center text-sm
+    @apply  text-blue-800  self-center text-sm z-0
     &:hover
       @apply bg-gray-300
     svg
@@ -76,7 +87,7 @@
       @apply  text-gray-700 flex
 
 .room-visibility-toggle
-  @apply px-2 bg-yellow-300 text-yellow-800 rounded-full text-sm self-center w-24 z-50 ml-4 absolute mt-6
+  @apply px-2 bg-yellow-300 text-yellow-800 rounded-full text-sm self-center w-24 z-10 ml-4 absolute mt-6
   &:hover
     @apply bg-yellow-400
   svg

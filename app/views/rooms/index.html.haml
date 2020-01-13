@@ -1,9 +1,8 @@
-- content_for :head do
-  = javascript_pack_tag 'search', 'data-turbolinks-track': 'reload'
-%search.rooms-search{ "data-controller" => "toggle"}
-  = render './search/search_filters', cached: true
+%search.rooms-search{data: {controller: "toggle", controller: "dropdown" }}
+  -# = render './search/search_filters', cached: true
+  = render './search/search_filters_2', cached: true
   #filter-tools{ data: {controller: "toggle", "toggle-class" => "active-layout"}}
-    = render 'filter_tools'
+    -# = render 'filter_tools'
 
     #rooms-results= render 'rooms_results', cached: true
 
