@@ -62,8 +62,8 @@
     @apply visible
 
 .search-filters-2
-  @apply bg-blue-800 p-2 flex flex-col h-auto  z-40 fixed w-screen
-  top: 66px
+  @apply bg-blue-800 p-2 flex flex-col h-auto  z-30 fixed w-screen
+  top: 64px
   @screen sm
     @apply
   @screen md
@@ -71,7 +71,7 @@
   @screen lg
     @apply
   @screen xl
-    @apply  pt-10 w-64 inline-block relative
+    @apply  pt-10 w-64 inline-block relative z-0
 
   .search-filters-container
     @apply flex flex-wrap justify-start text-blue-100 text-sm  px-4
@@ -95,37 +95,45 @@
       @apply flex-col
   .additional-filters
     @apply
+    @screen xl
+      @apply
     .buttons
-      @apply flex flex-row justify-between w-screen text-blue-100 px-2
-    .filters-container
-      @apply bg-gray-400 -m-2 mt-3
+      @apply flex flex-row justify-between w-screen text-blue-200 px-2 text-sm
 
     .sort-options
-      @apply text-blue-100 px-4
+      @apply px-4
+      @screen xl
+        @apply absolute mt-1
+        right: 1rem
+        top: 10rem
     .sort-options-selections
       @apply bg-blue-200 relative w-auto  absolute p-2 rounded-lg mt-2 z-40
       right: 1rem
 
 
   .search-field-container
-    @apply flex flex-wrap justify-start align-middle max-w-full
+    @apply flex flex-wrap justify-start align-middle max-w-md
     @screen sm
       @apply
     .search-input
       @apply mr-4 rounded h-8
       input
-        @apply block w-full bg-blue-100 text-blue-900   -ml-2 w-96 -mt-1
+        @apply block bg-blue-100 text-blue-900   -ml-2 -mt-1
       &:focus
         @apply outline-none  bg-blue-200  text-gray-900
       @screen lg
         @apply truncate
     .matches
-      @apply  self-center text-yellow-500 text-sm font-semibold ml-0
-      @screen sm
+      @apply  self-center text-yellow-500 text-sm font-semibold ml-0 flex flex-row w-auto
+      @screen xl
         @apply
     @screen xl
       .search-input
-        @apply w-56
+        @apply w-48
+.additional-filters-button
+  @apply flex
+  @screen xl
+    @apply hidden
 
 .dropdown
   @apply relative
@@ -137,3 +145,5 @@
 #rooms-results
   @apply relative
   top: 200px
+  @screen xl
+    @apply top-0 mt-20 pt-6
