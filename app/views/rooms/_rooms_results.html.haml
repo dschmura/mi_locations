@@ -8,11 +8,17 @@
   #mapid
 
 .layouts
+  - if @rooms.count == 0
+    .no-matches-notice
+      %span No rooms matched your search.
+      %span Please try different critera.
+    .reset-filters= link_to "Reset your filters", rooms_path
+
   .rooms-cards.hidden.active-layout{data: {target: "toggle.layout" }}
     = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
   .rooms-rows.hidden{data: {target: "toggle.layout" }}
     Rows
-
+- if @rooms.count > 0
   .rooms-map-toggle{data: {action: "click->toggle#roomsmapToggle"} }
     .map{ data: {target: "toggle.roomsmap"} }
       %i.fas.fa-map
