@@ -112,19 +112,19 @@
 
 
   .search-field-container
-    @apply flex flex-wrap justify-start align-middle max-w-md
+    @apply flex flex-wrap justify-start align-middle
     @screen sm
       @apply
     .search-input
-      @apply mr-4 rounded h-8
+      @apply mr-4 rounded h-8 w-108 max-w-4xl
       input
-        @apply block bg-blue-100 text-blue-900   -ml-2 -mt-1
+        @apply block bg-blue-100 text-blue-900   -ml-2 -mt-1 w-full
       &:focus
         @apply outline-none  bg-blue-200  text-gray-900
       @screen lg
         @apply truncate
     .matches
-      @apply  self-center text-yellow-500 text-sm font-semibold ml-0 flex flex-row w-auto
+      @apply  self-center text-yellow-500 text-sm font-semibold ml-0 flex flex-row w-auto whitespace-no-wrap
       @screen xl
         @apply
     @screen xl
@@ -147,3 +147,25 @@
   top: 200px
   @screen xl
     @apply top-0 mt-20 pt-6
+
+.leaflet-marker-pane
+  img
+    @apply text-blue-700 fill-current w-3
+
+    // z-index: 2000000
+
+.leaflet-marker-icon
+  path
+    @apply text-blue-700 fill-current
+.map-marker-icon
+  @apply text-blue-700 fill-current
+
+.no-matches-notice
+  @apply p-8 bg-blue-300 mt-10 rounded-lg border w-2/3 mx-auto flex flex-col text-blue-800 text-center text-3xl font-semibold
+
+.reset-filters
+  @apply mx-auto p-3 rounded-full bg-green-200  text-center text-xl whitespace-no-wrap w-full max-w-xs mt-12 font-bold
+  a
+    @apply text-green-800
+  &:hover
+    @apply bg-green-400 text-green-900

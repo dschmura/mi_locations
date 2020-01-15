@@ -51,7 +51,7 @@ export default class extends Controller {
     // 42.277083, -83.738224
     let averageLatitude = 0;
     let averageLongitude = 0;
-    let roomsCount = 0;
+    let roomsCount = (rooms.length ? 0 : 1);
 
     rooms.forEach(function(room, i){
       if (room.building.latitude != null || room.building.longitude != null){
@@ -61,9 +61,9 @@ export default class extends Controller {
 
       }
     });
-
     averageLatitude = averageLatitude / roomsCount;
     averageLongitude = averageLongitude / roomsCount;
+
     let centerPoints = [averageLatitude, averageLongitude];
     return centerPoints;
   }
@@ -71,7 +71,8 @@ export default class extends Controller {
   addMarker(map, room){
     var mapIcon = L.icon({
       iconUrl: mapMarker,
-      iconSize:     [30, 95]
+      iconSize:     [30, 95],
+      className: 'map-marker-icon'
     });
     var marker = L.marker([room[0], room[1]], {
       icon: mapIcon
@@ -88,6 +89,7 @@ export default class extends Controller {
 
     for( var i = 0; i < rooms.length; i++ ) {
       if (rooms[i].building.latitude != null || rooms[i].building.longitude != null){
+
         let marker = L.marker([rooms[i].building.latitude, rooms[i].building.longitude], {
           icon: mapIcon
         }).addTo(map);
@@ -95,5 +97,6 @@ export default class extends Controller {
 
       }
     }
+
   }
 }
