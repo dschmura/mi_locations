@@ -16,6 +16,11 @@ export default class extends Controller {
     }, this.duration)
   }
 
+  change(event){
+    event.preventDefault()
+    this.formTarget.submit()
+
+  }
   checkboxSubmit() {
     this.formTarget.submit()
   }
