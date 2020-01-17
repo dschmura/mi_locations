@@ -1,21 +1,23 @@
-.room-show
+.room-show{data: {controller: "modal"}}
   = render 'room_layout'
-  .room-banner{"data-controller" => "toggle"}
+  .room-banner{data: {controller: "toggle" }}
 
-    .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle",  "data-controller" => "map",
+    -# .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle",  "data-controller" => "map",
             "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
             "data-map-mapbox-room" => @room_json}
-      .map{ "data-target" => "toggle.roomsmap"}
+
+    .room-map-toggle{data: {controller: "map", action: "click->toggle#roomsmapToggle", "map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}", "map-mapbox-room" => @room_json }}
+      .map{data: {target: "toggle.roomsmap" }}
         %i.fas.fa-map
         Map
-      .close-map.hidden{ "data-target" => "toggle.roomsmap"}
+      .close-map.hidden{data: {target: "toggle.roomsmap" }}
         %i.fas.fa-map
         Close
 
-    .room-map.hidden{"data-target" => "toggle.roomsmap"}
+    .room-map.hidden{data: {target: "toggle.roomsmap" }}
       #mapid
 
-    .room-show-image{ "data-target" => "toggle.roomsmap" }
+    .room-show-image{data: {target: "toggle.roomsmap" }}
       - if @room.room_panorama.attached?
         #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => "#{url_for(@room.room_panorama)}",  "data-pannellum-panopreview" => "#{url_for(@room.room_panorama.variant(resize: "25%").processed)}" }
 
@@ -23,8 +25,6 @@
         = image_tag(url_for(@room.room_image), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} picture")
       -else
         = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
-
-
 
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
@@ -37,19 +37,18 @@
     .info
       .left
         %li.room-capacity
-          = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", "data-tooltip" => "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces.", "data-action" => "click->modal#open"} do
+          = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { tooltip: "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces." }} do
             %i.fas.fa-users
             = "Capacity #{@room.instructional_seating_count} "
 
-
         - if @room.team_learning_classroom?
           %li.room-team-learning
-            = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", "data-tooltip" => "Classroom is equiped with team-learning resources."} do
+            = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { "tooltip" => "Classroom is equiped with team-learning resources." }} do
 
               %i.fas.fa-handshake
               Team Learning Classroom
         %li.room-layout
-          = link_to  "", :role => "button", :class => " button tooltip tooltip-top ", "data-tooltip" => "The room arrangement for this room and room support and scheduling contacts.", "data-action" => "click->modal#open" do
+          = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: {tooltip: "The room arrangement for this room and room support and scheduling contacts.", action: "click->modal#open" }} do
             %i.fas.fa-chair
             %span Room Layout
 
@@ -59,7 +58,7 @@
           Directions
 
         %li.room-calendar
-          = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@room.facility_code_heprod }", :target => "_blank", :role => "button", :class => " button tooltip tooltip-top ", "data-tooltip" => "Go to room schedule." do
+          = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@room.facility_code_heprod }", {:target => "_blank", :role => "button", :class => " button tooltip tooltip-top ", data: {"tooltip" => "Go to room schedule." }} do
             %i.fas.fa-calendar
             Calendar
 
