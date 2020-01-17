@@ -1,3 +1,7 @@
+- content_for :head do
+  %link{href: "https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css", rel: "stylesheet"}
+
+= console
 .search-filters-2
   = search_form_for @q, data: { controller: "autosubmit", target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
     .search-filters-container
@@ -26,13 +30,17 @@
         %i.fas.fa-building
         Building
         %i.fas.fa-chevron-down
+        = f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_cont, @searchable_buildings, {}, {multiple: true, class: " xl:w-full", data: {controller: "choices", target: "choices.choice"}}
 
-      .filter-by-school-or-college{data: {controller: "choices" }}
+
+      .filter-by-school-or-college{}
         %i.fas.fa-graduation-cap
         School or College
         %i.fas.fa-chevron-down
-        %span{ data: {target: "choices.select"}}
-        -# = f.select :dept_grp_eq, [['All Schools & Colleges',''],['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']], {}, {class: "form-select xl:w-full"}
+
+
+        = f.select :dept_grp_in, [['All Schools & Colleges',''],['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']], {}, {multiple: true, class: " xl:w-full", data: {controller: "choices", target: "choices.choice"}}
+
 
 
     .search-field-container

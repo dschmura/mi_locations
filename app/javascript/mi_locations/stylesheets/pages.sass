@@ -141,7 +141,6 @@
 .dropdown-content
   @apply absolute
 
-
 #rooms-results
   @apply relative
   top: 200px
@@ -169,3 +168,17 @@
     @apply text-green-800
   &:hover
     @apply bg-green-400 text-green-900
+
+
+.choices__item
+  @apply bg-blue-200 text-blue-900
+.choices__button
+  &:active
+    @apply bg-red-300
+.choices__item
+  .is-selected
+    @apply bg-red-700
+.choices__list
+.choices__list--multiple
+  .is-highlighted
+    @apply bg-red-500
