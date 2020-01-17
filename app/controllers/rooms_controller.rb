@@ -10,8 +10,10 @@ class RoomsController < ApplicationController
     @results = policy_scope(@q.result.merge(rooms).joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :room_panorama_attachment, :alerts))
     @rooms = @results.page(params[:page]).per(10).decorate
 
+    # @rooms_json = serialize_rooms(@results.page(params[:page]).per(10))
     @rooms_json = serialize_rooms(@results)
 
+    @searchable_buildings =  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).sort
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
     respond_to do |format|
