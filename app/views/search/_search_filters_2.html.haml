@@ -6,13 +6,15 @@
     .search-filters-container
 
       .filter-by-capacity{data: { controller: "capacity-slider", action: "click->dropdown#toggle click@window->dropdown#hide", "capacity-slider-minimum" => "1", "capacity-slider-maximum" => "600" }}
-        %i.fas.fa-users
-        %span#minimum-capacity-value{data: {target: "capacity-slider.minimum capacity-slider.slider" }}
-          1
-        %span -
-        %span#minimum-capacity-value{data: {target: "capacity-slider.maximum" }}
-          600
+        %div
+          %i.fas.fa-users
+          %span#minimum-capacity-value{data: {target: "capacity-slider.minimum capacity-slider.slider" }}
+            1
+          %span -
+          %span#minimum-capacity-value{data: {target: "capacity-slider.maximum" }}
+            600
         %i.fas.fa-chevron-down
+
         .dropdown-content.hidden{data: { target: "dropdown.menu" }}
 
           .capacity-sliders.tooltip.tooltip-capacity-top{data: {tooltip: "Only show rooms with a capacity between X and Y" }}
@@ -88,17 +90,7 @@
               = sort_link(@q, :room_number) do
                 Room number
 
-      -# .hidden{data: {target: "toggle.filters", class: "xl:block" }}
       .filters-container.hidden{data: {target: "toggle.filters" }}
-
-        .px-4.py-4.border-t.border-gray-900.xl:border-t-0
-          .flex.flex-wrap.-mx-2
-
-            %label.block.px-2{:class => "w-1/2 lg:w-full"}
-              %span.filters-section-header School or College
-
-              = f.select :dept_grp_eq, [['All Schools & Colleges',''],['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']], {}, {class: "form-select xl:w-full", data: { action: "autosubmit#change"}}
-
 
         .classroom-amenities
           %span.filters-section-header Amenities
@@ -129,34 +121,34 @@
               %span{:class => "sm:w-full"} BluRay / DVD Player
 
 
-        .stacked-filters
-          .classroom-type
-            %span.filters-section-header Team Learning
-            .characteristics-arrangement
+        -# .stacked-filters
+        .classroom-type
+          %span.filters-section-header Team Learning
+          .characteristics-arrangement
 
-              .filter-item-label
+            .filter-item-label
 
-                = check_box_tag "team_board", :team_board, params[:team_board].try(:include?, 'team_board'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span Team Board
+              = check_box_tag "team_board", :team_board, params[:team_board].try(:include?, 'team_board'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+              %span Team Board
 
-              .filter-item-label
-                = check_box_tag "team_tables", :team_tables, params[:team_tables].try(:include?, 'team_tables'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span Team Tables
+            .filter-item-label
+              = check_box_tag "team_tables", :team_tables, params[:team_tables].try(:include?, 'team_tables'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+              %span Team Tables
 
-              .filter-item-label
-                = check_box_tag "team_technology", :team_technology, params[:team_technology].try(:include?, 'team_technology'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span Team Technology
+            .filter-item-label
+              = check_box_tag "team_technology", :team_technology, params[:team_technology].try(:include?, 'team_technology'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+              %span Team Technology
 
-          .writing-surface
-            %span.filters-section-header Writing Surface
-            .characteristics-arrangement{:class => "sm:w-full "}
-              .filter-item-label
-                = check_box_tag "whiteboard", :whiteboard, params[:whiteboard].try(:include?, 'whiteboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span Whiteboard
+        .writing-surface
+          %span.filters-section-header Writing Surface
+          .characteristics-arrangement{:class => "sm:w-full "}
+            .filter-item-label
+              = check_box_tag "whiteboard", :whiteboard, params[:whiteboard].try(:include?, 'whiteboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+              %span Whiteboard
 
-              .filter-item-label
-                = check_box_tag "chalkboard", :chalkboard, params[:chalkboard].try(:include?, 'chalkboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span Chalkboard
+            .filter-item-label
+              = check_box_tag "chalkboard", :chalkboard, params[:chalkboard].try(:include?, 'chalkboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+              %span Chalkboard
         %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
           .projection-type
             %span.filters-section-header Projection
