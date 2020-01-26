@@ -19,9 +19,10 @@ export default class extends Controller {
       placeholderValue: "Please select",
       searchFields: ['label'],
       removeItemButton: true,
-      searchPlaceholderValue: false
+      searchPlaceholder: true,
+      searchPlaceholderValue: "true",
+      maxItemCount: 2
     })
-
-
   }
+
 }

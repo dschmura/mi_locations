@@ -74,6 +74,5 @@ export default class extends Controller {
       el.classList.toggle("hidden")
     })
 
-
   }
 }

@@ -3,7 +3,7 @@
 /* Add this attribute to the element that needs a tooltip */
 
 .tooltip
-  @apply relative cursor-pointer z-50 mx-2
+  @apply relative cursor-pointer z-30 mx-2
 
 /* Base styles for the entire tooltip */
 .tooltip:before,
@@ -24,20 +24,21 @@
 .tooltip:hover:after,
 .tooltip:focus:before,
 .tooltip:focus:after
-  @apply opacity-100 visible
+  @apply opacity-100 visible transition duration-1000
+
 
 /* Tooltip's directional arrow conatiner */
 .tooltip:before,
   border: 6px solid transparent
   background: transparent
   content: ""
-  @apply z-50
+  @apply z-30
 
 /* Base styles for the tooltip's content area */
 
 [data-tooltip]:after
   content: attr(data-tooltip)
-  @apply absolute bg-gray-300 w-auto max-w-md  text-sm text-left rounded-lg p-3 z-50 border border-blue-400
+  @apply absolute bg-gray-300 w-auto max-w-md  text-sm text-left rounded-lg p-3 z-30 border border-blue-400
 /* Directions */
 
 /* Top (default) */
@@ -45,7 +46,7 @@
 .tooltip-top:before
   bottom: 110%
   left: 45%
-  @apply mx-auto absolute z-50
+  @apply mx-auto absolute z-30
 
 // .tooltip:before
   // @apply bg-orange-500

@@ -56,13 +56,8 @@
   .active-layout
     @apply bg-green-500
 
-.layouts
-  @apply w-full
-  .active-layout
-    @apply visible
-
 .search-filters-2
-  @apply bg-blue-800 p-2 flex flex-col h-auto fixed w-screen z-50
+  @apply bg-blue-800 p-2 flex flex-col h-auto fixed w-screen z-30
   top: 64px
   @screen sm
     @apply
@@ -72,81 +67,30 @@
     @apply
   @screen xl
     @apply  pt-10 w-64 inline-block relative z-0 px-0
+.additional-filters
+  @apply py-1
+  .buttons
+    @apply flex flex-row justify-between w-screen text-blue-200  text-sm px-4
 
-  .search-filters-container
-    @apply flex flex-col justify-start text-blue-100 text-sm  px-4
-    @screen md
-      @apply text-base
-    .filter-by-capacity
-      @apply  w-1/2 whitespace-no-wrap justify-center align-middle
-      @screen sm
-        @apply w-1/4
-      .dropdown-content
-        @apply z-50 p-4 bg-blue-200 rounded text-blue-500 w-1/2 mt-2
-        @screen xl
-          @apply w-full
-      @screen xl
-        @apply w-full flex flex-row justify-between align-middle
-    .filter-by-building, .filter-by-school-or-college
-      @apply w-1/2 whitespace-no-wrap
-      @screen sm
-        @apply w-1/4
-      @screen xl
-        @apply w-full
-    @screen xl
-      @apply flex-col
-  .additional-filters
-    @apply mt-6
-    // @screen lg
-    //   @apply w-full
-    @screen xl
-      @apply
-    .buttons
-      @apply flex flex-row justify-between w-screen text-blue-200 px-2 text-sm
-
-    .sort-options
-      @apply px-4
-      @screen xl
-        @apply absolute mt-1
-        right: 1rem
-        top: 10rem
-    .sort-options-selections
-      @apply bg-blue-200 relative w-auto  absolute p-2 rounded-lg mt-2 z-50
-      right: 1rem
-    .filters-toggle
-      @screen xl
-        @apply inline-block overflow-y-auto max-w-full w-full bg-green-800 -mr-2
-
-  .search-field-container
-    @apply flex flex-col justify-start align-middle
-    @screen sm
-      @apply
-    .search-input
-      @apply mr-4 rounded w-108 max-w-4xl
-      input
-        @apply block bg-blue-100 text-blue-900 -ml-2 -mt-1 w-full
-      &:focus
-        @apply outline-none  bg-blue-200  text-gray-900
-      // @screen lg
-      //   @apply truncate
-    .matches
-      @apply  self-center text-yellow-500 text-sm font-semibold ml-0 flex flex-row w-auto whitespace-no-wrap
-      @screen xl
-        @apply
-    @screen xl
-      .search-input
-        @apply w-48
+.sort-options
+  @apply px-4
+  @screen xl
+    @apply absolute mt-1
+    right: 1rem
+    top: 10rem
+.sort-options-selections
+  @apply bg-blue-200 relative w-auto  absolute p-2 rounded-lg mt-2 z-40
+  right: 1rem
+.filters-toggle
+  @screen xl
+    @apply inline-block overflow-y-auto max-w-full w-full bg-green-800 -mr-2
 
 .additional-filters-button
-  @apply flex
+  @apply flex font-light
+  svg
+    @apply h-5 w-5 fill-current
   @screen xl
     @apply hidden
-
-.dropdown
-  @apply relative
-
-.dropdown-content
-  @apply absolute
 
 #rooms-results
   @apply relative inline-block
@@ -156,15 +100,7 @@
 
 .leaflet-marker-pane
   img
-    @apply text-blue-700 fill-current w-3
-
-    // z-index: 2000000
-
-.leaflet-marker-icon
-  path
-    @apply text-blue-700 fill-current
-.map-marker-icon
-  @apply text-blue-700 fill-current
+    @apply w-3
 
 .no-matches-notice
   @apply p-8 bg-blue-300 mt-10 rounded-lg border w-2/3 mx-auto flex flex-col text-blue-800 text-center text-3xl font-semibold
@@ -176,49 +112,115 @@
   &:hover
     @apply bg-green-400 text-green-900
 
-.filter-by-school-or-college, .filter-by-building
-  @apply w-auto p-0 mr-2
+.search-filters-container
+  @apply flex flex-col text-blue-100 text-sm  px-4
+  @screen md
+    @apply text-base flex-row
+  @screen lg
+    @apply
+  @screen xl
+    @apply flex-col
 
+.filter-by-school-or-college, .filter-by-building
+  @apply whitespace-no-wrap
   @screen xl
     @apply w-48 max-w-xs
 
+.choices__inner
+  @apply bg-blue-400 p-0 min-h-0 h-8 justify-center w-full
 
-  .choices__input
-    @apply p-0
+.filter-by-school-or-college
+  @apply mt-4 -mx-8 px-8 border-t border-gray-900
+  @screen md
+    @apply border-t-0 border-l mx-0 -my-4 py-4 w-1/2 border-blue-700
+  @screen lg
+    @apply border-l-0 border-t mt-2 -mx-4 px-4
+  @screen xl
+    @apply border-0
 
-  .choices__inner
-    @apply bg-blue-100 p-0 min-h-0 h-8 justify-center
+.choices__list--multiple
+  @apply w-full
+  input
+    @apply bg-pink-500
 
-  .choices__list--dropdown
-    @apply bg-gray-800 z-50
-
-  .choices__list
-    @apply
+.choices__list--multiple > .choices__item
+  @apply bg-blue-400 text-blue-100 px-2 border-0 z-40
+  &:hover
+    @apply bg-blue-500
+  &:active
+    @apply bg-blue-500
+.search-input *
+  .choices__list--multiple
+    // @apply w-2/3
     .choices__item
-      @apply bg-blue-400 text-blue-100 px-2 py-1 border-0 z-50
-      &:active
-        @apply bg-blue-500
+      @apply bg-blue-400
 
-      input
-        @apply bg-blue-100  w-full w-108 p-0 z-50
+.search-input *
+  .choices__list--dropdown
+    @apply bg-blue-100 text-blue-800 z-40 w-auto
+    .choices__item
+      text-transform: capitalize
+      &:hover
+        @apply bg-blue-300
 
-  .search-field-container
-    @apply flex flex-wrap justify-start align-middle overflow-visible my-1
-    @screen sm
-      @apply
-    .search-input
-      @apply mr-4 rounded w-108 max-w-4xl py-0 pr-1 z-40
+.choices__list
+  // @apply w-20
 
-      input
-        @apply block bg-blue-100 text-blue-900 -ml-2 -mt-1 w-full
-      select
-        @apply w-108
-      &:focus
-        @apply outline-none  bg-blue-200  text-gray-900 w-auto z-50
-      // @screen lg
-      //   @apply truncate
+.choices
+  @screen xl
+    @apply w-48
+.search-field-container
+  @apply flex flex-wrap justify-start my-1 p-2 w-full
+
+  .search-field-svg
+    @apply  absolute inset-y-0 left-0 flex items-center pl-1
+
+.search-input
+  @apply rounded py-0 pr-1 z-40 w-full px-8 max-w-3xl float-right
+  width: 400px
+  @screen xl
+    @apply w-56
+
+.capacaity-college
+  @apply p-4
+  @screen md
+    @apply flex flex-row justify-between
+  @screen lg
+    @apply flex-col
+  @screen xl
+    @apply flex-col pr-8
+
+.filter-by-building
+  @apply flex flex-col align-middle
+  @screen md
+    @apply w-3/4 flex-col
+  @screen md
+    @apply
+  @screen xl
+    @apply w-full px-0
+  .filters-section-header
+    @apply text-blue-100
     @screen xl
-      .search-input
-        @apply w-56
-    .search-field-svg
-      @apply  absolute inset-y-0 left-0 flex items-center pl-1
+
+.matches
+  @apply  self-center text-yellow-500 text-sm font-semibold ml-0 flex flex-row justify-end w-full
+  @screen md
+    @apply justify-end text-right w-full
+
+.filter-by-capacity
+  @apply  w-full flex justify-start
+  @screen md
+    @apply w-1/2 justify-start pl-8
+  @screen lg
+    @apply w-full pl-4 pb-4
+  @screen xl
+    @apply w-full flex flex-row justify-start  p-4 align-middle
+
+.capacity-sliders
+    @apply w-2/3
+    @screen md
+      @apply w-1/2
+    @screen lg
+      @apply w-full
+    @screen xl
+      @apply justify-start w-full p-0

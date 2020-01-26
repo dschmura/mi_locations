@@ -4,25 +4,26 @@ export default class extends Controller {
 
   connect() {
     this.timeout = null
-    this.duration = this.data.get('duration') || 1000
+    this.duration = this.data.get('duration') || 200
   }
 
   save() {
     clearTimeout(this.timeout)
 
     this.timeout = setTimeout(() => {
-      this.statusTarget.textContent = 'Searching...'
+      this.statusTarget.textContent = 'Updating...'
       this.formTarget.submit()
     }, this.duration)
   }
 
   change(event){
     event.preventDefault()
-    this.formTarget.submit()
+    this.save()
 
   }
   checkboxSubmit() {
-    this.formTarget.submit()
+    event.preventDefault()
+    this.save()
   }
   success() {
     this.setStatus('Saved!')
