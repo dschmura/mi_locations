@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: c7292e9a1e158e5fc9ec3026256cf7a42d70f549
+  revision: 787f02c0b1263f20ebfd2969cf3b7d11070773a4
   specs:
     webpacker (4.2.2)
       activesupport (>= 4.2)
@@ -92,7 +92,7 @@ GEM
     bullet (6.1.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
-    byebug (11.0.1)
+    byebug (11.1.1)
     capistrano (3.11.2)
       airbrussh (>= 1.0.0)
       i18n
@@ -162,7 +162,7 @@ GEM
     ffi (1.12.1)
     flamegraph (0.9.5)
     formatador (0.2.5)
-    geocoder (1.6.0)
+    geocoder (1.6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.16.1)
@@ -231,7 +231,7 @@ GEM
     loofah (2.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lumberjack (1.1.1)
+    lumberjack (1.2.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
@@ -376,7 +376,7 @@ GEM
       ffi (~> 1.9)
     ruby_parser (3.14.1)
       sexp_processor (~> 4.9)
-    rubyzip (2.0.0)
+    rubyzip (2.1.0)
     sassc (2.2.1)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -424,7 +424,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (1.6.0)
+    unicode-display_width (1.6.1)
     uniform_notifier (1.13.0)
     warden (1.2.8)
       rack (>= 2.0.6)
