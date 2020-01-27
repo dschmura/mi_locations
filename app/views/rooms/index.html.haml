@@ -1,11 +1,11 @@
 %search.rooms-search{data: {controller: "toggle", controller: "dropdown" }}
   -# = render './search/search_filters', cached: true
   = render './search/search_filters_2', cached: true
-  #filter-tools{ data: {controller: "toggle", "toggle-class" => "active-layout"}}
+  #filter-tools{ data: {controller: "toggle", controller: "infinite_scroll", "toggle-class" => "active-layout"}}
     -# = render 'filter_tools'
 
-    #rooms-results= render 'rooms_results', cached: true
+    #rooms-results{data: {target: "infinite_scroll.scrollcontainer"}}= render 'rooms_results', cached: true
 
-- unless @rooms.current_page == @rooms.total_pages
-  #view-more
-    = link_to_next_page @rooms, 'View More', remote: false
+  - unless @rooms.current_page == @rooms.total_pages
+    #view-more
+      = link_to_next_page @rooms, 'View More', remote: false, class: "view-more-link"
