@@ -1,7 +1,7 @@
 .landing-page--banner
-  @apply flex flex-col pt-48 justify-center items-center
+  @apply flex flex-col pt-24 justify-center items-center
   @screen sm
-    @apply pt-56
+    @apply pt-32
   .landing-page-headline
     @apply text-4xl font-semibold -mt-4 shadow-lg tracking-wide leading-relaxed text-blue-100
 
@@ -13,10 +13,9 @@
 .hero-image
   background-image: url("../images/vistas/cube.jpg")
   /* Set a specific height */
-  height: 60vh
+  height: 70vh
   /* Position and center the image to scale nicely on all screens */
   @apply bg-top bg-no-repeat bg-cover -mt-20 z-0 -mx-10
-
 
 .bg-smoke-dark
   background-color: hsla(210, 41, 28, 0.8)
@@ -128,9 +127,9 @@
 
 .filter-by-school-or-college
   svg
-    @apply text-blue-100
+    @apply text-blue-700
     @screen xl
-      @apply text-blue-100
+      // @apply text-blue-100
 
 
 .choices__inner
@@ -179,6 +178,12 @@
     svg
       @apply h-6 w-6 fill-current
       @screen xl
+
+.pages * .search-form
+  @apply w-5/6 mx-auto
+.pages * .search-input
+  @apply w-full pl-12
+
 
 .search-input
   @apply rounded py-0 pr-1 z-40 w-full px-8 max-w-3xl float-right h-10

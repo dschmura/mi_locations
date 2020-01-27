@@ -4,7 +4,7 @@
   = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
 .room-map.hidden{data: {controller: "map",
         "map-mapbox-token": "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}" },
-        "data-map-mapbox-room" => @rooms_json, "data-target" => "toggle.roomsmap"}
+        "data-map-mapbox-room" => @rooms_json, target: "toggle.roomsmap"}
   #mapid
 
 .layouts
@@ -16,8 +16,7 @@
 
   .rooms-cards.hidden.active-layout{data: {target: "toggle.layout" }}
     = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
-  .rooms-rows.hidden{data: {target: "toggle.layout" }}
-    Rows
+
 - if @rooms.count > 0
   .rooms-map-toggle{data: {action: "click->toggle#roomsmapToggle"} }
     .map{ data: {target: "toggle.roomsmap"} }

@@ -9,9 +9,7 @@ const Choices = require('choices.js');
 export default class extends Controller {
   static targets = [ "choice" ]
 
-
   initialize(){
-    console.log("hi dave")
     // const element = document.querySelector('.js-choice');
     const element = this.choiceTarget
     const choices = new Choices(element, {
@@ -19,8 +17,6 @@ export default class extends Controller {
       placeholderValue: "Please select",
       searchFields: ['label'],
       removeItemButton: true,
-      searchPlaceholder: true,
-      searchPlaceholderValue: "true",
       maxItemCount: 2
     })
   }
