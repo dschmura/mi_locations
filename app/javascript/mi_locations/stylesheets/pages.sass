@@ -38,13 +38,16 @@
   @apply  mt-16
 
 .legacy-crdb
-  @apply mt-10  p-4 bg-blue-200 border border-blue-300 rounded-lg text-sm w-full mx-auto
+  @apply -mt-48 shadow-xl p-8  bg-blue-100 border-2 border-blue-600 rounded-lg text-xl w-5/6 mx-auto
   h1
-    @apply text-lg font-semibold
+    @apply text-3xl font-semibold text-blue-800
   @screen md
-    @apply w-1/2 max-w-3xl
-    h1
-      @apply text-xl
+    @apply w-4/6 max-w-5xl
+
+  a
+    @apply  px-1 -mx-1 underline font-bold
+    &:hover
+      @apply text-blue-800
 
 .layout-button
   @apply flex flex-row bg-blue-200 border border-blue-400 rounded p-1 w-32 text-center justify-center text-xs self-center mx-auto my-1
@@ -201,7 +204,7 @@
     @apply flex-col pr-8
 
 .filter-by-building
-  @apply flex flex-col align-middle
+  @apply flex flex-wrap w-full justify-end
   @screen md
     @apply w-3/4 flex-col
   @screen md
@@ -215,9 +218,9 @@
     @apply w-screen max-w-md -ml-2 pl-10
 
 .matches
-  @apply  self-center text-yellow-500 text-sm font-semibold ml-0 flex flex-row justify-end w-full
+  @apply text-yellow-500 text-sm font-semibold ml-0
   @screen md
-    @apply justify-end text-right w-full
+    @apply
 
 .filter-by-capacity
   @apply  w-full flex justify-start
