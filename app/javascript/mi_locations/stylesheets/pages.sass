@@ -104,6 +104,12 @@
   img
     @apply w-3
 
+.choices__list.choices__list--multiple
+  .choices__item.choices__item--selectable
+    @apply bg-blue-700 border-blue-700
+    &:hover
+      @apply bg-blue-800
+
 .no-matches-notice
   @apply p-8 bg-blue-300 mt-10 rounded-lg border w-2/3 mx-auto flex flex-col text-blue-800 text-center text-3xl font-semibold
 
@@ -114,43 +120,8 @@
   &:hover
     @apply bg-green-400 text-green-900
 
-.search-filters-container
-  @apply flex flex-col text-blue-100 text-sm  px-4
-  @screen md
-    @apply text-base flex-row
-  @screen lg
-    @apply
-  @screen xl
-    @apply flex-col
-
-.filter-by-school-or-college, .filter-by-building
-  @apply whitespace-no-wrap
-  @screen xl
-    @apply w-48 max-w-xs
-
-.filter-by-school-or-college
-  svg
-    @apply text-blue-700
-    @screen xl
-      // @apply text-blue-100
-
-
 .choices__inner
   @apply bg-blue-400 p-0 min-h-0 h-8 justify-center w-full
-
-.filter-by-school-or-college
-  @apply mt-4 -mx-8 px-8 border-t border-gray-900
-  @screen md
-    @apply border-t-0 border-l mx-0 -my-4 py-4 w-1/2 border-blue-700
-  @screen lg
-    @apply border-l-0 border-t mt-2 -mx-4 px-4
-  @screen xl
-    @apply border-0
-
-.choices__list--multiple
-  @apply w-full
-  input
-    @apply bg-pink-500
 
 .choices__list--multiple > .choices__item
   @apply bg-blue-400 text-blue-100 px-2 border-0 z-40
@@ -167,15 +138,20 @@
       &:hover
         @apply bg-blue-300
 
-.choices__list
-  // @apply w-20
-
+.search-input
+  @apply
+  input
+    @apply p-0
 .choices
+  @apply
+  .choices__inner
+    @apply bg-blue-100 p-0 w-full rounded-lg  h-0 min-h-0 h-8
   @screen xl
     @apply w-48
+
+
 .search-field-container
   @apply flex flex-wrap justify-start my-1 p-2 w-full
-
   .search-field-svg
     @apply  absolute inset-y-0 left-0 flex items-center pl-1
     svg
@@ -189,7 +165,7 @@
 
 
 .search-input
-  @apply rounded py-0 pr-1 z-40 w-full px-8 max-w-3xl float-right h-10
+  @apply rounded z-40 w-full px-8 max-w-3xl float-right h-8
   width: 400px
   @screen xl
     @apply w-56
@@ -204,9 +180,9 @@
     @apply flex-col pr-8
 
 .filter-by-building
-  @apply flex flex-wrap w-full justify-end
+  @apply flex flex-row w-full justify-end align-middle justify-center my-auto
   @screen md
-    @apply w-3/4 flex-col
+    @apply w-3/4
   @screen md
     @apply
   @screen xl
@@ -215,12 +191,10 @@
     @apply text-blue-100
     @screen xl
   .search-input
-    @apply w-screen max-w-md -ml-2 pl-10
+    @apply w-108 -ml-2 pl-10
 
 .matches
-  @apply text-yellow-500 text-sm font-semibold ml-0
-  @screen md
-    @apply
+  @apply text-yellow-500 text-sm font-semibold ml-0 justify-center align-middle self-center
 
 .filter-by-capacity
   @apply  w-full flex justify-start
