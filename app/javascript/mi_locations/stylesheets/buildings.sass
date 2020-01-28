@@ -1,12 +1,13 @@
+.buildings
+  .image-container
+    @apply pb-2/3 relative h-64
+
 .building-name
   @apply text-xl
 
-.image-container
-  @apply pb-2/3 relative h-64
-
 .building-show-image
   img
-    @apply absolute w-full object-cover 
+    @apply absolute w-full object-cover
 
 .building-classrooms
   @apply w-1/3
@@ -16,15 +17,6 @@
   @apply  list-none p-0
 .building-floor-actions
 
-// Index View building card
-.buildings-building-card
-  @apply pt-2 px-4 border rounded-lg
-  // @screen md
-  //   img
-  //     @apply w-1/2
-  // @screen lg
-  //   @apply w-1/3
-
 .buildings-building-card-image
   @apply  h-24 flex-none bg-cover rounded-t text-center overflow-hidden
   @screen md
@@ -32,9 +24,7 @@
 
 .buildings-building-card-image2
    border-r border-b border-l border-gray-100 bg-white rounded-b  p-4 flex flex-col justify-between leading-normal
-   @screen lg
 
-     // @apply border-l-0 border-t border-gray-100 rounded-b-none rounded-r
 .buildings-building-card-learning-spaces
   @apply w-1/2 bg-blue-100 p-4 rounded-lg
 
@@ -44,6 +34,7 @@
   @apply  bg-blue-100 text-white  py-2 px-3 rounded-full my-2
   &:hover
     @apply bg-blue-900
+
 // SHOW Floor
 .building-floors
   @apply w-1/3 bg-blue-100 p-4 rounded-lg shadow-lg mb-4
@@ -54,9 +45,6 @@
 
 .building-alerts
   @apply  bg-yellow-500
-
-
-.floor-plans
 
 .building-floor-plan
   @apply flex flex-row
@@ -81,7 +69,6 @@
 // BUILDINGS SEARCH
 .buildings-search-bar
   @apply bg-blue-800 rounded-lg flex flex-col items-stretch  p-6 relative mx-10 mb-4
-
 
 .limit-to-schools-or-colleges
   button

@@ -17,20 +17,11 @@ body[data-environment="development"]
 .debug_dump
   @apply bg-blue-100 border-4 border-red-800 rounded-lg p-4 text-sm font-mono text-blue-900 mx-auto my-4 max-w-2xl w-auto
 
-.content
-  @apply relative w-screen min-w-full
-  .flash-alerts
-    @apply  absolute z-50
-
 h4
   @apply text-2xl mt-4
 
 a
   @apply text-blue-700
 
-.user-icon
-  @apply bg-blue-100 h-16 w-16 rounded-full mx-auto text-blue-900  shadow-md mx-auto flex
-  @screen sm
-    @apply h-16 w-16 -mt-8
-  @screen md
-    @apply ml-2 h-12 w-12
+.content
+  @apply relative
