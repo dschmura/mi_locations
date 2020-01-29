@@ -50,16 +50,6 @@
         .capacaity-college
 
           .filter-by-capacity{data: { controller: "capacity-slider", action: "click->dropdown#toggle click@window->dropdown#hide", "capacity-slider-minimum" => "1", "capacity-slider-maximum" => "600" }}
-            -# %div
-            -#   %i.fas.fa-users
-            -#   %span#minimum-capacity-value{data: {target: "capacity-slider.minimum capacity-slider.slider" }}
-            -#     1
-            -#   %span -
-            -#   %span#minimum-capacity-value{data: {target: "capacity-slider.maximum" }}
-            -#     600
-            -# %i.fas.fa-chevron-down
-
-
 
             .capacity-sliders.tooltip.tooltip-capacity-top{data: {tooltip: "Only show rooms with a capacity between X and Y" }}
               .filters-section-header.mb-4 Student Capacity
