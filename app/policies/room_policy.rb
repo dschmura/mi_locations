@@ -54,7 +54,7 @@ class RoomPolicy < ApplicationPolicy
     if user && user_in_group?
       true
     else
-      true
+      false
     end
   end
 end
