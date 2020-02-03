@@ -51,16 +51,16 @@
     @apply text-blue-800
 
 .flash-alerts
-  @apply
+  @apply opacity-75
     svg
     @apply text-xl mx-2
 
   .alert
-    @apply w-full max-w-xl rounded-full my-2 p-2 items-center leading-none flex ml-4
+    @apply w-auto rounded-full my-2 px-2 py-3 items-center leading-none absolute inline-flex ml-10 top-0 left-0  mt-32 z-50 shadow-lg
     @screen lg
-      @apply rounded-full inline-flex
+      @apply rounded-full
     .alert-badge
-      @apply flex rounded-full uppercase px-2 py-1 text-xs font-bold mx-2 w-20 text-center self-center
+      @apply flex rounded-full uppercase px-2 py-1 text-xs font-bold mr-2  text-center self-center
     .alert-message
       @apply  font-semibold mr-2 text-left flex-auto
 
