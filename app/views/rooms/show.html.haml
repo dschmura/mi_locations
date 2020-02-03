@@ -28,40 +28,47 @@
 
   = render partial: 'alerts/alerts', locals: {alertable: @room}
 
-  .room-info-pane
-    .room-name-address
-      .room-title
-        = @room.title
-      .room-department
-        = @room.department_name
+  .room-info-pane{data: {controller: "dropdown"}}
+    .flex.flex-row.justify-between
+      .room-name-address
+        .room-title
+          = @room.title
+        .room-department
+          = @room.department_name
+      - if policy(@room).update?
+        .add-room-alert-button{"aria-label" => "Add Alert", data: {action:"click->dropdown#toggle click@window->dropdown#hide", role: "button" }}
+          = render "icons/plus-circle_icon"
+          Add Alert
+
     .info
       .left
         %li.room-capacity
           = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { tooltip: "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces." }} do
-            %i.fas.fa-users
+            .icon= render "icons/users_icon"
             = "Capacity #{@room.instructional_seating_count} "
 
         - if @room.team_learning_classroom?
           %li.room-team-learning
             = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { "tooltip" => "Classroom is equiped with team-learning resources." }} do
-
-              %i.fas.fa-handshake
+              .icon= render "icons/handshake_icon"
               Team Learning Classroom
         %li.room-layout
           = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: {tooltip: "The room arrangement for this room and room support and scheduling contacts.", action: "click->modal#open" }} do
-            %i.fas.fa-chair
+            .icon= render "icons/chair_icon"
             %span Room Layout
 
       .right
         %li.room-directions
-          %i.fas.fa-map-marked-alt
+          .icon= render "icons/map-marked-alt_icon"
           Directions
 
         %li.room-calendar
           = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@room.facility_code_heprod }", {:target => "_blank", :role => "button", :class => " button tooltip tooltip-top ", data: {"tooltip" => "Go to room schedule." }} do
-            %i.fas.fa-calendar
+            .icon= render "icons/calendar_icon"
             Calendar
 
+    .add-room-alert-form.hidden{data: {target: "dropdown.menu"}}
+      = render partial: 'alerts/form', locals: {alertable: @room}
   %section.room-features.features-group
     %h2
       Room Features
@@ -92,11 +99,10 @@
   - if policy(@room).update?
     = render partial: 'alerts/form', locals: {alertable: @room}
 
-    %h3 Add an Image
-
-    = render partial: 'room_image_form', locals: {room: @rooms}
+    -# %h3 Add an Image
+    -# = render partial: 'room_image_form', locals: {room: @room}
 
     %h3 Add a Panorama
     = @room.rmrecnbr
 
-    = render partial: 'room_panorama_form', locals: {room: @rooms}
+    = render partial: 'room_panorama_form', locals: {room: @room}

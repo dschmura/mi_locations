@@ -1,0 +1,51 @@
+.room-card{:id => "card-#{room.rmrecnbr}", :class => "#{'card-dimmed' unless room.visible}" }
+
+  .room-image
+    = link_to room do
+      - if room.room_panorama.attached?
+        = image_tag(url_for(room.room_panorama.variant(resize: "25%").processed), alt: "#{room.room_number} #{room.building.name.titleize} picture", loading: "lazy", width: "100px")
+
+      - elsif room.room_image.attached?
+        = image_tag(url_for(room.room_image.variant(resize: "50%").processed), alt: "#{room.room_number} #{room.building.name.titleize} picture", loading: "lazy", width: "100px")
+      - else
+        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton_card.jpg'), alt: "#{room.room_number} #{room.building.name.titleize} image not available", loading: "lazy", width: "100px")
+
+  .card-content-container
+    .card-content
+      .features
+        -if room.alerts.any?
+
+          %span.alert-badge
+            Alert!
+        - if current_user
+          .capacity
+            %i.fas.fa-users
+            = room.student_capacity
+      %h4.room-name
+        = "#{room.title}"
+      .room-address
+        .address
+          %i.fas.fa-map-marker-alt
+          = "#{room.building.address.titleize}"
+        .map-buttons
+          -# .map
+            %i.fas.fa-map
+            Map
+
+          .directions-button
+            %i.fas.fa-directions
+            Directions
+
+          %button.copy-button{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy this room's description and attributes.", :role => "button", :class => "tooltip tooltip-top" }
+
+            %i.fas.fa-copy
+            %span Copy
+
+            %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -10000px; top:-1000px;", :type => "text", :value => "#{room.copy_text}"}/
+
+          - if policy(room).toggle_visibility?
+            .room-visibility-toggle{:id => "toggle-#{room.rmrecnbr}"}
+              = render "room_visibility_toggle",  room: room, cached: true
+
+
+          -# = render "room_card_copy_text", room: room,  formats: [:text]

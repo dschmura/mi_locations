@@ -1,7 +1,7 @@
 = button_to toggle_visibility_path(room), remote: true do
   - if room.visible?
-    %i.fas.fa-toggle-on
+    .icon= render "icons/toggle-on_icon", cached: true
   -else
-    %i.fas.fa-toggle-off
+    .icon= render "icons/toggle-off_icon", cached: true
 
   = room.visible ? "visible" : "hidden"
