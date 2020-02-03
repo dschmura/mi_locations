@@ -65,10 +65,10 @@
 .rooms-map
   @apply h-64 min-w-full -mt-3
 
-
 .room-info-pane
   @apply  flex flex-col bg-blue-100 p-8
-
+  .room-calendar
+    @apply text-blue-800
   .info
     @apply flex flex-col w-full
     @screen sm
@@ -81,6 +81,14 @@
       @apply  w-full list-none
       @screen sm
         @apply w-1/2 text-right
+.add-room-alert-button
+  @apply bg-red-300 text-red-900 flex flex-row px-2 rounded-full h-6 justify-center align-middle
+  &:hover
+    @apply bg-red-200 text-red-800
+  svg
+    @apply h-4 w-4 mt-1 mr-1 fill-current text-red-800 justify-center align-middle
+.add-room-alert-form
+  @apply mt-4 p-4 bg-red-200
 
 .room-name-address
   @apply text-2xl font-semibold text-gray-800 leading-tight mb-4

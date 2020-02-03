@@ -22,7 +22,15 @@ class AlertPolicy < ApplicationPolicy
   end
 
   def create?
-    if user
+    if user && user_in_group?
+      true
+    else
+      false
+    end
+  end
+
+  def update?
+    if user && user_in_group?
       true
     else
       false
@@ -35,5 +43,14 @@ class AlertPolicy < ApplicationPolicy
     else
       false
     end
+  end
+end
+
+def user_in_group?
+  # user.authorized_groups.includes?
+  if user.mcommunity_groups.include?("mi-locations-notify")
+    true
+  else
+    false
   end
 end

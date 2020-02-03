@@ -21,6 +21,19 @@ class AlertsController < ApplicationController
     end
   end
 
+  def update
+    @alert = Alert.find(params[:id])
+    authorize @alert
+    @alertable = @alert.alertable
+    respond_to do |format|
+      if @alert.update(alert_params)
+        format.html { redirect_back(fallback_location: root_path, notice: "alert was successfully updated.") }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
   def destroy
     @alert = Alert.find(params[:id])
     authorize @alert

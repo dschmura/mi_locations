@@ -1,49 +1,59 @@
-// Adjust for landing page hero image
-.content
-  @apply relative
-  .flash-alerts
-    @apply  absolute z-50
+.room-alerts
+  @apply absolute top-0 left-0 right-0 mt-32 z-50 w-4/5 mx-auto
+  opacity: 95%
 
-.alert-form
-  @apply bg-blue-100 my-4 rounded-lg shadow-md  mx-auto
-  form
-    @apply flex
-  .alert-level
-    @apply bg-gray-400 text-xl py-3 px-4 w-auto
-  .alert-content
-    @apply  p-4 border-l-4 border-yellow-500
-    trix-toolbar
-      @apply bg-gray-100
-    trix-editor
-      @apply bg-white h-32
-
-.alert-message
-  @apply w-2/3 block
-  @screen sm
-    @apply inline
-
-.alert-edit
-  @apply absolute top-0 right-0 px-2 py-1 mr-6 text-gray-900
-
+.alert
+  @apply bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-800 px-4 py-3 shadow-md my-2
+.alert-severity-icon
+  svg
+    @apply h-6 w-6 fill-current mr-4
+.alert-headline
+  @apply font-bold
+.alert-content
+  @apply text-sm
+.alert-close-button
+  @apply absolute right-0 px-4 py-3 -mt-4
+  svg
+    @apply fill-current h-4 w-4 text-blue-500
+.alert-edit-button
+  @apply absolute right-0 px-4 py-3 mt-4
+  svg
+    @apply fill-current h-4 w-4 text-blue-500
 // COLOR VARIATIONS
 .alert-success
-  @apply bg-green-100 text-green-700 border-green-500 p-1 mb-2
+  @apply bg-green-100 text-green-700 border-green-500
+  .alert-severity
+    @apply bg-green-300
+    .form-select
+      @apply bg-green-300
+  svg
+    @apply text-green-700
 .alert-danger
-  @apply bg-red-100 text-red-700 border-red-500 p-1 mb-2
+  @apply bg-red-100 text-red-700 border-red-500
+  .alert-severity
+    @apply bg-red-300
+    .form-select
+      @apply bg-red-300 text-red-700
+  svg
+    @apply text-red-700
+  .bg-red-700
 .alert-warning
-  @apply bg-orange-100 text-orange-700 border-orange-500 p-1 mb-2
+  @apply bg-orange-100 text-orange-800 border-orange-500
+  .alert-severity
+    @apply bg-orange-300
+  svg
+    @apply text-orange-800
 .alert-info
-  @apply bg-blue-100 text-blue-700 border-blue-500 p-1 mb-2
+  @apply bg-blue-100 text-blue-800 border-blue-500
+  .alert-severity
+    @apply bg-blue-300
+  svg
+    @apply text-blue-800
 
 .flash-alerts
-  @apply bg-blue-400 absolute absolute z-50
+  @apply
     svg
     @apply text-xl mx-2
-
-  .alert-close
-    @apply  right-0 px-2 py-1
-    svg
-      @apply text-sm
 
   .alert
     @apply w-full max-w-xl rounded-full my-2 p-2 items-center leading-none flex ml-4
@@ -55,21 +65,21 @@
       @apply  font-semibold mr-2 text-left flex-auto
 
   .alert-info
-    @apply bg-blue-200 text-blue-700 border-blue-500 p-1 mb-2
+    @apply bg-blue-200 text-blue-700 border-blue-500 p-1 mb-2 border-2
     .alert-badge
       @apply bg-blue-700 text-blue-200
 
   .alert-success
-    @apply bg-green-200 text-green-700 border-green-500 p-1 mb-2
+    @apply bg-green-200 text-green-700 border-green-500 p-1 mb-2 border-2
     .alert-badge
       @apply bg-green-700 text-green-200
 
   .alert-error
-    @apply bg-orange-200 text-orange-700 border-orange-500 p-1 mb-2
+    @apply bg-orange-200 text-orange-700 border-orange-500 p-1 mb-2 border-2
     .alert-badge
       @apply bg-orange-700 text-orange-200
 
   .alert-alert
-    @apply bg-red-200 text-red-900 border-red-500 p-1 mb-2
+    @apply bg-red-200 text-red-900 border-red-800 border-2 p-1 mb-2
     .alert-badge
       @apply bg-red-900 text-red-200

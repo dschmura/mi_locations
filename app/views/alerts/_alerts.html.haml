@@ -1,16 +1,32 @@
+= console
 - if alertable.alerts.any?
-  - alertable.alerts.each do |alert|
+  .room-alerts
+    - alertable.alerts.each do |alert|
+      .alert{class: "alert-#{alert.severity}", role: "alert", data: {controller: "dropdown"}}
 
-    %div{:class => "mi-alert alert-#{alert.severity}", :role => "alert"}
+        .flex
+          .py-1.alert-severity-icon
+            = render "icons/#{severity_icon(alert.severity.to_sym)}"
+          %div
+            %p.alert-headline= alert.severity.upcase
+            %p.alert-content= alert.message
+          %span.alert-close-button{"aria-label" => "Close", "data-dismiss" => "alert", :onclick => "this.parentElement.parentElement.style.display='none'"}
 
-      %strong.alert-severity
-        %i.fas.fa-= severity_icon(alert.severity.to_sym)
-        = alert.severity.upcase
-      .alert-message
-        = alert.message
+            = render 'icons/close_icon', cached: true
+          - if policy(alert).update?
+            %span.alert-edit-button{"aria-label" => "Edit Alert", data: {action:"click->dropdown#toggle click@window->dropdown#hide", role: "button" }}
+              = render 'icons/h-elipses_icon', cached: true
 
-      .alert-edit
-        %i.fas.fa-ellipsis-h
+        .mi-alert.hidden{class: "alert-#{alert.severity}", data: {target: "dropdown.menu"}}
+          = form_for alert do |f|
+            .alert-severity
+              = f.select :severity, options_for_select([['Informational', 'info'],['Warning', 'warning'],['Danger', 'danger'],['All Clear', 'success'],], selected: alert.severity), { :include_blank => "Alert Level" }, {required: 'true', autofocus: 'true', class: 'form-select'}
+            .alert-message
+              = f.rich_text_area :message, placeholder: 'Type your alert here: Limit of 280 Characters', class: 'form-textarea'
+            .edit-alert-actions
+              .alert-delete
+                %i.fas.fa-exclamation-triangle
 
-      .alert-close{"aria-label" => "Close", "data-dismiss" => "alert", :onclick => "this.parentElement.style.display='none'"}
-        %i.fas.fa-times
+                Delete
+              .alert-submit
+                = f.submit "Update"
