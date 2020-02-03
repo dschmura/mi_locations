@@ -18,11 +18,20 @@ export default class extends Controller {
   createMap(rooms, token){
 
     let centerPoints = this.findCenterPoint(rooms);
-    const mymap = L.map('mapid').setView([centerPoints[0], centerPoints[1]], 15);
 
-    this.addTile(mymap, token);
-    this.addMarkers(mymap, rooms);
-    this.resizeMap(mymap);
+    if (centerPoints[0] != centerPoints[0]) {
+
+      let mymap = L.map('mapid').setView([42.277461, -83.738293], 13);
+      this.addTile(mymap, token);
+      this.resizeMap(mymap);
+    } else {
+      let mymap = L.map('mapid').setView([centerPoints[0], centerPoints[1]], 15);
+      this.addTile(mymap, token);
+      this.addMarkers(mymap, rooms);
+      this.resizeMap(mymap);
+    }
+
+    // this.resizeMap(mymap);
 
   }
   addTile(map, token){
