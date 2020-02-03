@@ -97,11 +97,6 @@
           = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
   - if policy(@room).update?
-    = render partial: 'alerts/form', locals: {alertable: @room}
-
-    -# %h3 Add an Image
-    -# = render partial: 'room_image_form', locals: {room: @room}
-
     %h3 Add a Panorama
     = @room.rmrecnbr
 
