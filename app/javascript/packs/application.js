@@ -40,7 +40,7 @@ import 'trix/dist/trix.css'
 // import 'mi_locations/javascripts/application.js'
 
 document.addEventListener('turbolinks:load', () => {
-  FontAwesome.dom.i2svg();
+  // FontAwesome.dom.i2svg();
   function highlightCurrent() {
     const curPage = document.URL;
     const links = document.getElementsByTagName('a');
