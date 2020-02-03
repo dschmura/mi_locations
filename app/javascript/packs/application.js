@@ -9,7 +9,6 @@
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
-// require("load-google-maps-api")
 
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
@@ -40,7 +39,7 @@ import 'trix/dist/trix.css'
 // import 'mi_locations/javascripts/application.js'
 
 document.addEventListener('turbolinks:load', () => {
-  // FontAwesome.dom.i2svg();
+
   function highlightCurrent() {
     const curPage = document.URL;
     const links = document.getElementsByTagName('a');
@@ -55,12 +54,3 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import "controllers"
-
-// import { Map } from './rooms_maps';
-// document.addEventListener('turbolinks:load', () => {
-//   let mapElement = document.getElementById('map');
-
-//   Map.loadGoogleMapsApi().then(function(googleMaps) {
-//     Map.createMap(googleMaps, mapElement);
-//   });
-// });
