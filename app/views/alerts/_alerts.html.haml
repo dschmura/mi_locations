@@ -2,7 +2,6 @@
   .room-alerts
     - alertable.alerts.each do |alert|
       .alert{class: "alert-#{alert.severity}", role: "alert", data: {controller: "dropdown"}}
-
         .flex
           .py-1.alert-severity-icon
             = render "icons/#{severity_icon(alert.severity.to_sym)}"
@@ -16,7 +15,7 @@
             %span.alert-edit-button{"aria-label" => "Edit Alert", data: {action:"click->dropdown#toggle click@window->dropdown#hide", role: "button" }}
               = render 'icons/h-elipses_icon', cached: true
 
-        .mi-alert.hidden{class: "alert-#{alert.severity}", data: {target: "dropdown.menu"}}
+        .edit-alert-dropdown.hidden{class: "alert-#{alert.severity}", data: {target: "dropdown.menu"}}
           = form_for alert do |f|
             .alert-severity
               = f.select :severity, options_for_select([['Informational', 'info'],['Warning', 'warning'],['Danger', 'danger'],['All Clear', 'success'],], selected: alert.severity), { :include_blank => "Alert Level" }, {required: 'true', autofocus: 'true', class: 'form-select'}
@@ -24,8 +23,8 @@
               = f.rich_text_area :message, placeholder: 'Type your alert here: Limit of 280 Characters', class: 'form-textarea'
             .edit-alert-actions
               .alert-delete
-                %i.fas.fa-exclamation-triangle
+                = link_to alert, method: :delete, data: {confirm: "Delete this alert?"} do
+                  .icon= render 'icons/exclamation-triangle_icon', cached: true
+                  Delete
 
-                Delete
-              .alert-submit
-                = f.submit "Update"
+              .alert-submit= f.submit "Update"

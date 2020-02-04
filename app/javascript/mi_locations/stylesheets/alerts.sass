@@ -1,5 +1,5 @@
 .room-alerts
-  @apply absolute top-0 left-0 right-0 mt-32 z-50 w-4/5 mx-auto
+  @apply absolute top-0 left-0 right-0 mt-24 z-50 w-4/5 mx-auto
   opacity: 95%
 
 .alert
@@ -49,6 +49,24 @@
     @apply bg-blue-300
   svg
     @apply text-blue-800
+.edit-alert-dropdown
+  @apply mt-2
+
+.edit-alert-actions
+  @apply flex flex-row justify-between mt-4
+.alert-delete
+  svg
+    @apply mr-2 fill-current text-red-100
+  a
+    @apply bg-red-700 text-red-100 text-xs p-1 rounded inline-flex align-middle
+    &:hover
+      @apply bg-red-800
+.alert-submit > input
+  @apply bg-green-400 text-green-900 flex flex-row px-2 rounded h-6 justify-center align-middle font-semibold
+  &:hover
+    @apply bg-green-200 text-green-800
+  svg
+    @apply h-4 w-4 mt-1 mr-1 fill-current text-green-800 justify-center align-middle
 
 .flash-alerts
   @apply opacity-75
