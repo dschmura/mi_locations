@@ -69,10 +69,18 @@ export default class extends Controller {
   }
 
   filtertoggle() {
+    const width = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
     event.preventDefault()
     this.filtersTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
     })
+    if (width > 1024 && width < 1280){
+      this.filtersTargets.forEach((el, i) => {
+        el.classList.toggle("flex")
+      })
+    }
 
   }
 }
