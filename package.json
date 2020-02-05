@@ -10,7 +10,6 @@
     "@tailwindcss/custom-forms": "^0.2.0",
     "choices.js": "^9.0.1",
     "core-js": "3",
-    "infinite-scroll": "^3.0.6",
     "leaflet": "^1.5.1",
     "nouislider": "^13.1.5",
     "pannellum": "^2.5.4",
