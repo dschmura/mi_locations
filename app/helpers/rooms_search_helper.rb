@@ -70,4 +70,27 @@ module RoomsSearchHelper
       end
     end
   end
+
+  def capacity_slider_minimum
+    if params[:q]
+      if params[:q][:instructional_seating_count_gteq]
+        params[:q][:instructional_seating_count_gteq]
+      else
+        1
+      end
+      else
+      1
+    end
+  end
+  def capacity_slider_maximum
+    if params[:q]
+      if params[:q][:instructional_seating_count_lteq]
+        params[:q][:instructional_seating_count_lteq]
+      else
+        600
+      end
+    else
+      600
+    end
+  end
 end
