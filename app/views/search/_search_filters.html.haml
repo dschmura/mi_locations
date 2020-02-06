@@ -1,3 +1,4 @@
+
 - content_for :head do
   %link{href: "https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css", rel: "stylesheet"}
 
@@ -48,15 +49,15 @@
 
       .filters-container.hidden{data: {target: "toggle.filters" }}
         .capacaity-college
-
-          .filter-by-capacity{data: { controller: "capacity-slider", "capacity-slider-minimum" => "1", "capacity-slider-maximum" => "600" }}
-
-            .capacity-sliders.tooltip.tooltip-capacity-top{data: {tooltip: "Only show rooms with a capacity between X and Y" }}
+          .filter-by-capacity{data: { controller: "capacity-slider", "capacity-slider-minimum" => "#{capacity_slider_minimum}", "capacity-slider-maximum" => "#{capacity_slider_maximum}",  }}
+            .summary
+            .capacity-sliders.tooltip.tooltip-capacity-top{data: {tooltip: "Only show rooms with a capacity between #{capacity_slider_minimum} and #{capacity_slider_maximum}" }}
               .filters-section-header.mb-4 Student Capacity
 
-              #slider
-              = f.hidden_field :instructional_seating_count_gteq, {data: {target: "capacity-slider.minimum" }}
-              = f.hidden_field :instructional_seating_count_lteq, {data: {target: "capacity-slider.maximum" }}
+              #slider{data: { action:  "click->capacity-slider#updateSlider click->autosubmit#change", target: "capacity-slider.slider"}}
+
+              = f.hidden_field :instructional_seating_count_gteq, {value: "#{capacity_slider_minimum}", data: {target: "capacity-slider.minimum" }, id: 'seating-capacity--min'}
+              = f.hidden_field :instructional_seating_count_lteq, {value: "#{capacity_slider_maximum}", data: {target: "capacity-slider.maximum" }, id: 'seating-capacity--max'}
 
           .filter-by-school-or-college
             %span.filters-section-header School or College
