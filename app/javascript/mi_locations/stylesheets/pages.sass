@@ -104,11 +104,20 @@
   img
     @apply w-3
 
-.choices__list.choices__list--multiple
-  .choices__item.choices__item--selectable
-    @apply bg-blue-700 border-blue-700
-    &:hover
-      @apply bg-blue-800
+.choices
+  @apply
+  .choices__inner
+    @apply bg-blue-100 p-0  rounded-full min-h-0 h-8 w-full
+    .choices__input
+      @apply bg-blue-100 text-blue-800 font-semibold -mt-1 align-middle ml-1  w-full
+  @screen xl
+    @apply w-48
+
+.choices__item--selectable
+  @apply text-left bg-blue-200
+
+.choices__item
+  @apply -mt-2
 
 .no-matches-notice
   @apply p-8 bg-blue-300 mt-10 rounded-lg border w-2/3 mx-auto flex flex-col text-blue-800 text-center text-3xl font-semibold
@@ -120,40 +129,22 @@
   &:hover
     @apply bg-green-400 text-green-900
 
-.choices__inner
-  @apply bg-blue-400 p-0 min-h-0 h-8 justify-center w-full
-
-.choices__list--multiple > .choices__item
-  @apply bg-blue-400 text-blue-100 px-2 border-0 z-40 -mt-2
-  &:hover
-    @apply bg-blue-500
-  &:active
-    @apply bg-blue-500
-
 .search-input *
   .choices__list--dropdown
-    @apply bg-blue-100 text-blue-800 z-40 w-auto
+    @apply bg-blue-100 text-blue-800 z-40
     .choices__item
       text-transform: capitalize
       &:hover
         @apply bg-blue-300
+.landing-page-filter-by-building
+  @apply w-5/6 mx-auto flex flex-row
+  h1
+    @apply text-yellow-500
+  .search-field-container
+    @apply flex flex-row inline-block justify-center
 
-.search-input
-  @apply
-  input
-    @apply p-0
-.choices
-  @apply
-  .choices__inner
-    @apply bg-blue-100 p-0 w-full rounded-full min-h-0 h-8
-    .choices__input
-      @apply bg-blue-100 text-blue-800 font-semibold -mt-1 align-middle ml-1 h-10 w-full
-      input
-        @apply justify-center align-middle self-center
-  @screen xl
-    @apply w-48
 .landing-page-search-submit
-  @apply p-1 px-3 rounded-full bg-blue-300 -ml-20 z-50 text-blue-700
+  @apply p-1 px-3 rounded-full bg-blue-300 -ml-20 z-50 text-blue-700 w-16 text-center align-middle justify-center self-center
   &:hover
     @apply bg-blue-400 text-blue-800
     input
@@ -164,12 +155,14 @@
     @apply bg-blue-300 text-blue-700 h-full
 
 .search-field-container
-  @apply flex flex-wrap  my-1 p-2 w-full
+  @apply col-span-8 align-middle w-full
+  @screen sm
+    @apply  text-right col-span-6
   .search-field-svg
     @apply  absolute inset-y-0 left-0 flex items-center pl-1
     svg
       @apply h-6 w-6 fill-current
-      @screen xl
+
 
 .pages * .search-form
   @apply w-5/6 mx-auto
@@ -192,15 +185,21 @@
     @apply flex-col pr-8
 
 .filter-by-building
-  @apply flex flex-row w-full align-middle my-auto
+  @apply  my-auto grid grid-cols-8
   @screen md
-    @apply w-3/4
 
-  .filters-section-header
-    @apply text-blue-100
+  @screen xl
+    @apply  my-0
 
 .matches
-  @apply text-yellow-500 text-sm font-semibold ml-0 justify-center align-middle self-center
+  @apply text-yellow-500 text-sm font-semibold ml-0 col-span-8 text-right
+  @screen sm
+    @apply col-span-2 text-left self-center
+  @screen xl
+    @apply self-end justify-end mt-12
+
+
+
 
 .filter-by-capacity
   @apply  w-full flex justify-start
@@ -209,7 +208,7 @@
   @screen lg
     @apply w-full pl-4 pb-4
   @screen xl
-    @apply w-full flex flex-row justify-start  p-4 align-middle
+    @apply w-full flex flex-row justify-start pl-0
 
 .capacity-sliders
   @apply w-2/3
@@ -225,3 +224,34 @@
 
 .view-more-link
   @apply text-red-500 z-50 ml-10
+
+.landing-page-department-links
+  @apply flex flex-wrap w-5/6 mx-auto text-center self-center justify-center mt-5 text-sm
+  @screen md
+    @apply text-base
+.ss-search
+  h1
+    @apply text-yellow-500
+
+.landing-page-department-link
+  @apply m-1 bg-blue-200 rounded-full  p-2 align-middle text-center
+  &:hover
+    @apply bg-blue-300 text-blue-800 transition duration-700
+
+
+.ss-search-container
+  @apply flex flex-col items-center justify-center
+  h1
+    @apply text-yellow-500 text-4xl font-light shadow-xl
+.ss-search-input-container
+  @apply relative mx-auto text-blue-700 w-screen max-w-xl
+  input
+    @apply border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-full  text-sm
+    &:focus
+      @apply outline-none
+  select
+    @apply bg-red-500
+  button
+    @apply  absolute right-0 top-0 mt-5 mr-4
+  svg
+    @apply text-gray-600 h-4 w-4 fill-current -mt-3

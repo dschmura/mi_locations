@@ -1,18 +1,17 @@
-
 - content_for :head do
   %link{href: "https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css", rel: "stylesheet"}
 
 .search-filters-2
   = search_form_for @q, data: { controller: "autosubmit", target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
+
     .search-filters-container
+
       .filter-by-building
         -# %span.filters-section-header Filter by Buildings
         .search-field-container
           .search-field-icon.relative
             .search-field-svg
-              %svg.h-4.w-4.fill-current.text-blue-100.z-50{viewbox: "0 0 448 512", xmlns: "http://www.w3.org/2000/svg"}
-                %path{d: "M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12"}
-
+              .icon.text-blue-100.z-50= render "icons/building_icon", cached: true
             .search-input= f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
 
         .matches{data: {target: "autosubmit.status"}}
@@ -36,7 +35,7 @@
           .additional-filters-button
 
         .sort-options{data: {controller: "toggle", action: "click->toggle#sortToggle touch->toggle#sortToggle"}}
-          %i.fas.fa-sort-amount-down
+          .icon= render "icons/sort-amount-down_icon", cached: true
           Sort
           .sort-options-selections.hidden{data: {target: "toggle.sort"}}
             .sort-by-capacity

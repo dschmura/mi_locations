@@ -63,6 +63,12 @@ class RoomDecorator < Draper::Decorator
     DEPARTMENTS[object.dept_grp]
   end
 
+  def department_names
+    DEPARTMENTS.each do |dept_id, dept_grp|
+      dept_grp
+    end
+  end
+
   def student_capacity
     helpers.pluralize(room.instructional_seating_count, "Student")
   end

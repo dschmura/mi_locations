@@ -24,7 +24,7 @@
 .tooltip:hover:after,
 .tooltip:focus:before,
 .tooltip:focus:after
-  @apply opacity-100 visible transition duration-1000 z-50
+  @apply opacity-100 visible transition duration-700 z-50
 
 
 /* Tooltip's directional arrow conatiner */
@@ -38,7 +38,7 @@
 
 [data-tooltip]:after
   content: attr(data-tooltip)
-  @apply absolute bg-gray-300 w-auto max-w-md  text-sm text-left rounded-lg p-3 z-30 border border-blue-400
+  @apply absolute bg-gray-300 text-sm text-left rounded-lg p-3 z-30 border border-blue-400 h-32
 /* Directions */
 
 /* Top (default) */
@@ -47,16 +47,6 @@
   bottom: 110%
   left: 45%
   @apply mx-auto absolute z-30
-
-// .tooltip:before
-  // @apply bg-orange-500
-
-
-// For Capacity Slider
-.tooltip-capacity-top:before,
-.tooltip-capacity-top:after
-  bottom: 15%
-  left: 65%
 
 //  Triangle
 [data-tooltip]:before,

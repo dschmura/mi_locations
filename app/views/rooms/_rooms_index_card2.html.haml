@@ -18,21 +18,29 @@
   .card-content-container
     .card-content
       .features
+        .card-department
+          .icon= render "icons/graduation-cap_icon", cached: true
+          = room.department_name
 
         - if current_user
           .capacity
             %i.fas.fa-users
-            = room.student_capacity
-        -if room.alerts.any?
+            .icon= render "icons/users_icon", cached: true
 
-          %span.alert-badge
-            Alert!
+            = room.student_capacity
+
       %h4.room-name
         = "#{room.title}"
       .room-address
         .address
           %i.fas.fa-map-marker-alt
+          .icon= render "icons/map-marker-alt_icon", cached: true
+
           = "#{room.building.address.titleize}"
+        -if room.alerts.any?
+          %span.alert-badge
+            Alert!
+
       .card-actions
         -# .map
           %i.fas.fa-map
@@ -45,14 +53,12 @@
 
         .schedule-button.actions-button.tooltip.tooltip-top{  "data-tooltip" => "See the schedule for #{room.room_number} #{room.building.name.titleize}. ** Open's new page." }
           = link_to "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }" do
-            %i.fas.fa-calendar-alt
             .icon= render "icons/calendar-alt_icon", cached: true
             %span Schedule
 
 
-        %button.copy-button.actions-button.tooltip.tooltip-top{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy this room's description and attributes.", :role => "button" }
-          .icon= render "icons/copy_icon", cached: true
-          %i.fas.fa-copy
-          %span Copy
+        %button.copy-button.actions-button.tooltip.tooltip-top{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy and share this room's description and attributes.", :role => "button" }
+          .icon= render "icons/share_icon", cached: true
+          %span Share
 
           %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -10000px; top:-1000px;", :type => "text", :value => "#{room.copy_text}"}

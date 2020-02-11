@@ -4,8 +4,4 @@
   #filter-tools{ data: { "toggle-class" => "active-layout"}}
     -# = render 'filter_tools'
 
-    #rooms-results{data: {controller: "toggle", target: "infinite_scroll.scrollcontainer"}}= render 'rooms_results', cached: true
-
-  - unless @rooms.current_page == @rooms.total_pages
-    #view-more
-      = link_to_next_page @rooms, 'View More', remote: false, class: "view-more-link"
+    #rooms-results{data: {controller: "toggle", controller: "infinite_scroll", target: "infinite_scroll.scrollcontainer"}}= render 'rooms_results', cached: true
