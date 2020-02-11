@@ -13,7 +13,7 @@
 .hero-image
   background-image: url("../images/vistas/cube.jpg")
   /* Set a specific height */
-  height: 70vh
+  height: 80vh
   /* Position and center the image to scale nicely on all screens */
   @apply bg-top bg-no-repeat bg-cover -mt-20 z-0 -mx-10
 
@@ -38,12 +38,13 @@
   @apply  mt-16
 
 .legacy-crdb
-  @apply -mt-48 shadow-xl p-4  bg-blue-100 border-2 border-blue-600 rounded-lg text-base w-5/6 mx-auto
+  @apply  shadow-xl p-4  bg-blue-100 border-2 border-blue-600 rounded-lg text-base w-5/6 mx-auto clear-both
+  @screen lg
+    @apply -mt-24
   h1
     @apply text-2xl font-semibold text-blue-800
   @screen md
     @apply w-4/6 max-w-5xl
-
   a
     @apply  px-1 -mx-1 underline font-bold
     &:hover
@@ -107,9 +108,9 @@
 .choices
   @apply
   .choices__inner
-    @apply bg-blue-100 p-0  rounded-full min-h-0 h-8 w-full
+    @apply bg-blue-100 p-0  rounded-full min-h-0 h-8
     .choices__input
-      @apply bg-blue-100 text-blue-800 font-semibold -mt-1 align-middle ml-1  w-full
+      @apply bg-blue-100 text-blue-800 font-semibold -mt-1 align-middle ml-1
   @screen xl
     @apply w-48
 
@@ -185,9 +186,7 @@
     @apply flex-col pr-8
 
 .filter-by-building
-  @apply  my-auto grid grid-cols-8
-  @screen md
-
+  @apply  my-auto flex flex-row
   @screen xl
     @apply  my-0
 
@@ -226,7 +225,7 @@
   @apply text-red-500 z-50 ml-10
 
 .landing-page-department-links
-  @apply flex flex-wrap w-5/6 mx-auto text-center self-center justify-center mt-5 text-sm
+  @apply flex flex-wrap w-5/6 mx-auto text-center self-center justify-center  text-sm h-auto clear-both
   @screen md
     @apply text-base
 .ss-search
