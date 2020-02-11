@@ -106,13 +106,12 @@
     @apply w-3
 
 .choices
-  @apply
+  @apply z-50
   .choices__inner
-    @apply bg-blue-100 p-0  rounded-full min-h-0 h-8
+    @apply bg-blue-100 p-0 rounded-full min-h-0 h-8
     .choices__input
-      @apply bg-blue-100 text-blue-800 font-semibold -mt-1 align-middle ml-1
-  @screen xl
-    @apply w-48
+      @apply bg-blue-100 text-blue-800 font-semibold -mt-1 ml-1
+
 
 .choices__item--selectable
   @apply text-left bg-blue-200
@@ -198,23 +197,21 @@
     @apply self-end justify-end mt-12
 
 
-
-
 .filter-by-capacity
   @apply  w-full flex justify-start
   @screen md
-    @apply w-1/2 justify-start pl-8
+    @apply  justify-start
   @screen lg
-    @apply w-full pl-4 pb-4
+    @apply  pb-4
   @screen xl
     @apply w-full flex flex-row justify-start pl-0
 
 .capacity-sliders
-  @apply w-2/3
+  @apply w-5/6
   @screen md
-    @apply w-1/2
+    @apply w-3/4
   @screen lg
-    @apply w-full
+    @apply w-1/3
   @screen xl
     @apply justify-start w-full p-0
 
@@ -228,18 +225,22 @@
   @apply flex flex-wrap w-5/6 mx-auto text-center self-center justify-center  text-sm h-auto clear-both
   @screen md
     @apply text-base
-.ss-search
   h1
-    @apply text-yellow-500
+    @apply text-yellow-500 font-light mb-4
+.ss-search
+  @apply mt-32
+  h1
+    @apply text-yellow-500 mb-4
 
 .landing-page-department-link
   @apply m-1 bg-blue-200 rounded-full  p-2 align-middle text-center
   &:hover
     @apply bg-blue-300 text-blue-800 transition duration-700
 
-
+.ss-search
+  @apply text-center
 .ss-search-container
-  @apply flex flex-col items-center justify-center
+  @apply flex flex-col items-center justify-center align-middle self-center
   h1
     @apply text-yellow-500 text-4xl font-light shadow-xl
 .ss-search-input-container
@@ -251,6 +252,6 @@
   select
     @apply bg-red-500
   button
-    @apply  absolute right-0 top-0 mt-5 mr-4
+    @apply  absolute right-0 top-0 mt-5 mr-4 z-50
   svg
     @apply text-gray-600 h-4 w-4 fill-current -mt-3
