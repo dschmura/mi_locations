@@ -1,5 +1,5 @@
 .landing-page--banner
-  @apply flex flex-col pt-24 justify-center items-center
+  @apply flex flex-col pt-24 justify-center items-center mb-4
   @screen sm
     @apply pt-32
   .landing-page-headline
@@ -13,7 +13,7 @@
 .hero-image
   background-image: url("../images/vistas/cube.jpg")
   /* Set a specific height */
-  height: 80vh
+  height: 60vh
   /* Position and center the image to scale nicely on all screens */
   @apply bg-top bg-no-repeat bg-cover -mt-20 z-0 -mx-10
 
@@ -38,9 +38,9 @@
   @apply  mt-16
 
 .legacy-crdb
-  @apply  shadow-xl p-4  bg-blue-100 border-2 border-blue-600 rounded-lg text-base w-5/6 mx-auto clear-both
+  @apply  shadow-xl p-4  bg-blue-100 border-2 border-blue-600 rounded-lg text-base w-5/6 mx-auto clear-both z-50 mt-4
   @screen lg
-    @apply -mt-24
+    @apply mt-8
   h1
     @apply text-2xl font-semibold text-blue-800
   @screen md
@@ -220,21 +220,22 @@
 
 .view-more-link
   @apply text-red-500 z-50 ml-10
+
 .landing-page-department-links-section
-  @apply flex flex-col
+  @apply flex flex-col clear-both
   h1
-    @apply text-yellow-500 font-light text-center
+    @apply text-yellow-500 font-light text-center mb-2
 
 .landing-page-department-links
-  @apply flex flex-wrap w-5/6 mx-auto text-center self-center justify-center  text-sm h-auto clear-both
+  @apply flex flex-wrap w-5/6 mx-auto text-center self-center justify-center  text-sm
   @screen md
     @apply text-base
   h1
-    @apply text-yellow-500 font-light mb-4
+    @apply text-yellow-500 font-light
 .ss-search
-  @apply mt-32 flex flex-col
+  @apply flex flex-col
   h1
-    @apply text-yellow-500 mb-4
+    @apply text-yellow-500 mb-2
 
 .landing-page-department-link
   @apply m-1 bg-blue-200 rounded-full  p-2 align-middle text-center
@@ -242,7 +243,7 @@
     @apply bg-blue-300 text-blue-800 transition duration-700
 
 .ss-search
-  @apply text-center
+  @apply text-center mb-4
 .ss-search-container
   @apply flex flex-col items-center justify-center align-middle self-center
   h1

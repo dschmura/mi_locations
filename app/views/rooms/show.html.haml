@@ -8,10 +8,10 @@
 
     .room-map-toggle{data: {controller: "map", action: "click->toggle#roomsmapToggle", "map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}", "map-mapbox-room" => @room_json }}
       .map{data: {target: "toggle.roomsmap" }}
-        %i.fas.fa-map
+        .icon= render 'icons/map-marked-alt_icon', cached: true
         Map
       .close-map.hidden{data: {target: "toggle.roomsmap" }}
-        %i.fas.fa-map
+        .icon= render 'icons/close_icon', cached: true
         Close
 
     .room-map.hidden{data: {target: "toggle.roomsmap" }}
@@ -44,7 +44,7 @@
       .left
         %li.room-capacity
           = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { tooltip: "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces." }} do
-            .icon= render "icons/users_icon"
+            .icon= render "icons/users_icon", cached: true
             = "Capacity #{@room.instructional_seating_count} "
 
         - if @room.team_learning_classroom?
