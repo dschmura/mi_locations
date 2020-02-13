@@ -1,37 +1,25 @@
-
-
--# .rooms-index-cards
-  = render partial: "rooms_index_card", collection: @rooms, as: :room, cached: true
-.room-map.hidden{data: {controller: "map",
+.room-map.hidden{data: {controller: "map", target: "toggle.roomsmap",
         "map-mapbox-token": "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}" },
-        "data-map-mapbox-room" => @rooms_json, target: "toggle.roomsmap"}
+        "data-map-mapbox-room" => @rooms_json}
   #mapid
 
 .layouts
-  - if @rooms.count == 0
+  - if @rooms.size == 0
     .no-matches-notice
       %span No rooms matched your search.
       %span Please try different critera.
     .reset-filters= link_to "Reset your filters", rooms_path
 
-  .rooms-cards.hidden.active-layout{data: {target: "toggle.layout", target: "infinite_scroll.scrollcontainer"}}
+  .rooms-cards{data: {target: "toggle.layout", target: "infinite_scroll.scrollcontainer"}}
     = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
 
-- if @rooms.count > 0
+- if @rooms.size > 0
   .rooms-map-toggle{data: {action: "click->toggle#roomsmapToggle"} }
     .map{ data: {target: "toggle.roomsmap"} }
       %i.fas.fa-map
+      .icon= render "icons/map-marked-alt_icon", cached: true
       Map
     .close-map.hidden{ data: {target: "toggle.roomsmap"} }
       %i.fas.fa-map
+      .icon= render "icons/close_icon", cached: true
       Close
-
-
-= paginate @rooms
-
-- unless @rooms.current_page == @rooms.total_pages
-  #view-more
-    = link_to_next_page @rooms, "View More", class: "view-more-link"
--# = link_to 'TOP', '#', class: 'scroll-to--top'
-
--# "data-map-mapbox-room" => "#{RoomSerializer.new(@room).to_json.html_safe}"

@@ -93,7 +93,7 @@
     @apply hidden
 
 #rooms-results
-  @apply relative inline-block
+  @apply relative inline-block pb-20
   top: 200px
   @screen xl
     @apply top-0 mt-20 pt-6
@@ -103,7 +103,7 @@
     @apply w-3
 
 .choices
-  @apply z-40 text-left
+  @apply z-30 text-left
   .choices__inner
     @apply bg-blue-100 p-0 rounded-full min-h-0 h-8
     .choices__input
@@ -231,13 +231,13 @@
 .ss-search
   @apply text-center mb-4
   .ss-search-input-container
-    @apply w-screen max-w-md
+    @apply
 .ss-search-container
   @apply flex flex-col items-center justify-center align-middle self-center
   h1
     @apply text-yellow-500 text-4xl font-light shadow-xl
 .ss-search-input-container
-  @apply relative mx-auto text-blue-700 col-span-8 w-full
+  @apply relative mx-auto text-blue-700 col-span-8 w-screen max-w-md
   input
     @apply border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-full  text-sm
     &:focus
