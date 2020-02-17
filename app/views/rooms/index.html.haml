@@ -1,15 +1,5 @@
 %search.rooms-search{data: {controller: "toggle", controller: "dropdown" }}
   = render './search/search_filters', cached: true
 
-
-#rooms-results{data: {controller: "toggle"}}
-  = render 'rooms_results', cached: true
-
-  .z-40
-    = paginate @rooms
-    - unless @rooms.current_page == @rooms.total_pages
-      #view-more
-        = link_to_next_page @rooms, "View More", class: "view-more-link"
-    -# = link_to 'TOP', '#', class: 'scroll-to--top'
-
-    -# "data-map-mapbox-room" => "#{RoomSerializer.new(@room).to_json.html_safe}"
+  #rooms-results{data: {controller: "toggle"}}
+    = render 'rooms_results', cached: true

@@ -8,24 +8,42 @@ export default class extends Controller {
   // let viewMore = this.viewMoreTarget
   // viewMore = $('#view-more') # tag containing the "View More" link
 
-  // let isLoadingNextPage = false  # keep from loading two pages at once
+
   // let lastLoadAt = null          # when you loaded the last page
   // let minTimeBetweenPages = 100 # milliseconds to wait between loading pages
   // let loadNextPageAt = 100      # pixels above the bottom
 
-  initialize(){
 
+  connect(){
 
   }
 
   canary(){
-    console.log("Hi")
+    this.approachingBottomOfPage()
   }
+
+  approachingBottomOfPage() {
+    let domRect = this.scrollContainerTarget.getBoundingClientRect()
+    let spaceBelow =  domRect.bottom - window.innerHeight
+
+    if(spaceBelow < 100){
+      console.log("BOTTOM")
+    }
+  };
 
   waitedLongEnoughBetweenPages() {
     return lastLoadAt === null || new Date() - lastLoadAt > minTimeBetweenPages;
   };
 
+  nextPage() {
+    let url = this.viewMoreTarget.find('a').attr('href')
+    if (isLoadingNextPage || !url) {
+      return;
+    }
+    this.viewMoreTarget.addClass('loading')
+    isLoadingNextPage = true
+
+  }
 
 }
 
