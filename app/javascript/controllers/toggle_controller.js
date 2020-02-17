@@ -76,7 +76,7 @@ export default class extends Controller {
     this.filtersTargets.forEach((el, i) => {
       el.classList.toggle("hidden")
     })
-    if (width > 1024 && width < 1280){
+    if (width > 768 && width < 1280){
       this.filtersTargets.forEach((el, i) => {
         el.classList.toggle("flex")
       })
