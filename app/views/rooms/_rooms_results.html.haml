@@ -27,8 +27,8 @@
   .z-40
     = paginate @rooms
     - unless @rooms.current_page == @rooms.total_pages
-      #view-more{data: {target: "infinite-scroll.viewMore"}}
-        = link_to_next_page @rooms, "View More", class: "view-more-link"
+      #view-more
+        = link_to_next_page @rooms, "View More", class: "view-more-link", data: {target: "infinite-scroll.viewMore"}
     -# = link_to 'TOP', '#', class: 'scroll-to--top'
 
     -# "data-map-mapbox-room" => "#{RoomSerializer.new(@room).to_json.html_safe}"

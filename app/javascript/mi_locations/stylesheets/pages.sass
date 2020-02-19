@@ -116,6 +116,8 @@
       @apply bg-blue-700 -mt-2
       &:hover
         @apply bg-blue-800
+      @screen xl
+        @apply mt-0
 
 .no-matches-notice
   @apply p-8 bg-blue-300 mt-10 rounded-lg border w-2/3 mx-auto flex flex-col text-blue-800 text-center text-3xl font-semibold
@@ -235,6 +237,7 @@
     @apply max-w-full
   @screen xl
     @apply w-56
+
   input
     @apply border-2 border-gray-300 bg-white h-10 px-5  rounded-full  text-sm
     &:focus
