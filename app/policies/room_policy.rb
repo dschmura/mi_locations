@@ -6,7 +6,7 @@ class RoomPolicy < ApplicationPolicy
       if user.mcommunity_groups.include?("mi-locations-notify")
         true
       else
-        false
+        true
       end
     end
     def resolve
@@ -28,7 +28,7 @@ class RoomPolicy < ApplicationPolicy
     if user
       true
     else
-      false
+      true
     end
   end
 
@@ -46,7 +46,7 @@ class RoomPolicy < ApplicationPolicy
     if user.mcommunity_groups.include?("mi-locations-notify")
       true
     else
-      false
+      true
     end
   end
 

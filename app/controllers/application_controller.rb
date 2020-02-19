@@ -1,13 +1,16 @@
 class ApplicationController < ActionController::Base
   include Pundit
   include LdapableHelper
-  before_action :redirect_https
+  # before_action :redirect_https
   before_action :create_feedback
   after_action :verify_authorized, except: :index, unless: :devise_controller?
   after_action :verify_policy_scoped, only: :index
-
+  # before_action :flash_dance
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def flash_dance
+    flash[:notice] = "Please sign in to perform this action."
+  end
   private
 
   def sign_up_params
