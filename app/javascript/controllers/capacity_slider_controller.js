@@ -6,13 +6,15 @@ const noUiSlider = require("nouislider");
 export default class extends Controller {
   static targets = ["slider", "reset", "minimum", "maximum"]
 
-  connect() {
+  initialize() {
+
     this.setup()
     // this.minimumTarget.classList.add('hidden')
   }
 
   setup() {
-    // const slider = this.sliderTarget;
+    event.preventDefault()
+    const slider = this.sliderTarget;
     // const resetSlider = this.resetTarget;
     const minimumCapacity = parseInt(this.data.get("minimum"))
     const maximumCapacity = parseInt(this.data.get("maximum"))
