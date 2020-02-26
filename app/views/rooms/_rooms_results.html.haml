@@ -12,6 +12,7 @@
 
 .rooms-cards{data: {controller: "infinite-scroll", target: "toggle.layout", target: "infinite-scroll.scrollContainer", action: "scroll@window->infinite-scroll#canary" }}
   = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
+  .rooms-cards#rooms-cards
 
   - if @rooms.size > 0
     .rooms-map-toggle{data: {action: "click->toggle#roomsmapToggle"} }
@@ -24,11 +25,11 @@
         %i.fas.fa-map
         .icon= render "icons/close_icon", cached: true
         Close
-  .z-40
-    = paginate @rooms
-    - unless @rooms.current_page == @rooms.total_pages
-      #view-more
-        = link_to_next_page @rooms, "View More", class: "view-more-link", data: {target: "infinite-scroll.viewMore"}
+.z-40
+  #pagination-page= @rooms.current_page
+  - unless @rooms.current_page == @rooms.total_pages
+    #view-more
+      = link_to_next_page @rooms, "View More", class: "view-more-link", remote: true, data: {target: "infinite-scroll.viewMore"}
     -# = link_to 'TOP', '#', class: 'scroll-to--top'
 
     -# "data-map-mapbox-room" => "#{RoomSerializer.new(@room).to_json.html_safe}"

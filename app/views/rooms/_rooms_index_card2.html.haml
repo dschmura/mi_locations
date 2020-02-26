@@ -23,10 +23,8 @@
           = room.department_name
 
         - if current_user
-          .capacity
-            %i.fas.fa-users
+          .card-capacity
             .icon= render "icons/users_icon", cached: true
-
             = room.student_capacity
 
       %h4.room-name
@@ -55,7 +53,6 @@
           = link_to "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }" do
             .icon= render "icons/calendar-alt_icon", cached: true
             %span Schedule
-
 
         %button.copy-button.actions-button.tooltip.tooltip-top{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy and share this room's description and attributes.", :role => "button" }
           .icon= render "icons/share_icon", cached: true

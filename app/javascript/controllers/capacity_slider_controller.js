@@ -13,7 +13,7 @@ export default class extends Controller {
   }
 
   setup() {
-    event.preventDefault()
+
     const slider = this.sliderTarget;
     // const resetSlider = this.resetTarget;
     const minimumCapacity = parseInt(this.data.get("minimum"))

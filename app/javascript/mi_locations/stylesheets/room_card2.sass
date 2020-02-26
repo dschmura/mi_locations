@@ -42,9 +42,6 @@
   @apply relative pt-3 pb-6  px-6 bg-white  rounded-lg shadow-lg border border-b-0
   @screen md
 
-  .features
-    @apply
-
 .room-name
   @apply font-semibold text-lg leading-tight truncate mt-1
 .room-address
@@ -96,16 +93,17 @@
   @apply opacity-50
 
 .features
-  @apply flex items-center justify-between
+  @apply flex items-center justify-between whitespace-no-wrap
 .card-department
   @apply text-blue-800
+
 .feature-badge
   @apply bg-green-200 px-2 text-green-800 text-xs inline-block rounded-full uppercase font-semibold tracking-wide
 
 .alert-badge
   @apply bg-red-200 px-2 text-red-800 text-xs inline-block rounded-full uppercase font-semibold tracking-wide h-5 align-middle text-center justify-center
 
-.capacity
-  @apply text-gray-600 text-sm uppercase  font-semibold  tracking-wide flex flex-row align-middle ml-2
+.card-capacity
+  @apply text-gray-600 text-xs uppercase  font-semibold  tracking-wide flex flex-row align-middle ml-2 whitespace-no-wrap
   svg
-    @apply mr-2 mt-1
+    @apply mr-1 align-middle

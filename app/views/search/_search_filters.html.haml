@@ -8,8 +8,9 @@
 
       .filter-by-building
         .matches{data: {target: "autosubmit.status"}}
-          = @results.size
-          = "#{ pluralize_without_count(@results.size, 'Match')}"
+          #rooms-search-matches
+            = @results.size
+            = "#{ pluralize_without_count(@results.size, 'Match')}"
 
           %span.text-muted{data: {target: "autosubmit.status" }}
         .ss-search-input-container
