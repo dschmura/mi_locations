@@ -245,26 +245,30 @@
   .ss-search-container
     @apply px-20
 
-
+button.search-filters-button
+  @apply
+  input
+    @apply bg-transparent
+    &:focus
+      @apply
 .search-filters-button
   @apply relative inline-flex items-center px-4 py-0 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-r-lg bg-blue-200
   &:hover
-    @apply text-gray-500 bg-blue-300
+    @apply text-gray-800 bg-blue-300
   &:focus
-    @apply outline-none shadow-outline-blue border-blue-300
+    @apply outline-none shadow-outline-blue
   &:active
-    @apply bg-gray-100 text-gray-700
+    @apply  text-gray-700
   @screen xl
     @apply w-48 whitespace-no-wrap
 
 .additional-filters-button
-  @apply flex font-light mr-2
+  @apply flex font-light
   svg
-    @apply h-5 w-5 fill-current
+    @apply h-4 w-4  mr-2 fill-current
   @screen xl
     svg
-      @apply mr-0
-
+      @apply hidden
 
 .search-by-building-name
   @apply bg-blue-100
