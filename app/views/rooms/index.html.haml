@@ -1,5 +1,6 @@
 %search.rooms-search{data: {controller: "toggle", controller: "dropdown" }}
   = render './search/search_filters', cached: true
+  -# = render './search/search_input'
 
   #rooms-results{data: {controller: "toggle"}}
     = render 'rooms_results', cached: true
