@@ -82,13 +82,6 @@
   @screen xl
     @apply inline-block overflow-y-auto max-w-full w-full bg-green-800 -mr-2
 
-.additional-filters-button
-  @apply flex font-light
-  svg
-    @apply h-5 w-5 fill-current
-  @screen xl
-    @apply hidden
-
 #rooms-results
   @apply relative inline-block pb-20
   top: 200px
@@ -102,9 +95,9 @@
 .choices
   @apply z-30 text-left
   .choices__inner
-    @apply bg-blue-100 p-0 rounded min-h-0 h-8
+    @apply bg-blue-100 p-0 rounded min-h-0 h-8 border-none
     .choices__input
-      @apply bg-blue-100 text-blue-800 font-semibold  ml-1
+      @apply bg-blue-100 text-blue-800 font-semibold  ml-1 mt-2
 
 .choices__item
   @apply bg-blue-200
@@ -251,3 +244,52 @@
   @apply text-center mb-4
   .ss-search-container
     @apply px-20
+
+
+.search-filters-button
+  @apply relative inline-flex items-center px-4 py-0 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-r-lg bg-blue-200
+  &:hover
+    @apply text-gray-500 bg-blue-300
+  &:focus
+    @apply outline-none shadow-outline-blue border-blue-300
+  &:active
+    @apply bg-gray-100 text-gray-700
+  @screen xl
+    @apply w-48 whitespace-no-wrap
+
+.additional-filters-button
+  @apply flex font-light mr-2
+  svg
+    @apply h-5 w-5 fill-current
+  @screen xl
+    svg
+      @apply mr-0
+
+
+.search-by-building-name
+  @apply bg-blue-100
+  input
+    @apply border-none
+  @screen xl
+    @apply pl-0
+
+.search-filters-containers
+  @apply  whitespace-no-wrap
+  @screen xl
+    @apply px-0
+    h2
+      @apply text-xl
+
+.search-for-buildings-container
+  @apply px-4
+  @screen sm
+    @apply px-8
+  @screen xl
+    @apply px-2
+
+.search-result-tools
+  @apply flex flex-row justify-between px-4 mt-1
+  @screen sm
+    @apply px-8 mt-0 flex-wrap justify-end
+  @screen xl
+    @apply justify-between px-4
