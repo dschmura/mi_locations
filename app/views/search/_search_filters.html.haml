@@ -6,12 +6,12 @@
 
     .search-filters-containers
       -# = render './search/search_input', locals: f: f, cached: true
-      .search-for-buildings.px-4{class: "sm:px-8 lg:flex lg:items-center lg:justify-between xl: px-0"}
+      .classrooms-page-header
         .flex-1.min-w-0
-          %h2.text-2xl.font-bold.leading-7.text-blue-100{class: "sm:text-3xl sm:leading-9 sm:truncate xl:hidden xl:mt-4 "}
+          %h2
             Search for Classrooms
       .search-for-buildings-container
-        %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "building_name"} Search by building
+        %label.filters-section-header-building{for: "building_name"} Buildings
         .flex.mt-1.shadow-sm
           .relative.flex-grow{class: "focus-within:z-10"}
             .absolute.inset-y-0.left-0.flex.items-center.pl-3.pointer-events-none
@@ -37,7 +37,7 @@
                 = f.submit "Search"
 
       = render './search/search_result_tools', cached: true
-
+    - if current_user
       .filters-container.hidden{data: {target: "toggle.filters" }}
         .capacaity-college
           .filter-by-capacity{data: { controller: "capacity-slider", "capacity-slider-minimum" => "#{capacity_slider_minimum}", "capacity-slider-maximum" => "#{capacity_slider_maximum}" }}
@@ -57,7 +57,6 @@
                 = f.select :dept_grp_in, [['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']], {}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
               %button{type: "submit"}
                 = render "icons/graduation-cap_icon", cached: true
-
 
         .classroom-amenities
           %span.filters-section-header Amenities
@@ -115,7 +114,7 @@
             .filter-item-label
               = check_box_tag "chalkboard", :chalkboard, params[:chalkboard].try(:include?, 'chalkboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
               %span Chalkboard
-        %div{:class => "flex flex-col inline-block lg:border-l lg:border-blue-900 xl:border-l-0"}
+        %div{:class => "flex flex-col inline-block "}
           .projection-type
             %span.filters-section-header Projection
             .characteristics-arrangement

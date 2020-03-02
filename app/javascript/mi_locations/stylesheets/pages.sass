@@ -65,7 +65,7 @@
   @screen xl
     @apply  pt-10 w-64 inline-block relative z-0 px-0
 .additional-filters
-  @apply pb-1
+  @apply pb-1 overflow-scroll
   .buttons
     @apply flex col-span-8 justify-between  text-blue-200  text-sm px-4
 
@@ -75,9 +75,7 @@
     @apply absolute mt-1
     left: 1rem
     top: 10rem
-.sort-options-selections
-  @apply bg-blue-200 relative w-auto  absolute p-2 rounded-lg mt-2 z-40
-  left: 1rem
+
 .filters-toggle
   @screen xl
     @apply inline-block overflow-y-auto max-w-full w-full bg-green-800 -mr-2
@@ -129,33 +127,6 @@
       text-transform: capitalize
       &:hover
         @apply bg-blue-300
-.landing-page-filter-by-building
-  @apply w-5/6 mx-auto flex flex-row
-  h1
-    @apply text-yellow-500
-  .search-field-container
-    @apply flex flex-row inline-block justify-center
-
-.search-field-container
-  @apply  align-middle w-full
-  @screen sm
-    @apply  text-right
-  @screen xl
-    @apply w-56
-
-  .search-field-svg
-    @apply  absolute inset-y-0 left-0 flex items-center pl-1
-    @screen xl
-      @apply hidden
-    svg
-      @apply h-6 w-6 fill-current
-
-
-.pages * .search-form
-  @apply w-5/6 mx-auto
-.pages * .search-input
-  @apply w-full pl-12
-
 
 .capacaity-college
   @apply p-4
@@ -219,8 +190,7 @@
   &:hover
     @apply bg-blue-300 text-blue-800 transition duration-700
 
-
-.ss-search-container
+.search-container
   @apply flex flex-col align-middle self-center
   h1
     @apply text-yellow-500 text-4xl font-light shadow-xl
@@ -242,11 +212,11 @@
     @apply text-gray-600 h-4 w-4 fill-current -mt-3
 .ss-search
   @apply text-center mb-4
-  .ss-search-container
+  .search-container
     @apply px-20
 
 button.search-filters-button
-  @apply w-auto
+  @apply  whitespace-no-wrap
   input
     @apply bg-transparent
     &:focus
@@ -270,12 +240,15 @@ button.search-filters-button
     svg
       @apply hidden
 
+.search-button
+  @apply h-4 w-4
+
 .search-by-building-name
   @apply bg-blue-100
   input
     @apply border-none
   @screen xl
-    @apply pl-0
+    @apply pl-0 w-40
 
 .search-filters-containers
   @apply  whitespace-no-wrap
@@ -297,3 +270,18 @@ button.search-filters-button
     @apply px-8 mt-0 flex-wrap justify-end
   @screen xl
     @apply justify-between px-4
+
+.classrooms-page-header
+  @apply px-4 justify-end
+  @screen sm
+    @apply px-8
+  @screen lg
+    @apply flex items-center justify-between
+  @screen xl
+    @apply px-2 pt-0
+  h2
+    @apply leading-loose -mt-4 text-blue-200 text-2xl font-medium leading-7
+    @screen sm
+      @apply text-3xl leading-9 truncate
+    @screen xl
+      @apply mt-0 text-xl
