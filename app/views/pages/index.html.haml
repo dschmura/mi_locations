@@ -6,51 +6,52 @@
 
 %section
   .hero-image
-    /! Promo Block Info
-    .landing-page--banner
-      .landing-page--brand
-        = link_to image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), class: '', alt: 'MiLocations Logo, link to home page.'), root_path
+    .landing-page-container
+      /! Promo Block Info
+      .landing-page--banner
+        .landing-page--brand
+          = link_to image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.'), root_path
 
-      %h1.landing-page-headline Classroom Database
+        %h1.landing-page-headline Classroom Database
 
-    %search.ss-search
-      %h1 Search for a building
+      %search.ss-search
+        %h1 Search for a building
 
-      .search-container
-        = search_form_for @q, local: true do |f|
+        .search-container
+          = search_form_for @q, local: true do |f|
 
-          .search-for-buildings-container
-            %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "building_name"} Search by building
-            .flex.mt-1.shadow-sm
-              .relative.flex-grow{class: "focus-within:z-10"}
-                .absolute.inset-y-0.left-0.flex.items-center.pl-3.pointer-events-none
-                  %svg.w-5.h-5.text-gray-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                    %path{d: "M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 9.29583 13.5892 10.4957 12.8907 11.4765L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L11.4765 12.8907C10.4957 13.5892 9.29583 14 8 14C4.68629 14 2 11.3137 2 8Z"}
-                -# %input#buidling_name.block.w-full.pl-10.transition.duration-150.ease-in-out.rounded-none.form-input.rounded-l-md.sm:text-sm.sm:leading-5{placeholder: "Building Name"}/
-                .search-by-building-name#buidling_name{class: "block w-screen max-w-md transition duration-150 ease-in-out rounded-none form-input py-0 rounded-l-md sm:text-sm sm:leading-5 "}
-                  .h-8= f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
+            .search-for-buildings-container
+              %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "building_name"} Search by building
+              .flex.mt-1.shadow-sm{class: "w-5/6"}
+                .relative.flex-grow{class: "focus-within:z-10"}
+                  .absolute.inset-y-0.left-0.flex.items-center.pl-3.pointer-events-none
+                    %svg.w-5.h-5.text-gray-400{fill: "currentColor", viewbox: "0 0 20 20"}
+                      %path{d: "M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 9.29583 13.5892 10.4957 12.8907 11.4765L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L11.4765 12.8907C10.4957 13.5892 9.29583 14 8 14C4.68629 14 2 11.3137 2 8Z"}
+                  -# %input#buidling_name.block.w-full.pl-10.transition.duration-150.ease-in-out.rounded-none.form-input.rounded-l-md.sm:text-sm.sm:leading-5{placeholder: "Building Name"}/
+                  .search-by-building-name#buidling_name{class: "block w-screen max-w-sm md:max-w-3xl transition duration-150 ease-in-out rounded-none form-input py-0 rounded-l-md sm:text-sm sm:leading-5 "}
+                    .h-8= f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
 
-              %button.search-filters-button
-                %span.ml-2.text-gray-600
-                  .additional-filters-button
-                    %svg{viewbox: "0 0 512 512", xmlns: "http://www.w3.org/2000/svg"}
-                      %path{d: "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"}
+                %button.search-filters-button
+                  %span.ml-2.text-gray-600
+                    .additional-filters-button
+                      %svg{viewbox: "0 0 512 512", xmlns: "http://www.w3.org/2000/svg"}
+                        %path{d: "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"}
 
-                    %div{class: "mx-auto"} Search
+                      %div{class: "mx-auto"} Search
 
 
 
-    .landing-page-department-links-section
-      %h1 Select a School or College
-      .landing-page-department-links
-        - Room.departments.each do |department|
-          = link_to "#{rooms_path}?q%5Bdept_grp_in%5D=#{department[1]}" do
-            .landing-page-department-link
-              = "#{department[0]}"
+      .landing-page-department-links-section
+        %h1 Select a School or College
+        .landing-page-department-links
+          - Room.departments.each do |department|
+            = link_to "#{rooms_path}?q%5Bdept_grp_in%5D=#{department[1]}" do
+              .landing-page-department-link
+                = "#{department[0]}"
 
-    %section.legacy-crdb
-      %h1 NEW! MiLocations Classroom Database
-      %p
-        Welcome to the new MiLocations Classroom Database. This will be the replacement of the
-        = link_to "legacy Classroom Databse system.", legacy_crdb_url
-        During the rollout of the new Classroom Database additional features and functionality will be added. The legacy CRDB will be available during this period to ensure that existing functionality is available during the roll out and until we are confident all existing functionality has been transferred to the new application.
+      %section.legacy-crdb
+        %h1 NEW! MiLocations Classroom Database
+        %p
+          Welcome to the new MiLocations Classroom Database. This will be the replacement of the
+          = link_to "legacy Classroom Databse system.", legacy_crdb_url
+          During the rollout of the new Classroom Database additional features and functionality will be added. The legacy CRDB will be available during this period to ensure that existing functionality is available during the roll out and until we are confident all existing functionality has been transferred to the new application.

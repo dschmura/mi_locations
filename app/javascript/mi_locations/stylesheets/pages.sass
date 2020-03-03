@@ -1,25 +1,3 @@
-.landing-page--banner
-  @apply flex flex-col pt-24 justify-center items-center mb-4
-  @screen sm
-    @apply pt-32
-  .landing-page-headline
-    @apply text-4xl font-semibold -mt-4 shadow-lg tracking-wide leading-relaxed text-blue-100
-
-.landing-page--brand
-  @apply relative
-  img
-    @apply w-auto max-w-sm mb-2 shadow-lg
-/* The hero image */
-.hero-image
-  background-image: url("../images/vistas/cube.jpg")
-  /* Set a specific height */
-  height: 60vh
-  /* Position and center the image to scale nicely on all screens */
-  @apply bg-top bg-no-repeat bg-cover -mt-20 z-0 -mx-10
-
-.bg-smoke-dark
-  background-color: hsla(210, 41, 28, 0.8)
-
 .pages
   @apply p-4 text-gray-800
   p
@@ -27,7 +5,37 @@
   h1
     @apply text-2xl font-light
   h2
-    @apply text-xl .font-normal py-2
+    @apply text-xl font-normal py-2
+
+.landing-page--banner
+  @apply flex flex-col pt-24 justify-center items-center mb-4
+  @screen sm
+    @apply pt-32
+h1.landing-page-headline
+  @apply font-semibold -mt-4 shadow-lg tracking-wide leading-relaxed text-blue-100 text-2xl
+  @screen sm
+    @apply text-3xl
+
+.landing-page--brand
+  @apply relative
+  img
+    @apply  mb-2 shadow-lg w-2/3 self-center mx-auto
+  @screen sm
+    img
+      @apply w-3/5 max-w-3xl
+
+.landing-page-container
+  @apply justify-center text-center mx-auto self-center object-center align-middle
+/* The hero image */
+.hero-image
+  background-image: url("../images/vistas/cube.jpg")
+  /* Set a specific height */
+  height: 60vh
+  /* Position and center the image to scale nicely on all screens */
+  @apply bg-top bg-no-repeat bg-cover -mt-20 z-0 -mx-10  object-center
+
+.bg-smoke-dark
+  background-color: hsla(210, 41, 28, 0.8)
 
 .search-form--button
   @apply bg-blue-500 px-5 py-2 rounded-r-lg self-center -ml-1 h-10 z-50
@@ -38,13 +46,17 @@
   @apply  mt-16
 
 .legacy-crdb
-  @apply  shadow-xl p-4  bg-blue-100 border-2 border-blue-600 rounded-lg text-base w-5/6 mx-auto clear-both z-50 mt-4
+  @apply  shadow-xl p-4  bg-blue-100 border border-blue-200 rounded-lg text-sm w-2/3 mx-auto clear-both z-50 mt-4
+  @screen md
+    @apply text-lg w-4/6 max-w-5xl
+    h1
+      @apply text-3xl
+
   @screen lg
     @apply mt-8
+
   h1
-    @apply text-2xl font-semibold text-blue-800
-  @screen md
-    @apply w-4/6 max-w-5xl
+    @apply text-xl font-semibold text-blue-800
   a
     @apply  px-1 -mx-1 underline font-bold
     &:hover
@@ -186,14 +198,19 @@
     @apply text-yellow-500 mb-2
 
 .landing-page-department-link
-  @apply m-1 bg-blue-200 rounded-full  p-2 align-middle text-center
+  @apply m-1 bg-blue-200 rounded-full px-1 align-middle text-center
   &:hover
     @apply bg-blue-300 text-blue-800 transition duration-700
+  @screen sm
+    @apply py-1
+  @screen md
+    @apply p-2
 
 .search-container
   @apply flex flex-col align-middle self-center
   h1
     @apply text-yellow-500 text-4xl font-light shadow-xl
+
 .ss-search-input-container
   @apply relative text-blue-700 col-span-8 w-screen
   @screen sm
@@ -212,8 +229,6 @@
     @apply text-gray-600 h-4 w-4 fill-current -mt-3
 .ss-search
   @apply text-center mb-4
-  .search-container
-    @apply px-20
 
 button.search-filters-button
   @apply  whitespace-no-wrap
@@ -221,6 +236,8 @@ button.search-filters-button
     @apply bg-transparent
     &:focus
       @apply
+  @screen xl
+    @apply w-full
 .search-filters-button
   @apply relative inline-flex items-center px-4 py-0 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-r-lg bg-blue-200
   &:hover
@@ -230,7 +247,7 @@ button.search-filters-button
   &:active
     @apply  text-gray-700
   @screen xl
-    @apply w-48 whitespace-no-wrap
+    @apply  whitespace-no-wrap
 
 .additional-filters-button
   @apply flex font-light
