@@ -143,9 +143,9 @@
     @apply  my-0
 
 .matches
-  @apply text-yellow-500 text-sm font-semibold ml-0 col-span-8 text-right self-center mb-1 mr-4
+  @apply text-yellow-500 text-sm font-semibold ml-0 text-right self-center mb-1 mr-4 align-middle
   @screen xl
-    @apply self-end justify-end
+    @apply pl-20
 
 .filter-by-capacity
   @apply  w-full flex justify-start z-0
@@ -269,7 +269,7 @@ button.search-filters-button
   @screen sm
     @apply px-8 mt-0 flex-wrap
   @screen xl
-    @apply justify-between px-4
+    @apply justify-between px-4 mt-4
 
 .classrooms-page-header
   @apply px-4 justify-end
@@ -288,3 +288,10 @@ button.search-filters-button
 
 .sign-in-for-filters
   @apply text-green-600  flex self-start align-middle float-left text-sm   self-center
+  @screen xl
+    @apply mt-8
+
+.sort-matches
+  @apply flex mt-2 text-sm leading-5 text-gray-300
+  @screen xl
+    @apply -mt-16 w-64 justify-between
