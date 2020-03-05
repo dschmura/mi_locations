@@ -76,7 +76,25 @@ class RoomDecorator < Draper::Decorator
   def room_schedule_contact
     if
 room.room_contact&.rm_schd_cntct_name
-      "#{room.room_contact.rm_schd_cntct_name.titleize} \n #{room.room_contact.rm_schd_email}".titleize
+      "#{room.room_contact.rm_schd_cntct_name.titleize}"
+    else
+      "Not Available"
+    end
+  end
+
+  def room_schedule_email
+    if
+room.room_contact&.rm_schd_email
+      "#{room.room_contact.rm_schd_email.downcase}"
+    else
+      "Not Available"
+    end
+  end
+
+  def room_schedule_phone
+    if
+room.room_contact&.rm_schd_cntct_phone
+      "#{room.room_contact.rm_schd_cntct_phone}"
     else
       "Not Available"
     end
@@ -91,6 +109,17 @@ room.room_contact&.rm_sppt_cntct_url
       "Not Available"
     end
   end
+
+  def room_support_phone
+    #  rm_sppt_cntct_url    :string
+    if
+room.room_contact&.rm_sppt_cntct_phone
+      "#{room.room_contact.rm_sppt_cntct_phone}"
+    else
+      "Not Available"
+    end
+  end
+
 
   def copy_text
     %(#{title.upcase} : #{address}. | Student Capacity: #{room.instructional_seating_count}. | You can find details at https://rooms.umich.edu/rooms/#{room.id} including links to support and scheduling for this room.)
