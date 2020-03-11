@@ -1,5 +1,5 @@
-.room-show{data: {controller: "modal"}}
-  = render 'room_layout'
+.room-show{data: {controller: "modal dropdown"}}
+  = render 'room_layout', cached: true
   .room-banner{data: {controller: "toggle" }}
 
     -# .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle",  "data-controller" => "map",
@@ -18,6 +18,7 @@
       #mapid
 
     .room-show-image{data: {target: "toggle.roomsmap" }}
+
       - if @room.room_panorama.attached?
         #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => "#{url_for(@room.room_panorama)}",  "data-pannellum-panopreview" => "#{url_for(@room.room_panorama.variant(resize: "25%").processed)}" }
 
@@ -27,74 +28,38 @@
         = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@room.room_number.titleize} #{@room.building.name.titleize} image not available")
 
   = render partial: 'alerts/alerts', locals: {alertable: @room}
-
-  .room-info-pane{data: {controller: "dropdown"}}
-    .flex.flex-row.justify-between
-      .room-name-address
-        .room-title
-          = @room.title
-        .room-department
-          = @room.department_name
-      - if policy(@room).update?
-        .add-room-alert-button{"aria-label" => "Add Alert", data: {action:"click->dropdown#toggle click@window->dropdown#hide", role: "button" }}
-          = render "icons/plus-circle_icon"
-          Add Alert
-
-    .info
-      .left
-        %li.room-capacity
-          = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { tooltip: "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces." }} do
-            .icon= render "icons/users_icon", cached: true
-            = "Capacity #{@room.instructional_seating_count} "
-
-        - if @room.team_learning_classroom?
-          %li.room-team-learning
-            = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { "tooltip" => "Classroom is equiped with team-learning resources." }} do
-              .icon= render "icons/handshake_icon"
-              Team Learning Classroom
-        %li.room-layout
-          = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: {tooltip: "The room arrangement for this room and room support and scheduling contacts.", action: "click->modal#open" }} do
-            .icon= render "icons/chair_icon"
-            %span Room Layout
-
-      .right
-        %li.room-directions
-          .icon= render "icons/map-marked-alt_icon"
-          Directions
-
-        %li.room-calendar
-          = link_to  "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@room.facility_code_heprod }", {:target => "_blank", :role => "button", :class => " button tooltip tooltip-top ", data: {"tooltip" => "Go to room schedule." }} do
-            .icon= render "icons/calendar_icon"
-            Calendar
+  = render 'room_show_banner', locals: {room: @room}, cached: true
+  .room-info-pane
 
     .add-room-alert-form.hidden{data: {target: "dropdown.menu"}}
       = render partial: 'alerts/form', locals: {alertable: @room}
-  %section.room-features.features-group
-    %h2
-      Room Features
-    .room-chars
-      - @room.room_characteristics.select{ |c| c.feature?}.each do |characteristic|
-        = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
+  = render partial: 'rooms_index_row_dropdown', locals: {room: @room}
+  -# %section.room-features.features-group
+  -#   %h2
+  -#     Room Features
+  -#   .room-chars
+  -#     - @room.room_characteristics.select{ |c| c.feature?}.each do |characteristic|
+  -#       = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
-  %section.secondary-features
+  -# %section.secondary-features
 
-    .team-learning.features-group
-      %h2 Team Learning
-      .room-chars
-        -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |characteristic|
-          = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
+  -#   .team-learning.features-group
+  -#     %h2 Team Learning
+  -#     .room-chars
+  -#       -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |characteristic|
+  -#         = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
-    .writing-surfaces.features-group
-      %h2 Writing Surfaces
-      .room-chars
-        -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |characteristic|
-          = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
+  -#   .writing-surfaces.features-group
+  -#     %h2 Writing Surfaces
+  -#     .room-chars
+  -#       -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |characteristic|
+  -#         = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
-    .projection.features-group
-      %h2 Projection
-      .room-chars
-        -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |characteristic|
-          = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
+  -#   .projection.features-group
+  -#     %h2 Projection
+  -#     .room-chars
+  -#       -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |characteristic|
+  -#         = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
   - if policy(@room).update?
     %h3 Add a Panorama

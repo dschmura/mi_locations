@@ -1,10 +1,22 @@
 .rooms_index_row
   %li{data: {controller: "dropdown"}}
-    %a.block.transition.duration-150.ease-in-out{class: "hover:bg-gray-50 focus:outline-none focus:bg-gray-50", href: "#"}
+    %a.block.transition.duration-150.ease-in-out{class: "hover:bg-blue-50 focus:outline-none focus:bg-gray-50", href: "#"}
       .flex.items-center.px-4.py-4{class: "sm:px-6"}
         .flex.items-center.flex-1.min-w-0
           .flex-shrink-0
-            %img.w-12.h-12.rounded-full{alt: "Room image", src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+            -# %img.w-12.h-12.rounded-full{alt: "Room image", src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+
+
+            = link_to room do
+              - if room.room_panorama.attached?
+                .w-12.h-12.rounded-full= image_tag(url_for(room.room_panorama.variant(resize: "10%").processed), alt: "#{room.room_number} #{room.building.name.titleize} picture", loading: "lazy", width: "100px")
+
+              - elsif room.room_image.attached?
+                .w-12.h-12.rounded-full= image_tag(url_for(room.room_image.variant(resize: "10%").processed), alt: "#{room.room_number} #{room.building.name.titleize} picture", loading: "lazy", width: "100px")
+              - else
+                .w-12.h-12.rounded-full= image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton_card.jpg'), alt: "#{room.room_number} #{room.building.name.titleize} image not available", loading: "lazy", width: "100px")
+
+
           .flex-1.min-w-0.px-4{class: "md:grid md:grid-cols-2 md:gap-4"}
             %div
               .text-sm.font-medium.leading-5.text-blue-600.truncate
@@ -32,11 +44,11 @@
                   -#   %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
                   -# Room online
                   -if room.alerts.any?
-                    %span.alert-badge
+                    %span.alert-badge.mr-1
                       = "#{room.alerts.size}"
                     Alerts!
         %div{data: {action:"click->dropdown#toggle click@window->dropdown#hide"}}
           %svg.w-5.h-5.text-gray-400{fill: "currentColor", viewbox: "0 0 20 20"}
             %path{"clip-rule" => "evenodd", d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z", "fill-rule" => "evenodd"}
 
-    = render partial: 'rooms_index_row_dropdown', locals: {room: room}
+  = render partial: 'rooms_index_row_dropdown', locals: {room: room}

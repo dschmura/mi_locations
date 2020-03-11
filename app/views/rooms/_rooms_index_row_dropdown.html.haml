@@ -1,71 +1,87 @@
 .classroom-row-dropdown.hidden{data: {target: "dropdown.menu"}}
+
   %div
     -# .relative
       -# .absolute.inset-0.bg-gray-100{class: "h-1/2"}
     .relative.mx-auto{class: ""}
       .mx-auto.rounded-lg.shadow-lg.overflow-hidden.pb-10{class: "md:max-w-none md:flex"}
-        .classroom-row-dropdown-features-section
+        %span
 
-          .classroom-row-dropdown-features-group
-            %h4.flex-shrink-0.pr-4.text-sm.leading-5.tracking-wider.font-semibold.uppercase.text-blue-600
-              Features
-            .flex-1.border-t.border-blue-600.mr-4{class: "md:mr-10 "}
+          .classroom-row-dropdown-features-section
+            - if room.room_characteristics
+              .classroom-row-dropdown-features-group
+                %h4.features-header
+                  Top Matter
+                %hr
 
-          %ul.classroom-row-dropdown-features
-            %li.flex.items-start{class: "lg:col-span-1"}
-              .flex-shrink-0
-                %svg.h-5.w-5.text-green-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                  %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
-              %p.ml-3.text-sm.leading-5.text-gray-700
-                Podium Computer
-            %li.classroom-row-dropdown-feature
-              .flex-shrink-0
-                %svg.h-5.w-5.text-green-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                  %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
-              %p.ml-3.text-sm.leading-5.text-gray-700
-                Digital Projector
-            %li.classroom-row-dropdown-feature
-              .flex-shrink-0
-                %svg.h-5.w-5.text-green-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                  %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
-              %p.ml-3.text-sm.leading-5.text-gray-700
-                Whiteboard
-            %li.classroom-row-dropdown-feature
-              .flex-shrink-0
-                %svg.h-5.w-5.text-green-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                  %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
-              %p.ml-3.text-sm.leading-5.text-gray-700
-                Team Tables
+              %ul.classroom-row-dropdown-features
+                = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { tooltip: "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces." }} do
+                  %li.classroom-row-dropdown-feature
+                    .flex-shrink-0
+                      .icon= render "icons/users_icon", cached: true
+                    %p.ml-3.text-sm.leading-5.text-blue-700
+                      = "#{room.instructional_seating_count} Students"
 
-          .classroom-row-dropdown-features-group.mt-8
-            %h4.flex-shrink-0.pr-4.text-sm.leading-5.tracking-wider.font-semibold.uppercase.text-blue-600
-              Additional characteristics
-            .flex-1.border-t.border-blue-600.mr-4{class: "md:mr-10 "}
-          %ul.classroom-row-dropdown-features
-            %li.flex.items-start{class: "lg:col-span-1"}
-              .flex-shrink-0
-                %svg.h-5.w-5.text-green-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                  %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
-              %p.ml-3.text-sm.leading-5.text-gray-700
-                Blackout (Room Darkening)
-            %li.classroom-row-dropdown-feature
-              .flex-shrink-0
-                %svg.h-5.w-5.text-green-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                  %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
-              %p.ml-3.text-sm.leading-5.text-gray-700
-                Digital Data & Video
-            %li.classroom-row-dropdown-feature
-              .flex-shrink-0
-                %svg.h-5.w-5.text-green-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                  %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
-              %p.ml-3.text-sm.leading-5.text-gray-700
-                Entry to annual conference
-            %li.classroom-row-dropdown-feature
-              .flex-shrink-0
-                %svg.h-5.w-5.text-green-400{fill: "currentColor", viewbox: "0 0 20 20"}
-                  %path{"clip-rule" => "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", "fill-rule" => "evenodd"}
-              %p.ml-3.text-sm.leading-5.text-gray-700
-                Official member t-shirt
+
+                = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { tooltip: "The room arrangement for this room and room support and scheduling contacts." }} do
+                  %li.classroom-row-dropdown-feature
+                    .flex-shrink-0
+                      .icon= render "icons/chair_icon", cached: true
+                    %p.ml-3.text-sm.leading-5.text-blue-700
+                      Room Layout
+
+                = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { tooltip: "Floor plan for #{room.building.nick_name}." }} do
+                  %li.classroom-row-dropdown-feature
+                    .flex-shrink-0
+                      .icon= render "icons/layer-group_icon", cached: true
+                    %p.ml-3.text-sm.leading-5.text-blue-700
+                      Floor Plan
+
+
+          .classroom-row-dropdown-features-section
+            - if room.room_characteristics
+              .classroom-row-dropdown-features-group
+                %h4.features-header
+                  Features
+                %hr
+
+              %ul.classroom-row-dropdown-features
+                - room.room_characteristics.select{ |c| c.feature?}.each do |characteristic|
+                  = render partial: 'room_characteristic', locals:  {characteristic: characteristic}, cached: true
+
+                  - room.room_characteristics.select{ |c| c.teamboard_feature?}.each do |characteristic|
+                    = render partial: 'room_characteristic', locals:  {characteristic: characteristic}, cached: true
+
+                - if room.room_characteristics.select{ |c| c.teamlearning_feature?}
+                  - room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |characteristic|
+                    = render partial: 'room_characteristic', locals:  {characteristic: characteristic}, cached: true
+
+                - if room.room_characteristics.select{ |c| c.instructor_computer?}
+                  - room.room_characteristics.select{ |c| c.instructor_computer?}.each do |characteristic|
+                    = render partial: 'room_characteristic', locals:  {characteristic: characteristic}, cached: true
+
+
+            .classroom-row-dropdown-features-group
+              %h4.features-header
+                Additional characteristics
+              %hr
+            %ul.classroom-row-dropdown-features
+              - if room.room_characteristics.select{ |c| c.teamlearning_feature?}
+                - room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |characteristic|
+                  .flex-shrink-0= render partial: 'room_characteristic', locals:  {characteristic: characteristic}, cached: true
+
+              - if room.room_characteristics.select{ |c| c.chalkboard_feature?}
+                - room.room_characteristics.select{ |c| c.chalkboard_feature?}.each do |characteristic|
+                  .flex-shrink-0= render partial: 'room_characteristic', locals:  {characteristic: characteristic}, cached: true
+
+              - if room.room_characteristics.select{ |c| c.whiteboard_feature?}
+                - room.room_characteristics.select{ |c| c.whiteboard_feature?}.each do |characteristic|
+                  .flex-shrink-0= render partial: 'room_characteristic', locals:  {characteristic: characteristic}, cached: true
+
+              - if room.room_characteristics.select{ |c| c.projection_feature?}
+                - room.room_characteristics.select{ |c| c.projection_feature?}.each do |characteristic|
+                  .flex-shrink-0= render partial: 'room_characteristic', locals:  {characteristic: characteristic}, cached: true
+
 
         .classroom-row-contact-items
           .classroom-row-contact-item.classroom-row-scheduling-contact

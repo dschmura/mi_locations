@@ -1,4 +1,6 @@
-.room-char
-  = link_to  "", :role => "button", :class => " tooltip tooltip-top ", "data-tooltip" => "#{characteristic.chrstc_desc254}" do
-    .icon= render "icons/#{room_characteristic_icon_new(characteristic)}", cached: true
-    %b= characteristic.characteristic_label
+= link_to  "", :role => "button", :class => " tooltip tooltip-top ", "data-tooltip" => "#{characteristic.chrstc_desc254}" do
+  %li.classroom-row-dropdown-feature
+    .flex-shrink-0
+      .icon= render "icons/#{room_characteristic_icon_new(characteristic)}", cached: true
+    %p.ml-3.text-sm.leading-5.text-blue-700
+      = characteristic.characteristic_label
