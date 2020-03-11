@@ -37,7 +37,6 @@
                     %p.ml-3.text-sm.leading-5.text-blue-700
                       Floor Plan
 
-
           .classroom-row-dropdown-features-section
             - if room.room_characteristics
               .classroom-row-dropdown-features-group
@@ -125,8 +124,8 @@
                     %li Support Contact: Support Contact Not Available
                     %li Support Contact Phone:
           .mt-6
+            - unless action_name == 'show'
+              .rounded-md.shadow
 
-            .rounded-md.shadow
 
-
-              .flex.items-center.justify-center.px-5.py-3.border.border-transparent.text-base.leading-6.font-medium.rounded-md.text-green-900.bg-green-400{class: "hover:bg-green-500 hover:text-green-100focus:outline-none focus:shadow-outline transition duration-150 ease-in-out", href: "#"}= link_to "More Details", room
+                .flex.items-center.justify-center.px-5.py-3.border.border-transparent.text-base.leading-6.font-medium.rounded-md.text-green-900.bg-green-400{class: "hover:bg-green-500 hover:text-green-100focus:outline-none focus:shadow-outline transition duration-150 ease-in-out", href: "#"}= link_to "More Details", room
