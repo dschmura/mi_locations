@@ -1,11 +1,11 @@
-.classroom-row-dropdown.hidden{data: {target: "dropdown.menu"}}
+.classroom-row-dropdown
 
   %div
     -# .relative
       -# .absolute.inset-0.bg-gray-100{class: "h-1/2"}
     .relative.mx-auto{class: ""}
       .mx-auto.rounded-lg.shadow-lg.overflow-hidden.pb-10{class: "md:max-w-none md:flex"}
-        %span
+        %span.w-full
 
           .classroom-row-dropdown-features-section
             - if room.room_characteristics
