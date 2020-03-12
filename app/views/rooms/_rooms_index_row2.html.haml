@@ -53,4 +53,7 @@
 
 
   %div.hidden{data: {target: "dropdown.menu"}}
-    = render partial: 'rooms_index_row_dropdown', locals: {room: room}
+    - if user_signed_in?
+      = render partial: 'rooms_index_row_dropdown', locals: {room: room}
+    - else
+      Please sign in to see additional information about this room

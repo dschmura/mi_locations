@@ -22,7 +22,7 @@
           .icon= render "icons/graduation-cap_icon", cached: true
           = room.department_name
 
-        - if current_user
+        - if user_signed_in?
           .card-capacity
             .icon= render "icons/users_icon", cached: true
             = room.student_capacity
