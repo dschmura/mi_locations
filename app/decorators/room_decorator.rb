@@ -110,6 +110,16 @@ room.room_contact&.rm_sppt_cntct_url
     end
   end
 
+  def room_support_email
+    #  rm_sppt_cntct_url    :string
+    if
+room.room_contact&.rm_sppt_cntct_email
+      "#{room.room_contact.rm_sppt_cntct_email}"
+    else
+      "Not Available"
+    end
+  end
+
   def room_support_phone
     #  rm_sppt_cntct_url    :string
     if
