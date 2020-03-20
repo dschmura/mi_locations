@@ -137,9 +137,10 @@ h1.landing-page-headline
   .choices__list--dropdown
     @apply bg-blue-100 text-blue-800 z-40
     .choices__item
-      text-transform: capitalize
+      text-transform: capitalize truncate
       &:hover
         @apply bg-blue-300
+
 
 .capacaity-college
   @apply p-4
@@ -266,7 +267,7 @@ button.search-filters-button
   input
     @apply border-none
   @screen xl
-    @apply pl-0 w-40
+    @apply pl-0
 
 .search-filters-containers
   @apply  whitespace-no-wrap
@@ -281,6 +282,8 @@ button.search-filters-button
     @apply px-8
   @screen xl
     @apply px-2
+    .choices
+      @apply min-w-full max-w-3xl
 
 .search-result-tools
   @apply flex flex-row justify-between align-middle px-4 mt-1

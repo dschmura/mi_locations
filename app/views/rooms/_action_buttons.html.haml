@@ -5,28 +5,25 @@
         %svg.w-5.h-5.mr-2.-ml-1.text-gray-400{fill: "currentColor", viewBox: "0 0 20 20"}
           %path{d: "M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"}
         Edit
-    %span.hidden.ml-3.rounded-md.shadow-sm{class: "sm:block"}
-      %button.inline-flex.items-center.px-2.py-1.text-sm.font-medium.text-blue-100.transition.duration-150.ease-in-out.bg-gray-700.border.border-transparent.rounded-md.leading-2{class: " hover:bg-gray-600 focus:outline-none focus:shadow-outline-gray focus:border-gray-800", type: "button"}
-        %svg.w-5.h-5.mr-2.-ml-1.text-gray-400{fill: "currentColor", viewBox: "0 0 20 20"}
-          %path{"clip-rule" => "evenodd", d: "M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z", "fill-rule" => "evenodd"}
-        View
+
     %span.rounded-md.shadow-sm{class: "sm:ml-3"}
       %button.inline-flex.items-center.px-2.py-1.text-sm.font-medium.text-blue-100.transition.duration-150.ease-in-out.bg-blue-500.border.border-transparent.rounded-md.leading-2{class: " hover:bg-blue-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-600", type: "button"}
         %svg.w-5.h-5.mr-2.-ml-1{fill: "currentColor", viewBox: "0 0 20 20"}
           %path{"clip-rule" => "evenodd", d: "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z", "fill-rule" => "evenodd"}
-        Publish
+        Visible
 
-    %span.rounded-md.shadow-sm{class: "sm:ml-3"}
-      .add-room-alert-button{"aria-label" => "Add Alert", data: {action:"click->dropdown#toggle click@window->dropdown#hide", role: "button" }}
-        .icon= render "icons/plus-circle_icon", cached: true
+    %span.rounded-md.shadow-sm.hidden{class: "sm:ml-3 sm:block"}
+      .inline-flex.items-center.px-2.py-1.text-sm.font-medium.text-red-100.transition.duration-150.ease-in-out.bg-red-700.border.border-transparent.rounded-md.leading-2{class: " hover:bg-red-500 focus:outline-none focus:shadow-outline-red focus:border-red-600", "aria-label" => "Add Alert", data: {action:"click->dropdown#toggle click@window->dropdown#hide"}, role: "button" }
+        .icon.mr-2= render "icons/plus-circle_icon", cached: true
         Add Alert
 
     %span.relative.ml-3.rounded-md.shadow-sm{class: "sm:hidden", "x-data" => "{ open: false }"}
-      %button{ type: "button", class: "inline-flex items-center px-2 py-1 text-sm font-medium text-blue-100 transition duration-150 ease-in-out bg-gray-700 border border-transparent rounded-md leading-2 hover:bg-gray-600 focus:outline-none focus:shadow-outline-gray focus:border-gray-800" }
+      %button{ type: "button", class: "inline-flex items-center px-2 py-1 text-sm font-medium text-blue-100 transition duration-150 ease-in-out bg-gray-700 border border-transparent rounded-md leading-2 hover:bg-gray-600 focus:outline-none focus:shadow-outline-gray focus:border-gray-800", data: {action:"click->dropdown#toggle "}}
         More
         %svg.w-5.h-5.ml-2.-mr-1.text-gray-400{fill: "currentColor", viewBox: "0 0 20 20"}
           %path{"clip-rule" => "evenodd", d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z", "fill-rule" => "evenodd"}
-    .absolute.left-0.z-10.w-48.mt-2.-ml-1.origin-top-left.rounded-md.shadow-lg.hidden
+
+    .absolute.left-0.z-10.w-48.mt-2.-ml-1.origin-top-left.rounded-md.shadow-lg.hidden{data: {target: "toggle.hide"}}
       .py-1.bg-white.rounded-md.shadow-xs
         %a.block.px-4.py-2.text-sm.text-gray-700.transition.duration-150.ease-in-out.leading-2{class: " hover:bg-gray-100 focus:outline-none focus:bg-gray-100", href: "#"} Edit
-        %a.block.px-4.py-2.text-sm.text-gray-700.transition.duration-150.ease-in-out.leading-2{class: "hover:bg-gray-100focus:outline-nonefocus:bg-gray-100", href: "#"} View
+        %a.block.px-4.py-2.text-sm.text-gray-700.transition.duration-150.ease-in-out.leading-2{"aria-label" => "Add Alert", data: {action:"click->dropdown#toggle click@window->dropdown#hide"}, role: "button", class: "hover:bg-gray-100focus:outline-nonefocus:bg-gray-100", href: "#"} Add Alert

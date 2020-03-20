@@ -12,8 +12,8 @@
 
 .rooms-cards{data: {controller: "infinite-scroll", target: "toggle.layout", target: "infinite-scroll.scrollContainer", action: "scroll@window->infinite-scroll#canary" }}
   -# %ul.overflow-y-scroll.w-auto
-  = render partial: "rooms_index_row2", collection: @rooms, as: :room, cached: true
-  = render partial: "rooms_index_card2", collection: @rooms, as: :room, cached: true
+  -# = render partial: "rooms_index_row2", collection: @rooms, as: :room, cached: true
+  = render partial: "rooms_card", collection: @rooms, as: :room, cached: true
   .rooms-cards#rooms-cards
 
   - if @rooms.size > 0
