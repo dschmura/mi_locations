@@ -26,6 +26,7 @@ gem "image_processing", "~> 1.2" # for Active Storage variants
 gem "sassc-rails"
 gem "haml-rails"
 gem "coffee-script"
+gem "json", ">= 2.3.0"
 
 gem "active_model_serializers"
 gem "activerecord-import"
