@@ -162,6 +162,7 @@ GEM
     ffaker (2.14.0)
     ffi (1.12.2)
     flamegraph (0.9.5)
+    foreman (0.87.1)
     formatador (0.2.5)
     geocoder (1.6.2)
     globalid (0.4.2)
@@ -472,6 +473,7 @@ DEPENDENCIES
   factory_bot_rails
   ffaker
   flamegraph
+  foreman
   geocoder
   guard-bundler
   guard-rails
@@ -511,7 +513,7 @@ DEPENDENCIES
   webpacker!
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.7.1p83
 
 BUNDLED WITH
-   2.1.2
+   2.1.4

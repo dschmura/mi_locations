@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "2.7.1"
 
 gem "rails", "~> 6.0.2"
 
@@ -39,6 +39,7 @@ gem "ransack"
 gem "sidekiq", "~> 6.0"
 gem "uglifier"
 
+gem "foreman"
 gem "devise", "~> 4.7.0"
 gem "draper"
 gem "listen"
