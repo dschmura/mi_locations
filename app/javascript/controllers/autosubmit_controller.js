@@ -26,11 +26,14 @@ export default class extends Controller {
     this.save()
   }
   success() {
-    this.setStatus('Saved!')
+    this.timeout = setTimeout(() => {
+      this.statusTarget.textContent = 'Updated'
+    }, this.duration)
+
   }
 
   error() {
-    this.setStatus('Unable to save!')
+    this.setStatus('Unable to update!')
   }
 
   setStatus(message) {
