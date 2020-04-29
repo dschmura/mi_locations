@@ -32,7 +32,7 @@ gem "active_model_serializers"
 gem "activerecord-import"
 # gem 'administrate', '~> 0.8.1'
 gem "geocoder"
-gem "kaminari"
+gem "pagy"
 gem "ldap_lookup"
 gem "mini_magick"
 gem "ransack"

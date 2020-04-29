@@ -135,6 +135,10 @@ room.room_contact&.rm_sppt_cntct_phone
     %(#{title.upcase} : #{address}. | Student Capacity: #{room.instructional_seating_count}. | You can find details at https://rooms.umich.edu/rooms/#{room.id} including links to support and scheduling for this room.)
   end
 end
+# class PaginatingDecorator < Draper::CollectionDecorator
+#   delegate :current_page, :total_pages, :limit_value, :entry_name, :total_count, :offset_value, :last_page?, :next_page
+# end
+
 class PaginatingDecorator < Draper::CollectionDecorator
-  delegate :current_page, :total_pages, :limit_value, :entry_name, :total_count, :offset_value, :last_page?, :next_page
+  delegate :page, :items, :outset, :size, :page_param, :params, :anchor, :link_extra, :i18n_key, :cycle, :count
 end

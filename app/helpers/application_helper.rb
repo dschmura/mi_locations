@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Pagy::Frontend
   # Returns the full title on a per-page basis.
   def page_title
     base_title = (t :sitename)

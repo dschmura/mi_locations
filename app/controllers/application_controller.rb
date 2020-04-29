@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   include LdapableHelper
+  include Pagy::Backend
   before_action :redirect_https
   before_action :create_feedback
   after_action :verify_authorized, except: :index, unless: :devise_controller?
