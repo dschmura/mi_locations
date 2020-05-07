@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   include LdapableHelper
   include Pagy::Backend
+  before_action :redirect_to_legacy
   before_action :redirect_https
   before_action :create_feedback
   after_action :verify_authorized, except: :index, unless: :devise_controller?
@@ -10,7 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def flash_dance
-    flash[:notice] = "Please sign in to perform this action."
+    flash[:alert] = "This site is for demo purposes only. Please use the legacy classroom database system at https://rooms.lsa.umich.edu"
   end
   private
 
@@ -34,6 +35,9 @@ class ApplicationController < ActionController::Base
   # def current_user
   #   super || OpenStruct.new(uniqname: 'guest', email: 'guest@localhost.com')
   # end
+  def redirect_to_legacy
+    redirect_to "https://rooms.lsa.umich.edu" unless Rails.env.development? || Rails.env.staging?
+  end
 
   def redirect_https
     @ip = request.remote_ip
