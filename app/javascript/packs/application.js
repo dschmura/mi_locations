@@ -21,6 +21,7 @@ import '../mi_locations/stylesheets/feedback.sass'
 import '../mi_locations/stylesheets/filters.sass'
 import '../mi_locations/stylesheets/footer.sass'
 import '../mi_locations/stylesheets/header.sass'
+import '../mi_locations/stylesheets/office_tour.sass'
 import '../mi_locations/stylesheets/pages.sass'
 import '../mi_locations/stylesheets/ribbons.sass'
 import '../mi_locations/stylesheets/room_card2.sass'
@@ -39,19 +40,19 @@ import 'trix/dist/trix.css'
 
 // import 'mi_locations/javascripts/application.js'
 
-document.addEventListener('turbolinks:load', () => {
+// document.addEventListener('turbolinks:load', () => {
 
-  function highlightCurrent() {
-    const curPage = document.URL;
-    const links = document.getElementsByTagName('a');
-    for (let link of links) {
-      if (link.href == curPage) {
-        link.classList.add("current");
-      }
-    }
-  }
-  highlightCurrent();
+//   function highlightCurrent() {
+//     const curPage = document.URL;
+//     const links = document.getElementsByTagName('a');
+//     for (let link of links) {
+//       if (link.href == curPage) {
+//         link.classList.add("current");
+//       }
+//     }
+//   }
+//   highlightCurrent();
 
-});
+// });
 
 import "controllers"
