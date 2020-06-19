@@ -22,7 +22,9 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
+    "caniuse-lite": "^1.0.30001084",
+    "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.11.0"
   }
 }
