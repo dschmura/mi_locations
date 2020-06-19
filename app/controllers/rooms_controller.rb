@@ -5,21 +5,27 @@ class RoomsController < ApplicationController
     # Ransack search (returns ActiveRecord relation )
     @q ||= Room.classrooms.ransack(params[:q])
     # Filter by characteristics search (returns ActiveRecord relation )
-    rooms = Room.classrooms.filter_params(filtering_params)
+    filtered_rooms ||= Room.classrooms.filter_params(filtering_params)
 
-    @results = policy_scope(@q.result.merge(rooms).joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :room_panorama_attachment, :alerts))
-    @rooms = @results.page(params[:page]).per(10).decorate
+    @results ||= policy_scope(@q.result.merge(filtered_rooms).joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts))
 
+    # @rooms = @results.page(params[:page]).per(10).decorate
+
+    @results = RoomDecorator.decorate_collection(@results)
+
+    @pagy, @rooms = pagy(@results, items: 15)
     # @rooms_json = serialize_rooms(@results.page(params[:page]).per(10))
     @rooms_json = serialize_rooms(@results)
 
-    @searchable_buildings =  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).sort
+    @searchable_buildings ||=  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).sort
+
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
     respond_to do |format|
       format.js
       format.html
-      format.json { render json: @results, each_serializer: RoomSerializer }
+      # format.json { render json: @rooms, each_serializer: RoomSerializer }
+      format.json { render json: {entries: render_to_string(partial: "rooms_card", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
     end
   end
 
@@ -31,10 +37,10 @@ class RoomsController < ApplicationController
     end
   end
 
-  def search
-    index
-    render :index
-  end
+  # def search
+  #   index
+  #   render :index
+  # end
 
   def update
     respond_to do |format|
