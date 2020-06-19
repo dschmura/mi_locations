@@ -10,11 +10,10 @@
     %span Please try different criteria.
   .reset-filters= link_to "Reset your filters", rooms_path
 
-.rooms-cards#add-rooms{data: {controller: "infinite-scroll", action: "scroll@window->infinite-scroll#scroll", target: "toggle.layout" }}
+.rooms-cards#add-rooms{data: { action: "scroll@window->infinite-scroll#scroll", target: "toggle.layout infinite-scroll.entries" }}
   -# %ul.overflow-y-scroll.w-auto
-  %div.w-screen{ data: {target: "infinite-scroll.entries"} }
-    = render(partial: "rooms_index_row2", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
-    -# = render(partial: "rooms_card", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
+  -# = render(partial: "rooms_index_row2", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
+  = render(partial: "rooms_card", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
 
 
   .rooms-cards#rooms-cards
@@ -30,11 +29,11 @@
         %i.fas.fa-map
         .icon= render "icons/close_icon", cached: true
         Close
-  .z-10
-    #pagination-page
-      -unless @pagy.page == @pagy.count
-        #view-more{data: {target: "infinite-scroll.pagination"}}
-          = pagy_nav(@pagy).html_safe
+.z-10
+  #pagination-page
+    -unless @pagy.page == @pagy.count
+      #view-more{data: {target: "infinite-scroll.pagination"}}
+        = pagy_nav(@pagy).html_safe
 
 
   -# .z-40
