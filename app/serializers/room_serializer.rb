@@ -23,6 +23,7 @@
 #
 
 class RoomSerializer < ActiveModel::Serializer
+  belongs_to :building
   attributes :id, :rmrecnbr, :floor, :room_number, :facility_code_heprod, :dept_grp, :instructional_seating_count, :dept_description, :building
 
   def buildling

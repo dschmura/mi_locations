@@ -1,6 +1,6 @@
 .room-map.hidden{data: {controller: "map", target: "toggle.roomsmap",
         "map-mapbox-token": "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}" },
-        "data-map-mapbox-room" => @rooms_json}
+        "data-map-mapbox-room" => @rooms.to_json}
   #mapid
 
 

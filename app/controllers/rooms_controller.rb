@@ -7,15 +7,15 @@ class RoomsController < ApplicationController
     # Filter by characteristics search (returns ActiveRecord relation )
     filtered_rooms ||= Room.classrooms.filter_params(filtering_params)
 
-    @results ||= policy_scope(@q.result.merge(filtered_rooms).joins(:building).merge(Building.ann_arbor_campus).includes(:building, :room_image_attachment, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts))
+    @results ||= policy_scope(@q.result.merge(filtered_rooms).includes(:ann_arbor_buildings, :room_image_attachment, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts))
 
     # @rooms = @results.page(params[:page]).per(10).decorate
 
-    @results = RoomDecorator.decorate_collection(@results)
+    @results = RoomDecorator.decorate_collection(@results.includes(:ann_arbor_buildings))
 
     @pagy, @rooms = pagy(@results, items: 15)
     # @rooms_json = serialize_rooms(@results.page(params[:page]).per(10))
-    @rooms_json = serialize_rooms(@results)
+
 
     @searchable_buildings ||=  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).sort
 

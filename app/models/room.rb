@@ -25,6 +25,7 @@
 class Room < ApplicationRecord
   include Filterable
   belongs_to :building
+  belongs_to :ann_arbor_buildings, -> { where("zip ILIKE ANY ( array[?] )", ["48103%", "48104%", "48105%", "48109%"])}, class_name: "Building"
   has_many :room_characteristics, dependent: :destroy
   has_one :room_contact, dependent: :destroy
   has_many :alerts, as: :alertable, dependent: :destroy
