@@ -1,0 +1,5 @@
+.office-tour{data: { controller: "modal", "modal-allow-background-closer" => 'true'}}
+
+  = image_tag(asset_pack_path('media/mi_locations/images/wads_office/301_E_Liberty_Floor_Plan.png'), alt: '301 East Liberty Floor Plan.', class: "e-liberty-image")
+
+  = render partial: "pano_modal", collection: @panos, as: :pano

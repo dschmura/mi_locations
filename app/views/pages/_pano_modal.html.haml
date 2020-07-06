@@ -1,0 +1,40 @@
+-# .ml-8
+-#   %a.pano-link{data: {action: "click->modal#open"}, href: "#", class: "#{class_maker(pano[0])}"}
+-#     %span= "#{pano[0].downcase.titleize}"
+
+-#   .hidden.animated.fadeIn.fixed.inset-0.overflow-y-auto.flex.items-center.justify-center{"data-action" => "click->modal#closeBackground keyup@window->modal#closeWithKeyboard", "data-target" => "modal.container", style: "z-index: 9999;"}
+-#     / Modal Inner Container
+-#     .max-h-screen.w-full.relative
+-#       / Modal Card
+-#       .m-1.bg-white.rounded.shadow
+-#         .p-8
+-#           -# %div{id: "panorama", data: {controller: "pannellum", "pannellum-panoimage" => asset_pack_path("media/mi_locations/images/wads_office/#{pano[0]}.jpg"),  "pannellum-panopreview" => asset_pack_path("media/mi_locations/images/wads_office/#{pano[0]}.jpg")}}
+-#           -# #panorama{ "data-controller" => "pannellum", "data-pannellum-panoimage" => asset_pack_path("media/mi_locations/images/wads_office/#{pano[0]}.jpg"),  "data-pannellum-panopreview" => asset_pack_path("media/mi_locations/images/wads_office/#{pano[0]}.jpg"), "data-target" => "pannellum.panorama"}
+-#           %h3.text-gray-800.mb-4
+-#             = "#{pano[1]}"
+-#           %p= "#{pano}"
+-#           .flex.justify-end.items-center.flex-wrap.mt-6
+-#             %button.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded{"data-action" => "click->modal#close"} Close
+
+
+.modal-container{"data-controller" => "modal", "data-modal-allow-background-close" => "false", class: "#{class_maker(pano[0])}"}
+  .modal-inner.ml-8{ "data-controller" => "pannellum", "data-action" => "click->pannellum#modalPano", "data-pannellum-panoinstance" => "#{class_maker(pano[0])}", "data-pannellum-panoimage" => asset_pack_path("media/mi_locations/images/wads_office/#{pano[0]}.jpg"),  "data-pannellum-panopreview" => asset_pack_path("media/mi_locations/images/wads_office/#{pano[0]}.jpg"), class: "#{class_maker(pano[0])}"}
+    %a.pano-link{"data-action" => "click->modal#open", :href => "#"}
+      %span= "#{pano[0].titleize}"
+    // Modal Container
+    .hidden.animated.fadeIn.fixed.inset-0.overflow-y-auto.flex.items-center.justify-center{"data-action" => "click->modal#closeBackground keyup@window->modal#closeWithKeyboard", "data-target" => "modal.container", :style => "z-index: 9999;"}
+      // Modal Inner Container
+      .max-h-screen.w-full.mx-12.relative
+        // Modal Card
+        .m-1.bg-white.rounded.shadow
+          .p-8
+            %h2.text-xl.mb-4= "#{pano[1]}"
+
+            -# %div#panorama{ id: "#{class_maker(pano[0])}", "data-controller" => "pannellum", "data-pannellum-panoid" => "#{class_maker(pano[0])}", "data-pannellum-panoimage" => asset_pack_path("media/mi_locations/images/wads_office/#{pano[0]}.jpg"), "data-pannellum-panopreview" => asset_pack_path("media/mi_locations/images/wads_office/#{pano[0]}.jpg") }
+
+            #panorama
+            %div{id: "#{class_maker(pano[0])}"}
+
+            %p.mb-4 This is an example modal dialog box.
+            .flex.justify-end.items-center.flex-wrap.mt-6
+              %button.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded{"data-action" => "click->modal#close"} Close
