@@ -12,6 +12,10 @@ class PagePolicy < ApplicationPolicy
     true
   end
 
+  def wads_tour?
+    true
+  end
+
   def contact?
     true
   end

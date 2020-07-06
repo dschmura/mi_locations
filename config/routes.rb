@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get "/privacy", to: "pages#privacy"
   get "/contact", to: "pages#contact"
   get "/about", to: "pages#about"
+  get "/wads_tour", to: "pages#wads_tour"
   root to: "pages#index"
   get "pages/index"
   get "pages/about"
