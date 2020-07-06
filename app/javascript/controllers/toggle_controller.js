@@ -24,8 +24,8 @@ export default class extends Controller {
 
   layoutToggle() {
     event.preventDefault()
-    this.layoutTargets.forEach((el, i) => {
-      el.classList.toggle("active-layout")
+    this.layoutTarget.forEach((el, i) => {
+      el.classList.toggle("hidden")
 
     })
   }
