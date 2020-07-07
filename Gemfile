@@ -66,6 +66,8 @@ end
 group :development do
   gem "annotate", "~> 2.7"
   gem "bullet"
+  gem 'rack-mini-profiler'
+  gem 'memory_profiler'
   gem "capistrano", require: false
   gem "capistrano-bundler", require: false
   gem "capistrano-postgresql"
