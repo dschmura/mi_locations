@@ -11,11 +11,11 @@ class RoomsController < ApplicationController
 
     # @rooms = @results.page(params[:page]).per(10).decorate
 
-    @results = RoomDecorator.decorate_collection(@results.includes(:ann_arbor_buildings))
+    @results = RoomDecorator.decorate_collection(@results.includes(:ann_arbor_buildings, :room_characteristics))
 
     @pagy, @rooms = pagy(@results, items: 15)
-    # @rooms_json = serialize_rooms(@results.page(params[:page]).per(10))
-
+    # @rooms_json = serialize_rooms(@rooms.page(params[:page]).per(10))
+    @rooms_json = serialize_rooms(@results.includes(:building))
 
     @searchable_buildings ||=  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).sort
 
@@ -26,6 +26,8 @@ class RoomsController < ApplicationController
       format.html
       # format.json { render json: @rooms, each_serializer: RoomSerializer }
       format.json { render json: {entries: render_to_string(partial: "rooms_card", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+
+      # format.json { render json: {entries: render_to_string(partial: "rooms_index_row2", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
     end
   end
 
@@ -64,7 +66,7 @@ class RoomsController < ApplicationController
   private
 
   def serialize_rooms(rooms)
-    ActiveModelSerializers::SerializableResource.new(rooms, each_serializer: RoomSerializer).to_json
+    RoomSerializer.new(rooms, each_serializer: RoomSerializer).serialized_json
   end
 
   def set_room
