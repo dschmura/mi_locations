@@ -159,6 +159,8 @@ GEM
       railties (>= 5.0.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffaker (2.15.0)
     ffi (1.13.1)
     flamegraph (0.9.5)
@@ -465,6 +467,7 @@ DEPENDENCIES
   draper
   erb2haml
   factory_bot_rails
+  fast_jsonapi (~> 1.5)
   ffaker
   flamegraph
   foreman
