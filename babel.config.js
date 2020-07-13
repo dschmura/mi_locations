@@ -1,4 +1,4 @@
-module.exports = function (api) {
+module.exports = function(api) {
   var validEnv = ['development', 'test', 'production']
   var currentEnv = api.env()
   var isDevelopmentEnv = api.env('development')
@@ -8,17 +8,17 @@ module.exports = function (api) {
   if (!validEnv.includes(currentEnv)) {
     throw new Error(
       'Please specify a valid `NODE_ENV` or ' +
-      '`BABEL_ENV` environment variables. Valid values are "development", ' +
-      '"test", and "production". Instead, received: ' +
-      JSON.stringify(currentEnv) +
-      '.'
+        '`BABEL_ENV` environment variables. Valid values are "development", ' +
+        '"test", and "production". Instead, received: ' +
+        JSON.stringify(currentEnv) +
+        '.'
     )
   }
 
   return {
     presets: [
       isTestEnv && [
-        require('@babel/preset-env').default,
+        '@babel/preset-env',
         {
           targets: {
             node: 'current'
@@ -26,43 +26,31 @@ module.exports = function (api) {
         }
       ],
       (isProductionEnv || isDevelopmentEnv) && [
-        require('@babel/preset-env').default,
+        '@babel/preset-env',
         {
-          forceAllTransforms: true,
           useBuiltIns: 'entry',
+          corejs: 3,
           modules: false,
+          bugfixes: true,
+          loose: true,
           exclude: ['transform-typeof-symbol']
         }
       ]
     ].filter(Boolean),
     plugins: [
-      require('babel-plugin-macros'),
-      require('@babel/plugin-syntax-dynamic-import').default,
-      isTestEnv && require('babel-plugin-dynamic-import-node'),
-      require('@babel/plugin-transform-destructuring').default,
+      'babel-plugin-macros',
       [
-        require('@babel/plugin-proposal-class-properties').default,
+        '@babel/plugin-proposal-class-properties',
         {
           loose: true
         }
       ],
       [
-        require('@babel/plugin-proposal-object-rest-spread').default,
-        {
-          useBuiltIns: true
-        }
-      ],
-      [
-        require('@babel/plugin-transform-runtime').default,
+        '@babel/plugin-transform-runtime',
         {
           helpers: false,
-          regenerator: true
-        }
-      ],
-      [
-        require('@babel/plugin-transform-regenerator').default,
-        {
-          async: false
+          regenerator: true,
+          corejs: false
         }
       ]
     ].filter(Boolean)
