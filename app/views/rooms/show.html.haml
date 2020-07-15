@@ -33,7 +33,7 @@
 
     .add-room-alert-form.hidden{data: {target: "dropdown.menu"}}
       = render partial: 'alerts/form', locals: {alertable: @room}
-  = render partial: 'rooms_index_row_dropdown', locals: {room: @room}
+  = render partial: 'rooms_row_dropdown', locals: {room: @room}
   -# %section.room-features.features-group
   -#   %h2
   -#     Room Features
