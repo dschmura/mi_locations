@@ -44,23 +44,13 @@
                     %span.alert-badge.mr-1
                       = "#{room.alerts.size}"
                     Alerts!
-        .classroom-row-dropdown-toggle{data: {action:"click->dropdown#toggle click@window->dropdown#hide touch->toggle#toggle"}}
-          .classroom-row-dropdown-toggle-button{data: {target: "toggle.toggleable"}}
+        .classroom-row-dropdown-toggle{data: {controller: "toggle","toggle-class" => "rotary", action:"click->dropdown#toggle touch->toggle#toggle click->toggle#toggle touch->toggle#toggle#toggle"}}
+          .classroom-row-dropdown-toggle-button
             %span More
             %svg.w-5.h-5{fill: "currentColor", viewbox: "0 0 20 20"}
-              %path{"clip-rule" => "evenodd", d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z", "fill-rule" => "evenodd"}
-
-          .classroom-row-dropdown-toggle-button.hidden{data: {target: "toggle.toggleable"}}
-            %span Less
-            %svg.w-5.h-5{fill: "currentColor", viewbox: "0 0 20 20"}
-              %path{"clip-rule" => "evenodd", d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z", "fill-rule" => "evenodd"}
+              %path{"clip-rule" => "evenodd", d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z", "fill-rule" => "evenodd", data: {target: "toggle.toggleable"}}
 
 
-          -# .m-2{"data-controller" => "toggle", "data-toggle-class" => "bg-red-900"}
-          -#   .bg-gray-900.text-blue-500.p-6{"data-action" => "click->toggle#toggle touch->toggle#toggle"}
-          -#     What is the question?
-          -#   .m-4.bg-red-900{"data-target" => "toggle.toggleable"}
-          -#     %p This is the answer
   %div.hidden{data: {target: "dropdown.menu"}}
     - if user_signed_in?
       = render partial: 'rooms_index_row_dropdown', locals: {room: room}, cached: true

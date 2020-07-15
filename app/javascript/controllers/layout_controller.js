@@ -6,13 +6,7 @@ export default class extends Controller {
   initialize() {
 
   }
-  toggleVisability() {
-    console.log(this.formatTargets)
-    this.formatTargets.forEach((el, i) => {
-      console.log(el)
-        el.classList.toggle("hidden", el)
-
-    })
+  toggle() {
   }
 
   resetToggle() {
