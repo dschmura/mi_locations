@@ -33,17 +33,26 @@
 
             .hidden{class: "md:block"}
               %div
-                .text-sm.flex.leading-5.text-gray-500
+                %span.flex.flex-row
+                  .text-sm.flex.leading-5.text-gray-500
 
-                  = link_to "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", target: "_blank" do
-                    .icon= render "icons/calendar-alt_icon", cached: true
-                    %span Room Schedule
+                    = link_to "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", target: "_blank" do
+                      .icon= render "icons/calendar-alt_icon", cached: true
+                      %span Room Schedule
+                    %button.copy-button.actions-button.tooltip.tooltip-top{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy and share this room's description and attributes.", :role => "button" }
+                      .icon= render "icons/share_icon", cached: true
+                      %span Share
+
+                      %input{"data-target" => "clipboard.source", :readonly => "readonly", :style => "position:absolute; left: -10000px; top:-1000px;", :type => "text", :value => "#{room.copy_text}"}
+
 
                 .flex.items-center.mt-2.text-sm.leading-5.text-gray-500
                   -if room.alerts.any?
                     %span.alert-badge.mr-1
                       = "#{room.alerts.size}"
                     Alerts!
+
+
         .classroom-row-dropdown-toggle{data: {controller: "toggle","toggle-class" => "rotary", action:"click->dropdown#toggle touch->toggle#toggle click->toggle#toggle touch->toggle#toggle#toggle"}}
           .classroom-row-dropdown-toggle-button
             %span More
