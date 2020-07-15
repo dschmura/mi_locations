@@ -19,18 +19,17 @@ class RoomsController < ApplicationController
     @searchable_buildings ||=  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).sort
 
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
-    params[:view_preference] ||= "grid"
-    @view_preference = params[:view_preference]
+
 
     respond_to do |format|
-      if params[:view_preference] == "grid"
-        format.js
-        format.html
-        format.json { render json: {entries: render_to_string(partial: "rooms_card", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
-      else
+      if params[:view_preference] == "list_view"
         format.js
         format.html
         format.json { render json: {entries: render_to_string(partial: "rooms_index_row2", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+      else
+        format.js
+        format.html
+        format.json { render json: {entries: render_to_string(partial: "rooms_card", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
       end
     end
   end
@@ -83,14 +82,11 @@ class RoomsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def room_params
-    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :room_panorama, :room_layout, :visible, :page)
+    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :room_panorama, :room_layout, :visible, :page, :view_preference)
   end
 
   def filtering_params
     params.slice(:bluray, :chalkboard, :doccam, :interactive_screen, :instructor_computer, :lecture_capture, :projector_16mm, :projector_35mm, :projector_digital_cinema, :projector_digial, :projector_slide, :team_board, :team_tables, :team_technology, :vcr, :video_conf, :whiteboard).values
   end
 
-  def view_params
-    params.slice(:view_preference).values
-  end
 end

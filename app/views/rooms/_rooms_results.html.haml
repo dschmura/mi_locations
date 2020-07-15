@@ -11,9 +11,9 @@
   .reset-filters= link_to "Reset your filters", rooms_path
 
 .rooms-cards#add-rooms{data: {  target: "toggle.layout infinite-scroll.entries" }}
-  - if params[:view_preference] == "list"
+  - if params[:view_preference] == "list_view"
     = render(partial: "rooms_index_row2", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
-  - if params[:view_preference] == "grid"
+  - if params[:view_preference] == "grid_view"
     = render(partial: "rooms_card", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
 
 
