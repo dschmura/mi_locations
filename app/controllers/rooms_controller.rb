@@ -21,12 +21,17 @@ class RoomsController < ApplicationController
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
     params[:view_preference] ||= "grid"
     @view_preference = params[:view_preference]
-    respond_to do |format|
-      format.js
-      format.html
-      # format.json { render json: @rooms, each_serializer: RoomSerializer }
 
-      format.json { render json: {entries: render_to_string(partial: "rooms_card", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+    respond_to do |format|
+      if params[:view_preference] == "grid"
+        format.js
+        format.html
+        format.json { render json: {entries: render_to_string(partial: "rooms_card", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+      else
+        format.js
+        format.html
+        format.json { render json: {entries: render_to_string(partial: "rooms_index_row2", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+      end
     end
   end
 
