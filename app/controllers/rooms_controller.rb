@@ -22,10 +22,11 @@ class RoomsController < ApplicationController
 
 
     respond_to do |format|
+      params[:view_preference] ||= "grid_view"
       if params[:view_preference] == "list_view"
         format.js
         format.html
-        format.json { render json: {entries: render_to_string(partial: "rooms_index_row", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+        format.json { render json: {entries: render_to_string(partial: "rooms_row", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
       else
         format.js
         format.html
