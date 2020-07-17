@@ -71,6 +71,14 @@ module RoomsSearchHelper
     end
   end
 
+  def list_view
+    params[:view_preference].try(:include?, 'list_view') ? "view-selected"  : ""
+  end
+
+  def grid_view
+    params[:view_preference].try(:include?, "grid_view") ? "view-selected" : ""
+  end
+
   def capacity_slider_minimum
     if params[:q]
       if params[:q][:instructional_seating_count_gteq]
