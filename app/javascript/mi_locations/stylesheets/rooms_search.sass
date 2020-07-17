@@ -39,3 +39,40 @@
       @apply block
     @screen xl
       @apply text-sm
+
+.search-result-tools
+  @apply flex flex-row justify-between align-middle px-4 mt-1
+  @screen sm
+    @apply px-8 mt-0 flex-wrap
+  @screen xl
+    @apply justify-between px-4 mt-4
+
+.sort-matches
+  @apply flex text-sm text-gray-300 mt-2 justify-between w-full
+  @screen xl
+    @apply -mt-10 w-56 justify-between
+
+.matches
+  @apply  text-sm ml-4
+  @screen xl
+    @apply -ml-1 mt-4
+
+.view-preferences
+  @apply z-0 inline-flex shadow-sm align-middle object-center
+  @screen xl
+    @apply mt-8 -ml-1
+.view-preference-options
+  @apply  relative inline-flex items-center h-6 py-1 px-2  border border-gray-300  text-sm font-light text-gray-600 transition ease-in-out duration-150 bg-white
+  &:hover
+    @apply text-blue-800
+  &:focus
+    @apply z-10 outline-none border-blue-300
+  &:active
+    @apply bg-gray-100 text-gray-500
+  @screen xl
+    @apply
+
+.active-preference
+  @apply bg-blue-200 text-blue-800
+.rotary
+  @apply transform rotate-180

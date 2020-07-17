@@ -1,8 +1,0 @@
-.rooms-index-card-building-badge
-  - if room.building.building_image.attached?
-    = image_tag room.building.building_image, alt: "#{room.building.name.titleize}", title: "#{room.building.name.titleize}"
-  - else
-
-    .building-badge-slug
-      .h-6.w-10.rounded-full
-        = image_tag "#{asset_pack_path('media/mi_locations/images/MiLocationsLogo.png')}", alt: "Link to #{room.building.name.titleize}", title: "Link to #{room.building.name.titleize}"

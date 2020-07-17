@@ -8,7 +8,7 @@ gem "rails", "~> 6.0.3"
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
 # Use Puma as the app server
-gem "puma", "~> 3.12"
+gem "puma", "~> 4.3.5"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 # gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem "webpacker", github: "rails/webpacker"
@@ -73,7 +73,7 @@ group :development do
   gem "capistrano-postgresql"
   gem "capistrano-rails", require: false
   gem "capistrano-rbenv", require: false
-  gem "capistrano3-puma", require: false
+  gem "capistrano3-puma", "~> 4.0", require: false
   gem "erb2haml"
   gem "guard-bundler", require: false
   gem "guard-rails", require: false

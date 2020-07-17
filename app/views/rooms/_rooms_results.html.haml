@@ -11,9 +11,14 @@
   .reset-filters= link_to "Reset your filters", rooms_path
 
 .rooms-cards#add-rooms{data: {  target: "toggle.layout infinite-scroll.entries" }}
-  -# = render(partial: "rooms_index_row2", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
-  = render(partial: "rooms_card", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
+  - if params[:view_preference] == "list_view"
+    = render(partial: "rooms_row", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
 
+  -# - if params[:view_preference] == "grid_view"
+    = render(partial: "rooms_card", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
+
+  - if params[:view_preference] == "grid_view"
+    = render(partial: "rooms_card", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
 
   .rooms-cards#rooms-cards
 
@@ -33,13 +38,3 @@
     -unless @pagy.page == @pagy.count
       #view-more{data: {target: "infinite-scroll.pagination"}}
         = pagy_nav(@pagy).html_safe
-
-
-  -# .z-40
-  -#   #pagination-page= @rooms.current_page
-  -#   - unless @rooms.current_page == @rooms.total_pages
-  -#     #view-more{data: {target: "infinite-scroll.pagination"}}
-  -#       = link_to_next_page @rooms, "View More", class: "view-more-link", remote: true
-  -#     -# = link_to 'TOP', '#', class: 'scroll-to--top'
-
-  -#     -# "data-map-mapbox-room" => "#{RoomSerializer.new(@room).to_json.html_safe}"

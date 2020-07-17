@@ -7,13 +7,14 @@ class RoomsController < ApplicationController
     # Filter by characteristics search (returns ActiveRecord relation )
     filtered_rooms ||= Room.classrooms.filter_params(filtering_params)
 
-    @results ||= policy_scope(@q.result.merge(filtered_rooms).includes(:ann_arbor_buildings, :room_image_attachment, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts))
+    @results ||= policy_scope(@q.result.merge(filtered_rooms).includes(:ann_arbor_buildings, :building, :room_image_attachment, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts))
 
     # @rooms = @results.page(params[:page]).per(10).decorate
 
     @results = RoomDecorator.decorate_collection(@results.includes(:ann_arbor_buildings, :room_characteristics))
 
     @pagy, @rooms = pagy(@results, items: 15)
+
     # @rooms_json = serialize_rooms(@rooms.page(params[:page]).per(10))
     @rooms_json = serialize_rooms(@results.includes(:building))
 
@@ -21,13 +22,18 @@ class RoomsController < ApplicationController
 
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
-    respond_to do |format|
-      format.js
-      format.html
-      # format.json { render json: @rooms, each_serializer: RoomSerializer }
-      format.json { render json: {entries: render_to_string(partial: "rooms_card", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
 
-      # format.json { render json: {entries: render_to_string(partial: "rooms_index_row2", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+    respond_to do |format|
+      params[:view_preference] ||= "grid_view"
+      if params[:view_preference] == "list_view"
+        format.js
+        format.html
+        format.json { render json: {entries: render_to_string(partial: "rooms_row", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+      else
+        format.js
+        format.html
+        format.json { render json: {entries: render_to_string(partial: "rooms_card", collection: @rooms, as: :room, formats: [:html], cached: true), pagination: view_context.pagy_nav(@pagy) }}
+      end
     end
   end
 
@@ -79,10 +85,11 @@ class RoomsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def room_params
-    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :room_panorama, :room_layout, :visible, :page)
+    params.require(:room).permit(:rmrecnbr, :latitude, :longitude, :floor, :room_number, :facility_code_heprod, :rmtyp_description, :dept_id, :dept_grp, :square_feet, :instructional_seating_count, :building_id, :room_image, :room_panorama, :room_layout, :visible, :page, :view_preference)
   end
 
   def filtering_params
     params.slice(:bluray, :chalkboard, :doccam, :interactive_screen, :instructor_computer, :lecture_capture, :projector_16mm, :projector_35mm, :projector_digital_cinema, :projector_digial, :projector_slide, :team_board, :team_tables, :team_technology, :vcr, :video_conf, :whiteboard).values
   end
+
 end

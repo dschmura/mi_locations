@@ -21,13 +21,13 @@
             .search-by-building-name#buidling_name{class: "block w-full  transition duration-150 ease-in-out rounded-none form-input py-0 rounded-l-md sm:text-sm sm:leading-5 "}
               .h-8= f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
           - if current_user
-            %button.search-filters-button{class: "", data: {action: "click->toggle#filtertoggle touch->toggle#filtertoggle"}}
+            %button.search-filters-button{class: "", data: {action: "click->toggle#toggle touch->toggle#toggle"}}
               %span.ml-2.text-gray-600
                 .additional-filters-button
-                  %svg{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", data: {target: "toggle.filters" } }
+                  %svg{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", data: {target: "toggle.toggleable" } }
                     %path{:d => "M504 384H192v-40c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24v40H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h88v40c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24v-40h312c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8zm-344 64h-32v-96h32v96zM504 96H256V56c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24v40H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h152v40c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24v-40h248c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8zm-280 64h-32V64h32v96zm280 80h-88v-40c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24v40H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h312v40c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24v-40h88c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8zm-120 64h-32v-96h32v96z"}
 
-                  %svg.hidden{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", data: {target: "toggle.filters" }}
+                  %svg.hidden{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", data: {target: "toggle.toggleable" }}
                     %path{:d => "M160 168v-48c0-13.3-10.7-24-24-24H96V8c0-4.4-3.6-8-8-8H72c-4.4 0-8 3.6-8 8v88H24c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h40v312c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8V192h40c13.3 0 24-10.7 24-24zm-32-8H32v-32h96v32zm152 160h-40V8c0-4.4-3.6-8-8-8h-16c-4.4 0-8 3.6-8 8v312h-40c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h40v88c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8v-88h40c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zm-8 64h-96v-32h96v32zm152-224h-40V8c0-4.4-3.6-8-8-8h-16c-4.4 0-8 3.6-8 8v152h-40c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h40v248c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8V256h40c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zm-8 64h-96v-32h96v32z"}
                   %div{class: "xl:hidden"} Filters
 
@@ -38,7 +38,7 @@
 
       = render './search/search_result_tools', cached: true
     - if current_user
-      .filters-container.hidden{data: {target: "toggle.filters" }}
+      .filters-container.hidden{data: {target: "toggle.toggleable" }}
         .capacaity-college
           .filter-by-capacity{data: { controller: "capacity-slider", "capacity-slider-minimum" => "#{capacity_slider_minimum}", "capacity-slider-maximum" => "#{capacity_slider_maximum}" }}
             .capacity-sliders.tooltip.tooltip-capacity-top{data: {tooltip: "Only show rooms with a capacity between #{capacity_slider_minimum} and #{capacity_slider_maximum}" }}
