@@ -18,6 +18,7 @@
 #  updated_at   :datetime         not null
 #
 
-class BuildingSerializer < ActiveModel::Serializer
+class BuildingSerializer
+  include FastJsonapi::ObjectSerializer
   attributes :id, :bldrecnbr, :latitude, :longitude, :name, :nick_name, :abbreviation, :address, :city, :state, :zip
 end

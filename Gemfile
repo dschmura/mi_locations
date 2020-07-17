@@ -66,6 +66,8 @@ end
 group :development do
   gem "annotate", "~> 2.7"
   gem "bullet"
+  gem 'rack-mini-profiler'
+  gem 'memory_profiler'
   gem "capistrano", require: false
   gem "capistrano-bundler", require: false
   gem "capistrano-postgresql"
@@ -98,3 +100,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "fast_jsonapi", "~> 1.5"
