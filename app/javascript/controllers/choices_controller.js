@@ -14,7 +14,6 @@ export default class extends Controller {
     const element = this.choiceTarget
     const choices = new Choices(element, {
       placeholder: true,
-      placeholderValue: "Please select",
       searchFields: ['label'],
       removeItemButton: true,
       maxItemCount: 2

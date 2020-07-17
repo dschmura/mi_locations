@@ -29,7 +29,7 @@
                       %path{d: "M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 9.29583 13.5892 10.4957 12.8907 11.4765L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L11.4765 12.8907C10.4957 13.5892 9.29583 14 8 14C4.68629 14 2 11.3137 2 8Z"}
                   -# %input#buidling_name.block.w-full.pl-10.transition.duration-150.ease-in-out.rounded-none.form-input.rounded-l-md.sm:text-sm.sm:leading-5{placeholder: "Building Name"}/
                   .search-by-building-name#buidling_name{class: "block w-screen max-w-sm md:max-w-2xl xl:w-screen transition duration-150 ease-in-out rounded-none form-input py-0 rounded-l-md sm:text-sm sm:leading-5 "}
-                    .h-8= f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
+                    .h-8= f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {:prompt => 'Building Name'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
 
                 %button.search-filters-button
                   %span.ml-2.text-gray-600

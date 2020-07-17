@@ -7,18 +7,19 @@ class RoomsController < ApplicationController
     # Filter by characteristics search (returns ActiveRecord relation )
     filtered_rooms ||= Room.classrooms.filter_params(filtering_params)
 
-    @results ||= policy_scope(@q.result.merge(filtered_rooms).includes(:ann_arbor_buildings, :building, :room_image_attachment, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts))
+    @results ||= policy_scope(@q.result.merge(filtered_rooms).includes( :building, :room_image_attachment, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts))
 
     # @rooms = @results.page(params[:page]).per(10).decorate
 
-    @results = RoomDecorator.decorate_collection(@results.includes(:ann_arbor_buildings, :room_characteristics))
+    @results = RoomDecorator.decorate_collection(@results.includes(:building, :room_characteristics))
 
     @pagy, @rooms = pagy(@results, items: 15)
 
     # @rooms_json = serialize_rooms(@rooms.page(params[:page]).per(10))
     @rooms_json = serialize_rooms(@results.includes(:building))
-
-    @searchable_buildings ||=  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).sort
+    # @searchable_buildings = ["Placeholder", ""]
+    @searchable_buildings =  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).collect{ |building| [building[0].titleize, building[1] ] }.sort
+    @searchable_buildings.insert(0, "", " Search for a building")
 
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
