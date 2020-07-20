@@ -23,7 +23,7 @@ class RoomsController < ApplicationController
 
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
-
+    fresh_when @rooms
     respond_to do |format|
       params[:view_preference] ||= "grid_view"
       if params[:view_preference] == "list_view"
@@ -77,7 +77,8 @@ class RoomsController < ApplicationController
   end
 
   def set_room
-    @room = Room.includes(:building, :room_characteristics, :room_image_attachment, :alerts, :room_contact).find(params[:id])
+    fresh_when @room
+    @room = Room.includes(:building, :room_characteristics, :room_panorama_attachment, :alerts, :room_contact).find(params[:id])
     authorize @room
     @room_json = serialize_rooms([@room])
     @room = @room.decorate
