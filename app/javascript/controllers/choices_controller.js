@@ -14,10 +14,12 @@ export default class extends Controller {
     const element = this.choiceTarget
     const choices = new Choices(element, {
       placeholder: true,
+      shouldSort: false,
       searchFields: ['label'],
       removeItemButton: true,
       maxItemCount: 2
     })
   }
+
 
 }
