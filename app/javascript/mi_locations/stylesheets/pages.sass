@@ -113,11 +113,22 @@ h1.landing-page-headline
 .choices__item
   @apply bg-blue-200
 
+.choices__input
+  &::-webkit-input-placeholder
+    @apply text-gray-700 opacity-75 font-light text-lg
+  &:-moz-placeholder
+    @apply text-gray-700 opacity-75 font-light text-lg
+
+.choices__input
+
 // Selected item styling
 .choices__inner
+
   .choices__list
+    @apply
+
     .choices__item
-      @apply bg-blue-700 -mt-2
+      @apply bg-blue-700
       &:hover
         @apply bg-blue-800
       @screen xl
@@ -248,7 +259,7 @@ button.search-filters-button
   &:active
     @apply  text-gray-700
   @screen xl
-    @apply  whitespace-no-wrap
+    @apply  whitespace-no-wrap w-2
 
 .additional-filters-button
   @apply flex font-light
@@ -271,7 +282,7 @@ button.search-filters-button
 .search-filters-containers
   @apply  bg-blue-800 whitespace-no-wrap
   @screen xl
-    @apply px-0
+    @apply px-1
     h2
       @apply text-xl
 
