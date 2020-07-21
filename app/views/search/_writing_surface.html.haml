@@ -1,0 +1,10 @@
+.writing-surface
+  %span.filters-section-header Writing Surface
+  .characteristics-arrangement{:class => "sm:w-full "}
+    .filter-item-label
+      = check_box_tag "whiteboard", :whiteboard, params[:whiteboard].try(:include?, 'whiteboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Whiteboard
+
+    .filter-item-label
+      = check_box_tag "chalkboard", :chalkboard, params[:chalkboard].try(:include?, 'chalkboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Chalkboard

@@ -1,7 +1,7 @@
 - content_for :head do
   %link{href: "https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css", rel: "stylesheet"}
 
-.search-filters-2
+.search-filters
   = search_form_for @q, data: { controller: "autosubmit toggle" , target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
 
     .search-filters-containers
@@ -11,7 +11,7 @@
           %h2
             Search for Classrooms
       .search-for-buildings-container
-        %label.filters-section-header-building{for: "building_name"} Buildings
+        // %label.filters-section-header-building{for: "building_name"} Buildings
         .flex.mt-1.shadow-sm
           .relative.flex-grow{class: "focus-within:z-10"}
             .absolute.inset-y-0.left-0.flex.items-center.pl-3.pointer-events-none
@@ -38,99 +38,13 @@
                 = f.submit "Search"
 
       = render './search/search_result_tools', cached: true
+
     - if current_user
-      .filters-container.hidden{data: {target: "toggle.toggleable" }}
-        .capacaity-college
-          .filter-by-capacity{data: { controller: "capacity-slider", "capacity-slider-minimum" => "#{capacity_slider_minimum}", "capacity-slider-maximum" => "#{capacity_slider_maximum}" }}
-            .capacity-sliders.tooltip.tooltip-capacity-top{data: {tooltip: "Only show rooms with a capacity between #{capacity_slider_minimum} and #{capacity_slider_maximum}" }}
-              .filters-section-header.mb-4 Student Capacity
+      .filters-container.hiddens{data: {target: "toggle.toggleable" }}
+        = render './search/capacity_slider',  f: f
+        = render './search/school_or_college',  f: f
 
-              #slider{data: { action:  "click->capacity-slider#updateSlider click->autosubmit#change", target: "capacity-slider.slider"}}
-
-              = f.hidden_field :instructional_seating_count_gteq, {value: "#{capacity_slider_minimum}", data: {target: "capacity-slider.minimum" }, id: 'seating-capacity--min'}
-              = f.hidden_field :instructional_seating_count_lteq, {value: "#{capacity_slider_maximum}", data: {target: "capacity-slider.maximum" }, id: 'seating-capacity--max'}
-
-          .filter-by-school-or-college
-            %span.filters-section-header School or College
-            .ss-search-input-container
-
-              .search-input
-                = f.select :dept_grp_in, [['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']], {:prompt => 'School or College'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
-              %button{type: "submit"}
-                = render "icons/graduation-cap_icon", cached: true
-
-        .classroom-amenities
-          %span.filters-section-header Amenities
-          .characteristics-arrangement
-
-            .filter-item-label
-              = check_box_tag "instructor_computer", :instructor_computer, params[:instructor_computer].try(:include?, 'instructor_computer'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Instrutor Computer
-
-            .filter-item-label
-              = check_box_tag "doccam", :doccam, params[:doccam].try(:include?, 'doccam'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Document Camera
-
-            .filter-item-label
-              = check_box_tag "lecture_capture", :lecture_capture, params[:lecture_capture].try(:include?, 'lecture_capture'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Lecture Capture
-
-            .filter-item-label
-              = check_box_tag "video_conf", :video_conf, params[:video_conf].try(:include?, 'video_conf'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Video Conferencing
-
-            .filter-item-label
-              = check_box_tag "interactive_screen", :interactive_screen, params[:interactive_screen].try(:include?, 'interactive_screen'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Interactive Screen
-
-            .filter-item-label
-              = check_box_tag "bluray", :bluray, params[:bluray].try(:include?, 'bluray'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span{:class => "sm:w-full"} BluRay / DVD Player
-
-        -# .stacked-filters
-        .classroom-type
-          %span.filters-section-header Team Learning
-          .characteristics-arrangement
-
-            .filter-item-label
-
-              = check_box_tag "team_board", :team_board, params[:team_board].try(:include?, 'team_board'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Team Board
-
-            .filter-item-label
-              = check_box_tag "team_tables", :team_tables, params[:team_tables].try(:include?, 'team_tables'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Team Tables
-
-            .filter-item-label
-              = check_box_tag "team_technology", :team_technology, params[:team_technology].try(:include?, 'team_technology'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Team Technology
-
-        .writing-surface
-          %span.filters-section-header Writing Surface
-          .characteristics-arrangement{:class => "sm:w-full "}
-            .filter-item-label
-              = check_box_tag "whiteboard", :whiteboard, params[:whiteboard].try(:include?, 'whiteboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Whiteboard
-
-            .filter-item-label
-              = check_box_tag "chalkboard", :chalkboard, params[:chalkboard].try(:include?, 'chalkboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-              %span Chalkboard
-        %div{:class => "flex flex-col inline-block "}
-          .projection-type
-            %span.filters-section-header Projection
-            .characteristics-arrangement
-              .filter-item-label
-                = check_box_tag "projector_35mm", :projector_35mm, params[:projector_35mm].try(:include?, 'projector_35mm'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span 35mm Film
-
-              .filter-item-label
-                = check_box_tag "projector_digital_cinema", :projector_digital_cinema, params[:projector_digital_cinema].try(:include?, 'projector_digital_cinema'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span Digital Cinema (DCP)
-
-              .filter-item-label
-                = check_box_tag "projector_digial", :projector_digial, params[:projector_digial].try(:include?, 'projector_digial'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span Digital Data & Video
-
-              .filter-item-label
-                = check_box_tag "projector_slide", :projector_slide, params[:projector_slide].try(:include?, 'projector_slide'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-                %span Slide Projector
+        = render './search/classroom_amenities', f: f
+        = render './search/classroom_type', f: f
+        = render 'search/writing_surface', f: f
+        = render 'search/projection_type', f: f

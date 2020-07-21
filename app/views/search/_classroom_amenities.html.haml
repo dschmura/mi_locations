@@ -1,0 +1,27 @@
+.classroom-amenities
+  %span.filters-section-header Amenities
+  .characteristics-arrangement
+
+    .filter-item-label
+      = check_box_tag "instructor_computer", :instructor_computer, params[:instructor_computer].try(:include?, 'instructor_computer'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Instrutor Computer
+
+    .filter-item-label
+      = check_box_tag "doccam", :doccam, params[:doccam].try(:include?, 'doccam'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Document Camera
+
+    .filter-item-label
+      = check_box_tag "lecture_capture", :lecture_capture, params[:lecture_capture].try(:include?, 'lecture_capture'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Lecture Capture
+
+    .filter-item-label
+      = check_box_tag "video_conf", :video_conf, params[:video_conf].try(:include?, 'video_conf'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Video Conferencing
+
+    .filter-item-label
+      = check_box_tag "interactive_screen", :interactive_screen, params[:interactive_screen].try(:include?, 'interactive_screen'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Interactive Screen
+
+    .filter-item-label
+      = check_box_tag "bluray", :bluray, params[:bluray].try(:include?, 'bluray'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span{:class => "sm:w-full"} BluRay / DVD Player

@@ -1,0 +1,18 @@
+.projection-type
+  %span.filters-section-header Projection
+  .characteristics-arrangement
+    .filter-item-label
+      = check_box_tag "projector_35mm", :projector_35mm, params[:projector_35mm].try(:include?, 'projector_35mm'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span 35mm Film
+
+    .filter-item-label
+      = check_box_tag "projector_digital_cinema", :projector_digital_cinema, params[:projector_digital_cinema].try(:include?, 'projector_digital_cinema'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Digital Cinema (DCP)
+
+    .filter-item-label
+      = check_box_tag "projector_digial", :projector_digial, params[:projector_digial].try(:include?, 'projector_digial'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Digital Data & Video
+
+    .filter-item-label
+      = check_box_tag "projector_slide", :projector_slide, params[:projector_slide].try(:include?, 'projector_slide'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Slide Projector

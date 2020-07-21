@@ -3,15 +3,7 @@
     @apply flex flex-row
 
 .rooms-search-bar
-  @apply bg-blue-800 rounded-lg flex flex-col items-stretch  relative w-full my-4 p-4
-
-
-// .search-input
-//   @apply block w-full bg-blue-100 text-blue-900  pl-10 pr-4 py-2
-//   &:focus
-//     @apply outline-none  bg-yellow-200  text-gray-900
-  // @screen lg
-  //   @apply truncate
+  @apply bg-blue-800 rounded-lg flex flex-col items-start  relative w-full p-4
 
 .sort-by-options
   @apply flex flex-row max-w-lg text-right self-center ml-1 text-blue-100 mt-2
@@ -31,17 +23,9 @@
       @apply
     @screen xl
       @apply  text-sm ml-1 text-center self-center
-.search-results
-  @apply bg-yellow-500 px-4 ml-1 rounded-full text-blue-800 self-center
-  .results-view--select
-    @apply hidden
-    @screen sm
-      @apply block
-    @screen xl
-      @apply text-sm
 
 .search-result-tools
-  @apply flex flex-row justify-between align-middle px-4 mt-1
+  @apply flex flex-row justify-between align-middle px-4 pt-2
   @screen sm
     @apply px-8 mt-0 flex-wrap
   @screen xl

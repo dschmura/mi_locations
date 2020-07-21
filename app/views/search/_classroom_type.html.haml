@@ -1,0 +1,16 @@
+.classroom-type
+  %span.filters-section-header Team Learning
+  .characteristics-arrangement
+
+    .filter-item-label
+
+      = check_box_tag "team_board", :team_board, params[:team_board].try(:include?, 'team_board'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Team Board
+
+    .filter-item-label
+      = check_box_tag "team_tables", :team_tables, params[:team_tables].try(:include?, 'team_tables'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Team Tables
+
+    .filter-item-label
+      = check_box_tag "team_technology", :team_technology, params[:team_technology].try(:include?, 'team_technology'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+      %span Team Technology
