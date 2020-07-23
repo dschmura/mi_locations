@@ -28,7 +28,6 @@ import '../mi_locations/stylesheets/room_card2.sass'
 import '../mi_locations/stylesheets/room_show.sass'
 import '../mi_locations/stylesheets/rooms_row.sass'
 import '../mi_locations/stylesheets/rooms_search.sass'
-// import '../mi_locations/stylesheets/search.sass'
 import '../mi_locations/stylesheets/tooltips.sass'
 
 require.context('../mi_locations/images/', true, /.(gif|jpg|jpeg|png|svg)$/)
