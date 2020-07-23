@@ -16,14 +16,13 @@
     -#   Sort
     %span.view-preferences{data: {controller: "layout"}}
 
-
       %label.view-preference-options.rounded-l{class: "#{list_view}"}
         = radio_button_tag "view_preference", :list_view, params[:view_preference].try(:include?, 'list_view'),  {class: 'form-radio hidden ', data: { action: "autosubmit#checkboxSubmit"} }
-        .icon= render "icons/list_icon", cached: true
+        .icon= render "icons/list_icon", remote:true,  cached: true
 
       %label.view-preference-options.rounded-r{class: "#{grid_view}"}
         = radio_button_tag "view_preference", :grid_view, params[:view_preference].try(:include?, 'grid_view'),  {class: 'form-radio hidden', data: { action: "autosubmit#checkboxSubmit"} }
-        .icon= render "icons/th_icon", cached: true
+        .icon= render "icons/th_icon", remote: true, cached: true
 
     .matches{data: {target: "autosubmit.status"}}
       #rooms-search-matches
