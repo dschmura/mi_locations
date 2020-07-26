@@ -8,7 +8,7 @@
     @apply text-xl font-normal py-2
 
 .landing-page--banner
-  @apply flex flex-col pt-24 justify-center items-center mb-4
+  @apply flex flex-col pt-10 justify-center items-center mb-4
   @screen sm
     @apply pt-32
 h1.landing-page-headline
@@ -25,7 +25,7 @@ h1.landing-page-headline
       @apply w-3/5 max-w-3xl
 
 .landing-page-container
-  @apply justify-center text-center mx-auto self-center object-center align-middle
+  @apply   mx-auto
 /* The hero image */
 .hero-image
   background-image: url("../images/vistas/cube.jpg")
@@ -46,7 +46,9 @@ h1.landing-page-headline
   @apply  mt-16
 
 .legacy-crdb
-  @apply  shadow-xl p-4  bg-blue-100 border border-blue-200 rounded-lg text-sm w-2/3 mx-auto clear-both z-50 mt-4
+  @apply  shadow-xl p-4 bg-blue-100 border border-blue-200 rounded-lg text-sm w-5/6 mx-auto z-50 mt-4
+  @screen sm
+    @apply w-2/3
   @screen md
     @apply text-lg w-4/6 max-w-5xl
     h1
@@ -89,16 +91,15 @@ h1.landing-page-headline
 
 #rooms-results
   @apply relative inline-block pb-20
-  top: 200px
   @screen xl
-    @apply top-0 mt-20 pt-6
+    @apply top-0 mt-14 pt-6
 
 .leaflet-marker-pane
   img
     @apply w-3
 
 .choices
-  @apply z-30 text-left
+  @apply  text-left
   .choices__inner
     @apply bg-blue-100 p-0 rounded min-h-0 h-8 border-none
     .choices__input
@@ -143,11 +144,6 @@ h1.landing-page-headline
     @apply text-green-800
   &:hover
     @apply bg-green-400 text-green-900
-
-.filter-by-building
-  @apply  my-auto grid grid-cols-8 z-40 self-start
-  @screen xl
-    @apply  my-0
 
 .matches
   @apply text-yellow-500 text-sm font-semibold text-right self-center mr-6 align-middle justify-center w-16 object-center
@@ -196,7 +192,7 @@ button.search-filters-button
     &:focus
       @apply
   @screen xl
-    @apply w-full
+    @apply w-full hidden
 
 .search-filters-button
   @apply relative inline-flex items-center px-4 py-0 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-r-lg bg-blue-200
@@ -226,8 +222,6 @@ button.search-filters-button
     @apply border-none
   @screen xl
     @apply pl-0
-
-
 
 .search-for-buildings-container
   @apply px-4
@@ -265,3 +259,25 @@ button.search-filters-button
     @apply self-center align-middle
     svg
       @apply h-5 w-5 fill-current bg-green-400 rounded-full text-green-100 p-1
+
+
+.search-container
+  @apply mx-auto flex flex-col justify-center mx-auto w-full max-w-md
+  @screen sm
+    @apply flex-row max-w-2xl
+
+  .filter-by
+    @apply p-1 mx-4 my-2 w-full
+
+
+
+  .filter-by-building
+    @apply
+
+  .filter-by-building-name
+    @apply
+
+  .filter-by-school-or-college-name
+    @apply
+    @screen sm
+      @apply
