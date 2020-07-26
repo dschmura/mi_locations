@@ -12,8 +12,7 @@ class RoomsController < ApplicationController
 
     @results = RoomDecorator.decorate_collection(@results.includes(:building, :room_characteristics))
 
-    @pagy, @rooms = pagy(@results, items: 15)
-
+    @pagy, @rooms = pagy(@results, items: 9)
 
     @rooms_json = serialize_rooms(@results.includes(:building))
     @searchable_buildings =  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).collect{ |building| [building[0].titleize, building[1] ] }.sort
