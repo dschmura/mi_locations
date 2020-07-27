@@ -79,7 +79,7 @@ h1.landing-page-headline
     @apply flex col-span-8 justify-between  text-blue-200  text-sm px-4
 
 #rooms-results
-  @apply relative inline-block pb-20
+  @apply relative inline-block pb-20 mt-60
   @screen xl
     @apply top-0 mt-14 pt-6 ml-64
 
@@ -90,9 +90,9 @@ h1.landing-page-headline
 .choices
   @apply  text-left
   .choices__inner
-    @apply bg-blue-100 p-0 rounded min-h-0 h-8 border-none
+    @apply bg-blue-100 p-0 rounded min-h-0 h-10 border-none
     .choices__input
-      @apply bg-blue-100 text-blue-800 font-semibold  ml-1 mt-2
+      @apply bg-blue-100 text-blue-800 font-semibold  ml-1 mt-2 z-50
 
 .choices__item
   @apply bg-blue-200
@@ -103,16 +103,16 @@ h1.landing-page-headline
   &:-moz-placeholder
     @apply text-gray-700 opacity-75 font-light text-lg
 
-.choices__input
+
 
 // Selected item styling
 .choices__inner
-
+  @apply z-50
   .choices__list
-    @apply
+
 
     .choices__item
-      @apply bg-blue-700
+      @apply bg-blue-700 z-50
       &:hover
         @apply bg-blue-800
       @screen xl
@@ -137,6 +137,7 @@ h1.landing-page-headline
 .matches
   @apply text-yellow-500 text-sm font-semibold text-right self-center mr-6 align-top w-16
   @screen xl
+    @apply -mt-8
 
 .view-more-link
   @apply text-red-500 z-50 ml-10

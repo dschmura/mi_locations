@@ -10,7 +10,7 @@
         .flex-1.min-w-0
           %h2
             Filter Classrooms
-        .matches{data: {target: "autosubmit.status"}}
+        .matches{class: "xl:hidden", data: {target: "autosubmit.status"}}
           #rooms-search-matches= matches(@results.size)
       .search-for-buildings-container
         // %label.filters-section-header-building{for: "building_name"} Buildings
@@ -24,7 +24,7 @@
       = render './search/search_result_tools', cached: true
 
     - if current_user
-      .filters-container.hidden{data: {target: "toggle.toggleable" }}
+      .filters-container.hiddens{data: {target: "toggle.toggleable" }}
         .capacity-school
           = render './search/capacity_slider',  f: f
           = render './search/school_or_college',  f: f
