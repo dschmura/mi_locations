@@ -12,7 +12,7 @@
         .icon= render "icons/th_icon", remote: true, cached: true
 
     .here
-      -# - if current_user
+    - if current_user
       %button.search-filters-button{data: {action: "click->toggle#toggle touch->toggle#toggle"}}
         .additional-filters-button
           %svg{:viewbox => "0 0 512 512", :xmlns => "http://www.w3.org/2000/svg", data: {target: "toggle.toggleable" } }
