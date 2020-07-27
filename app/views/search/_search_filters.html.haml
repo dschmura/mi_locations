@@ -24,7 +24,7 @@
       = render './search/search_result_tools', cached: true
 
     - if current_user
-      .filters-container.hiddens{data: {target: "toggle.toggleable" }}
+      .filters-container.hidden{data: {target: "toggle.toggleable" }}
         .capacity-school
           = render './search/capacity_slider',  f: f
           = render './search/school_or_college',  f: f
