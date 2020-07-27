@@ -78,21 +78,10 @@ h1.landing-page-headline
   .buttons
     @apply flex col-span-8 justify-between  text-blue-200  text-sm px-4
 
-.sort-options
-  @apply px-4
-  @screen xl
-    @apply absolute mt-1
-    left: 1rem
-    top: 10rem
-
-.filters-toggle
-  @screen xl
-    @apply inline-block overflow-y-auto max-w-full w-full bg-green-800 -mr-2
-
 #rooms-results
   @apply relative inline-block pb-20
   @screen xl
-    @apply top-0 mt-14 pt-6
+    @apply top-0 mt-14 pt-6 ml-64
 
 .leaflet-marker-pane
   img
@@ -146,7 +135,7 @@ h1.landing-page-headline
     @apply bg-green-400 text-green-900
 
 .matches
-  @apply text-yellow-500 text-sm font-semibold text-right self-center mr-6 align-middle justify-center w-16 object-center
+  @apply text-yellow-500 text-sm font-semibold text-right self-center mr-6 align-top w-16
   @screen xl
 
 .view-more-link
@@ -185,30 +174,22 @@ h1.landing-page-headline
 .ss-search
   @apply text-center mb-4
 
-button.search-filters-button
-  @apply  whitespace-no-wrap
-  input
-    @apply bg-transparent
-    &:focus
-      @apply
-  @screen xl
-    @apply w-full hidden
 
 .search-filters-button
-  @apply relative inline-flex items-center px-4 py-0 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-r-lg bg-blue-200
+  @apply relative inline-flex items-center py-0 px-2 text-sm font-medium  text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded bg-blue-100 align-middle
   &:hover
-    @apply text-gray-800 bg-blue-300
+    @apply text-gray-800 bg-blue-200
   &:focus
-    @apply outline-none shadow-outline-blue
+    @apply outline-none shadow-outline-blue bg-blue-300
   &:active
     @apply  text-gray-700
   @screen xl
-    @apply  whitespace-no-wrap w-2
+    @apply  hidden
 
 .additional-filters-button
-  @apply flex font-light
+  @apply flex font-light align-middle
   svg
-    @apply h-4 w-4  mr-2 fill-current
+    @apply h-4 w-4  mr-2 fill-current align-middle
   @screen xl
     svg
       @apply hidden
@@ -233,7 +214,7 @@ button.search-filters-button
       @apply min-w-full max-w-3xl
 
 .classrooms-page-header
-  @apply px-4 justify-end
+  @apply px-4 flex flex-row justify-between align-middle
   @screen sm
     @apply px-8
   @screen lg

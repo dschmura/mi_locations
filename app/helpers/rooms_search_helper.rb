@@ -102,3 +102,7 @@ module RoomsSearchHelper
     end
   end
 end
+
+def matches(results)
+  "#{results} #{ pluralize_without_count(results, 'Match')}"
+end
