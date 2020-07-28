@@ -24,12 +24,12 @@
   @apply h-96 relative
 
 .room-image
-  @apply bg-gray-500 relative pb-2/3  overflow-hidden max-w-xl
+  @apply bg-gray-500 relative pb-2/3  overflow-hidden max-w-screen-md
   img
     @apply h-full w-full object-cover absolute top-0 shadow-md
 
 .card-content-container
-  @apply px-4 -mt-48 max-w-sm mx-auto static
+  @apply px-4 -mt-40 max-w-sm mx-auto static
   top: 300px
   @screen sm
     @apply -mt-10
@@ -83,11 +83,11 @@
       @apply  text-gray-700 flex
 
 .room-visibility-toggle
-  @apply px-2 bg-yellow-300 text-yellow-800 rounded-full text-sm self-center w-24  ml-4 absolute mt-6 z-10
+  @apply flex px-1 bg-yellow-300 text-yellow-800 rounded-full text-sm  w-20  ml-4 absolute mt-6 z-10 text-center justify-center
   &:hover
     @apply bg-yellow-400
-  svg
-    @apply align-middle text-xl
+  .icon
+    @apply align-middle
 
 .card-dimmed
   @apply opacity-50
