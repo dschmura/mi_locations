@@ -41,20 +41,23 @@ class RoomPolicy < ApplicationPolicy
     end
   end
 
-  def user_in_group?
-    # user.authorized_groups.includes?
-    if user.mcommunity_groups.include?("mi-locations-notify")
-      true
-    else
-      false
-    end
-  end
-
   def toggle_visibility?
     if user && user_in_group?
       true
     else
       false
     end
+  end
+end
+
+
+private
+
+def user_in_group?
+  # user.authorized_groups.includes?
+  if user.mcommunity_groups.include?("mi-locations-notify")
+    true
+  else
+    false
   end
 end
