@@ -1,3 +1,4 @@
+console.log("Start")
 import { Controller } from "stimulus"
 import 'leaflet/dist/leaflet.css';
 import { get } from 'http'
@@ -6,11 +7,10 @@ import mapMarker from "../mi_locations/images/icons/map-marker.svg"
 export default class extends Controller {
   static targets = ["mapid"]
 
-  initialize(){
-
+  connect(){
     let mapBoxToken = this.data.get("mapbox-token");
-    const rooms = JSON.parse(this.data.get("mapbox-room"));
-
+    const incoming = JSON.parse(this.data.get("mapbox-room"));
+    const rooms = Object.entries(incoming);
     this.createMap(rooms, mapBoxToken);
 
   }
@@ -62,11 +62,12 @@ export default class extends Controller {
     let averageLongitude = 0;
     let roomsCount = (rooms.length ? 0 : 1);
 
-    rooms.forEach(function(room, i){
-      if (room.building.latitude != null || room.building.longitude != null){
+    rooms[0][1].forEach(function(room, i){
+      console.log(room.attributes.building.latitude)
+      if (room.attributes.building.latitude != null || room.attributes.building.longitude != null){
         roomsCount++;
-        averageLatitude = averageLatitude + rooms[i].building.latitude;
-        averageLongitude = averageLongitude + rooms[i].building.longitude;
+        averageLatitude = averageLatitude + room.attributes.building.latitude;
+        averageLongitude = averageLongitude + room.attributes.building.longitude;
 
       }
     });
@@ -95,8 +96,9 @@ export default class extends Controller {
       className: 'map-marker-icon'
 
     });
-
-    for( var i = 0; i < rooms.length; i++ ) {
+    console.log(rooms[0][1].length)
+    for( var i = 0; i < rooms[0][1].length; i++ ) {
+      console.log(rooms[i][0])
       if (rooms[i].building.latitude != null || rooms[i].building.longitude != null){
 
         let marker = L.marker([rooms[i].building.latitude, rooms[i].building.longitude], {
