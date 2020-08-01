@@ -1,10 +1,7 @@
 .writing-surface
   %span.filters-section-header Writing Surface
   .characteristics-arrangement{:class => "sm:w-full "}
-    .filter-item-label
-      = check_box_tag "whiteboard", :whiteboard, params[:whiteboard].try(:include?, 'whiteboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-      %span Whiteboard
 
-    .filter-item-label
-      = check_box_tag "chalkboard", :chalkboard, params[:chalkboard].try(:include?, 'chalkboard'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-      %span Chalkboard
+    = render partial: './search/filter_checkbox', locals: {filter_item: "whiteboard", label: "Whiteboard", tooltip: "Room contains a whiteboard writing surface of any size."}, cached: true
+
+    = render partial: './search/filter_checkbox', locals: {filter_item: "chalkboard", label: "Chalkboard", tooltip: "Room contains a chalkboard writing surface of any size."}, cached: true

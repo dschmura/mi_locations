@@ -1,0 +1,6 @@
+.filter-item-label{data: {controller: "popover", action: "mouseover->popover#mouseOver mouseout->popover#mouseOut"}}
+  = check_box_tag "#{filter_item}", "#{filter_item}", params[:filter_item].try(:include?, "#{filter_item}"),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+  %span
+    = "#{label}"
+  .tooltip.hidden{"data-target" => "popover.content"}
+    = "#{tooltip}"

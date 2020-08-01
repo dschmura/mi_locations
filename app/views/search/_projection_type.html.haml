@@ -1,18 +1,10 @@
 .projection-type
   %span.filters-section-header Projection
   .characteristics-arrangement
-    .filter-item-label
-      = check_box_tag "projector_35mm", :projector_35mm, params[:projector_35mm].try(:include?, 'projector_35mm'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-      %span 35mm Film
+    = render partial: './search/filter_checkbox', locals: {filter_item: "projector_35mm", label: "35mm Film", tooltip: "Room contains 35mm film projector."}, cached: true
 
-    .filter-item-label
-      = check_box_tag "projector_digital_cinema", :projector_digital_cinema, params[:projector_digital_cinema].try(:include?, 'projector_digital_cinema'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-      %span Digital Cinema (DCP)
+    = render partial: './search/filter_checkbox', locals: {filter_item: "projector_digital_cinema", label: "Digital Cinema (DCP)", tooltip: "Room contains Digital Cinema projector."}, cached: true
 
-    .filter-item-label
-      = check_box_tag "projector_digial", :projector_digial, params[:projector_digial].try(:include?, 'projector_digial'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-      %span Digital Data & Video
+    = render partial: './search/filter_checkbox', locals: {filter_item: "projector_digial", label: "Digital Data & Video", tooltip: "Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR."}, cached: true
 
-    .filter-item-label
-      = check_box_tag "projector_slide", :projector_slide, params[:projector_slide].try(:include?, 'projector_slide'),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
-      %span Slide Projector
+    = render partial: './search/filter_checkbox', locals: {filter_item: "projector_slide", label: "Slide Projector", tooltip: "Room contains a traditional slide projector for the display of photographic slides."}, cached: true
