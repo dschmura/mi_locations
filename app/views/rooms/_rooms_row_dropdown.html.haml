@@ -1,19 +1,12 @@
 .classroom-row-dropdown
 
   %div
-    -# .relative
-      -# .absolute.inset-0.bg-gray-100{class: "h-1/2"}
     .relative.mx-auto{class: ""}
       .mx-auto.rounded-lg.shadow-lg.overflow-hidden.pb-10{class: "md:max-w-none md:flex"}
         %span.w-full
 
           .classroom-row-dropdown-features-section
             - if room.room_characteristics
-              -# .classroom-row-dropdown-features-group
-              -#   %h4.features-header
-              -#     Top Matter
-              -#   %hr
-
               %ul.classroom-row-dropdown-features.top-row
                 = link_to  "", {:role => "button", :class => " button tooltip tooltip-top ", data: { tooltip: "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces." }} do
                   %li.classroom-row-dropdown-feature

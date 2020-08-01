@@ -20,7 +20,6 @@ export default class extends Controller {
     let centerPoints = this.findCenterPoint(rooms);
 
     if (centerPoints[0] != centerPoints[0]) {
-
       let mymap = L.map('mapid').setView([42.277461, -83.738293], 13);
       this.addTile(mymap, token);
       this.resizeMap(mymap);
@@ -28,6 +27,7 @@ export default class extends Controller {
       let mymap = L.map('mapid').setView([centerPoints[0], centerPoints[1]], 15);
       this.addTile(mymap, token);
       this.addMarkers(mymap, rooms);
+
       this.resizeMap(mymap);
     }
 
@@ -43,7 +43,7 @@ export default class extends Controller {
   }
 
   addCircle(map, room){
-    let circle = L.circle([room.building.latitude, room.building.longitude], {
+    let circle = L.circle([room.attributes.building.latitude, room.attributes.building.longitude], {
       color: '#2c5282',
       fillColor: '#2c5282',
       fillOpacity: 0.3,
@@ -102,6 +102,13 @@ export default class extends Controller {
         let marker = L.marker([room.attributes.building.latitude, room.attributes.building.longitude], {
           icon: mapIcon
         }).addTo(map);
+
+        let popup = L.popup()
+        .setLatLng([room.attributes.building.latitude, room.attributes.building.longitude])
+        .setContent("I am a standalone popup.")
+        .openOn(map);
+
+
       }
     });
 
