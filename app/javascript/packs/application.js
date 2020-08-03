@@ -54,4 +54,16 @@ import 'trix/dist/trix.css'
 
 // });
 
-import "controllers"
+// import "controllers"
+
+
+import "../controllers/autosubmit_controller.js"
+import "../controllers/capacity_slider_controller.js"
+import "../controllers/choices_controller.js"
+import "../controllers/clipboard_controller.js"
+import "../controllers/index.js"
+import "../controllers/infinite_scroll_controller.js"
+import "../controllers/map_controller.js"
+import "../controllers/pannellum_controller.js"
+import "../controllers/popover_controller.js"
+import "../controllers/toggle_controller.js"
