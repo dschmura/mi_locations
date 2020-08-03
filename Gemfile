@@ -53,7 +53,6 @@ gem "omniauth-google-oauth2"
 gem "rack-mini-profiler"
 gem "flamegraph"
 gem "stackprof"
-gem 'snowpacker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
