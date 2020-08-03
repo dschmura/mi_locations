@@ -1,12 +1,46 @@
-%footer.footer
-  %nav
-    = link_to lsa_tech_services_url, target: "_blank" do
-      -# = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'footer-logo' )
-      = image_tag(asset_pack_path('media/mi_locations/images/LSA_TechnologyServices_Pill.png'), alt: 'MiLocations Logo, link to home page.', class: 'footer-logo' )
-    .footer-links
-      = link_to 'About', about_path
-      = link_to 'Contact', contact_path
-      = link_to 'Privacy Policy', privacy_path
+-# %footer.footer
+-#   %nav
+-#     = link_to lsa_tech_services_url, target: "_blank" do
+-#       -# = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'footer-logo' )
+-#       = image_tag(asset_pack_path('media/mi_locations/images/LSA_TechnologyServices_Pill.png'), alt: 'MiLocations Logo, link to home page.', class: 'footer-logo' )
+-#     .footer-links
+-#       = link_to 'About', about_path
+-#       = link_to 'Contact', contact_path
+-#       = link_to 'Privacy Policy', privacy_path
 
+
+-#   .footer-copyright
+-#     = link_to "© 2020 - Copyright The Regents of the University of Michigan", 'https://www.umich.edu/', target: '_blank'
+
+
+-# %footer.footer
+  %nav.footer-links
+    = link_to 'About', about_path
+    = link_to 'Contact', contact_path
+    = link_to 'Privacy Policy', privacy_path
+  .footer-branding
+    %logo
+      = link_to lsa_tech_services_url, target: "_blank" do
+        = image_tag(asset_pack_path('media/mi_locations/images/technology_services_logo.svg'), alt: 'MiLocations Logo, link to home page.', class: 'footer-logo' )
+
+    %copyright.footer-copyright
+      = link_to 'https://www.umich.edu/', target: '_blank' do
+        .full-copyright
+          © 2020 The Regents of the University of Michigan
+        .stacked-copyright
+          © 2020 The Regents of
+          %br
+          the University of Michigan
+
+
+.footer
+
+  %nav.footer-links
+    = link_to 'About', about_path
+    = link_to 'Contact', contact_path
+    = link_to 'Privacy', privacy_path
+  .footer-logo
+    = link_to lsa_tech_services_url, target: "_blank" do
+      = image_tag(asset_pack_path('media/mi_locations/images/technology_services_logo.svg'), alt: 'MiLocations Logo, link to home page.' )
   .footer-copyright
     = link_to "© 2020 - Copyright The Regents of the University of Michigan", 'https://www.umich.edu/', target: '_blank'
