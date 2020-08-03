@@ -18,15 +18,17 @@
     @apply bg-blue-200 text-blue-600
 
 .feedback-modal-button
-  @apply  bg-blue-700 font-bold rounded w-24 text-center fixed right-0 pb-4 -mr-10 top-0 mt-96 z-50 transform -rotate-90
+  @apply  bg-blue-700 text-base font-semibold rounded w-24 text-center fixed right-0 pb-4 -mr-10 top-0 mt-1/4 z-50 transform -rotate-90 bg-opacity-75
   a
     @apply text-blue-100
   &:hover
-    @apply bg-blue-600
+    @apply bg-blue-600 bg-opacity-100
 
 .feedback-modal-container
-  @apply w-full
+  @apply w-full max-w-md overflow-scroll
   top: 10%
+  @screen sm
+    @apply max-w-full
 
 .feedback-modal-inner-container
   @apply  max-h-screen w-full max-w-3xl relative mx-auto
