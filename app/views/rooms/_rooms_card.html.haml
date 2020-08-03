@@ -49,12 +49,12 @@
             %i.fas.fa-directions
             %span Directions
 
-        .schedule-button.actions-button.tooltip.tooltip-top{  "data-tooltip" => "See the schedule for #{room.room_number} #{room.building.name.titleize}. ** Open's new page." }
+        .schedule-button.actions-button.tooltips.tooltip-top{  "data-tooltip" => "See the schedule for #{room.room_number} #{room.building.name.titleize}. ** Open's new page." }
           = link_to "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }" do
             .icon= render "icons/calendar-alt_icon", cached: true
             %span Schedule
 
-        %button.copy-button.actions-button.tooltip.tooltip-top{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy and share this room's description and attributes.", :role => "button" }
+        %button.copy-button.actions-button.tooltips.tooltip-top{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy and share this room's description and attributes.", :role => "button" }
           .icon= render "icons/share_icon", cached: true
           %span Share
 
