@@ -33,6 +33,7 @@ working_files/
 .vscode/
 /public/packs
 /public/packs-test
+/public/snowpacks
 /node_modules
 /yarn-error.log
 yarn-debug.log*
