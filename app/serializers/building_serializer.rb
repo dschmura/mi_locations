@@ -20,5 +20,16 @@
 
 class BuildingSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :bldrecnbr, :latitude, :longitude, :name, :nick_name, :abbreviation, :address, :city, :state, :zip
+  has_many :classrooms
+  attributes :id,
+   :bldrecnbr,
+   :latitude,
+   :longitude,
+   :name,
+   :nick_name, :abbreviation,
+   :address,
+   :city,
+   :state,
+   :zip
+
 end
