@@ -1,0 +1,43 @@
+%main{class: "pb-20 lg:relative"}
+  .w-full.pt-16.pb-20.mx-auto.text-center.max-w-7xl{class: " lg:py-48 lg:text-right"}
+    .relative.w-full.h-64{class: " sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2"}
+
+
+      - if @building.building_image.attached?
+
+        = image_tag(url_for(@building.building_image), alt: "Image of #{@building.name.titleize}.", class: " absolute inset-0 object-cover w-full h-full")
+
+      - else
+        = image_tag(asset_pack_path('media/mi_locations/images/vistas/cube.jpg'), alt: "Image of #{@building.name.titleize} not available", loading: "lazy", class: " absolute inset-0 object-cover w-full h-full")
+
+
+    .px-4{class: "sm:px-8 lg:w-1/2 xl:pr-16"}
+      %h2.text-4xl.font-light.leading-10.tracking-tight.text-gray-900{class: "sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl"}
+        = @building.name
+        %br{class: "xl:hidden"}
+        %span.text-3xl.text-blue-800= @building.address.titleize
+      %div.max-w-md.mx-auto.mt-3.text-lg.text-gray-500{class: " sm:text-xl md:mt-5 md:max-w-3xl invisible"}
+        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+      .mt-10{class: "sm:flex sm:justify-center lg:justify-start"}
+        .rounded-md.shadow
+
+          = link_to "#{rooms_path}?q%5Bbuilding_name_or_building_nick_name_or_building_abbreviation_in%5D=#{@building.name}", class: " flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue md:py-4 md:text-lg md:px-10" do
+            Classroom Search
+        .mt-3.rounded-md.shadow{class: "sm:mt-0 sm:ml-3"}
+          %a.flex.items-center.justify-center.w-full.px-8.py-3.text-base.font-medium.leading-6.text-blue-600.transition.duration-150.ease-in-out.bg-white.border.border-transparent.rounded-md{class: " hover:text-blue-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue md:py-4 md:text-lg md:px-10", :href => "#"}
+            Map
+
+
+
+.room-map-toggle{data: {controller: "map toggle", action: "click->toggle#roomsmapToggle", "map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}", "map-mapbox-room" => @building_json }}
+  .map{data: {target: "toggle.roomsmap" }}
+    .icon= render 'icons/map-marked-alt_icon', cached: true
+    Map
+  .close-map.hidden{data: {target: "toggle.roomsmap" }}
+    .icon= render 'icons/close_icon', cached: true
+    Close
+
+.building-map.hidden{data: {target: "toggle.roomsmap" }}
+  #mapid
+
+.room-show-image{data: {target: "toggle.roomsmap" }}
