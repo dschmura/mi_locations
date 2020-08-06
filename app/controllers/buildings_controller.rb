@@ -18,6 +18,7 @@ class BuildingsController < ApplicationController
   end
 
   def show
+
   end
 
   def update
@@ -34,10 +35,14 @@ class BuildingsController < ApplicationController
 
   private
 
+  def serialize_buildings(buildings)
+    BuildingSerializer.new(buildings, each_serializer: BuildingSerializer).serialized_json
+  end
   # Use callbacks to share common setup or constraints between actions.
   def set_building
     @building = Building.find(params[:id])
     authorize @building
+    @building_json = serialize_buildings([@building])
   end
 
   def building_params
