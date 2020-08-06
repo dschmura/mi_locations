@@ -1,18 +1,6 @@
-.image-container
-  .building-show-image
-    = link_to @building do
-      - if @building.building_image.attached?
-        = image_tag(url_for(@building.building_image), alt: "#{@building.name.titleize} picture")
-      - else
-        = image_tag(asset_pack_path('media/mi_locations/images/vistas/Burton.jpg'), alt: "#{@building.name.titleize} image not available")
+= render "building_show_hero"
 
-.building-name
-  = @building.name
-.building-address
-  = @building.address
-- if @building.building_image.attached?
-  = image_tag @building.building_image, alt: "#{@building.name.titleize}"
-.building-alerts
+-# .building-alerts
   = render partial: 'alerts/alerts', locals: {alertable: @building}
   - if policy(@building).update?
     = render partial: 'alerts/form', locals: {alertable: @building}
