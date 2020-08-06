@@ -1,7 +1,7 @@
 .px-8.py-4.bg-gray-200{class: " lg:flex lg:items-center lg:justify-between"}
   .flex-1.min-w-0
     %h2.text-2xl.font-bold.leading-7.text-blue-800{class: "sm:text-3xl sm:leading-9 sm:truncate"}
-      = @room.title
+      = link_to @room.title, building_path(@room.building)
     .flex.flex-col.mt-1{class: " sm:mt-0 sm:flex-row sm:flex-wrap"}
       .flex.items-center.mt-2.text-sm.leading-5.text-gray-700{class: "sm:mr-6"}
         %svg.flex-shrink-0.h-5.w-5.text-gray-500{class: "mr-1.5", fill: "currentColor", viewBox: "0 0 20 20"}
