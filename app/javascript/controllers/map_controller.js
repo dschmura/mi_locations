@@ -9,15 +9,15 @@ export default class extends Controller {
 
   connect(){
     let mapBoxToken = this.data.get("mapbox-token");
-    const incoming = JSON.parse(this.data.get("mapbox-room"));
-    const rooms = Object.entries(incoming);
-    this.createMap(rooms, mapBoxToken);
+    const incoming = JSON.parse(this.data.get("mapbox-location"));
+    const locations = Object.entries(incoming);
+    this.createMap(locations, mapBoxToken);
 
   }
 
-  createMap(rooms, token){
+  createMap(locations, token){
 
-    let centerPoints = this.findCenterPoint(rooms);
+    let centerPoints = this.findCenterPoint(locations);
 
     if (centerPoints[0] != centerPoints[0]) {
       let mymap = L.map('mapid').setView([42.277461, -83.738293], 13);
@@ -26,9 +26,9 @@ export default class extends Controller {
     } else {
       let mymap = L.map('mapid').setView([centerPoints[0], centerPoints[1]], 15);
       this.addTile(mymap, token);
-      this.addMarkers(mymap, rooms);
+      this.addMarkers(mymap, locations);
 
-      this.resizeMap(mymap);
+      // this.resizeMap(mymap);
     }
 
     // this.resizeMap(mymap);
@@ -42,8 +42,8 @@ export default class extends Controller {
     }).addTo(map);
   }
 
-  addCircle(map, room){
-    let circle = L.circle([room.attributes.building.latitude, room.attributes.building.longitude], {
+  addCircle(map, location){
+    let circle = L.circle([location.attributes.building.latitude, location.attributes.building.longitude], {
       color: '#2c5282',
       fillColor: '#2c5282',
       fillOpacity: 0.3,
@@ -56,55 +56,55 @@ export default class extends Controller {
     map.getSize();
   }
 
-  findCenterPoint(rooms){
+  findCenterPoint(locations){
     // 42.277083, -83.738224
     let averageLatitude = 0;
     let averageLongitude = 0;
-    let roomsCount = (rooms.length ? 0 : 1);
+    let locationsCount = (locations.length ? 0 : 1);
 
-    rooms[0][1].forEach(function(room, i){
-      if (room.attributes.building.latitude != null || room.attributes.building.longitude != null){
-        roomsCount++;
-        averageLatitude = averageLatitude + room.attributes.building.latitude;
-        averageLongitude = averageLongitude + room.attributes.building.longitude;
+    locations[0][1].forEach(function(location, i){
+      if (location.attributes.building.latitude != null || location.attributes.building.longitude != null){
+        locationsCount++;
+        averageLatitude = averageLatitude + location.attributes.building.latitude;
+        averageLongitude = averageLongitude + location.attributes.building.longitude;
 
       }
     });
-    averageLatitude = averageLatitude / roomsCount;
-    averageLongitude = averageLongitude / roomsCount;
+    averageLatitude = averageLatitude / locationsCount;
+    averageLongitude = averageLongitude / locationsCount;
 
     let centerPoints = [averageLatitude, averageLongitude];
     return centerPoints;
   }
 
-  addMarker(map, room){
+  addMarker(map, location){
     var mapIcon = L.icon({
       iconUrl: mapMarker,
       iconSize:     [30, 95],
       className: 'map-marker-icon'
     });
-    var marker = L.marker([room[0], room[1]], {
+    var marker = L.marker([location[0], location[1]], {
       icon: mapIcon
     }).addTo(map);
 
   }
 
-  addMarkers(map, rooms){
-    let roomsCount = (rooms.length ? 0 : 1);
+  addMarkers(map, locations){
+    let locationsCount = (locations.length ? 0 : 1);
     var mapIcon = L.icon({
       iconUrl: mapMarker,
       className: 'map-marker-icon'
     });
 
-    rooms[0][1].forEach(function(room, i){
-      if (room.attributes.building.latitude != null || room.attributes.building.longitude != null){
-        roomsCount++;
-        let marker = L.marker([room.attributes.building.latitude, room.attributes.building.longitude], {
+    locations[0][1].forEach(function(location, i){
+      if (location.attributes.building.latitude != null || location.attributes.building.longitude != null){
+        locationsCount++;
+        let marker = L.marker([location.attributes.building.latitude, location.attributes.building.longitude], {
           icon: mapIcon
         }).addTo(map);
 
         let popup = L.popup()
-        .setLatLng([room.attributes.building.latitude, room.attributes.building.longitude])
+        .setLatLng([location.attributes.building.latitude, location.attributes.building.longitude])
         .setContent("I am a standalone popup.")
         .openOn(map);
 
