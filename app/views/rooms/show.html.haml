@@ -4,9 +4,9 @@
 
     -# .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle",  "data-controller" => "map",
             "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
-            "data-map-mapbox-room" => @room_json}
+            "data-map-mapbox-location" => @room_json}
 
-    .room-map-toggle{data: {controller: "map", action: "click->toggle#roomsmapToggle", "map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}", "map-mapbox-room" => @room_json }}
+    .room-map-toggle{data: {controller: "map", action: "click->toggle#roomsmapToggle", "map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}", "map-mapbox-location" => @room_json }}
       .map{data: {target: "toggle.roomsmap" }}
         .icon= render 'icons/map-marked-alt_icon', cached: true
         Map
