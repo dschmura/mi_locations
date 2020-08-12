@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
 
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
-    fresh_when @rooms
+    fresh_when @results
     respond_to do |format|
       params[:view_preference] ||= "grid_view"
       if params[:view_preference] == "list_view"
@@ -69,7 +69,7 @@ class RoomsController < ApplicationController
   private
 
   def serialize_rooms(rooms)
-    RoomSerializer.new(rooms, each_serializer: RoomSerializer).serialized_json
+    RoomSerializer.new(rooms, each_serializer: RoomSerializer).serializable_hash.to_json
   end
 
   def set_room

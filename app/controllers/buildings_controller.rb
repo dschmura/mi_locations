@@ -36,7 +36,7 @@ class BuildingsController < ApplicationController
   private
 
   def serialize_buildings(buildings)
-    BuildingSerializer.new(buildings, each_serializer: BuildingSerializer).serialized_json
+    BuildingSerializer.new(buildings, each_serializer: BuildingSerializer).serializable_hash.to_json
   end
   # Use callbacks to share common setup or constraints between actions.
   def set_building
