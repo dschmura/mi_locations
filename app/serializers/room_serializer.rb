@@ -35,19 +35,12 @@ class RoomSerializer
    :dept_description,
    :building
 
-  # def buildling
-  #   {building_bldrecnbr: object.building.bldrecnbr,
-  #    building_latitude: object.building.latitude,
-  #    building_longitude: object.building.longitude,
-  #    building_name: object.building.name,
-  #    building_nick_name: object.building.nick_name,
-  #    building_abbreviation: object.building.abbreviation,
-  #    building_address: object.building.address,
-  #    building_city: object.building.city,
-  #    building_state: object.building.state,
-  #    building_zip: object.building.zip,}
-  # end
-end
+   attribute :latitude do |object|
+    "#{object.building.latitude}"
+    end
 
-# serializer = RoomSerializer.new(@room).as_json
-# serializer[:building][:latitude]
+  attribute :longitude do |object|
+    "#{object.building.longitude}"
+  end
+
+end
