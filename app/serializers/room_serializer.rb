@@ -43,4 +43,13 @@ class RoomSerializer
     "#{object.building.longitude}"
   end
 
+  attribute :location_name do |object|
+    "#{object.building.name.titleize}"
+  end
+
+  attribute :location_address do |object|
+    "#{object.building.address.titleize}"
+  end
+
+
 end
