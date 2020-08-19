@@ -10,35 +10,20 @@ export default class extends Controller {
     let mapBoxToken = this.data.get("mapbox-token");
     const incoming = JSON.parse(this.data.get("mapbox-location"));
     const locations_data = Object.entries(incoming.data);
-    const locations = this.validLocations(locations_data);
-
-    this.uniqueLocations(locations)
+    const valid_locations = this.validLocations(locations_data);
+    const locations = this.uniqueLocations(valid_locations)
     this.createMap(locations, mapBoxToken);
 
     let centerPoints = this.findCenterPoint(locations);
     console.log("RESULTING CENTERPOINTS: " + centerPoints)
-
   }
 
   createMap(locations, token){
-
-    // let centerPoints = this.findCenterPoint(locations);
-
     // if (centerPoints[0] != centerPoints[0]) {
       let mymap = L.map('mapid').setView([42.277461, -83.738293], 13);
       this.addTile(mymap, token);
       this.addMarkers(mymap, locations);
-
-
-    // } else {
-    //   let mymap = L.map('mapid').setView([centerPoints[0], centerPoints[1]], 15);
-    //   this.addTile(mymap, token);
-    //   this.addMarkers(mymap, locations);
-    //
-    // }
-
       this.resizeMap(mymap);
-
   }
   addTile(map, token){
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -110,23 +95,22 @@ export default class extends Controller {
     return valid_locations
   }
 
-
   uniqueLocations(locations) {
-    // return [...new Set(lat_long_pairs)];
+    let unique_location_pairs = []
     let unique_locations = []
+
     locations.forEach(function(location){
-      console.log(location[1].attributes.latitude, location[1].attributes.longitude)
+      var lat_long_pair = (location[1].attributes.latitude  + location[1].attributes.longitude)
 
-      if(unique_locations.includes(location[1].attributes.latitude, location[1].attributes.longitude)){
-        unique_locations.push(location[1].attributes.latitude, location[1].attributes.longitude)
-
+      if(unique_location_pairs.includes(lat_long_pair)){
       }
-
+      else{
+        unique_location_pairs.push(lat_long_pair)
+        unique_locations.push(location)
+      }
     })
-    console.log(unique_locations.length)
+
     return unique_locations
-
-
   }
 
   addMarker(location){
@@ -143,42 +127,21 @@ export default class extends Controller {
   }
 
   addMarkers(map, locations){
+    console.log("Before count: " + locations.length)
 
-    // var loctions = this.uniqueLocations(locations)
-    var lat_long_pairs = []
+    var locations = this.uniqueLocations(locations)
+    console.log("After count: " + locations.length)
     var mapIcon = L.icon({
       iconUrl: mapMarker,
-      iconSize:     [25],
       className: 'map-marker-icon'
     });
 
     locations.forEach(function(location, i){
-      if (location[1].attributes.latitude != "" && location[1].attributes.longitude != "" ) {
-        lat_long_pairs.push(`${location[1].attributes.latitude}, ${location[1].attributes.longitude}`)
-      }
-    })
 
-
-    // console.log("BEFORE: " + lat_long_pairs.length)
-    // console.log("AFTER: " + this.uniqueLocations(lat_long_pairs).length)
-    // console.log(lat_long_pairs)
-
-
-    locations.forEach(function(location, i){
-      if (location[1].attributes.latitude != null || location[1].attributes.longitude != null){
-        console.log(location[1].attributes.location_name)
         let marker = L.marker([location[1].attributes.latitude, location[1].attributes.longitude], {
           icon: mapIcon
         }).addTo(map).bindPopup(location[1].attributes.location_name);
 
-
-        // let popup = L.popup()
-        // .setLatLng([location.attributes.latitude, location.attributes.longitude])
-        // .setContent("I am a standalone popup.")
-        // .openOn(map);
-
-
-      }
     });
 
 
