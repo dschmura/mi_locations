@@ -3,9 +3,6 @@
   @screen xl
     @apply
 
-.rooms-search-bar
-  @apply bg-green-800 rounded-lg flex flex-col items-start  relative w-full p-4
-
 .search-result-tools
   @apply flex flex-row justify-between align-middle px-4 pt-2
   @screen sm
@@ -13,15 +10,8 @@
   @screen xl
     @apply justify-between px-4 mt-4
 
-
 .sort-matches
   @apply flex flex-row justify-between  w-full
-
-
-// .matches
-//   @apply  text-sm ml-4
-//   @screen xl
-//     @apply -mt-2
 
 .view-preferences
   @apply z-0 inline-flex shadow-sm align-middle object-center
@@ -38,3 +28,87 @@
 
 .view-selected
   @apply bg-blue-200 text-blue-800
+
+
+
+.search-filters-button
+  @apply relative inline-flex items-center py-0 px-2 text-sm font-medium  text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded bg-blue-100 align-middle
+  &:hover
+    @apply text-gray-800 bg-blue-200
+  &:focus
+    @apply outline-none shadow-outline-blue bg-blue-300
+  &:active
+    @apply  text-gray-700
+  @screen xl
+    @apply  hidden
+
+.additional-filters-button
+  @apply flex font-light align-middle
+  svg
+    @apply h-4 w-4  mr-2 fill-current align-middle
+  @screen xl
+    svg
+      @apply hidden
+
+.search-button
+  @apply h-4 w-4
+
+.search-by-building-name
+  @apply bg-blue-100
+  input
+    @apply border-none
+  @screen xl
+    @apply pl-0
+
+.search-for-buildings-container
+  @apply px-4
+  @screen sm
+    @apply px-8
+  @screen xl
+    @apply px-2
+    .choices
+      @apply min-w-full max-w-3xl
+
+
+.search-filters-button
+  @apply relative inline-flex items-center py-0 px-2 text-sm font-medium  text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded bg-blue-100 align-middle
+  &:hover
+    @apply text-gray-800 bg-blue-200
+  &:focus
+    @apply outline-none shadow-outline-blue bg-blue-300
+  &:active
+    @apply  text-gray-700
+  @screen xl
+    @apply  hidden
+
+.additional-filters-button
+  @apply flex font-light align-middle
+  svg
+    @apply h-4 w-4  mr-2 fill-current align-middle
+  @screen xl
+    svg
+      @apply hidden
+
+.search-button
+  @apply h-4 w-4
+
+.search-by-building-name
+  @apply bg-blue-100
+  input
+    @apply border-none
+  @screen xl
+    @apply pl-0
+
+.search-for-buildings-container
+  @apply px-4
+  @screen sm
+    @apply px-8
+  @screen xl
+    @apply px-2
+    .choices
+      @apply min-w-full max-w-3xl
+
+.sign-in-for-filters
+  @apply text-green-600 font-semibold flex self-start align-middle float-left text-sm   self-center
+  @screen xl
+    @apply mt-8
