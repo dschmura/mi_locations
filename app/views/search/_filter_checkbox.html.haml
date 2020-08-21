@@ -1,4 +1,4 @@
-.filter-item-label.tooltip{data: {"tippy-content" => "#{tooltip}"}}
+.filter-item-label{data: {"tippy-content" => "#{tooltip}"}}
   = check_box_tag "#{filter_item}", "#{filter_item}", params[:filter_item].try(:include?, "#{filter_item}"),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
   %span
     = "#{label}"

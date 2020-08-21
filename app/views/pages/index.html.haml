@@ -23,10 +23,10 @@
             %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "building_name"}
               Filter by building name
 
-            .filter-by-building-name.tooltip#buidling_name{"data-tippy-content" => "Filter by building name"}
+            .filter-by-building-name#buidling_name{"data-tippy-content" => "Filter by building name"}
               = f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {:prompt => 'Building Name'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
 
-          .filter-by.filter-by-school-or-college-name.tooltip#school_or_college_name{"data-tippy-content" => "Filter by School or College name"}
+          .filter-by.filter-by-school-or-college-name#school_or_college_name{"data-tippy-content" => "Filter by School or College name"}
             %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "school_or_college_name"}
               Filter by school or college
             .filter-by-building-name#school_or_college_name

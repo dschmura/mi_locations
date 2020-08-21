@@ -39,7 +39,7 @@
                     = link_to "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{room.facility_code_heprod }", target: "_blank" do
                       .icon= render "icons/calendar-alt_icon", cached: true
                       %span Room Schedule
-                    -# %button.copy-button.actions-button.tooltip.tooltip-top{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip" => "Copy and share this room's description and attributes.", :role => "button" }
+                    -# %button.copy-button.actions-button{"data-controller" => "clipboard", "data-action" => "clipboard#copy", :href => "#",  "data-tooltip-content" => "Copy and share this room's description and attributes.", :role => "button" }
                       .icon= render "icons/share_icon", cached: true
                       %span Share
 
