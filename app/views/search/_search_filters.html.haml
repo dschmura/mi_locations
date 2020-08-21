@@ -15,12 +15,11 @@
       .search-for-buildings-container
 
         // %label.filters-section-header-building{for: "building_name"} Buildings
-        .flex.mt-1.shadow-sm{data: {controller: "popover", action: "mouseover->popover#mouseOver mouseout->popover#mouseOut"}}
+        .flex.mt-1.shadow-sm
           .relative.flex-grow{class: "focus-within:z-10"}
-            .search-by-building-name#buidling_name{class: "block w-full  transition duration-150 ease-in-out  form-input py-0 rounded-md sm:text-sm sm:leading-5"}
+            .search-by-building-name.tooltip#buidling_name{class: "block w-full  transition duration-150 ease-in-out  form-input py-0 rounded-md sm:text-sm sm:leading-5", "data-tippy-content" => "Filter by building name"}
               = f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings, {:prompt => 'Building Name'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
-          .tooltip.hidden{"data-target" => "popover.content"}
-            "Filter by building name"
+
 
 
       = render './search/search_result_tools', cached: true
