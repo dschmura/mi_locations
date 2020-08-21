@@ -14,7 +14,7 @@
 
       %h1.landing-page-headline Classroom Database
 
-    %search.ss-search
+    %search.landing-page-filters
       %h1 Search for a classroom
 
       = search_form_for @q, class: "search-container", data: { controller: "autosubmit toggle" , target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|

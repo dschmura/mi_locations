@@ -149,10 +149,6 @@ h1.landing-page-headline
     @apply text-base
   h1
     @apply text-yellow-500 font-light
-.ss-search
-  @apply flex flex-col text-center mb-4
-  h1
-    @apply text-yellow-500 mb-2
 
 .landing-page-department-link
   @apply m-1 bg-blue-200 rounded-full px-1 align-middle text-center
@@ -184,3 +180,17 @@ h1.landing-page-headline
     @apply self-center align-middle
     svg
       @apply h-5 w-5 fill-current bg-green-400 rounded-full text-green-100 p-1
+
+
+.landing-page-filters
+  @apply flex flex-col text-center mb-4
+  h1
+    @apply text-yellow-500 mb-2
+
+.search-container
+  @apply mx-auto flex flex-col justify-center mx-auto w-full max-w-md
+  @screen sm
+    @apply flex-row max-w-2xl
+
+  .filter-by
+    @apply p-1 mx-4 my-2 w-full
