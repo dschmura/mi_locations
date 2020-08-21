@@ -1,5 +1,5 @@
-= link_to  "", :role => "button", :class => "", "data-tooltip" => "#{characteristic.chrstc_desc254}" do
-  %li.classroom-row-dropdown-feature
+= link_to  "", :role => "button" do
+  %li.classroom-row-dropdown-feature.tooltip{data: {"tippy-content" => "#{characteristic.chrstc_desc254}"}}
     .flex-shrink-0
       .icon= render "icons/#{room_characteristic_icon_new(characteristic)}", cached: true
     %p.ml-3.text-sm.leading-5.text-blue-700

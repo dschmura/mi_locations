@@ -1,10 +1,10 @@
-.filter-by-student-capacaity{data: { controller: "capacity-slider popover", "capacity-slider-minimum" => "#{capacity_slider_minimum}", "capacity-slider-maximum" => "#{capacity_slider_maximum}", action: "mouseover->popover#mouseOver mouseout->popover#mouseOut" }}
-  .capacity-slider
+.filter-by-student-capacaity{data: { controller: "capacity-slider", "capacity-slider-minimum" => "#{capacity_slider_minimum}", "capacity-slider-maximum" => "#{capacity_slider_maximum}" }}
+  .capacity-slider.tooltip{data: {"tippy-content" => "Only show rooms with a capacity between #{capacity_slider_minimum} and #{capacity_slider_maximum}"}}
     .filters-section-header.mb-4 Student Capacity
 
     #slider{data: { action:  "click->capacity-slider#updateSlider click->autosubmit#change", target: "capacity-slider.slider"}}
 
     = f.hidden_field :instructional_seating_count_gteq, {value: "#{capacity_slider_minimum}", data: {target: "capacity-slider.minimum" }, id: 'seating-capacity--min'}
     = f.hidden_field :instructional_seating_count_lteq, {value: "#{capacity_slider_maximum}", data: {target: "capacity-slider.maximum" }, id: 'seating-capacity--max'}
-    .tooltip.hidden{"data-target" => "popover.content"}
-      = "Only show rooms with a capacity between #{capacity_slider_minimum} and #{capacity_slider_maximum}"
+    -# .tooltip.hidden{"data-target" => "popover.content"}
+    -#   = "Only show rooms with a capacity between #{capacity_slider_minimum} and #{capacity_slider_maximum}"
