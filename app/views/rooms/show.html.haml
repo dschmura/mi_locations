@@ -2,10 +2,6 @@
   = render 'room_layout', cached: true
   .room-banner{data: {controller: "toggle" }}
 
-    -# .room-map-toggle{"data-action" => "click->toggle#roomsmapToggle",  "data-controller" => "map",
-            "data-map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}",
-            "data-map-mapbox-location" => @room_json}
-
     .room-map-toggle{data: {controller: "map", action: "click->toggle#roomsmapToggle", "map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}", "map-mapbox-location" => @room_json }}
       .map{data: {target: "toggle.roomsmap" }}
         .icon= render 'icons/map-marked-alt_icon', cached: true
@@ -34,32 +30,6 @@
     .add-room-alert-form.hidden{data: {target: "dropdown.menu"}}
       = render partial: 'alerts/form', locals: {alertable: @room}
   = render partial: 'rooms_row_dropdown', locals: {room: @room}
-  -# %section.room-features.features-group
-  -#   %h2
-  -#     Room Features
-  -#   .room-chars
-  -#     - @room.room_characteristics.select{ |c| c.feature?}.each do |characteristic|
-  -#       = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
-
-  -# %section.secondary-features
-
-  -#   .team-learning.features-group
-  -#     %h2 Team Learning
-  -#     .room-chars
-  -#       -@room.room_characteristics.select{ |c| c.teamlearning_feature?}.each do |characteristic|
-  -#         = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
-
-  -#   .writing-surfaces.features-group
-  -#     %h2 Writing Surfaces
-  -#     .room-chars
-  -#       -@room.room_characteristics.select{ |c| c.teamlearning_feature? || c.whiteboard_feature? || c.chalkboard_feature?}.each do |characteristic|
-  -#         = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
-
-  -#   .projection.features-group
-  -#     %h2 Projection
-  -#     .room-chars
-  -#       -@room.room_characteristics.select{ |c| c.projection_feature?}.each do |characteristic|
-  -#         = render partial: 'room_characteristic', locals:  {characteristic: characteristic}
 
   - if policy(@room).update?
     %h3 Add a Panorama
