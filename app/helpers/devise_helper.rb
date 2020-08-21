@@ -13,7 +13,7 @@ module DeviseHelper
       resource: resource.class.model_name.human.downcase)
 
     html = <<-HTML
-      <div class="bg-red-100 border-l-4 border-red-500 mb-4 p-4 text-red-700" role="alert">
+      <div class="p-4 mb-4 text-red-700 bg-red-100 border-l-4 border-red-500" role="alert">
           <p class="font-bold">Oops!</p>
           <p>#{sentence}</p>#{messages}
       </div>
@@ -29,7 +29,7 @@ module DeviseHelper
     if resource.errors.count == 1
       message = resource.errors.full_messages[0]
       html = <<-HTML
-        <div class="bg-red-lightest border-l-4 border-red text-orange-dark p-4" role="alert">
+        <div class="p-4 border-l-4 bg-red-lightest border-red text-orange-dark" role="alert">
           <p class="font-bold">#{sentence}</p>
           <p> #{message}.</p>
         </div>
@@ -39,7 +39,7 @@ module DeviseHelper
         content_tag(:li, "#{msg}.")
       }.join
       html = <<-HTML
-        <div class="bg-red-100 border-l-4 border-red-500  mb-4 p-4 text-red-700" role="alert">
+        <div class="p-4 mb-4 text-red-700 bg-red-100 border-l-4 border-red-500" role="alert">
           <p class="font-bold">#{sentence}</p>
           <ul class="list-disc">
             #{messages}
