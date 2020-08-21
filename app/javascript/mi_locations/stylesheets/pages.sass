@@ -24,8 +24,7 @@ h1.landing-page-headline
     img
       @apply w-3/5 max-w-3xl
 
-.landing-page-container
-  @apply   mx-auto
+
 /* The hero image */
 .hero-image
   background-image: url("../images/vistas/cube.jpg")
@@ -99,26 +98,16 @@ h1.landing-page-headline
   &:-moz-placeholder
     @apply text-gray-700 opacity-75 font-light text-lg
 
-
-
 // Selected item styling
 .choices__inner
   @apply z-50
   .choices__list
-
-
     .choices__item
       @apply bg-blue-700 z-50
       &:hover
         @apply bg-blue-800
       @screen xl
         @apply mt-0
-
-
-.ss-search-input-container
-  @apply relative text-blue-700 col-span-8 w-screen
-  @screen sm
-    @apply max-w-full
 
 .no-matches-notice
   @apply p-8 bg-blue-300 mt-10 rounded-lg border w-2/3 mx-auto flex flex-col text-blue-800 text-center text-3xl font-semibold
@@ -183,14 +172,16 @@ h1.landing-page-headline
 
 
 .landing-page-filters
-  @apply flex flex-col text-center mb-4
+  @apply flex flex-col text-center mb-4 justify-center px-8
   h1
     @apply text-yellow-500 mb-2
 
-.search-container
-  @apply mx-auto flex flex-col justify-center mx-auto w-full max-w-md
+.landing-page-search-container
+  @apply mx-auto flex flex-col justify-center w-full max-w-md
   @screen sm
-    @apply flex-row max-w-2xl
+    @apply flex-row
 
   .filter-by
-    @apply p-1 mx-4 my-2 w-full
+    @apply  mx-4 my-2 w-full -ml-1
+    @screen sm
+      @apply w-screen max-w-xl bg-red-400

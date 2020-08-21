@@ -11,27 +11,27 @@
     .landing-page--banner
       .landing-page--brand
         = link_to image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.'), root_path
-
       %h1.landing-page-headline Classroom Database
 
     %search.landing-page-filters
       %h1 Search for a classroom
 
-      = search_form_for @q, class: "search-container", data: { controller: "autosubmit toggle" , target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
+      .landing-page-search-container
+        = search_form_for @q, class: "", data: { controller: "autosubmit toggle" , target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
 
-        .filter-by.filter-by-building
-          %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "building_name"}
-            Filter by building name
+          .filter-by.filter-by-building
+            %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "building_name"}
+              Filter by building name
 
-          .filter-by-building-name#buidling_name
-            = f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {:prompt => 'Building Name'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
+            .filter-by-building-name#buidling_name
+              = f.select :facility_code_heprod_or_room_number_or_building_name_or_building_nick_name_or_building_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {:prompt => 'Building Name'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
 
-        .filter-by.filter-by-school-or-college-name#school_or_college_name
-          %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "school_or_college_name"}
-            Filter by school or college
-          .filter-by-building-name#school_or_college_name
-            = f.select :dept_grp_in, [['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']], {:prompt => 'School or College'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
-          %span{data: {target: "autosubmit.status"}}
+          .filter-by.filter-by-school-or-college-name#school_or_college_name
+            %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "school_or_college_name"}
+              Filter by school or college
+            .filter-by-building-name#school_or_college_name
+              = f.select :dept_grp_in, [['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']], {:prompt => 'School or College'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
+            %span{data: {target: "autosubmit.status"}}
 
     -# .landing-page-department-links-section
       %h1 Select a School or College
