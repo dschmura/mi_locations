@@ -13,12 +13,10 @@
 
 .classroom-row-dropdown-features-section
   @apply w-full
-  @screen md
-    @apply
-  @screen lg
-    @apply
+
+
 .classroom-row-dropdown-features-group
-  @apply flex items-center px-4
+  @apply  px-4
   @screen md
     @apply
   hr
@@ -31,24 +29,20 @@
     @apply
 
 .classroom-row-dropdown-features
-  @apply mt-2 pl-6 row-gap-0 grid grid-cols-2 col-gap-8 row-gap-2
+  @apply mt-2 pl-6 grid grid-cols-4 gap-x-2 gap-y-2
   @screen sm
-    @apply  row-gap-0
+    @apply
   @screen lg
-    @apply grid grid-cols-3 col-gap-8 row-gap-2
+    @apply
   li
     @apply whitespace-no-wrap truncate
   svg
     @apply h-4 w-4
 
-.classroom-row-dropdown-features.top-row
-  li, p
-    @apply text-xs text-gray-600 font-semibold
 
 .classroom-row-dropdown-feature
   @apply  flex items-start text-blue-700
-  @screen lg
-    @apply col-span-1
+
 
 .rooms-index-row
   @apply w-full max-w-full mx-4
@@ -87,3 +81,23 @@
 
 .features-header
   @apply  flex-shrink-0 pr-4 text-sm leading-5 tracking-wider font-semibold uppercase text-blue-600
+
+.h-highlights
+  @apply bg-green-200 grid grid-cols-3 gap-x-2 gap-y-2
+  @screen sm
+    @apply grid-cols-4
+  @screen md
+    @apply grid-cols-5
+  @screen lg
+    @apply grid-cols-4
+  @screen xl
+    @apply grid-cols-4
+  .h-capacity
+    @apply bg-yellow-200 col-start-1
+  .h-layout
+    @apply bg-blue-200 col-start-2
+  .h-floorplan
+    @apply bg-red-200
+
+.h-highlight-item
+  @apply inline-flex h-20 rounded-lg
