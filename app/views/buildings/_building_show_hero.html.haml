@@ -28,16 +28,16 @@
             Map
 
 
+%div{data: {controller: "map toggle", "map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}", "map-mapbox-location" => @building_json}}
+  .room-map-toggle{data: { action: "click->toggle#roomsmapToggle" }}
+    .map{data: {target: "toggle.roomsmap" }}
+      .icon= render 'icons/map-marked-alt_icon', cached: true
+      Map
+    .close-map.hidden{data: {target: "toggle.roomsmap" }}
+      .icon= render 'icons/close_icon', cached: true
+      Close
 
-.room-map-toggle{data: {controller: "map toggle", action: "click->toggle#roomsmapToggle", "map-mapbox-token" => "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}", "map-mapbox-room" => @building_json }}
-  .map{data: {target: "toggle.roomsmap" }}
-    .icon= render 'icons/map-marked-alt_icon', cached: true
-    Map
-  .close-map.hidden{data: {target: "toggle.roomsmap" }}
-    .icon= render 'icons/close_icon', cached: true
-    Close
+  .building-map.hidden{data: {target: "toggle.roomsmap" }}
+    #mapid
 
-.building-map.hidden{data: {target: "toggle.roomsmap" }}
-  #mapid
-
-.room-show-image{data: {target: "toggle.roomsmap" }}
+  .room-show-image{data: {target: "toggle.roomsmap" }}
