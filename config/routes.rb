@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # get 'alerts/destroy'
   # get 'alerts/index'
   # get 'alerts/new'
-  resources :alerts
+  resources :alerts, only: [:update, :destroy]
+
   resources :buildings, only: [:show, :index, :update] do
     resources :floors
     resources :alerts, module: :buildings
@@ -21,9 +22,10 @@ Rails.application.routes.draw do
   end
   match "toggle_visibility/:id" => "rooms#toggle_visibility", :via => [:get, :post], :as => :toggle_visibility
 
-  resources :classrooms, only: [:show, :index] do
+  resources :classrooms, only: [:show, :index], controller: 'rooms' do
+    resources :alerts, module: :rooms
     collection do
-      match "search" => "classrooms#search", :via => [:get, :post], :as => :search
+      match "search" => "rooms#search", :via => [:get, :post], :as => :search
     end
   end
 
