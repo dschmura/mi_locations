@@ -4,21 +4,27 @@
 
 .alert
   @apply bg-blue-100  border-blue-500 rounded-b text-blue-800 px-4 py-3 shadow-md my-2 text-sm
+
 .alert-severity-icon
   svg
     @apply h-6 w-6 fill-current mr-4
+
 .alert-headline
   @apply font-bold
+
 .alert-content
   @apply text-sm
+
 .alert-close-button
   @apply absolute right-0 px-4 py-3 -mt-4
   svg
     @apply fill-current h-4 w-4 text-blue-500
+
 .alert-edit-button
   @apply absolute right-0 px-4 py-3 mt-4
   svg
     @apply fill-current h-4 w-4 text-blue-500
+
 // COLOR VARIATIONS
 .alert-success
   @apply bg-green-100 text-green-700 border-green-500
@@ -28,6 +34,7 @@
       @apply bg-green-300
   svg
     @apply text-green-700
+
 .alert-danger
   @apply bg-red-100 text-red-700 border-red-500
   .alert-severity
@@ -36,24 +43,27 @@
       @apply bg-red-300 text-red-700
   svg
     @apply text-red-700
-  .bg-red-700
+
 .alert-warning
   @apply bg-orange-100 text-orange-800 border-orange-500
   .alert-severity
     @apply bg-orange-300
   svg
     @apply text-orange-800
+
 .alert-info
   @apply bg-blue-100 text-blue-800 border-blue-500
   .alert-severity
     @apply bg-blue-300
   svg
     @apply text-blue-800
+
 .edit-alert-dropdown
   @apply mt-2
 
 .edit-alert-actions
   @apply flex flex-row justify-between mt-4
+
 .alert-delete
   svg
     @apply mr-2 fill-current text-red-100
@@ -61,6 +71,7 @@
     @apply bg-red-700 text-red-100 text-xs p-1 rounded inline-flex align-middle
     &:hover
       @apply bg-red-800
+
 .alert-submit > input
   @apply bg-green-400 text-green-900 flex flex-row px-2 rounded h-6 justify-center align-middle font-semibold
   &:hover

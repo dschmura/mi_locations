@@ -1,6 +1,5 @@
 .coming-soon
   @apply bg-gray-100 mx-auto rounded-lg text-center shadow max-w-5xl
-
   h1
     @apply text-yellow-600 text-3xl
     @screen sm
@@ -21,10 +20,10 @@
         @apply leading-loose
     li
       @apply list-disc leading-tight
+
   .highlights
     @apply  p-4 pb-4
-    @screen sm
-      @apply
+
   .highlights.main
       @apply w-full mx-auto bg-blue-100 text-blue-900
       h3
@@ -42,10 +41,12 @@
 
           li
             @apply text-3xl list-none
+
   .highlights-bar
     @apply flex flex-col
     @screen sm
       @apply flex-row
+
   .highlights.other-things
       @apply w-full bg-green-200 text-green-900
       h3
@@ -55,6 +56,7 @@
           @apply list-decimal text-2xl
       @screen sm
         @apply w-1/2
+
   .highlights.technical
       @apply w-full bg-red-200 bg-opacity-75 text-blue-700 font-mono
       @screen sm

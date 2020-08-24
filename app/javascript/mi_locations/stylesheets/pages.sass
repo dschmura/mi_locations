@@ -1,5 +1,5 @@
 .pages
-  @apply p-4 text-gray-800
+  @apply p-4 text-gray-800 mt-16
   p
     @apply mb-2
   h1
@@ -11,6 +11,7 @@
   @apply flex flex-col pt-10 justify-center items-center mb-4
   @screen sm
     @apply pt-32
+
 h1.landing-page-headline
   @apply font-semibold -mt-4 shadow-lg tracking-wide leading-relaxed text-blue-100 text-2xl
   @screen sm
@@ -24,7 +25,6 @@ h1.landing-page-headline
     img
       @apply w-3/5 max-w-3xl
 
-
 /* The hero image */
 .hero-image
   background-image: url("../images/vistas/cube.jpg")
@@ -33,16 +33,10 @@ h1.landing-page-headline
   /* Position and center the image to scale nicely on all screens */
   @apply bg-top bg-no-repeat bg-cover -mt-20 z-0 -mx-10  object-center
 
-.bg-smoke-dark
-  background-color: hsla(210, 41, 28, 0.8)
-
 .search-form--button
   @apply bg-blue-500 px-5 py-2 rounded-r-lg self-center -ml-1 h-10 z-50
   &:hover
     @apply bg-blue-300
-
-.pages
-  @apply  mt-16
 
 .legacy-crdb
   @apply  shadow-xl p-4 bg-blue-100 border border-blue-200 rounded-lg text-sm w-5/6 mx-auto z-50 mt-4
@@ -162,14 +156,6 @@ h1.landing-page-headline
       @apply text-3xl leading-9 truncate
     @screen xl
       @apply mt-0 text-xl
-
-.room-char
-  @apply text-sm whitespace-no-wrap flex-shrink-0
-  .icon
-    @apply self-center align-middle
-    svg
-      @apply h-5 w-5 fill-current bg-green-400 rounded-full text-green-100 p-1
-
 
 .landing-page-filters
   @apply flex flex-col text-center mb-4 justify-center px-8
