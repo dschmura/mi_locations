@@ -3,7 +3,8 @@ class BuildingsController < ApplicationController
 
   def index
     @q = Building.ransack(params[:q])
-    @buildings = policy_scope(@q.result(distinct: true).includes(:rooms, :team_learning_classrooms).page)
+    @buildings = policy_scope(@q.result(distinct: true).includes(:rooms, :team_learning_classrooms))
+    @pagy, @buildings = pagy(@buildings, items: 10)
 
     respond_to do |format|
       format.js
