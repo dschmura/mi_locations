@@ -1,0 +1,4 @@
+POSTGRES_USER=postgres
+POSTGRES_DB=app_name_development
+POSTGRES_HOST=postgres
+POSTGRES_HOST_AUTH_METHOD=trust
