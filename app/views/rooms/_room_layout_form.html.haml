@@ -1,0 +1,14 @@
+= form_for @room do |f|
+  - if @room.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@room.errors.count, "error")} prohibited this layout from being saved:"
+      %ul
+        - @room.errors.full_messages.each do |message|
+          %li= message
+      - if @room.room_layout.attached?
+        = image_tag @room.room_layout
+
+  .field
+    = f.file_field :room_layout
+  .actions
+    = f.submit 'Save'
