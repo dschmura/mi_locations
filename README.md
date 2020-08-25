@@ -62,10 +62,17 @@ server$ RAILS_ENV=staging bundle exec rails import:rooms
 * ...
 
 ## Download panoramas from the [MGIS System](https://umich.app.box.com/folder/28483326629)
+#### (** The whole Literature Science and the Arts directory is > 10GB)
 ## Move all .jpg images in all the directories into one directory
+#### Images will be in subfolders, but it is easier to work from a single directory for bulk uploading.
 ```
-development_machine$ mv /path_to_downloaded_panoramas/**/*.jpg /path_to_downloaded_panoramas/panos
+development_machine$ find /path_to_downloaded_panoramas/**/ -type f -name "*jpg" -print0 | \
+xargs -0 -J% mv % path_to_downloaded_panoramas/panos
+```
 
+## Rename the files to remove the .360
+```
+find path_to_downloaded_panoramas/panos. -name "*jpg" -type f | rename 's/.360//g'
 ```
 
 ## To upload panoramas to the server, use rsync
