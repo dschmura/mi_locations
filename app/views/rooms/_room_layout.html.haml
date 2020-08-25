@@ -1,6 +1,6 @@
 
 / Modal Container
-.layout-modal-container.hidden.animated.fadeIn.fixed{"data-action" => "click->modal#closeBackground keyup@window->modal#closeWithKeyboard", "data-target" => "modal.container", :style => "z-index: 9999;"}
+.layout-modal-container.hidden{data: {action: "click->modal#closeBackground keyup@window->modal#closeWithKeyboard", target: "modal.container"}}
   / Modal Inner Container
   .layout-modal-inner-container
     / Modal Card
