@@ -1,5 +1,6 @@
 ARG RUBY_VERSION
-FROM ruby:$RUBY_VERSION-slim-buster
+# See explanation below
+FROM ruby:$RUBY_VERSION
 
 ARG PG_MAJOR
 ARG NODE_MAJOR
@@ -19,7 +20,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 # Install dependencies
 # We use an external Aptfile for that, stay tuned
-COPY .dockerdev/Aptfile /tmp/Aptfile
+COPY .dockerenv/Aptfile /tmp/Aptfile
 RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yq dist-upgrade && \
   DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
     build-essential \
