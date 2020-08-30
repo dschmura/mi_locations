@@ -50,7 +50,6 @@ gem "pundit"
 # gem 'omniauth-github', '~> 1.3'
 gem "omniauth-google-oauth2"
 
-gem "rack-mini-profiler"
 gem "flamegraph"
 gem "stackprof"
 
