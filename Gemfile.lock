@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 99ad6296f2678ada4484eb48d1e8b5a993ef1f2a
+  revision: ac93e129ee10c89b0d56705203c026b1f58cd38d
   specs:
     webpacker (5.1.1)
       activesupport (>= 5.2)
@@ -220,7 +220,7 @@ GEM
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.6.0)
+    loofah (2.7.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.2.7)
@@ -389,13 +389,13 @@ GEM
     semantic_range (2.3.0)
     sexp_processor (4.15.0)
     shellany (0.0.1)
-    shoulda-matchers (4.3.0)
+    shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
     sidekiq (6.1.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
-    spring (2.1.0)
+    spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -410,8 +410,9 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     stackprof (0.2.15)
-    standard (0.0.36)
-      rubocop (>= 0.63)
+    standard (0.5.2)
+      rubocop (~> 0.89.1)
+      rubocop-performance (~> 1.7.1)
     temple (0.8.2)
     terminal-notifier-guard (1.7.0)
     thor (1.0.1)
