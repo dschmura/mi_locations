@@ -4,8 +4,6 @@
 #
 #  id                          :bigint           not null, primary key
 #  rmrecnbr                    :integer          not null
-#  latitude                    :float
-#  longitude                   :float
 #  floor                       :string           not null
 #  room_number                 :string           not null
 #  facility_code_heprod        :string           not null
