@@ -1,25 +1,38 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host:     database​
-  username: postgres
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  variables:
-    statement_timeout: 5000
+
 
 development:
   <<: *default
+  host:     database​
+  username: postgres
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: mi_locations_development
+  variables:
+    statement_timeout: 5000
 
 test:
   <<: *default
   database: mi_locations_test
 
+# staging:
+#   <<: *default
+#   database: mi_locations_staging
+
+# production:
+#   <<: *default
+#   database: mi_locations_production
+
+
 staging:
   <<: *default
   database: mi_locations_staging
+  username: <%= Rails.application.credentials.STAGING_DB_USERNAME %>
+  password: <%= Rails.application.credentials.STAGING_DB_PASSWORD %>
 
 production:
   <<: *default
   database: mi_locations_production
-
+  username: <%= Rails.application.credentials.PRODUCTION_DB_USERNAME %>
+  password: <%= Rails.application.credentials.PRODUCTION_DB_PASSWORD %>
