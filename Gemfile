@@ -52,6 +52,7 @@ gem "omniauth-google-oauth2"
 
 gem "flamegraph"
 gem "stackprof"
+  gem 'rack-mini-profiler'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,7 +66,6 @@ end
 group :development do
   gem "annotate", "~> 2.7"
   gem "bullet"
-  gem 'rack-mini-profiler'
   gem 'memory_profiler'
   gem "capistrano", require: false
   gem "capistrano-bundler", require: false
