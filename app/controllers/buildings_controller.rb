@@ -3,8 +3,10 @@ class BuildingsController < ApplicationController
 
   def index
     @q = Building.ransack(params[:q])
-    @buildings = policy_scope(@q.result(distinct: true).includes(:rooms, :team_learning_classrooms))
-    @pagy, @buildings = pagy(@buildings, items: 10)
+    @results = policy_scope(@q.result(distinct: true).includes(:rooms, :team_learning_classrooms))
+    @pagy, @buildings = pagy(@results, items: 10)
+
+    @searchable_buildings =  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).collect{ |building| [building[0].titleize, building[1] ] }.sort
 
     respond_to do |format|
       format.js

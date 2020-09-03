@@ -13,8 +13,8 @@ class BuildingPolicy < ApplicationPolicy
       if user && user_in_group?
         scope.all
       else
-        scope.where(visible: true)
-        # scope.all
+        # scope.where(visible: true)
+        scope.all
       end
     end
   end

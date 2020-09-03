@@ -1,13 +1,40 @@
+- content_for :head do
+  %link{href: "https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css", rel: "stylesheet"}
 
-= search_form_for @q, remote: false, url: search_buildings_path do |f|
-  %section.search-filters
-    .flex.justify-between.px-4.py-3
-      .relative.w-full.max-w-xl.float-left
-        .absolute.inset-y-0.left-0.flex.items-center.pl-3
-          %svg.h-6.w-6.fill-current.text-gray-600{:fill => "none", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
-            %path{:d => "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"}
+.room-map.hidden{data: {controller: "map toggle", target: "toggle.roomsmap",
+        "map-mapbox-token": "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}" },
+        "data-map-mapbox-location" => @rooms_json}
+  #mapid
 
-        = f.search_field :name_or_nick_name_or_abbreviation_cont, class: 'search-input rounded-lg', "aria-describedby" => "Search by building name or nick name", "aria-label" => "Search by building name or nick name", :placeholder => "Search by building name or nick name", :type => "text"
+= search_form_for @q, class: "", data: { controller: "autosubmit toggle" , target: "autosubmit.form", action: "ajax:success->autosubmit#success ajax:error->autosubmit#error" }, remote: true do |f|
 
 
-= render 'buildings_results.html.haml'
+
+
+  %section.buildings-search-filters
+    .buildings-page-header
+      .flex-1.min-w-0
+        %h2
+          Filter Buildings
+      .matches{class: "xl:hidden", data: {target: "autosubmit.status"}}
+        -# #rooms-search-matches= matches(@results.size)
+
+    .filter-by.filter-by-building
+      %label.block.text-sm.font-medium.leading-5.text-gray-700.sr-only{for: "building_name"}
+        Filter by building name
+
+      .filter-by-building-name#buidling_name{"data-tippy-content" => "Filter by building name"}
+        = f.select :name_or_nick_name_or_abbreviation_in, @searchable_buildings.collect{ |building| [building[0].titleize, building[1] ] }, {:prompt => 'Building Name'}, {multiple: true, data: {controller: "choices", target: "choices.choice", action: "autosubmit#change"}}
+
+  -# = render 'buildings_results.html.haml'
+  - if @pagy.count > 0
+    .rooms-map-toggle{data: {action: "click->toggle#roomsmapToggle"} }
+      .map{ data: {target: "toggle.roomsmap"} }
+        %i.fas.fa-map
+        .icon= render "icons/map-marked-alt_icon", cached: true
+        Map
+      .close-map.hidden{ data: {target: "toggle.roomsmap"} }
+
+        %i.fas.fa-map
+        .icon= render "icons/close_icon", cached: true
+        Close
