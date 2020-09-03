@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   include LdapableHelper
   include Pagy::Backend
+  before_action :store_user_location!, if: :storable_location?
   before_action :redirect_to_legacy
   before_action :redirect_https
   before_action :create_feedback
@@ -13,6 +14,7 @@ class ApplicationController < ActionController::Base
   def flash_dance
     flash[:alert] = "This site is for demo purposes only. Please use the legacy classroom database system at https://rooms.lsa.umich.edu"
   end
+
   private
 
   def sign_up_params
@@ -30,11 +32,17 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     flash[:alert] = "Please sign in to perform this action."
     redirect_back(fallback_location: :user_google_oauth2_omniauth_authorize)
- end
+  end
 
-  # def current_user
-  #   super || OpenStruct.new(uniqname: 'guest', email: 'guest@localhost.com')
-  # end
+  def storable_location?
+    request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
+  end
+
+  def store_user_location!
+    # :user is the scope we are authenticating
+    store_location_for(:user, request.fullpath)
+  end
+
   def redirect_to_legacy
     redirect_to "https://rooms.lsa.umich.edu" unless Rails.env.development? || Rails.env.staging?
   end

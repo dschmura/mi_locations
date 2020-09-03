@@ -21,7 +21,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     handle_auth "Github"
   end
 
+  def after_sign_in_path_for(resource_or_scope)
+    stored_location_for(resource_or_scope) || super
+  end
+
   private
+
 
   def handle_auth(kind)
     if omni_auth_service.present?
@@ -74,9 +79,7 @@ def set_user
     @user = create_user
 
   end
-  if @user.updated_at > 3.hours.ago
-    puts "UPDATED"
-  end
+    puts "UPDATED RECORD!!"
 end
 
 def omni_auth_service_attrs
@@ -91,13 +94,15 @@ def omni_auth_service_attrs
 end
 
 def create_user
-  User.create(
+
+  @user = User.create(
     email: auth.info.email,
     uniqname: get_uniqname(auth.info.email),
     # name: auth.info.name,
     avatar_url: auth.info.image,
     password: Devise.friendly_token[0, 20]
   )
+
 end
 
 # <OmniAuth::AuthHash
