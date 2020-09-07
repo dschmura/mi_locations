@@ -39,7 +39,7 @@ ENV LANG=C.UTF-8 \
   BUNDLE_RETRY=3
 ENV BUNDLE_PATH $GEM_HOME
 ENV BUNDLE_APP_CONFIG=$BUNDLE_PATH \
-  BUNDLE_BIN=$BUNDLE_PATH/bin
+    BUNDLE_BIN=$BUNDLE_PATH/bin
 ENV PATH /app/bin:$BUNDLE_BIN:$PATH
 
 # Upgrade RubyGems and install required Bundler version
@@ -50,3 +50,11 @@ RUN gem update --system && \
 RUN mkdir -p /app
 
 WORKDIR /app
+
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+COPY package.json /app/package.json
+COPY yarn.lock /app/yarn.lock
+RUN bundle config build.nokogiri --use-system-libraries
+RUN bundle check || bundle install
+RUN yarn check || yarn install --check-files

@@ -37,8 +37,8 @@ services:
       - WEBPACKER_DEV_SERVER_HOST=webpacker
       - WEB_CONCURRENCY=1
       - HISTFILE=/app/log/.bash_history
-      - PSQL_HISTFILE=/app/log/.psql_history
       - EDITOR=vi
+
     depends_on:
       - postgres
       - redis
@@ -52,6 +52,8 @@ services:
 
   rails:
     <<: *backend
+
+    command: if [ tmp/pids/server.pid ]; then rm  tmp/pids/server.pid; fi
     command: bundle exec rails server -b 0.0.0.0
     ports:
       - '3000:3000'
@@ -66,8 +68,8 @@ services:
       - .psqlrc:/root/.psqlrc:ro
       - postgres:/var/lib/postgresql/data
       - ./log:/root/log:cached
-    environment:
-      - PSQL_HISTFILE=/root/log/.psql_history
+    env_file:
+      - .env/development/database
     ports:
       - 5432
 
