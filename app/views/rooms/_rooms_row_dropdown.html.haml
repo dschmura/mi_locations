@@ -12,7 +12,8 @@
     %p.ml-3
       %a{"data-action" => "click->modal#open", :href => "#"}
         Floor Map
-  = render 'room_layout', cached: true
+- if controller.controller_name == "show"
+  = render 'room_layout', cached: true, locals:  {:room =>room}
 
 .classroom-row-dropdown
 
