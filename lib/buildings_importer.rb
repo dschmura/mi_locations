@@ -51,7 +51,7 @@ class BuildingsImporter
   end
 
   def create_building(row)
-    @building = Building.new(bldrecnbr: row["BLDRECNBR"], name: row["BLD_DESCR50"], nick_name: row["BLD_DESCR"], abbreviation: row["BLD_DESCRSHORT"], address: "#{row["BLDSTREETNBR"]}  #{row["BLDSTREETDIR"]}  #{row["BLDSTREETNAME"]}".strip.gsub(/\s+/, " "), city: row["BLDCITY"], state: row["BLDSTATE"], zip: row["BLDPOSTAL"], country: row["BLDCOUNTRY"])
+    @building = Building.new(id: row["BLDRECNBR"], bldrecnbr: row["BLDRECNBR"], name: row["BLD_DESCR50"], nick_name: row["BLD_DESCR"], abbreviation: row["BLD_DESCRSHORT"], address: "#{row["BLDSTREETNBR"]}  #{row["BLDSTREETDIR"]}  #{row["BLDSTREETNAME"]}".strip.gsub(/\s+/, " "), city: row["BLDCITY"], state: row["BLDSTATE"], zip: row["BLDPOSTAL"], country: row["BLDCOUNTRY"])
 
     if @building.save
       GeocodeBuildingJob.perform_later(@building.id)
