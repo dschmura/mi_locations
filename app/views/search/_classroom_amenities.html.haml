@@ -1,14 +1,15 @@
 .classroom-amenities
   %span.filters-section-header Amenities
   .characteristics-arrangement
-    = render partial: './search/filter_checkbox', locals: {filter_item: "instructor_computer", label: "Instructor Computer", tooltip: "Room contains a computer for use by the instructor."}, cached: true
 
-    = render partial: './search/filter_checkbox', locals: {filter_item: "doccam", label: "Document Camera", tooltip: "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects."}, cached: true
+    = render partial: './search/filter_checkbox', locals: {filter_item: "InstrComp", label: "Instructor Computer", tooltip: "Room contains a computer for use by the instructor."}, cached: true
 
-    = render partial: './search/filter_checkbox', locals: {filter_item: "lecture_capture", label: "Lecture Capture", tooltip: "Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum."}, cached: true
+    = render partial: './search/filter_checkbox', locals: {filter_item: "DocCam", label: "Document Camera", tooltip: "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects."}, cached: true
 
-    = render partial: './search/filter_checkbox', locals: {filter_item: "video_conf", label: "Video Conferencing", tooltip: "Room contains a special video conferencing equipment, including camera."}, cached: true
+    = render partial: './search/filter_checkbox', locals: {filter_item: "LectureCap", label: "Lecture Capture", tooltip: "Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum."}, cached: true
 
-    = render partial: './search/filter_checkbox', locals: {filter_item: "interactive_screen", label: "Interactive Screen", tooltip: "Room contains instructor monitor with interactive screen for annotating/editing digital presentation using finger or appropriate pen."}, cached: true
+    = render partial: './search/filter_checkbox', locals: {filter_item: "VideoConf", label: "Video Conferencing", tooltip: "Room contains a special video conferencing equipment, including camera."}, cached: true
 
-    = render partial: './search/filter_checkbox', locals: {filter_item: "bluray", label: "BluRay / DVD Player", tooltip: "Room contains BluRay Disc/DVD player."}, cached: true
+    = render partial: './search/filter_checkbox', locals: {filter_item: "IntrScreen", label: "Interactive Screen", tooltip: "Room contains instructor monitor with interactive screen for annotating/editing digital presentation using finger or appropriate pen."}, cached: true
+
+    = render partial: './search/filter_checkbox', locals: {filter_item: ["BluRay", "BluRay/DVD"], label: "BluRay / DVD Player", tooltip: "Room contains BluRay Disc/DVD player."}, cached: true
