@@ -36,7 +36,7 @@ class RoomCharacteristic < ApplicationRecord
     rmrecnbrs = matches_params(params)
   end
 
-  scope :bluray_dvd, -> {
+  scope :bluray, -> {
                        where(chrstc_descrshort: ["BluRay", "BluRay/DVD"])
                      }
   scope :chalkboard, -> {
