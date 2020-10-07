@@ -21,7 +21,7 @@
       @apply text-yellow-700 bg-blue-100
 
 .footer-copyright
-  @apply row-start-2 col-start-2 text-right text-xs w-full mx-auto leading-tight
+  @apply row-start-2 col-start-2 text-right text-xs w-full mx-auto leading-tight  self-center
   a
     @apply text-center text-gray-100
   @screen sm
@@ -30,7 +30,7 @@
     @apply text-xs text-right row-start-1 col-start-3 justify-center
 
 .footer-logo
-  @apply align-middle
+  @apply self-center
   img
     @apply h-6 float-right
   @screen md
@@ -42,7 +42,9 @@
 // Rooms index page
 .footer.rooms_index
   @screen xl
-    @apply grid-cols-4
+    @apply  z-50 grid-cols-3 grid-rows-1
   .footer-links
     @screen xl
-      @apply col-start-2
+
+
+  // grid-cols-3 grid-rows-1 py-1 justify-around
