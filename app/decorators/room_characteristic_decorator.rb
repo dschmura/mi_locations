@@ -67,7 +67,9 @@ class RoomCharacteristicDecorator < Draper::Decorator
 
   def characteristic_label
     # case object
-    if object.chrstc_descr.start_with?("Board:")
+    if object.chrstc_descr.blank?
+      "missing"
+    elsif object.chrstc_descr.start_with?("Board:")
       object.chrstc_descr.gsub(/^Board:/, "")
     elsif object.chrstc_descr.start_with?("Computer Lab:")
       object.chrstc_descr.sub(/^Computer Lab:/, "")
