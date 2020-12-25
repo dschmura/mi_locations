@@ -1,25 +1,34 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :toggle_visibility]
-
+  include Filterable
   def index
-    # Ransack search (returns ActiveRecord relation )
-    @q ||= Room.classrooms.ransack(params[:q])
+
     # Filter by characteristics search (returns ActiveRecord relation )
-    filtered_rooms ||= Room.classrooms.filter_params(filtering_params)
+    query = filter_composer(filtering_params2)
+    @filtered_rooms = Room.where(rmrecnbr: query)
+    # Ransack Search
+    @q ||= Room.classrooms.ransack(params[:q])
 
-    @results ||= policy_scope(@q.result.merge(filtered_rooms).includes( :building, :room_image_attachment, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts))
+    @results ||= policy_scope(@filtered_rooms.merge(@q.result)).includes( :building, :room_panorama_attachment, :room_characteristics, :room_contact, :alerts)
+
+    @building_ids ||= @results.pluck(:building_id).uniq.sort
+
+    @mappable_locations ||= Building.ann_arbor_campus.with_classrooms.where(id: @building_ids)
+
+    @map_sauce = BuildingSerializer.new(@mappable_locations, each_serializer: BuildingSerializer).serializable_hash.to_json
+    @results = RoomDecorator.decorate_collection(@results)
 
 
-    @results = RoomDecorator.decorate_collection(@results.includes(:building, :room_characteristics))
 
     @pagy, @rooms = pagy(@results, items: 9)
 
-    @rooms_json = serialize_rooms(@results.includes(:building))
-    @searchable_buildings =  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).collect{ |building| [building[0].titleize, building[1] ] }.sort
+
+    # @rooms_json = serialize_rooms(@results)
+    @searchable_buildings ||=  Building.ann_arbor_campus.with_classrooms.uniq.pluck(:nick_name, :abbreviation).collect{ |building| [building[0].titleize, building[1] ] }.sort
 
     @q.sorts = ["room_number ASC", "instructional_seating_count ASC"] if @q.sorts.empty?
 
-    fresh_when @results
+    # fresh_when @results
     respond_to do |format|
       params[:view_preference] ||= "grid_view"
       if params[:view_preference] == "list_view"
@@ -88,6 +97,10 @@ class RoomsController < ApplicationController
 
   def filtering_params
     params.slice(:bluray, :chalkboard, :doccam, :interactive_screen, :instructor_computer, :lecture_capture, :projector_16mm, :projector_35mm, :projector_digital_cinema, :projector_digial, :projector_slide, :team_board, :team_tables, :team_technology, :vcr, :video_conf, :whiteboard).values
+  end
+
+  def filtering_params2
+    params.slice(:filter_params)
   end
 
 end
