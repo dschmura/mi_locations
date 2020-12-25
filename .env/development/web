@@ -1,1 +1,2 @@
 DATABASE_HOST=postgres
+DOCKERIZED=true
