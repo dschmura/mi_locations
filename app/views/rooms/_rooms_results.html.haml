@@ -1,6 +1,6 @@
 .room-map.hidden{data: {controller: "map", target: "toggle.roomsmap",
         "map-mapbox-token": "#{Rails.application.credentials.dig(:MI_LOCATIONS_OPENMAP_TOKEN)}" },
-        "data-map-mapbox-location" => @rooms_json}
+        "data-map-mapbox-location" => @map_sauce}
   #mapid
 
 
@@ -14,7 +14,7 @@
   - if params[:view_preference] == "list_view"
     = render(partial: "rooms_row", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
 
-  - if params[:view_preference] == "grid_view"
+  -# - if params[:view_preference] == "grid_view"
     = render(partial: "rooms_card", collection: @rooms, as: :room, cached: true) || "No rooms matched your criteria"
 
   .rooms-cards#rooms-cards

@@ -10,4 +10,18 @@ module Filterable
       results
     end
   end
+
+  def filter_composer(filters)
+    return Room.classrooms.pluck(:rmrecnbr) if filters.empty?
+    query = ""
+      filters.values[0].each do |filter|
+        if filter != nil
+          query += "SELECT rmrecnbr
+          FROM room_characteristics
+          WHERE
+          chrstc_descrshort IN ('#{filter}')#{filter == filters.values[0].last ? '' : ' INTERSECT '}"
+        end
+      end
+    ActiveRecord::Base.connection.exec_query(query).rows.flatten
+  end
 end

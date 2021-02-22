@@ -15,7 +15,10 @@ Rails.application.configure do
     address: Rails.application.credentials.dev_mail[:MI_LOCATIONS_EMAIL_SERVER],
     port: 1025,
   }
-
+  # Check if we use Docker to allow docker ip through web-console
+  config.web_console.whitelisted_ips = Socket.ip_address_list.reduce([]) do |res, addrinfo|
+    addrinfo.ipv4? ? res << IPAddr.new(addrinfo.ip_address).mask(24) : res
+  end
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = true
   # In the development environment your application's code is reloaded on

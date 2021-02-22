@@ -32,4 +32,19 @@ class BuildingSerializer
    :state,
    :zip
 
+  attribute :latitude do |object|
+    "#{object.latitude}"
+    end
+
+  attribute :longitude do |object|
+    "#{object.longitude}"
+  end
+
+  attribute :location_name do |object|
+    "#{object.name.titleize}"
+  end
+
+  attribute :location_address do |object|
+    "#{object.address.titleize}"
+  end
 end

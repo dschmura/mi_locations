@@ -3,12 +3,13 @@
 :concurrency: 10
 :pidfile: tmp/pids/sidekiq.pid
 :queues:
-  - [critical, 2]
-  - default
-  - low
+  - mi_locations_development_default
+  - mi_locations_staging_default
+  - mi_locations_production_default
 
 production:
   :concurrency: 25
 
 staging:
   :concurrency: 25
+google_geocoder_api_key: AIzaSyDanqx5Jg7UKmeh9tTVeV6ovANhFhxOFhk

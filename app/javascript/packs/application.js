@@ -43,26 +43,6 @@ import 'trix/dist/trix.css'
 
 
 
-// import 'mi_locations/javascripts/application.js'
-
-// document.addEventListener('turbolinks:load', () => {
-
-//   function highlightCurrent() {
-//     const curPage = document.URL;
-//     const links = document.getElementsByTagName('a');
-//     for (let link of links) {
-//       if (link.href == curPage) {
-//         link.classList.add("current");
-//       }
-//     }
-//   }
-//   highlightCurrent();
-
-// });
-
-// import "controllers"
-
-
 import "../controllers/autosubmit_controller.js"
 import "../controllers/capacity_slider_controller.js"
 import "../controllers/choices_controller.js"

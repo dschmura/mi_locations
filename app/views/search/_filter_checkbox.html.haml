@@ -1,4 +1,11 @@
 .filter-item-label{data: {"tippy-content" => "#{tooltip}"}}
-  = check_box_tag "#{filter_item}", "#{filter_item}", params[:filter_item].try(:include?, "#{filter_item}"),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+  = check_box_tag "filter_params[]", "#{filter_item}", params[:filter_params].try(:include?, "#{filter_item}"), {multiple: true, class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
+  %span
+    = "#{label}"
+
+
+
+-# .filter-item-label{data: {"tippy-content" => "#{tooltip}"}}
+  = check_box_tag "#{filter_item}", "#{filter_item}", params[:filtering_params2].try(:include?, "#{filter_item}"),  {class: 'form-checkbox', data: { action: "autosubmit#checkboxSubmit"} }
   %span
     = "#{label}"
