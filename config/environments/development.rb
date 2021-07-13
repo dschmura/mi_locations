@@ -11,10 +11,10 @@ Rails.application.configure do
   #   port: "587",
   # }
 
-  config.action_mailer.smtp_settings = {
-    address: Rails.application.credentials.dev_mail[:MI_LOCATIONS_EMAIL_SERVER],
-    port: 1025,
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address: Rails.application.credentials.dev_mail[:MI_LOCATIONS_EMAIL_SERVER],
+  #   port: 1025,
+  # }
   # Check if we use Docker to allow docker ip through web-console
   config.web_console.whitelisted_ips = Socket.ip_address_list.reduce([]) do |res, addrinfo|
     addrinfo.ipv4? ? res << IPAddr.new(addrinfo.ip_address).mask(24) : res

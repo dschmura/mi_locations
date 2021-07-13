@@ -3,7 +3,7 @@
     .flex.justify-between.px-4.py-3.xl:w-72.xl:justify-center.xl:py-5
       %span
         = link_to root_path, class: '' do
-          = image_tag(asset_pack_path('media/mi_locations/images/MiLocationsNamePlate.svg'), alt: 'MiLocations Logo, link to home page.', class: 'header-logo')
+          = image_tag(image_pack_path('MiLocationsNamePlate.svg'), alt: "#{(t :sitename)} Logo, link to home page.", class: 'header-logo')
 
         -# %i.fas.fa-photo-video.text-white.fill-current
 

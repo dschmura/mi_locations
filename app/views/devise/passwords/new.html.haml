@@ -11,9 +11,9 @@
     .mb-4
       = f.label :email, class: "block font-bold mb-2 text-gray-700 text-sm"
       = f.email_field :email, autofocus: true, autocomplete: "email",                                                                       |
-        class: "appearance-none border leading-tight focus:outline-none px-3 py-2 rounded shadow focus:shadow-outline text-gray-700 w-full" |
+        class: "appearance-none border leading-tight focus:outline-none px-3 py-2 rounded shadow focus:ring text-gray-700 w-full" |
     .mb-4
       = f.submit "Send Password Reset Info",                                                                                                |
-        class: "button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" |
+        class: "button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring w-full" |
     = render "devise/shared/links"
   = render "devise/shared/form_footer"

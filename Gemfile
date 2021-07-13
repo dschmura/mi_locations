@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.2"
+ruby "3.0.1"
 
-gem "rails", "~> 6.0.3"
+gem "rails", "~> 6.1.4"
+gem 'hotwire-rails'
 
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
@@ -35,15 +36,15 @@ gem "geocoder"
 gem "pagy"
 gem "ldap_lookup"
 gem "mini_magick"
-gem "ransack"
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem "sidekiq", "~> 6.0"
 gem "uglifier"
 
 gem "foreman"
-gem "devise", "~> 4.7.0"
 gem "draper"
 gem "listen"
 gem "pundit"
+gem 'devise', github: 'heartcombo/devise'
 # gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 # gem 'omniauth-facebook', '~> 4.0'
 # gem 'omniauth-twitter', '~> 1.4'

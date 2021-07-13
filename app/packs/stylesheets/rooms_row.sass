@@ -16,8 +16,6 @@
 
 .classroom-row-dropdown-features-group
   @apply  px-4
-  @screen md
-    @apply
   hr
     @apply  flex-1 border-t border-blue-600 mr-4 mt-3
     @screen md
@@ -28,19 +26,15 @@
 
 .classroom-row-dropdown-features
   @apply mt-2 pl-6 grid grid-cols-3 gap-3 grid-flow-row
-  @screen sm
-    @apply
-  @screen md
-    @apply
   @screen lg
     @apply  grid-cols-4
   li
-    @apply whitespace-no-wrap truncate
+    @apply whitespace-nowrap truncate
   svg
     @apply h-4 w-4
 
 .classroom-row-dropdown-feature
-  @apply flex items-start text-blue-700 mr-2 whitespace-no-wrap min-w-full max-w-xs
+  @apply flex items-start text-blue-700 mr-2 whitespace-nowrap min-w-full max-w-xs
 
 .rooms-index-row
   @apply w-full max-w-full mx-4 bg-blue-100
@@ -69,11 +63,9 @@
       svg
         @apply h-5 w-5  text-blue-700 px-1 fill-current flex-shrink-0 align-middle mr-1
   @screen md
-    @apply
     h5
       @apply text-sm
     ul
-      @apply
       li
         @apply text-xs leading-tight
 
@@ -82,8 +74,6 @@
 
 .h-highlights
   @apply  grid grid-cols-3 gap-x-2 gap-y-2 px-8 bg-yellow-100 bg-gradient-to-r from-yellow-300 via-yellow-200 bg-opacity-75
-  @screen sm
-    @apply
   @screen md
     @apply grid-cols-4
   @screen lg
@@ -92,11 +82,9 @@
     @apply  col-start-1
   .h-layout
     @apply  col-start-2
-  .h-floorplan
-    @apply
 
 .h-highlight-item
-  @apply inline-flex h-12 rounded-lg text-blue-700 whitespace-no-wrap items-center font-semibold
+  @apply inline-flex h-12 rounded-lg text-blue-700 whitespace-nowrap items-center font-semibold
   svg
     @apply h-6 w-6
 

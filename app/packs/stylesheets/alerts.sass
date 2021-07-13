@@ -45,11 +45,11 @@
     @apply text-red-700
 
 .alert-warning
-  @apply bg-orange-100 text-orange-800 border-orange-500
+  @apply bg-red-100 text-red-800 border-red-500
   .alert-severity
-    @apply bg-orange-300
+    @apply bg-red-300
   svg
-    @apply text-orange-800
+    @apply text-red-800
 
 .alert-info
   @apply bg-blue-100 text-blue-800 border-blue-500
@@ -80,35 +80,33 @@
     @apply h-4 w-4 mt-1 mr-1 fill-current text-green-800 justify-center align-middle
 
 .flash-alerts
-  @apply absolute bottom-left mt-1/3
-    svg
-    @apply text-xl mx-2
+  @apply absolute object-left-bottom mt-1/3
 
-  .alert
-    @apply w-auto rounded-full my-2 px-2 py-3 items-center leading-none absolute inline-flex ml-10 top-0 left-0  mt-32 z-50 shadow-lg bg-opacity-75
-    @screen lg
-      @apply rounded-full
-    .alert-badge
-      @apply flex rounded-full uppercase px-2 py-1 text-xs font-bold mr-2  text-center self-center whitespace-no-wrap self-start
-    .alert-message
-      @apply  font-semibold mr-2 text-left flex-auto
+//   .alert
+//     @apply w-auto rounded-full my-2 px-2 py-3 items-center leading-none absolute inline-flex ml-10 top-0 left-0  mt-32 z-50 shadow-lg bg-opacity-75
+//     @screen lg
+//       @apply rounded-full
+//     .alert-badge
+//       @apply flex rounded-full uppercase px-2 py-1 text-xs font-bold mr-2  text-center self-center whitespace-nowrap self-start
+//     .alert-message
+//       @apply  font-semibold mr-2 text-left flex-auto
 
-  .alert-info
-    @apply bg-blue-200 text-blue-700 border-blue-500 p-1 mb-2 border
-    .alert-badge
-      @apply bg-blue-700 text-blue-200 border border-blue-500
+//   .alert-info
+//     @apply bg-blue-200 text-blue-700 border-blue-500 p-1 mb-2 border
+//     .alert-badge
+//       @apply bg-blue-700 text-blue-200 border border-blue-500
 
-  .alert-success
-    @apply bg-green-200 text-green-700 border-green-500 p-1 mb-2 border
-    .alert-badge
-      @apply bg-green-700 text-green-200
+//   .alert-success
+//     @apply bg-green-200 text-green-700 border-green-500 p-1 mb-2 border
+//     .alert-badge
+//       @apply bg-green-700 text-green-200
 
-  .alert-error
-    @apply bg-orange-200 text-orange-700 border-orange-500 p-1 mb-2 border
-    .alert-badge
-      @apply bg-orange-700 text-orange-200
+//   .alert-error
+//     @apply bg-red-200 text-red-700 border-red-500 p-1 mb-2 border
+//     .alert-badge
+//       @apply bg-red-700 text-red-200
 
-  .alert-alert
-    @apply bg-red-200 text-red-900 border-red-800 border p-1 mb-2
-    .alert-badge
-      @apply bg-red-900 text-red-200
+//   .alert-alert
+//     @apply bg-red-200 text-red-900 border-red-800 border p-1 mb-2
+//     .alert-badge
+//       @apply bg-red-900 text-red-200

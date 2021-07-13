@@ -13,7 +13,7 @@
       = f.email_field :email,                                                                                                               |
         autocomplete: "email",                                                                                                              |
         placeholder: "user@example.com",                                                                                                    |
-        class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none shadow focus:shadow-outline" |
+        class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none shadow focus:ring" |
     .mb-4
       = f.label :password, class: "block font-bold mb-2 text-gray-700 text-sm"
       - if @minimum_password_length
@@ -22,14 +22,14 @@
             (#{@minimum_password_length} charactersa minimum)
       = f.password_field :password,                                                                                                              |
         autocomplete: "new-password",                                                                                                            |
-        class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" |
+        class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring" |
     .mb-4
       = f.label :password_confirmation, class: "block font-bold mb-2 text-gray-700 text-sm"
       = f.password_field :password_confirmation,                                                                                            |
         autocomplete: "new-password",                                                                                                       |
-        class: "appearance-none border leading-tight focus:outline-none px-3 py-2 rounded shadow focus:shadow-outline text-gray-700 w-full" |
+        class: "appearance-none border leading-tight focus:outline-none px-3 py-2 rounded shadow focus:ring text-gray-700 w-full" |
     .mb-4
       = f.submit "Sign Up",                                                                                                                 |
-        class: "button bg-blue-500 hover:bg-blue-700 font-bold text-white focus:outline-none py-2 px-4 rounded focus:shadow-outline w-full" |
+        class: "button bg-blue-500 hover:bg-blue-700 font-bold text-white focus:outline-none py-2 px-4 rounded focus:ring w-full" |
     = render "devise/shared/links"
   = render "devise/shared/form_footer"
