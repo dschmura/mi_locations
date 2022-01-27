@@ -37,7 +37,7 @@ gem "pagy"
 gem "ldap_lookup"
 gem "mini_magick"
 gem 'ransack', github: 'activerecord-hackery/ransack'
-gem "sidekiq", "~> 6.0"
+gem "sidekiq", "~> 6.4"
 gem "uglifier"
 
 gem "foreman"
