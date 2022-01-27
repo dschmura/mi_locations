@@ -435,7 +435,7 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
-    sidekiq (6.2.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -545,7 +545,7 @@ DEPENDENCIES
   rubocop-performance
   sassc-rails
   shoulda-matchers
-  sidekiq (~> 6.0)
+  sidekiq (~> 6.4)
   spring
   spring-watcher-listen
   stackprof
