@@ -199,7 +199,7 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     ffaker (2.18.0)
-    ffi (1.15.3)
+    ffi (1.15.5)
     flamegraph (0.9.5)
     foreman (0.87.2)
     formatador (0.3.0)
@@ -248,7 +248,7 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    image_processing (1.12.1)
+    image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.2)
@@ -413,7 +413,7 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
-    ruby-vips (2.1.2)
+    ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby2_keywords (0.0.4)
     ruby_parser (3.16.0)
@@ -522,7 +522,7 @@ DEPENDENCIES
   guard-rspec
   haml-rails
   hotwire-rails
-  image_processing (~> 1.2)
+  image_processing (~> 1.12)
   jbuilder (~> 2.5)
   json (>= 2.3.0)
   jsonapi-serializer
